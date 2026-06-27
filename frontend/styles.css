@@ -307,12 +307,48 @@ button.is-loading::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  justify-self: center;
+  grid-column: 1 / -1;
   min-height: 42px;
+  width: min(420px, 100%);
   border-radius: 6px;
   background: var(--accent);
   color: white;
   font-weight: 750;
   text-decoration: none;
+}
+
+.site-footer {
+  width: min(1120px, calc(100% - 32px));
+  margin: -30px auto 40px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.site-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--accent-dark);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-separator {
+  color: #a6aaa4;
 }
 
 .check {
@@ -393,5 +429,14 @@ pre {
 
   .topbar-actions {
     align-items: stretch;
+  }
+
+  .site-footer-inner {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .playlist-link {
+    width: 100%;
   }
 }

@@ -4,7 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Career Signal Engine</title>
+
+    <meta name="description" content="Career Signal Engine checks whether a CV has enough evidence, outcomes, metrics, and defensible impact before generating a job-specific reconstruction plan.">
+    <meta name="keywords" content="CV builder, resume builder, CV evidence score, career signal, ATS optimization, job tailoring, CV reconstruction, high impact CV, resume evidence, career strategy">
+    <meta name="author" content="Federico Navarrete">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Career Signal Engine">
+    <meta property="og:description" content="Check CV evidence before tailoring. Generate a grounded reconstruction plan for a target company and job description.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/preview.png">
+    <meta property="og:site_name" content="Career Signal Engine">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Career Signal Engine">
+    <meta name="twitter:description" content="Check CV evidence before tailoring. Generate a grounded reconstruction plan for a target company and job description.">
+    <meta name="twitter:image" content="img/preview.png">
+
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" href="img/favicons/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1d2528">
   </head>
   <body>
     <main class="shell">
@@ -14,7 +37,7 @@
           <p>Evidence check first. Tailoring second.</p>
         </div>
         <div class="topbar-actions">
-          <button id="cvBasicsButton" class="secondary" type="button">CV basics</button>
+          <button id="cvBasicsButton" class="secondary" type="button">High Impact CV basics</button>
           <span id="status" class="status">Ready</span>
         </div>
       </header>
@@ -115,6 +138,14 @@
         <button id="downloadButton" class="secondary">Download TXT plan</button>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>Created by <a href="https://federiconavarrete.com" target="_blank" rel="noreferrer">Federico Navarrete</a></span>
+        <span class="footer-separator" aria-hidden="true">/</span>
+        <a href="https://github.com/FANMixco/cv-builder" target="_blank" rel="noreferrer">Suggest changes on GitHub</a>
+      </div>
+    </footer>
 
     <div id="cvBasicsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cvBasicsTitle">
       <div class="modal-backdrop" data-close-modal></div>
