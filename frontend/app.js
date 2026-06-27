@@ -9,6 +9,9 @@ const state = {
 
 const els = {
   status: document.querySelector("#status"),
+  cvBasicsButton: document.querySelector("#cvBasicsButton"),
+  cvBasicsModal: document.querySelector("#cvBasicsModal"),
+  cvBasicsClose: document.querySelector("#cvBasicsClose"),
   yearsOfExperience: document.querySelector("#yearsOfExperience"),
   degreeWrap: document.querySelector("#degreeWrap"),
   hasDegree: document.querySelector("#hasDegree"),
@@ -55,6 +58,17 @@ function setFeedback(type, message) {
 
 function show(element, visible = true) {
   element.classList.toggle("hidden", !visible);
+}
+
+function setModalOpen(isOpen) {
+  show(els.cvBasicsModal, isOpen);
+  document.body.classList.toggle("modal-open", isOpen);
+
+  if (isOpen) {
+    els.cvBasicsClose.focus();
+  } else {
+    els.cvBasicsButton.focus();
+  }
 }
 
 function list(items) {
@@ -334,5 +348,17 @@ function setBusy(isBusy) {
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
+els.cvBasicsButton.addEventListener("click", () => setModalOpen(true));
+els.cvBasicsClose.addEventListener("click", () => setModalOpen(false));
+els.cvBasicsModal.addEventListener("click", (event) => {
+  if (event.target.matches("[data-close-modal]")) {
+    setModalOpen(false);
+  }
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !els.cvBasicsModal.classList.contains("hidden")) {
+    setModalOpen(false);
+  }
+});
 updateMetadataVisibility();
 setTailoringAccess(false, "Run the CV Evidence Precheck first. This keeps the tailoring step from polishing weak or unsupported claims.");
