@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Career Signal Engine</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Career Signal Engine</h1>
+          <p>Evidence check first. Tailoring second.</p>
+        </div>
+        <span id="status" class="status">Ready</span>
+      </header>
+
+      <section class="panel">
+        <h2>1. Profile</h2>
+        <div class="grid">
+          <label>
+            Years of professional experience
+            <input id="yearsOfExperience" type="number" min="0" required />
+          </label>
+          <label id="degreeWrap" class="hidden">
+            Do you list studies or education on your CV?
+            <select id="hasDegree">
+              <option value="">Select</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </label>
+          <label id="degreeYearWrap" class="hidden">
+            Year studies were completed
+            <input id="degreeYear" type="number" min="1900" />
+          </label>
+          <label>
+            Experience selection mode
+            <select id="experienceSelectionMode">
+              <option value="lastFive">Last five experiences only</option>
+              <option value="all">All experiences</option>
+            </select>
+          </label>
+        </div>
+        <div id="ageWarning" class="warning hidden">
+          <p>Your study year may reveal more age related information than necessary. For many private sector CVs, especially after several years of experience, it may be better to keep relevant studies but remove completion years or older education details. This is only a warning. You can keep the year if you want.</p>
+          <label class="check"><input id="ageWarningAcknowledged" type="checkbox" /> I understand the warning and want to continue.</label>
+        </div>
+        <p id="allExperienceWarning" class="warning hidden">Including all experiences may make the CV too long or reveal unnecessary historical information. Use this only if the older experience is highly relevant to the target role.</p>
+      </section>
+
+      <section class="panel">
+        <h2>2. CV Input</h2>
+        <p class="guidance">First add the source CV. The app checks whether there is enough evidence before it rewrites anything for a target job.</p>
+        <div class="grid">
+          <label>
+            Upload LinkedIn PDF
+            <input id="cvPdf" type="file" accept="application/pdf" />
+          </label>
+          <label>
+            Paste CV text manually
+            <textarea id="cvText" rows="12" placeholder="Paste complete CV text here"></textarea>
+          </label>
+        </div>
+        <label>
+          OpenAI API key
+          <input id="openaiApiKey" type="password" autocomplete="off" placeholder="Optional if OPENAI_API_KEY or GEMINI_API_KEY is configured" />
+        </label>
+        <div id="precheckFeedback" class="feedback" role="status" aria-live="polite">Add your CV, then run the evidence precheck before generating a job-specific plan.</div>
+        <button id="precheckButton" class="primary">Run CV Evidence Precheck</button>
+      </section>
+
+      <section id="precheckPanel" class="panel hidden">
+        <h2>3. CV Evidence Precheck</h2>
+        <div id="precheckResult"></div>
+        <div id="decisionGate" class="actions"></div>
+      </section>
+
+      <section id="tailoringPanel" class="panel locked">
+        <h2>4. Job Tailoring</h2>
+        <p id="tailoringGuidance" class="guidance">You can add the target company and job description now. Generation unlocks after the CV evidence precheck, or after you explicitly choose to continue despite a weak precheck.</p>
+        <div class="grid">
+          <label>
+            Target company name
+            <input id="companyName" type="text" />
+          </label>
+          <label>
+            Target role style
+            <select id="targetStyle">
+              <option>Consulting</option>
+              <option>Strategy</option>
+              <option>Product</option>
+              <option>Cloud</option>
+              <option>Engineering</option>
+              <option>Management</option>
+              <option>General</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Job description
+          <textarea id="jobDescription" rows="12" placeholder="Paste the full job description"></textarea>
+        </label>
+        <p id="tailoringLockMessage" class="lock-message">Run the CV Evidence Precheck first. This keeps the tailoring step from polishing weak or unsupported claims.</p>
+        <button id="analyzeButton" class="primary">Generate CV Reconstruction Plan</button>
+      </section>
+
+      <section id="outputPanel" class="panel hidden">
+        <h2>5. Reconstruction Plan</h2>
+        <div id="analysisResult"></div>
+        <button id="downloadButton" class="secondary">Download TXT plan</button>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
