@@ -1,7 +1,7 @@
 import { z } from "zod";
+import { educationPrivacy, experienceSelectionModes, MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH, targetStyles } from "../rules/cvRules.js";
 
-export const MIN_CV_LENGTH = 300;
-export const MIN_JOB_DESCRIPTION_LENGTH = 120;
+export { MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH };
 
 export const metadataSchema = z.object({
   yearsOfExperience: z.coerce.number().min(0).max(80),
@@ -10,7 +10,7 @@ export const metadataSchema = z.object({
     .optional()
     .transform((value) => value === true || value === "true"),
   degreeYear: z.coerce.number().int().min(1900).max(new Date().getFullYear()).optional(),
-  experienceSelectionMode: z.enum(["lastFive", "all"])
+  experienceSelectionMode: z.enum(experienceSelectionModes)
 });
 
 export const analyzeCvSchema = z.object({
@@ -18,8 +18,8 @@ export const analyzeCvSchema = z.object({
   cvText: z.string().min(MIN_CV_LENGTH, "Please provide a complete CV or LinkedIn PDF export."),
   jobDescription: z.string().min(MIN_JOB_DESCRIPTION_LENGTH, "Please provide the full job description."),
   companyName: z.string().min(1, "Target company name is required."),
-  targetStyle: z.enum(["Consulting", "Strategy", "Product", "Cloud", "Engineering", "Management", "General"]),
-  experienceSelectionMode: z.enum(["lastFive", "all"]),
+  targetStyle: z.enum(targetStyles),
+  experienceSelectionMode: z.enum(experienceSelectionModes),
   precheckResult: z.record(z.unknown()),
   continueDespiteWeakPrecheck: z.boolean().optional().default(false)
 });
@@ -29,9 +29,7 @@ export function agePrivacyWarning(degreeYear?: number) {
   const show = Boolean(degreeYear && degreeYear < fiveYearsAgo);
   return {
     show,
-    message: show
-      ? "Your study year may reveal more age related information than necessary. For many private sector CVs, especially after several years of experience, it may be better to keep relevant studies but remove completion years or older education details. This is only a warning. You can keep the year if you want."
-      : ""
+    message: show ? educationPrivacy.ageWarning : ""
   };
 }
 

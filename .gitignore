@@ -6,6 +6,7 @@
 # Dependencies
 node_modules/
 backend/node_modules/
+backend/templates
 
 # Build output
 dist/

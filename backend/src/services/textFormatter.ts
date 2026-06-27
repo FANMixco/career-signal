@@ -1,6 +1,7 @@
+import { educationPrivacy } from "../rules/cvRules.js";
+
 export function planToText(analysis: Record<string, unknown>) {
-  const educationReminder =
-    "Education and studies privacy reminder\nReview study years, graduation years, older education details, and irrelevant courses. Keep required or role-relevant credentials, but remove or de-emphasize unnecessary study dates/details when they do not help the target role.";
+  const educationReminder = educationPrivacy.textReminder;
 
   if (typeof analysis.downloadableText === "string" && analysis.downloadableText.trim()) {
     const text = analysis.downloadableText.trim();

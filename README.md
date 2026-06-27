@@ -40,6 +40,16 @@ Job-specific tailoring is visible from the start, but generation unlocks only af
 
 No database, authentication, accounts, payments, LinkedIn API integration, browser automation, or applicant-bot behavior is included.
 
+## Project Structure
+
+- `backend/src/rules/cvRules.ts` contains scoring bands, allowed options, score breakdown limits, fallback questions, and education/study privacy guidance.
+- `backend/src/prompts/cvPrompts.ts` contains the AI instructions for the precheck and reconstruction plan.
+- `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
+- `frontend/config.js` contains frontend labels, warnings, target styles, API URL behavior, and result-section ordering.
+- `frontend/app.js` should stay focused on browser state, validation flow, API calls, and rendering.
+
+When changing product rules or user-facing copy, prefer editing the rule/config/prompt files above instead of burying new constants in service or UI control code.
+
 ## Setup
 
 ```bash
@@ -84,6 +94,7 @@ If the frontend is served separately, for example from `127.0.0.1:5500`, it will
 ## Security Notes
 
 - `.env` files are ignored and must not be committed.
+- Internal planning docs and local templates are ignored and should not be committed unless they are intentionally productized.
 - Uploaded CVs are processed in memory and are not stored.
 - API keys are not logged or stored.
 - AI calls happen only from the backend.

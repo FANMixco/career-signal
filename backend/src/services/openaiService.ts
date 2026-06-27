@@ -3,98 +3,13 @@ import type { Interactions } from "@google/genai";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
-
-const defaultQuestions = [
-  "What changed because of your work?",
-  "How many users, clients, systems, teams, or countries were affected?",
-  "Did you reduce time, cost, risk, errors, delays, or manual work?",
-  "Did you increase adoption, performance, revenue, visibility, reliability, or satisfaction?",
-  "How many projects did you deliver?",
-  "What was the before and after situation?",
-  "Who used the thing you created?",
-  "Would this claim survive an interview?"
-];
-
-const precheckSchema = z.object({
-  cvEvidenceScore: z.number().min(0).max(100),
-  scoreBreakdown: z.object({
-    quantifiedResults: z.number().min(0).max(30),
-    accomplishmentClarity: z.number().min(0).max(25),
-    scopeAndScale: z.number().min(0).max(20),
-    responsibilityVersusOutcomeRatio: z.number().min(0).max(15),
-    interviewDefensibility: z.number().min(0).max(10)
-  }),
-  hasQuantifiedResults: z.boolean(),
-  hasAccomplishments: z.boolean(),
-  mostlyJobDescriptions: z.boolean(),
-  impactClarityScore: z.number().min(0).max(100),
-  quantifiedEvidenceCount: z.number().min(0),
-  strongBulletCount: z.number().min(0),
-  weakBulletCount: z.number().min(0),
-  proceedRecommendation: z.enum(["Proceed", "Improve CV first", "Proceed with caution"]),
-  mainProblem: z.string(),
-  specificWarnings: z.array(z.string()),
-  missingEvidenceTypes: z.array(z.string()),
-  examplesOfWeakBullets: z.array(z.string()),
-  questionsToRecoverMetrics: z.array(z.string()),
-  interviewRiskQuestions: z.array(z.string()),
-  nextStep: z.string()
-});
-
-const analysisSchema = z.object({
-  roleDiagnosis: z.string(),
-  companySignalInterpretation: z.string(),
-  candidatePositioning: z.string(),
-  strongestMatchingEvidence: z.array(z.string()),
-  weakOrMissingSignals: z.array(z.string()),
-  keywordsToInclude: z.array(z.string()),
-  keywordsToAvoid: z.array(z.string()),
-  suggestedProfessionalSummary: z.string(),
-  rewrittenCvBullets: z.array(
-    z.object({
-      original: z.string(),
-      rewritten: z.string(),
-      reason: z.string(),
-      integrityClassification: z.enum([
-        "Directly supported by CV",
-        "Reasonable reframing",
-        "Needs user confirmation",
-        "Not supported and should not be used"
-      ])
-    })
-  ),
-  suggestedCvStructure: z.array(z.string()),
-  atsFriendlySkillsSection: z.array(z.string()),
-  recruiterInterpretation: z.string(),
-  finalReconstructionPlan: z.array(z.string()),
-  integrityAudit: z.array(
-    z.object({
-      recommendation: z.string(),
-      classification: z.enum([
-        "Directly supported by CV",
-        "Reasonable reframing",
-        "Needs user confirmation",
-        "Not supported and should not be used"
-      ]),
-      explanation: z.string()
-    })
-  ),
-  precheckWarningSummary: z.string(),
-  downloadableText: z.string()
-});
-
-export type PrecheckResult = z.infer<typeof precheckSchema>;
-export type AnalysisResult = z.infer<typeof analysisSchema>;
+import { reconstructionPrompt, precheckPrompt } from "../prompts/cvPrompts.js";
+import { defaultMetricRecoveryQuestions, educationPrivacy, recommendationForScore } from "../rules/cvRules.js";
+import { analysisSchema, precheckSchema, type AnalysisResult, type PrecheckResult } from "../schemas/aiSchemas.js";
 
 type Provider =
   | { kind: "openai"; client: OpenAI }
   | { kind: "gemini"; client: GoogleGenAI };
-
-function recommendationForScore(score: number): PrecheckResult["proceedRecommendation"] {
-  if (score >= 75) return "Proceed";
-  if (score >= 50) return "Proceed with caution";
-  return "Improve CV first";
-}
 
 function normalizePrecheckResult(precheck: PrecheckResult): PrecheckResult {
   const rawScore = precheck.cvEvidenceScore;
@@ -109,16 +24,14 @@ function normalizePrecheckResult(precheck: PrecheckResult): PrecheckResult {
 }
 
 function normalizeAnalysisResult(analysis: AnalysisResult): AnalysisResult {
-  const privacySafeEducation =
-    "Education / studies only if role-relevant or required; omit completion years and older details that add age/privacy risk";
   const suggestedCvStructure = analysis.suggestedCvStructure.map((item) => {
     const trimmed = item.trim();
     if (/^education$/i.test(trimmed) || /^studies$/i.test(trimmed)) {
-      return privacySafeEducation;
+      return educationPrivacy.privacySafeStructure;
     }
 
     if (/^education\s*(?:&|and)\s*(certifications|awards)/i.test(trimmed)) {
-      return `${trimmed} (keep credentials relevant to the target role; omit unnecessary study years and older education details)`;
+      return `${trimmed} (${educationPrivacy.combinedCredentialNote})`;
     }
 
     return item;
@@ -128,8 +41,8 @@ function normalizeAnalysisResult(analysis: AnalysisResult): AnalysisResult {
     ...analysis,
     suggestedCvStructure,
     downloadableText: analysis.downloadableText
-      .replace(/^Education$/gim, privacySafeEducation)
-      .replace(/^Studies$/gim, privacySafeEducation)
+      .replace(/^Education$/gim, educationPrivacy.privacySafeStructure)
+      .replace(/^Studies$/gim, educationPrivacy.privacySafeStructure)
   };
 }
 
@@ -239,36 +152,11 @@ export async function runPrecheck(input: {
     provider,
     "cv_quality_precheck",
     precheckSchema,
-    `System:
-You are an honest senior CV reviewer. Inspect the candidate CV before any job specific tailoring. Do not rewrite the CV. Do not analyze a job description. Do not invent achievements or numbers. Only determine whether the CV contains enough accomplishments, quantified results, scale, scope, consequence, and impact evidence to be worth tailoring. Return only valid JSON.
-
-Scoring rules:
-- cvEvidenceScore must be an integer from 0 to 100, not a decimal score out of 10.
-- If you think the CV is 8.6 out of 10, return 86.
-- Recommendation must match the score band: 0-49 Improve CV first, 50-74 Proceed with caution, 75-100 Proceed.
-
-Candidate metadata:
-
-Years of professional experience:
-${input.yearsOfExperience}
-
-Lists studies or education on CV:
-${input.hasDegree ?? "not provided"}
-
-Study completion year:
-${input.degreeYear ?? "not provided"}
-
-Experience selection mode:
-${input.experienceSelectionMode}
-
-Candidate CV text:
-${input.cvText}
-
-Inspect this CV and return the required JSON structure. Include practical questions to recover metrics.`
+    precheckPrompt(input)
   );
 
   if (parsed.questionsToRecoverMetrics.length === 0) {
-    parsed.questionsToRecoverMetrics = defaultQuestions;
+    parsed.questionsToRecoverMetrics = defaultMetricRecoveryQuestions;
   }
 
   return normalizePrecheckResult(parsed);
@@ -288,35 +176,7 @@ export async function runAnalysis(input: {
     provider,
     "cv_reconstruction_plan",
     analysisSchema,
-    `System:
-You are a senior career strategist, executive recruiter, ATS optimization specialist, and honest CV editor. Create a CV reconstruction plan for the target role. Never invent experience, employers, dates, studies, certifications, metrics, tools, or achievements. Reframe only existing experience, identify missing signals, and classify each important recommendation by integrity level. Return only valid JSON.
-
-Education and studies guidance:
-- Preserve any precheck privacy warning about study years, graduation years, older education details, or age inference in the final plan.
-- If studies are relevant, recommend keeping the study credential or education item but removing unnecessary completion years when the candidate has several years of experience.
-- If a study, course, old education item, or education date is not relevant to the target role, suggest de-emphasizing or removing it from the CV.
-- Do not include a bare "Education" section as a default. If education/studies should appear, make it conditional and privacy-safe, for example: "Education / studies only if role-relevant or required; omit completion years and older details."
-- Do not remove legally or professionally required credentials. Classify any education change by integrity level and explain the reason.
-
-Candidate CV text:
-${input.cvText}
-
-CV precheck result:
-${JSON.stringify(input.precheckResult)}
-
-Target company:
-${input.companyName}
-
-Target role style:
-${input.targetStyle}
-
-Experience selection mode:
-${input.experienceSelectionMode}
-
-Job description:
-${input.jobDescription}
-
-Create a complete CV reconstruction plan using the required JSON structure.`
+    reconstructionPrompt(input)
   );
 
   return normalizeAnalysisResult(analysis);
