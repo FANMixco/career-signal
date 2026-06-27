@@ -33,110 +33,99 @@
     <main class="shell">
       <header class="topbar">
         <div>
-          <h1>Career Signal Engine</h1>
-          <p>Evidence check first. Tailoring second.</p>
+          <h1 data-copy="site.title"></h1>
+          <p data-copy="site.subtitle"></p>
         </div>
         <div class="topbar-actions">
-          <button id="cvBasicsButton" class="secondary" type="button">High Impact CV basics</button>
-          <span id="status" class="status">Ready</span>
+          <button id="cvBasicsButton" class="secondary" type="button" data-copy="buttons.cvBasics"></button>
+          <span id="status" class="status" data-copy="feedback.readyStatus"></span>
         </div>
       </header>
 
       <section class="panel">
-        <h2>1. Profile</h2>
+        <h2 data-copy="sections.profile"></h2>
         <div class="grid">
           <label>
-            Years of professional experience
+            <span data-copy="labels.yearsOfExperience"></span>
             <input id="yearsOfExperience" type="number" min="0" required />
           </label>
           <label id="degreeWrap" class="hidden">
-            Do you list studies or education on your CV?
-            <select id="hasDegree">
-              <option value="">Select</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
+            <span data-copy="labels.studiesListed"></span>
+            <select id="hasDegree"></select>
           </label>
           <label id="degreeYearWrap" class="hidden">
-            Year studies were completed
+            <span data-copy="labels.degreeYear"></span>
             <input id="degreeYear" type="number" min="1900" />
           </label>
           <label>
-            Experience selection mode
-            <select id="experienceSelectionMode">
-              <option value="lastFive">Last five experiences only</option>
-              <option value="all">All experiences</option>
-            </select>
+            <span data-copy="labels.experienceSelectionMode"></span>
+            <select id="experienceSelectionMode"></select>
           </label>
         </div>
         <div id="ageWarning" class="warning hidden">
-          <p>Your study year may reveal more age related information than necessary. For many private sector CVs, especially after several years of experience, it may be better to keep relevant studies but remove completion years or older education details. This is only a warning. You can keep the year if you want.</p>
-          <label class="check"><input id="ageWarningAcknowledged" type="checkbox" /> I understand the warning and want to continue.</label>
+          <p data-copy="feedback.ageWarning"></p>
+          <label class="check"><input id="ageWarningAcknowledged" type="checkbox" /> <span data-copy="labels.ageWarningAcknowledgement"></span></label>
         </div>
-        <p id="allExperienceWarning" class="warning hidden">Including all experiences may make the CV too long or reveal unnecessary historical information. Use this only if the older experience is highly relevant to the target role.</p>
+        <p id="allExperienceWarning" class="warning hidden" data-copy="feedback.allExperienceWarning"></p>
       </section>
 
       <section class="panel">
-        <h2>2. CV Input</h2>
-        <p class="guidance">First add the source CV. The app checks whether there is enough evidence before it rewrites anything for a target job.</p>
+        <h2 data-copy="sections.cvInput"></h2>
+        <p class="guidance" data-copy="feedback.cvInputGuidance"></p>
         <div class="grid">
           <label>
-            Upload LinkedIn PDF
+            <span data-copy="labels.cvPdf"></span>
             <input id="cvPdf" type="file" accept="application/pdf" />
           </label>
           <label>
-            Paste CV text manually
-            <textarea id="cvText" rows="12" placeholder="Paste complete CV text here"></textarea>
+            <span data-copy="labels.cvText"></span>
+            <textarea id="cvText" rows="12" data-placeholder="placeholders.cvText"></textarea>
           </label>
         </div>
         <label>
-          OpenAI API key
-          <input id="openaiApiKey" type="password" autocomplete="off" placeholder="Optional if OPENAI_API_KEY or GEMINI_API_KEY is configured" />
+          <span data-copy="labels.openaiApiKey"></span>
+          <input id="openaiApiKey" type="password" autocomplete="off" data-placeholder="placeholders.openaiApiKey" />
         </label>
-        <div id="precheckFeedback" class="feedback" role="status" aria-live="polite">Add your CV, then run the evidence precheck before generating a job-specific plan.</div>
-        <button id="precheckButton" class="primary">Run CV Evidence Precheck</button>
+        <div id="precheckFeedback" class="feedback" role="status" aria-live="polite"></div>
+        <button id="precheckButton" class="primary" data-copy="buttons.precheckIdle"></button>
       </section>
 
       <section id="precheckPanel" class="panel hidden">
-        <h2>3. CV Evidence Precheck</h2>
+        <h2 data-copy="sections.precheck"></h2>
         <div id="precheckResult"></div>
         <div id="decisionGate" class="actions"></div>
       </section>
 
       <section id="tailoringPanel" class="panel locked">
-        <h2>4. Job Tailoring</h2>
-        <p id="tailoringGuidance" class="guidance">You can add the target company and job description now. Generation unlocks after the CV evidence precheck, or after you explicitly choose to continue despite a weak precheck.</p>
+        <h2 data-copy="sections.tailoring"></h2>
+        <p id="tailoringGuidance" class="guidance"></p>
         <div class="grid">
           <label>
-            Target company name
+            <span data-copy="labels.targetCompany"></span>
             <input id="companyName" type="text" />
           </label>
           <label>
-            Target role style
+            <span data-copy="labels.targetStyle"></span>
             <select id="targetStyle"></select>
           </label>
         </div>
         <label>
-          Job description
-          <textarea id="jobDescription" rows="12" placeholder="Paste the full job description"></textarea>
+          <span data-copy="labels.jobDescription"></span>
+          <textarea id="jobDescription" rows="12" data-placeholder="placeholders.jobDescription"></textarea>
         </label>
-        <p id="tailoringLockMessage" class="lock-message">Run the CV Evidence Precheck first. This keeps the tailoring step from polishing weak or unsupported claims.</p>
-        <button id="analyzeButton" class="primary">Generate CV Reconstruction Plan</button>
+        <p id="tailoringLockMessage" class="lock-message"></p>
+        <button id="analyzeButton" class="primary" data-copy="buttons.analyzeIdle"></button>
       </section>
 
       <section id="outputPanel" class="panel hidden">
-        <h2>5. Reconstruction Plan</h2>
+        <h2 data-copy="sections.output"></h2>
         <div id="analysisResult"></div>
-        <button id="downloadButton" class="secondary">Download TXT plan</button>
+        <button id="downloadButton" class="secondary" data-copy="buttons.downloadPlan"></button>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer-inner">
-        <span>Created by <a href="https://federiconavarrete.com" target="_blank" rel="noreferrer">Federico Navarrete</a></span>
-        <span class="footer-separator" aria-hidden="true">/</span>
-        <a href="https://github.com/FANMixco/cv-builder" target="_blank" rel="noreferrer">Suggest changes on GitHub</a>
-      </div>
+      <div id="siteFooterInner" class="site-footer-inner"></div>
     </footer>
 
     <div id="cvBasicsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cvBasicsTitle">
@@ -144,55 +133,13 @@
       <section class="modal-panel">
         <header class="modal-header">
           <div>
-            <h2 id="cvBasicsTitle">High impact CV basics</h2>
-            <p>A strong CV makes real evidence easy to see.</p>
+            <h2 id="cvBasicsTitle" data-copy="cvBasics.title"></h2>
+            <p data-copy="cvBasics.subtitle"></p>
           </div>
-          <button id="cvBasicsClose" class="icon-button" type="button" aria-label="Close CV basics">X</button>
+          <button id="cvBasicsClose" class="icon-button" type="button"></button>
         </header>
 
-        <div class="modal-body">
-          <div class="basics-block">
-            <h3>What strong bullets prove</h3>
-            <ul>
-              <li>What changed because of your work.</li>
-              <li>Who or what was affected: users, clients, systems, teams, countries, budgets, risks, or processes.</li>
-              <li>The scale of the work and why it mattered.</li>
-              <li>The result: saved time, reduced cost, improved reliability, increased adoption, lowered risk, delivered migration, or supported decisions.</li>
-            </ul>
-          </div>
-
-          <div class="basics-block">
-            <h3>Weak activity language</h3>
-            <ul>
-              <li>Responsible for training teams.</li>
-              <li>Introduced governance framework.</li>
-              <li>Supported stakeholders.</li>
-              <li>Implemented process improvements.</li>
-              <li>Participated in projects.</li>
-            </ul>
-          </div>
-
-          <div class="basics-block">
-            <h3>Stronger evidence pattern</h3>
-            <p>Use action, object, scale, purpose, and result. The bullet should survive the question: so what?</p>
-            <p class="example">Weak: Trained teams during COVID.</p>
-            <p class="example strong">Stronger: Supported approximately 200 to 300 people per day during peak COVID operations, maintaining patient flow under high pressure conditions.</p>
-          </div>
-
-          <div class="basics-block">
-            <h3>Before tailoring</h3>
-            <ul>
-              <li>Recover numbers where they are true and defensible.</li>
-              <li>Remove or de-emphasize old details that do not help the target role.</li>
-              <li>Keep studies and credentials only when relevant or required; avoid unnecessary completion years after several years of experience.</li>
-              <li>Never invent metrics, tools, responsibilities, employers, dates, certifications, or achievements.</li>
-            </ul>
-          </div>
-
-          <a class="playlist-link" href="https://www.youtube.com/watch?v=5coYf7yimMk&list=PL5qnvXALY_bLkOiKmIAok5G1Hgq92PrUm" target="_blank" rel="noreferrer">
-            Watch the CV writing playlist
-          </a>
-        </div>
+        <div id="cvBasicsBody" class="modal-body"></div>
       </section>
     </div>
 

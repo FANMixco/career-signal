@@ -45,7 +45,8 @@ No database, authentication, accounts, payments, LinkedIn API integration, brows
 - `backend/src/rules/cvRules.ts` contains scoring bands, allowed options, score breakdown limits, fallback questions, and education/study privacy guidance.
 - `backend/src/prompts/cvPrompts.ts` contains the AI instructions for the precheck and reconstruction plan.
 - `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
-- `frontend/config.js` contains frontend labels, warnings, target styles, API URL behavior, and result-section ordering.
+- `frontend/config.js` contains visible frontend copy, labels, warnings, target styles, API URL behavior, and result-section ordering.
+- `frontend/index.html` keeps the static document structure, SEO metadata, favicons, and manifest links.
 - `frontend/app.js` should stay focused on browser state, validation flow, API calls, and rendering.
 
 When changing product rules or user-facing copy, prefer editing the rule/config/prompt files above instead of burying new constants in service or UI control code.

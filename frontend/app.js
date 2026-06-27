@@ -11,8 +11,10 @@ const config = window.CAREER_SIGNAL_CONFIG;
 
 const els = {
   status: document.querySelector("#status"),
+  siteFooterInner: document.querySelector("#siteFooterInner"),
   cvBasicsButton: document.querySelector("#cvBasicsButton"),
   cvBasicsModal: document.querySelector("#cvBasicsModal"),
+  cvBasicsBody: document.querySelector("#cvBasicsBody"),
   cvBasicsClose: document.querySelector("#cvBasicsClose"),
   yearsOfExperience: document.querySelector("#yearsOfExperience"),
   degreeWrap: document.querySelector("#degreeWrap"),
@@ -58,6 +60,25 @@ function setFeedback(type, message) {
   els.precheckFeedback.textContent = message;
 }
 
+function configValue(path) {
+  return path.split(".").reduce((value, key) => value?.[key], config);
+}
+
+function applyConfiguredText() {
+  document.querySelectorAll("[data-copy]").forEach((element) => {
+    element.textContent = configValue(element.dataset.copy) || "";
+  });
+
+  document.querySelectorAll("[data-placeholder]").forEach((element) => {
+    element.setAttribute("placeholder", configValue(element.dataset.placeholder) || "");
+  });
+
+  els.cvBasicsClose.textContent = config.buttons.closeModal;
+  els.cvBasicsClose.setAttribute("aria-label", config.buttons.closeModalLabel);
+  renderFooter();
+  renderCvBasics();
+}
+
 function show(element, visible = true) {
   element.classList.toggle("hidden", !visible);
 }
@@ -80,6 +101,37 @@ function list(items) {
 
 function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
+}
+
+function optionList(options) {
+  return options.map(([value, label]) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+}
+
+function renderFooter() {
+  els.siteFooterInner.innerHTML = `
+    <span>${escapeHtml(config.footer.createdByPrefix)} <a href="${escapeHtml(config.footer.creatorUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.creatorName)}</a></span>
+    <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
+    <a href="${escapeHtml(config.footer.contributeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.contributeText)}</a>
+  `;
+}
+
+function renderCvBasics() {
+  const blocks = config.cvBasics.blocks
+    .map((block) => {
+      const items = block.items ? `<ul>${block.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
+      const text = block.text ? `<p>${escapeHtml(block.text)}</p>` : "";
+      const examples = block.examples
+        ? block.examples.map(([className, example]) => `<p class="${escapeHtml(className)}">${escapeHtml(example)}</p>`).join("")
+        : "";
+
+      return `<div class="basics-block"><h3>${escapeHtml(block.title)}</h3>${text}${items}${examples}</div>`;
+    })
+    .join("");
+
+  els.cvBasicsBody.innerHTML = `
+    ${blocks}
+    <a class="playlist-link" href="${escapeHtml(config.cvBasics.playlistUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.cvBasics.playlistText)}</a>
+  `;
 }
 
 function updateMetadataVisibility() {
@@ -110,6 +162,11 @@ function populateTargetStyles() {
     option.textContent = style;
     els.targetStyle.append(option);
   });
+}
+
+function populateStaticSelects() {
+  els.hasDegree.innerHTML = optionList(config.options.studiesListed);
+  els.experienceSelectionMode.innerHTML = optionList(config.options.experienceSelectionMode);
 }
 
 async function runPrecheck() {
@@ -378,6 +435,8 @@ document.addEventListener("keydown", (event) => {
     setModalOpen(false);
   }
 });
+applyConfiguredText();
+populateStaticSelects();
 populateTargetStyles();
 updateMetadataVisibility();
 setFeedback("", config.feedback.initial);
