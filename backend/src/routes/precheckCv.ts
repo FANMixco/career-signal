@@ -1,5 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
+import { detectSensitivePersonalDataWarnings } from "../rules/cvRules.js";
 import { runPrecheck } from "../services/openaiService.js";
 import { extractPdfText } from "../services/pdfService.js";
 import { agePrivacyWarning, metadataSchema, MIN_CV_LENGTH, parseFormValue } from "../utils/validation.js";
@@ -61,6 +62,7 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       cvText,
       cvTextPreview: cvText.slice(0, 600),
       agePrivacyWarning: agePrivacyWarning(metadata.degreeYear),
+      personalDataWarnings: detectSensitivePersonalDataWarnings(cvText),
       precheck,
       recommendedNextAction: precheck.proceedRecommendation
     });

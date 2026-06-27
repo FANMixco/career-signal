@@ -41,8 +41,63 @@ export const educationPrivacy = {
     "Education and studies privacy reminder\nReview study years, graduation years, older education details, and irrelevant courses. Keep required or role-relevant credentials, but remove or de-emphasize unnecessary study dates/details when they do not help the target role."
 } as const;
 
+export const sensitivePersonalDataRules = [
+  {
+    id: "dateOfBirth",
+    label: "Date of birth or exact age",
+    pattern: /\b(?:date of birth|dob|birth date|born on|age)\b\s*[:\-]?\s*(?:\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}|\d{2,4}|\d{1,2}\b)/i,
+    warning:
+      "Date of birth or exact age can create age-bias risk. Keep it only when the target country, sector, or process explicitly requires it."
+  },
+  {
+    id: "gender",
+    label: "Gender",
+    pattern: /\b(?:gender|sex)\b\s*[:\-]?\s*(?:male|female|man|woman|non[-\s]?binary|other)\b/i,
+    warning:
+      "Gender is usually not needed on a CV and may create bias risk. Remove it unless it is explicitly required for the application."
+  },
+  {
+    id: "citizenship",
+    label: "Citizenship or nationality",
+    pattern: /\b(?:citizenship|nationality)\b\s*[:\-]?\s*[a-z][a-z\s-]{2,}/i,
+    warning:
+      "Citizenship or nationality can create bias or privacy risk. Prefer work authorization language only when it matters for the role."
+  },
+  {
+    id: "maritalStatus",
+    label: "Marital or family status",
+    pattern: /\b(?:marital status|civil status|family status)\b\s*[:\-]?\s*(?:single|married|divorced|widowed|partnered|parent|children)\b/i,
+    warning:
+      "Marital or family status is normally irrelevant to hiring decisions and should usually be removed from the CV."
+  },
+  {
+    id: "photo",
+    label: "Photo reference",
+    pattern: /\b(?:profile photo|passport photo|headshot|photo included|photograph)\b/i,
+    warning:
+      "A photo can create appearance, age, gender, or ethnicity bias risk. Use one only where it is normal and expected for the market."
+  },
+  {
+    id: "fullAddress",
+    label: "Full home address",
+    pattern: /\b(?:address|home address)\b\s*[:\-]?\s*\d{1,5}\s+[a-z0-9\s.'-]+(?:street|st\.|avenue|ave\.|road|rd\.|boulevard|blvd\.|lane|ln\.|drive|dr\.)\b/i,
+    warning:
+      "A full home address is usually unnecessary. City or country is normally enough unless the employer explicitly asks for more."
+  }
+] as const;
+
 export function recommendationForScore(score: number) {
   if (score > scoreBands.cautionMax) return "Proceed";
   if (score > scoreBands.improveFirstMax) return "Proceed with caution";
   return "Improve CV first";
+}
+
+export function detectSensitivePersonalDataWarnings(cvText: string) {
+  return sensitivePersonalDataRules
+    .filter((rule) => rule.pattern.test(cvText))
+    .map((rule) => ({
+      id: rule.id,
+      label: rule.label,
+      warning: rule.warning
+    }));
 }

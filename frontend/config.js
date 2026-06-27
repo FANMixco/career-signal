@@ -108,6 +108,11 @@ window.CAREER_SIGNAL_CONFIG = {
   },
   weakCvWarning:
     "This CV appears to contain mostly descriptions of responsibilities rather than measurable results. Tailoring it to a job description now may produce a better looking document, but it will not solve the core problem. Add concrete outcomes and numerical evidence first.",
+  personalDataWarnings: {
+    title: "Privacy and bias risk review",
+    intro:
+      "The CV appears to include personal details that may be unnecessary or risky in many hiring processes. This is a practical warning, not a legal decision. Keep these details only when the target country, sector, or employer explicitly requires them."
+  },
   footer: {
     createdByPrefix: "Created by",
     creatorName: "Federico Navarrete",
@@ -159,6 +164,14 @@ window.CAREER_SIGNAL_CONFIG = {
           "Remove or de-emphasize old details that do not help the target role.",
           "Keep studies and credentials only when relevant or required; avoid unnecessary completion years after several years of experience.",
           "Never invent metrics, tools, responsibilities, employers, dates, certifications, or achievements."
+        ]
+      },
+      {
+        title: "Sensitive personal details",
+        items: [
+          "Avoid date of birth, exact age, marital status, family status, gender, citizenship, nationality, full home address, or photo references unless they are explicitly required.",
+          "Use location only at the useful level for the role, such as city, country, or work authorization when relevant.",
+          "These details can create privacy, discrimination, or age-bias risk and usually do not strengthen the evidence of impact."
         ]
       }
     ]

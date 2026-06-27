@@ -244,7 +244,10 @@ async function runPrecheck() {
     if (!response.ok) throw new Error(data.error || "Precheck failed.");
 
     state.cvText = data.cvText;
-    state.precheck = data.precheck;
+    state.precheck = {
+      ...data.precheck,
+      personalDataWarnings: data.personalDataWarnings || []
+    };
     state.continueDespiteWeakPrecheck = false;
     setTailoringAccess(
       false,
@@ -270,8 +273,23 @@ function renderPrecheck(data) {
     <div class="score">${precheck.cvEvidenceScore}<span>/ 100</span></div>
     <div class="result-grid">${blocks.map(([title, value]) => renderResultBlock(title, value)).join("")}</div>
     ${data.agePrivacyWarning?.show ? `<p class="warning">${escapeHtml(data.agePrivacyWarning.message)}</p>` : ""}
+    ${renderPersonalDataWarnings(data.personalDataWarnings)}
   `;
   renderDecisionGate(precheck.proceedRecommendation, precheck.questionsToRecoverMetrics);
+}
+
+function renderPersonalDataWarnings(warnings) {
+  if (!warnings || warnings.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="warning">
+      <h3>${escapeHtml(config.personalDataWarnings.title)}</h3>
+      <p>${escapeHtml(config.personalDataWarnings.intro)}</p>
+      <ul>${warnings.map((item) => `<li><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.warning)}</li>`).join("")}</ul>
+    </section>
+  `;
 }
 
 function formatPrecheckValue(precheck, key, type) {
