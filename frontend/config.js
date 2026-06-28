@@ -1,5 +1,29 @@
+function resolveApiBaseUrl(location) {
+  if (location.port === "3001") {
+    return "";
+  }
+
+  const hostname = location.hostname;
+  const isPrivateHost =
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === "::1" ||
+    hostname === "10.0.2.2" ||
+    hostname === "10.0.3.2" ||
+    /^10\./.test(hostname) ||
+    /^192\.168\./.test(hostname) ||
+    /^172\.(1[6-9]|2\d|3[0-1])\./.test(hostname);
+
+  if (isPrivateHost) {
+    const hostForUrl = hostname === "::1" ? "[::1]" : hostname;
+    return `http://${hostForUrl}:3001`;
+  }
+
+  return "http://localhost:3001";
+}
+
 window.CAREER_SIGNAL_CONFIG = {
-  apiBaseUrl: window.location.port === "3001" ? "" : "http://localhost:3001",
+  apiBaseUrl: resolveApiBaseUrl(window.location),
   pdfMaxBytes: 5 * 1024 * 1024,
   site: {
     title: "Career Signal Engine",
