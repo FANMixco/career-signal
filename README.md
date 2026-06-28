@@ -33,8 +33,8 @@ You need:
 - A modern browser such as Chrome, Edge, Firefox, or Safari.
 - Node.js installed on your computer.
 - One AI API key:
-  - Gemini API key, or
-  - OpenAI API key.
+  - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey), or
+  - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys).
 - A CV, either as:
   - a LinkedIn PDF export, or
   - text copied from an existing CV.
@@ -122,6 +122,13 @@ This downloads the packages needed by the app. It may take a few minutes the fir
 ## Step 5: Choose How To Provide Your AI Key
 
 You have two options.
+
+Get a key from the provider you want to use:
+
+- Gemini: [Google AI Studio API keys](https://aistudio.google.com/app/apikey)
+- OpenAI: [OpenAI Platform API keys](https://platform.openai.com/api-keys)
+
+You may need to sign in, create a project, add billing, or accept the provider's terms before a key works. Keep the key private. Anyone with the key may be able to use your account quota or billing.
 
 ### Option A: Paste The Key In The App
 
