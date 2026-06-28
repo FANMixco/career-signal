@@ -386,6 +386,18 @@ button.is-loading::before {
   font-size: 30px;
 }
 
+.fit-score {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.fit-score .score {
+  margin-bottom: 0;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

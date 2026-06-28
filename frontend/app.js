@@ -390,7 +390,9 @@ function renderAnalysis(analysis) {
 }
 
 function renderResultBlock(title, value) {
-  return `<div class="result-block"><h3>${escapeHtml(title)}</h3>${String(value).startsWith("<") ? value : `<p>${escapeHtml(String(value || ""))}</p>`}</div>`;
+  const html = String(value || "");
+  const body = html.trim().startsWith("<") ? html : `<p>${escapeHtml(html)}</p>`;
+  return `<div class="result-block"><h3>${escapeHtml(title)}</h3>${body}</div>`;
 }
 
 function formatAnalysisValue(analysis, key, type) {
@@ -424,14 +426,18 @@ function renderJobFitAssessment(assessment) {
   const warning = assessment.companyDecisionWarning || config.jobFitAssessment.warningFallback;
 
   return `
-    <div class="score compact">${score}<span>/ 100</span></div>
-    <p><strong>${escapeHtml(assessment.verdict || config.jobFitAssessment.scoreLabel)}</strong></p>
-    <p>${escapeHtml(assessment.explanation || "")}</p>
-    <h4>Strongest reasons</h4>
-    ${list(assessment.strongestReasons)}
-    <h4>Main risks</h4>
-    ${list(assessment.mainRisks)}
-    <p class="warning">${escapeHtml(warning)}</p>
+    <div class="fit-assessment">
+      <div class="fit-score">
+        <span class="score compact">${score}<span>/ 100</span></span>
+        <strong>${escapeHtml(assessment.verdict || config.jobFitAssessment.scoreLabel)}</strong>
+      </div>
+      <p>${escapeHtml(assessment.explanation || "")}</p>
+      <h4>Strongest reasons</h4>
+      ${list(assessment.strongestReasons)}
+      <h4>Main risks</h4>
+      ${list(assessment.mainRisks)}
+      <p class="warning">${escapeHtml(warning)}</p>
+    </div>
   `;
 }
 
