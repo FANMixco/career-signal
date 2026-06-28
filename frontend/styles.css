@@ -94,6 +94,11 @@ h2 {
   gap: 16px;
 }
 
+.compact-grid {
+  align-items: end;
+  margin-top: 4px;
+}
+
 label {
   display: grid;
   gap: 7px;

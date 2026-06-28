@@ -82,10 +82,16 @@
             <textarea id="cvText" rows="12" data-placeholder="placeholders.cvText"></textarea>
           </label>
         </div>
-        <label>
-          <span data-copy="labels.openaiApiKey"></span>
-          <input id="openaiApiKey" type="password" autocomplete="off" data-placeholder="placeholders.openaiApiKey" />
-        </label>
+        <div class="grid compact-grid">
+          <label>
+            <span data-copy="labels.aiProvider"></span>
+            <select id="aiProvider"></select>
+          </label>
+          <label>
+            <span id="aiApiKeyLabel" data-copy="labels.aiApiKey"></span>
+            <input id="openaiApiKey" type="password" autocomplete="off" />
+          </label>
+        </div>
         <div id="precheckFeedback" class="feedback" role="status" aria-live="polite"></div>
         <button id="precheckButton" class="primary" data-copy="buttons.precheckIdle"></button>
       </section>

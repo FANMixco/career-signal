@@ -14,7 +14,7 @@ The app is intentionally simple: it helps a user decide whether the CV has enoug
 - Paste a target company and job description for a reconstruction plan.
 - Receive a profile match score from 0 to 100 for the selected company and job description.
 - Download the final plan as a TXT file.
-- Use OpenAI with a request key or `.env`, with Gemini fallback from `.env`.
+- Choose Gemini or OpenAI from the UI and use either a request key or the matching `.env` key.
 
 ## How The Flow Works
 
@@ -35,7 +35,7 @@ Job-specific tailoring is visible from the start, but generation unlocks only af
 
 - Backend: Node.js, Express, TypeScript
 - Frontend: static HTML, CSS, JavaScript
-- AI providers: OpenAI first, Gemini fallback
+- AI providers: Gemini or OpenAI, selected in the UI
 - PDF extraction: `pdf-parse`
 - Validation: Zod
 
@@ -70,7 +70,7 @@ GEMINI_MODEL=models/gemini-3-flash-preview
 PORT=3001
 ```
 
-The OpenAI API key can also be pasted into the app while the page is open. Keys are sent only to the backend for the current request and are not stored.
+The selected provider's API key can also be pasted into the app while the page is open. Keys are sent only to the backend for the current request and are not stored.
 
 ## Run Locally
 

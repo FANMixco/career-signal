@@ -19,7 +19,8 @@ analyzeCvRouter.post("/", async (req, res) => {
     }
 
     const analysis = await runAnalysis({
-      apiKey: body.openaiApiKey,
+      aiProvider: body.aiProvider,
+      apiKey: body.aiApiKey || body.openaiApiKey,
       cvText: body.cvText,
       precheckResult: body.precheckResult,
       companyName: body.companyName,

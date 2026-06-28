@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { educationPrivacy, experienceSelectionModes, MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH, targetStyles } from "../rules/cvRules.js";
+import { aiProviders, educationPrivacy, experienceSelectionModes, MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH, targetStyles } from "../rules/cvRules.js";
 
 export { MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH };
 
@@ -10,10 +10,13 @@ export const metadataSchema = z.object({
     .optional()
     .transform((value) => value === true || value === "true"),
   degreeYear: z.coerce.number().int().min(1900).max(new Date().getFullYear()).optional(),
-  experienceSelectionMode: z.enum(experienceSelectionModes)
+  experienceSelectionMode: z.enum(experienceSelectionModes),
+  aiProvider: z.enum(aiProviders).optional().default("gemini")
 });
 
 export const analyzeCvSchema = z.object({
+  aiProvider: z.enum(aiProviders).optional().default("gemini"),
+  aiApiKey: z.string().optional(),
   openaiApiKey: z.string().optional(),
   cvText: z.string().min(MIN_CV_LENGTH, "Please provide a complete CV or LinkedIn PDF export."),
   jobDescription: z.string().min(MIN_JOB_DESCRIPTION_LENGTH, "Please provide the full job description."),

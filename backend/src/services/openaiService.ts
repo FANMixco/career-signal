@@ -11,6 +11,8 @@ type Provider =
   | { kind: "openai"; client: OpenAI }
   | { kind: "gemini"; client: GoogleGenAI };
 
+type AiProviderKind = Provider["kind"];
+
 function normalizePrecheckResult(precheck: PrecheckResult): PrecheckResult {
   const rawScore = precheck.cvEvidenceScore;
   const normalizedScore = rawScore > 0 && rawScore <= 10 ? rawScore * 10 : rawScore;
@@ -46,22 +48,24 @@ function normalizeAnalysisResult(analysis: AnalysisResult): AnalysisResult {
   };
 }
 
-export function createModelProvider(apiKey?: string): Provider {
-  const openAiKey = apiKey?.trim() || process.env.OPENAI_API_KEY?.trim();
+export function createModelProvider(providerKind: AiProviderKind = "gemini", apiKey?: string): Provider {
+  if (providerKind === "openai") {
+    const openAiKey = apiKey?.trim() || process.env.OPENAI_API_KEY?.trim();
 
-  if (openAiKey) {
-    return { kind: "openai", client: new OpenAI({ apiKey: openAiKey }) };
+    if (openAiKey) {
+      return { kind: "openai", client: new OpenAI({ apiKey: openAiKey }) };
+    }
+
+    throw new Error("An OpenAI API key is required. Paste an OpenAI key or configure OPENAI_API_KEY in the backend .env file.");
   }
 
-  const geminiKey = process.env.GEMINI_API_KEY?.trim();
+  const geminiKey = apiKey?.trim() || process.env.GEMINI_API_KEY?.trim();
 
   if (geminiKey) {
     return { kind: "gemini", client: new GoogleGenAI({ apiKey: geminiKey }) };
   }
 
-  throw new Error(
-    "An AI API key is required. Paste an OpenAI key, configure OPENAI_API_KEY, or configure GEMINI_API_KEY in the backend .env file."
-  );
+  throw new Error("A Gemini API key is required. Paste a Gemini key or configure GEMINI_API_KEY in the backend .env file.");
 }
 
 function openAiModel() {
@@ -140,6 +144,7 @@ async function createJsonResponse<T>(provider: Provider, name: string, schema: z
 }
 
 export async function runPrecheck(input: {
+  aiProvider?: AiProviderKind;
   apiKey?: string;
   cvText: string;
   yearsOfExperience: number;
@@ -147,7 +152,7 @@ export async function runPrecheck(input: {
   degreeYear?: number;
   experienceSelectionMode: "lastFive" | "all";
 }) {
-  const provider = createModelProvider(input.apiKey);
+  const provider = createModelProvider(input.aiProvider, input.apiKey);
   const parsed = await createJsonResponse(
     provider,
     "cv_quality_precheck",
@@ -163,6 +168,7 @@ export async function runPrecheck(input: {
 }
 
 export async function runAnalysis(input: {
+  aiProvider?: AiProviderKind;
   apiKey?: string;
   cvText: string;
   precheckResult: Record<string, unknown>;
@@ -171,7 +177,7 @@ export async function runAnalysis(input: {
   experienceSelectionMode: "lastFive" | "all";
   jobDescription: string;
 }) {
-  const provider = createModelProvider(input.apiKey);
+  const provider = createModelProvider(input.aiProvider, input.apiKey);
   const analysis = await createJsonResponse(
     provider,
     "cv_reconstruction_plan",

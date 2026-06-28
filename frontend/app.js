@@ -27,6 +27,8 @@ const els = {
   experienceSelectionMode: document.querySelector("#experienceSelectionMode"),
   cvPdf: document.querySelector("#cvPdf"),
   cvText: document.querySelector("#cvText"),
+  aiProvider: document.querySelector("#aiProvider"),
+  aiApiKeyLabel: document.querySelector("#aiApiKeyLabel"),
   openaiApiKey: document.querySelector("#openaiApiKey"),
   precheckFeedback: document.querySelector("#precheckFeedback"),
   precheckButton: document.querySelector("#precheckButton"),
@@ -165,8 +167,15 @@ function populateTargetStyles() {
 }
 
 function populateStaticSelects() {
+  els.aiProvider.innerHTML = optionList(config.options.aiProviders);
   els.hasDegree.innerHTML = optionList(config.options.studiesListed);
   els.experienceSelectionMode.innerHTML = optionList(config.options.experienceSelectionMode);
+}
+
+function updateApiKeyCopy() {
+  const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
+  els.aiApiKeyLabel.textContent = providerCopy.label;
+  els.openaiApiKey.setAttribute("placeholder", providerCopy.placeholder);
 }
 
 async function runPrecheck() {
@@ -227,11 +236,12 @@ async function runPrecheck() {
 
   form.append("yearsOfExperience", String(years));
   form.append("experienceSelectionMode", els.experienceSelectionMode.value);
+  form.append("aiProvider", els.aiProvider.value);
   if (years > 5) form.append("hasDegree", els.hasDegree.value);
   if (els.degreeYear.value) form.append("degreeYear", els.degreeYear.value);
   if (els.cvText.value.trim()) form.append("cvText", els.cvText.value.trim());
   if (els.cvPdf.files[0]) form.append("cvPdf", els.cvPdf.files[0]);
-  if (els.openaiApiKey.value.trim()) form.append("openaiApiKey", els.openaiApiKey.value.trim());
+  if (els.openaiApiKey.value.trim()) form.append("aiApiKey", els.openaiApiKey.value.trim());
 
   state.precheckInFlight = true;
   setBusy(true);
@@ -354,7 +364,8 @@ async function runAnalysis() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        openaiApiKey: els.openaiApiKey.value.trim(),
+        aiProvider: els.aiProvider.value,
+        aiApiKey: els.openaiApiKey.value.trim(),
         cvText: state.cvText,
         jobDescription: els.jobDescription.value.trim(),
         companyName: els.companyName.value.trim(),
@@ -468,6 +479,7 @@ function setBusy(isBusy) {
   els.experienceSelectionMode.addEventListener(eventName, updateMetadataVisibility);
 });
 
+els.aiProvider.addEventListener("change", updateApiKeyCopy);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
@@ -486,6 +498,7 @@ document.addEventListener("keydown", (event) => {
 applyConfiguredText();
 populateStaticSelects();
 populateTargetStyles();
+updateApiKeyCopy();
 updateMetadataVisibility();
 setFeedback("", config.feedback.initial);
 setTailoringAccess(false, config.tailoring.initialLock);

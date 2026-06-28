@@ -3,6 +3,7 @@ export const MIN_JOB_DESCRIPTION_LENGTH = 120;
 
 export const targetStyles = ["Consulting", "Strategy", "Product", "Cloud", "Engineering", "Procurement", "Sales", "Leadership", "Training", "Management", "General"] as const;
 export const experienceSelectionModes = ["lastFive", "all"] as const;
+export const aiProviders = ["gemini", "openai"] as const;
 
 export const proceedRecommendations = ["Proceed", "Improve CV first", "Proceed with caution"] as const;
 

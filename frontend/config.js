@@ -43,7 +43,8 @@ window.CAREER_SIGNAL_CONFIG = {
     experienceSelectionMode: "Experience selection mode",
     cvPdf: "Upload LinkedIn PDF",
     cvText: "Paste CV text manually",
-    openaiApiKey: "OpenAI API key",
+    aiProvider: "AI provider",
+    aiApiKey: "API key",
     targetCompany: "Target company name",
     targetStyle: "Target role style",
     jobDescription: "Job description",
@@ -51,10 +52,13 @@ window.CAREER_SIGNAL_CONFIG = {
   },
   placeholders: {
     cvText: "Paste complete CV text here",
-    openaiApiKey: "Optional if OPENAI_API_KEY or GEMINI_API_KEY is configured",
     jobDescription: "Paste the full job description"
   },
   options: {
+    aiProviders: [
+      ["gemini", "Gemini"],
+      ["openai", "OpenAI"]
+    ],
     studiesListed: [
       ["", "Select"],
       ["true", "Yes"],
@@ -64,6 +68,16 @@ window.CAREER_SIGNAL_CONFIG = {
       ["lastFive", "Last five experiences only"],
       ["all", "All experiences"]
     ]
+  },
+  apiKeys: {
+    gemini: {
+      label: "Gemini API key",
+      placeholder: "Optional if GEMINI_API_KEY is configured"
+    },
+    openai: {
+      label: "OpenAI API key",
+      placeholder: "Optional if OPENAI_API_KEY is configured"
+    }
   },
   targetStyles: [
     "Consulting",
