@@ -46,12 +46,14 @@ window.CAREER_SIGNAL_CONFIG = {
     aiProvider: "AI provider",
     aiApiKey: "API key",
     targetCompany: "Target company name",
+    companyDescription: "Company description (optional)",
     targetStyle: "Target role style",
     jobDescription: "Job description",
     ageWarningAcknowledgement: "I understand the warning and want to continue."
   },
   placeholders: {
     cvText: "Paste complete CV text here",
+    companyDescription: "Add useful context if the company is not well-known: what it does, industry, size, product, market, values, or business model",
     jobDescription: "Paste the full job description"
   },
   options: {

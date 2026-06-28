@@ -39,6 +39,7 @@ export function reconstructionPrompt(input: {
   cvText: string;
   precheckResult: Record<string, unknown>;
   companyName: string;
+  companyDescription?: string;
   targetStyle: string;
   experienceSelectionMode: "lastFive" | "all";
   jobDescription: string;
@@ -69,6 +70,9 @@ ${JSON.stringify(input.precheckResult)}
 
 Target company:
 ${input.companyName}
+
+Optional company description:
+${input.companyDescription?.trim() || "not provided"}
 
 Target role style:
 ${input.targetStyle}

@@ -21,6 +21,7 @@ export const analyzeCvSchema = z.object({
   cvText: z.string().min(MIN_CV_LENGTH, "Please provide a complete CV or LinkedIn PDF export."),
   jobDescription: z.string().min(MIN_JOB_DESCRIPTION_LENGTH, "Please provide the full job description."),
   companyName: z.string().min(1, "Target company name is required."),
+  companyDescription: z.string().max(2000, "Company description must be 2,000 characters or fewer.").optional().default(""),
   targetStyle: z.enum(targetStyles),
   experienceSelectionMode: z.enum(experienceSelectionModes),
   precheckResult: z.record(z.unknown()),

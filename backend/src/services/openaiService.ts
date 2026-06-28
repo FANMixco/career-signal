@@ -173,6 +173,7 @@ export async function runAnalysis(input: {
   cvText: string;
   precheckResult: Record<string, unknown>;
   companyName: string;
+  companyDescription?: string;
   targetStyle: string;
   experienceSelectionMode: "lastFive" | "all";
   jobDescription: string;

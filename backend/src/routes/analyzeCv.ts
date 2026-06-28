@@ -24,6 +24,7 @@ analyzeCvRouter.post("/", async (req, res) => {
       cvText: body.cvText,
       precheckResult: body.precheckResult,
       companyName: body.companyName,
+      companyDescription: body.companyDescription,
       targetStyle: body.targetStyle,
       experienceSelectionMode: body.experienceSelectionMode,
       jobDescription: body.jobDescription
