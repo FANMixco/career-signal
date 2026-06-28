@@ -38,6 +38,14 @@ export const analysisSchema = z.object({
   roleDiagnosis: z.string(),
   companySignalInterpretation: z.string(),
   candidatePositioning: z.string(),
+  jobFitAssessment: z.object({
+    score: z.number().min(0).max(100),
+    verdict: z.enum(["Strong match", "Good match", "Partial match", "Weak match"]),
+    explanation: z.string(),
+    strongestReasons: z.array(z.string()),
+    mainRisks: z.array(z.string()),
+    companyDecisionWarning: z.string()
+  }),
   strongestMatchingEvidence: z.array(z.string()),
   weakOrMissingSignals: z.array(z.string()),
   keywordsToInclude: z.array(z.string()),

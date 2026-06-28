@@ -137,6 +137,11 @@ window.CAREER_SIGNAL_CONFIG = {
     intro:
       "The CV appears to include personal details that may be unnecessary or risky in many hiring processes. This is a practical warning, not a legal decision. Keep these details only when the target country, sector, or employer explicitly requires them."
   },
+  jobFitAssessment: {
+    scoreLabel: "Profile match score",
+    warningFallback:
+      "This is an evidence-based estimate, not a hiring decision. The final decision always belongs to the company and may depend on interviews, internal priorities, competition, timing, compensation, legal requirements, and information not present here."
+  },
   footer: {
     createdByPrefix: "Created by",
     creatorName: "Federico Navarrete",
@@ -212,6 +217,7 @@ window.CAREER_SIGNAL_CONFIG = {
     ["Role diagnosis", "roleDiagnosis"],
     ["Company signal interpretation", "companySignalInterpretation"],
     ["Candidate positioning", "candidatePositioning"],
+    ["Profile match assessment", "jobFitAssessment", "jobFitAssessment"],
     ["Strongest matching evidence", "strongestMatchingEvidence", "list"],
     ["Weak or missing signals", "weakOrMissingSignals", "list"],
     ["Keywords to include", "keywordsToInclude", "list"],

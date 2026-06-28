@@ -54,6 +54,13 @@ Education and studies guidance:
 - Do not include a bare "Education" section as a default. If education/studies should appear, make it conditional and privacy-safe, for example: "${educationPrivacy.privacySafeStructure}."
 - Do not remove legally or professionally required credentials. Classify any education change by integrity level and explain the reason.
 
+Job fit assessment guidance:
+- Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.
+- Score only the profile evidence provided here. Do not score personality, interview performance, hidden referrals, salary fit, internal candidates, or facts not present in the CV/job description.
+- Use 85-100 for a strong match, 70-84 for a good match, 50-69 for a partial match, and 0-49 for a weak match.
+- Explain briefly why the score was assigned, including strongest reasons and main risks.
+- Always include the warning that the final hiring decision belongs to the company and can depend on factors outside this analysis.
+
 Candidate CV text:
 ${input.cvText}
 

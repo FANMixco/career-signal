@@ -12,10 +12,25 @@ export function planToText(analysis: Record<string, unknown>) {
     .filter(([key]) => key !== "downloadableText")
     .map(([key, value]) => {
       const heading = key.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase());
-      const body = Array.isArray(value)
-        ? value.map((item) => (typeof item === "string" ? `- ${item}` : `- ${JSON.stringify(item)}`)).join("\n")
-        : String(value ?? "");
+      const body = formatTextValue(value);
       return `${heading}\n${body}`;
     })
     .join("\n\n")}`;
+}
+
+function formatTextValue(value: unknown): string {
+  if (Array.isArray(value)) {
+    return value.map((item) => (typeof item === "string" ? `- ${item}` : `- ${JSON.stringify(item)}`)).join("\n");
+  }
+
+  if (value && typeof value === "object") {
+    return Object.entries(value)
+      .map(([key, nestedValue]) => {
+        const label = key.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase());
+        return `${label}: ${Array.isArray(nestedValue) ? nestedValue.join("; ") : String(nestedValue ?? "")}`;
+      })
+      .join("\n");
+  }
+
+  return String(value ?? "");
 }

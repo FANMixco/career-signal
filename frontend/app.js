@@ -408,7 +408,31 @@ function formatAnalysisValue(analysis, key, type) {
     return list((value || []).map((item) => `${item.recommendation}: ${item.classification}. ${item.explanation}`));
   }
 
+  if (type === "jobFitAssessment") {
+    return renderJobFitAssessment(value);
+  }
+
   return value;
+}
+
+function renderJobFitAssessment(assessment) {
+  if (!assessment) {
+    return `<p>${escapeHtml(config.fallbackText.emptyList)}</p>`;
+  }
+
+  const score = Math.max(0, Math.min(100, Math.round(Number(assessment.score) || 0)));
+  const warning = assessment.companyDecisionWarning || config.jobFitAssessment.warningFallback;
+
+  return `
+    <div class="score compact">${score}<span>/ 100</span></div>
+    <p><strong>${escapeHtml(assessment.verdict || config.jobFitAssessment.scoreLabel)}</strong></p>
+    <p>${escapeHtml(assessment.explanation || "")}</p>
+    <h4>Strongest reasons</h4>
+    ${list(assessment.strongestReasons)}
+    <h4>Main risks</h4>
+    ${list(assessment.mainRisks)}
+    <p class="warning">${escapeHtml(warning)}</p>
+  `;
 }
 
 function downloadTxt() {

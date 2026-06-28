@@ -12,6 +12,7 @@ The app is intentionally simple: it helps a user decide whether the CV has enoug
 - See warnings for weak evidence, unsupported claims, and study-year privacy risk.
 - Gate job tailoring when the CV needs improvement.
 - Paste a target company and job description for a reconstruction plan.
+- Receive a profile match score from 0 to 100 for the selected company and job description.
 - Download the final plan as a TXT file.
 - Use OpenAI with a request key or `.env`, with Gemini fallback from `.env`.
 
