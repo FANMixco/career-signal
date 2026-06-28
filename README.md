@@ -1,66 +1,156 @@
 # Career Signal Engine
 
-Career Signal Engine is a local proof of concept that checks whether a CV has enough evidence before generating a job-specific reconstruction plan.
+Career Signal Engine is a local CV review app. It checks whether a CV has enough real evidence before helping the user create a job-specific reconstruction plan.
 
-The app is intentionally simple: it helps a user decide whether the CV has enough concrete outcomes, metrics, scope, and defensible claims to tailor for a target role. It does not invent achievements and it does not apply to jobs automatically.
+The app is designed to be used by non-technical people too. You do not need to create an account, connect LinkedIn, install a browser extension, or give the app access to job boards.
 
-## Features
+## What It Does
 
-- Upload a LinkedIn PDF export or paste CV text manually.
-- Enter basic profile metadata and experience scope.
-- Receive a CV Evidence Score from 0 to 100.
-- See warnings for weak evidence, unsupported claims, and study-year privacy risk.
-- Gate job tailoring when the CV needs improvement.
-- Paste a target company, optional company description, and job description for a reconstruction plan.
-- Receive a profile match score from 0 to 100 for the selected company and job description.
-- Download the final plan as a TXT file.
-- Choose Gemini or OpenAI from the UI and use either a request key or the matching `.env` key.
+- Reads a LinkedIn PDF export or pasted CV text.
+- Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
+- Gives a CV Evidence Score from 0 to 100.
+- Warns about weak evidence, unsupported claims, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
+- Lets the user continue only after the evidence precheck, or after explicitly choosing to continue despite a weak precheck.
+- Uses the target company, optional company description, and job description to create a job-specific reconstruction plan.
+- Gives a profile match score from 0 to 100 for the selected company and role.
+- Lets the user download the final plan as a TXT file.
+- Supports Gemini or OpenAI. The user can choose the provider in the app.
 
-## How The Flow Works
+## What It Does Not Do
 
-```text
-CV PDF or pasted CV
--> profile metadata
--> evidence precheck
--> warnings and score
--> decision gate
--> target company and job description
--> reconstruction plan
--> TXT download
+- It does not invent achievements.
+- It does not apply to jobs automatically.
+- It does not guarantee interviews or hiring outcomes.
+- It does not replace the final judgment of a recruiter, hiring manager, or company.
+- It does not store CVs in a database.
+- It does not store API keys.
+
+## What You Need Before Starting
+
+You need:
+
+- A computer with internet access.
+- A modern browser such as Chrome, Edge, Firefox, or Safari.
+- Node.js installed on your computer.
+- One AI API key:
+  - Gemini API key, or
+  - OpenAI API key.
+- A CV, either as:
+  - a LinkedIn PDF export, or
+  - text copied from an existing CV.
+- A job description if you want the job-specific reconstruction plan.
+- An optional company description if the company is small, new, private, or not well known.
+
+If you only want to test the app, you can paste the API key directly in the app. If you want to use it regularly, you can save the key in a local `.env` file.
+
+## Step 1: Install Node.js
+
+Node.js is the program that lets this app run on your computer.
+
+1. Open [https://nodejs.org](https://nodejs.org).
+2. Download the LTS version.
+3. Run the installer.
+4. Accept the default installation options.
+5. Close and reopen your terminal after installing.
+
+To check that Node.js installed correctly, run:
+
+```bash
+node -v
 ```
 
-Job-specific tailoring is visible from the start, but generation unlocks only after the evidence precheck gate. If the CV is weak, the user can improve the CV first or explicitly continue anyway.
+Then run:
 
-## Tech Stack
+```bash
+npm -v
+```
 
-- Backend: Node.js, Express, TypeScript
-- Frontend: static HTML, CSS, JavaScript
-- AI providers: Gemini or OpenAI, selected in the UI
-- PDF extraction: `pdf-parse`
-- Validation: Zod
+If both commands show version numbers, Node.js is ready.
 
-No database, authentication, accounts, payments, LinkedIn API integration, browser automation, or applicant-bot behavior is included.
+## Step 2: Get The Project
 
-## Project Structure
+If you are not technical, the easiest option is:
 
-- `backend/src/rules/cvRules.ts` contains scoring bands, allowed options, score breakdown limits, fallback questions, and education/study privacy guidance.
-- `backend/src/prompts/cvPrompts.ts` contains the AI instructions for the precheck and reconstruction plan.
-- `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
-- `frontend/config.js` contains visible frontend copy, labels, warnings, target styles, API URL behavior, and result-section ordering.
-- `frontend/index.html` keeps the static document structure, SEO metadata, favicons, and manifest links.
-- `frontend/app.js` should stay focused on browser state, validation flow, API calls, and rendering.
+1. Open the GitHub repository page.
+2. Click `Code`.
+3. Click `Download ZIP`.
+4. Extract the ZIP file.
+5. Open the extracted folder.
 
-When changing product rules or user-facing copy, prefer editing the rule/config/prompt files above instead of burying new constants in service or UI control code.
+If you already use Git, you can clone the repository instead:
 
-## Setup
+```bash
+git clone https://github.com/FANMixco/career-signal.git
+cd career-signal
+```
+
+## Step 3: Open A Terminal In The Project
+
+On Windows:
+
+1. Open the project folder in File Explorer.
+2. Right-click inside the folder.
+3. Choose `Open in Terminal`.
+
+On macOS:
+
+1. Open the project folder in Finder.
+2. Open Terminal.
+3. Type `cd ` with a space after it.
+4. Drag the project folder into the Terminal window.
+5. Press Enter.
+
+On Linux:
+
+1. Open the project folder in your file manager.
+2. Right-click inside the folder.
+3. Choose `Open in Terminal`.
+
+## Step 4: Install The App Dependencies
+
+The app backend lives inside the `backend` folder.
+
+Run:
 
 ```bash
 cd backend
 npm install
+```
+
+This downloads the packages needed by the app. It may take a few minutes the first time.
+
+## Step 5: Choose How To Provide Your AI Key
+
+You have two options.
+
+### Option A: Paste The Key In The App
+
+This is the simplest option for testing.
+
+1. Start the app.
+2. Open it in your browser.
+3. Choose `Gemini` or `OpenAI`.
+4. Paste the matching API key in the API key field.
+
+The key is sent only to the local backend for that request. It is not stored by the app.
+
+### Option B: Save The Key In `.env`
+
+This is more convenient if you use the app often.
+
+On Windows, while you are inside the `backend` folder, run:
+
+```bash
 copy .env.example .env
 ```
 
-Configure either OpenAI or Gemini in `backend/.env`:
+On macOS or Linux, run:
+
+```bash
+cp .env.example .env
+```
+
+Open the new `.env` file and add either your Gemini key or your OpenAI key:
 
 ```env
 OPENAI_API_KEY=
@@ -70,33 +160,245 @@ GEMINI_MODEL=models/gemini-3-flash-preview
 PORT=3001
 ```
 
-The selected provider's API key can also be pasted into the app while the page is open. Keys are sent only to the backend for the current request and are not stored.
+Example:
 
-## Run Locally
+```env
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5.2
+GEMINI_API_KEY=your_gemini_key_here
+GEMINI_MODEL=models/gemini-3-flash-preview
+PORT=3001
+```
+
+Important: never share or commit the `.env` file. It contains private keys. The project is configured to ignore `.env`, but you should still treat it as secret.
+
+## Step 6: Run The App
+
+Make sure your terminal is inside the `backend` folder.
+
+Run:
 
 ```bash
-cd backend
 npm run dev
 ```
 
-Open:
+You should see a message like:
+
+```text
+Career Signal Engine running at http://localhost:3001
+```
+
+Now open this address in your browser:
 
 ```text
 http://localhost:3001
 ```
 
-If the frontend is served separately, for example from `127.0.0.1:5500`, it will still call the backend at `http://localhost:3001`.
+Keep the terminal open while using the app. If you close the terminal, the app stops running.
 
-## API Endpoints
+To stop the app, click the terminal and press:
+
+```text
+Ctrl + C
+```
+
+## Step 7: Use The App
+
+1. Fill in the profile details.
+2. Upload a LinkedIn PDF export or paste CV text.
+3. Choose Gemini or OpenAI.
+4. Paste an API key if you did not configure one in `.env`.
+5. Click `Run CV Evidence Precheck`.
+6. Wait for the result. The button shows that validation is running.
+7. Review the CV Evidence Score, warnings, and suggested improvements.
+8. If the CV has weak evidence, improve it first or explicitly choose to continue anyway.
+9. Add the target company name.
+10. Optionally add a short company description.
+11. Paste the full job description.
+12. Generate the reconstruction plan.
+13. Review the profile match assessment and the recommended CV structure.
+14. Download the TXT file if you want to keep the plan.
+
+## Understanding The Scores
+
+The CV Evidence Score is from 0 to 100.
+
+- `80-100`: strong evidence. The CV is likely ready for job-specific tailoring.
+- `60-79`: usable, but some claims may need more evidence.
+- `0-59`: risky. The CV may be too vague, unsupported, or activity-based.
+
+The profile match score is also from 0 to 100.
+
+This score estimates how well the provided CV evidence matches the company and job description. It is not a hiring decision. Final decisions always belong to the company and may depend on interviews, timing, internal candidates, compensation, location, sponsorship, language requirements, and other factors outside this CV-based review.
+
+## Using The Android Emulator
+
+If you test the app in an Android emulator, `localhost` inside the emulator means the emulator itself, not your computer.
+
+Use this address instead:
+
+```text
+http://10.0.2.2:3001
+```
+
+The backend must still be running on your computer.
+
+If you serve the frontend separately, for example from:
+
+```text
+http://10.0.2.2:5500
+```
+
+the frontend will call the backend at:
+
+```text
+http://10.0.2.2:3001
+```
+
+For a real phone, connect the phone and computer to the same Wi-Fi network and use the computer's local network IP address instead of `localhost`.
+
+## Troubleshooting
+
+### `npm is not recognized`
+
+Node.js is not installed, or the terminal was opened before installing it.
+
+Fix:
+
+1. Install Node.js from [https://nodejs.org](https://nodejs.org).
+2. Close the terminal.
+3. Open a new terminal.
+4. Try `node -v` and `npm -v` again.
+
+### `Cannot find module` or dependency errors
+
+The dependencies are probably not installed.
+
+Fix:
+
+```bash
+cd backend
+npm install
+```
+
+### The browser says the site cannot be reached
+
+The backend may not be running.
+
+Fix:
+
+1. Open a terminal.
+2. Go to the `backend` folder.
+3. Run `npm run dev`.
+4. Open `http://localhost:3001`.
+
+### Port `3001` is already in use
+
+Another app is already using port `3001`.
+
+Fix:
+
+- Close the other terminal or app that is using the port, or
+- Change `PORT=3001` in `.env` to another port such as `PORT=3002`.
+
+If you change the port, open the matching address in the browser.
+
+### The app says an API key is required
+
+The selected provider does not have a key.
+
+Fix:
+
+- If `Gemini` is selected, paste a Gemini key or set `GEMINI_API_KEY` in `.env`.
+- If `OpenAI` is selected, paste an OpenAI key or set `OPENAI_API_KEY` in `.env`.
+
+### The precheck button does nothing
+
+Check that the backend is running at:
+
+```text
+http://localhost:3001
+```
+
+If the frontend is opened from another address, such as `127.0.0.1:5500`, the app still needs the backend running on port `3001`.
+
+### Android emulator cannot reach the backend
+
+Use:
+
+```text
+http://10.0.2.2:3001
+```
+
+Do not use `localhost` from inside the Android emulator.
+
+### The job-specific plan is locked
+
+Run the CV Evidence Precheck first. The app intentionally blocks job tailoring until the CV evidence has been checked.
+
+If the precheck result is weak, improve the CV first or explicitly choose to continue despite the weak precheck.
+
+## Privacy And Safety
+
+- Uploaded CVs are processed in memory and are not stored by this app.
+- API keys are not logged or stored by this app.
+- AI calls happen only from the backend.
+- CV text and job descriptions are sent to the selected AI provider when you run an analysis.
+- `.env` files are ignored and must not be committed.
+- Internal planning docs and local templates are ignored and should not be committed unless they are intentionally productized.
+- The app provides CV guidance, not legal advice, career guarantees, or hiring guarantees.
+
+## Developer Notes
+
+### Tech Stack
+
+- Backend: Node.js, Express, TypeScript
+- Frontend: static HTML, CSS, JavaScript
+- AI providers: Gemini or OpenAI
+- PDF extraction: `pdf-parse`
+- Validation: Zod
+
+### Project Structure
+
+- `backend/src/rules/cvRules.ts` contains scoring bands, allowed options, score breakdown limits, fallback questions, and education/study privacy guidance.
+- `backend/src/prompts/cvPrompts.ts` contains the AI instructions for the precheck and reconstruction plan.
+- `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
+- `frontend/config.js` contains visible frontend copy, labels, warnings, target styles, API URL behavior, and result-section ordering.
+- `frontend/index.html` keeps the static document structure, SEO metadata, favicons, manifest links, and document title.
+- `frontend/app.js` should stay focused on browser state, validation flow, API calls, and rendering.
+
+When changing product rules or user-facing copy, prefer editing the rule, config, prompt, or schema files above instead of burying new constants in service or UI control code.
+
+### Scripts
+
+Run these from the `backend` folder:
+
+```bash
+npm run dev
+```
+
+Starts the local development server.
+
+```bash
+npm run typecheck
+```
+
+Checks the TypeScript code.
+
+```bash
+npm run build
+```
+
+Builds the backend into `backend/dist`.
+
+```bash
+npm start
+```
+
+Runs the built backend from `backend/dist`.
+
+### API Endpoints
 
 - `GET /api/health`
 - `POST /api/precheck-cv`
 - `POST /api/analyze-cv`
-
-## Security Notes
-
-- `.env` files are ignored and must not be committed.
-- Internal planning docs and local templates are ignored and should not be committed unless they are intentionally productized.
-- Uploaded CVs are processed in memory and are not stored.
-- API keys are not logged or stored.
-- AI calls happen only from the backend.
