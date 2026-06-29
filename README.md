@@ -9,7 +9,7 @@ The app is designed to be used by non-technical people too. You do not need to c
 - Reads a LinkedIn PDF export or pasted CV text.
 - Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
 - Gives a CV Evidence Score from 0 to 100.
-- Warns about weak evidence, unsupported claims, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
+- Warns about weak evidence, unsupported claims, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
 - Lets the user continue only after the evidence precheck, or after explicitly choosing to continue despite a weak precheck.
 - Uses the target company, optional company description, and job description to create a job-specific reconstruction plan.
 - Gives a profile match score from 0 to 100 for the selected company and role.
@@ -237,6 +237,12 @@ The CV Evidence Score is from 0 to 100.
 The profile match score is also from 0 to 100.
 
 This score estimates how well the provided CV evidence matches the company and job description. It is not a hiring decision. Final decisions always belong to the company and may depend on interviews, timing, internal candidates, compensation, location, sponsorship, language requirements, and other factors outside this CV-based review.
+
+## Important CV Warnings
+
+The app may highlight issues that do not mean the candidate is weak, but that can make the CV weaker than the real career.
+
+Long tenure at one company is a good example. Staying at one company for many years can show trust, loyalty, and depth. However, if the CV only shows the latest title, the reader may miss years of internal promotions, role changes, expanded scope, team moves, or bigger responsibilities. When true, split the tenure into internal roles or add clear progression bullets. Do not invent titles, dates, or promotions.
 
 ## Using The Android Emulator
 

@@ -208,7 +208,16 @@ window.CAREER_SIGNAL_CONFIG = {
           "Recover numbers where they are true and defensible.",
           "Remove or de-emphasize old details that do not help the target role.",
           "Keep studies and credentials only when relevant or required; avoid unnecessary completion years after several years of experience.",
+          "If you stayed at one company for many years, show real internal progression: promotions, role changes, expanded scope, team changes, or selected milestones.",
           "Never invent metrics, tools, responsibilities, employers, dates, certifications, or achievements."
+        ]
+      },
+      {
+        title: "Long tenure and progression",
+        items: [
+          "Long tenure is not a problem by itself, but one title covering many years can make growth look flat.",
+          "If you held multiple internal positions, show the real sequence instead of only the latest title.",
+          "If formal titles did not change, show scope progression through truthful bullets: larger teams, bigger budgets, broader regions, harder systems, or higher-impact work."
         ]
       },
       {

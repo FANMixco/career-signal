@@ -1,14 +1,18 @@
-import { educationPrivacy } from "../rules/cvRules.js";
+import { careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
 
 export function planToText(analysis: Record<string, unknown>) {
-  const educationReminder = educationPrivacy.textReminder;
+  const reminders = [educationPrivacy.textReminder, careerProgressionVisibility.textReminder].join("\n\n");
 
   if (typeof analysis.downloadableText === "string" && analysis.downloadableText.trim()) {
     const text = analysis.downloadableText.trim();
-    return text.toLowerCase().includes("education and studies privacy reminder") ? text : `${educationReminder}\n\n${text}`;
+    const lowerText = text.toLowerCase();
+    const withEducationReminder = lowerText.includes("education and studies privacy reminder") ? text : `${educationPrivacy.textReminder}\n\n${text}`;
+    return lowerText.includes("career progression visibility reminder")
+      ? withEducationReminder
+      : `${careerProgressionVisibility.textReminder}\n\n${withEducationReminder}`;
   }
 
-  return `${educationReminder}\n\n${Object.entries(analysis)
+  return `${reminders}\n\n${Object.entries(analysis)
     .filter(([key]) => key !== "downloadableText")
     .map(([key, value]) => {
       const heading = key.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase());

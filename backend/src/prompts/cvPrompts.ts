@@ -1,4 +1,4 @@
-import { educationPrivacy } from "../rules/cvRules.js";
+import { careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
 
 export function precheckPrompt(input: {
   cvText: string;
@@ -14,6 +14,10 @@ Scoring rules:
 - cvEvidenceScore must be an integer from 0 to 100, not a decimal score out of 10.
 - If you think the CV is 8.6 out of 10, return 86.
 - Recommendation must match the score band: 0-49 Improve CV first, 50-74 Proceed with caution, 75-100 Proceed.
+
+Career progression visibility:
+- ${careerProgressionVisibility.precheckInstruction}
+- Do not punish long tenure by itself. The risk is unclear progression, not loyalty or stability.
 
 Candidate metadata:
 
@@ -54,6 +58,10 @@ Education and studies guidance:
 - If a study, course, old education item, or education date is not relevant to the target role, suggest de-emphasizing or removing it from the CV.
 - Do not include a bare "Education" section as a default. If education/studies should appear, make it conditional and privacy-safe, for example: "${educationPrivacy.privacySafeStructure}."
 - Do not remove legally or professionally required credentials. Classify any education change by integrity level and explain the reason.
+
+Career progression visibility:
+- ${careerProgressionVisibility.reconstructionInstruction}
+- Treat long tenure as potentially positive when progression, increasing scope, delivery, or promotion is visible.
 
 Job fit assessment guidance:
 - Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.

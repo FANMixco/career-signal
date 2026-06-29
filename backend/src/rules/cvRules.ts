@@ -42,6 +42,15 @@ export const educationPrivacy = {
     "Education and studies privacy reminder\nReview study years, graduation years, older education details, and irrelevant courses. Keep required or role-relevant credentials, but remove or de-emphasize unnecessary study dates/details when they do not help the target role."
 } as const;
 
+export const careerProgressionVisibility = {
+  textReminder:
+    "Career progression visibility reminder\nLong tenure at the same company is not a weakness by itself. If the candidate held several internal roles, promotions, scope increases, team changes, or responsibility changes, show that progression clearly. A single title covering many years can make growth look flat or non-existent.",
+  precheckInstruction:
+    "If the CV shows long tenure at one employer, especially around 7 or more years, but only one visible role title or a final title, add a specific warning that internal progression may be hidden. Recommend splitting the tenure into internal roles, promotions, scope changes, or selected progression bullets when true and defensible.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about hidden internal progression. If the candidate stayed at one company for a long period but appears to show only the latest role, recommend making promotions, internal moves, expanding scope, or role changes visible when they are true. Do not invent internal titles or dates."
+} as const;
+
 export const sensitivePersonalDataRules = [
   {
     id: "dateOfBirth",
