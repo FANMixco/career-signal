@@ -132,6 +132,7 @@ window.CAREER_SIGNAL_CONFIG = {
     acknowledgeStudyWarning: "Acknowledge the study-year privacy warning before continuing.",
     runPrecheckFirst: "Run the CV Evidence Precheck before generating the reconstruction plan.",
     precheckComplete: "Precheck complete. Review the score and choose the next action below.",
+    precheckStale: "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
     precheckLoading(apiBaseUrl) {
       return `Running CV Evidence Precheck against ${apiBaseUrl || "this server"}. This can take a little while while the model reviews the CV evidence.`;
     }
@@ -140,8 +141,9 @@ window.CAREER_SIGNAL_CONFIG = {
     guidanceLocked:
       "You can add the target company and job description now. Generation unlocks after the CV evidence precheck, or after you explicitly choose to continue despite a weak precheck.",
     guidanceUnlocked:
-      "Use the target company and job description to generate a reconstruction plan grounded in the CV evidence already checked above.",
+      "Use the target company and job description to generate a reconstruction plan grounded in the CV evidence already checked above. You can test multiple target roles without rerunning the precheck as long as the CV and profile details stay the same.",
     initialLock: "Run the CV Evidence Precheck first. This keeps the tailoring step from polishing weak or unsupported claims.",
+    staleLock: "The CV or profile details changed after the last precheck. Run the precheck again before tailoring.",
     weakLock: "The precheck recommends improving the CV first. Choose Continue anyway below to unlock generation.",
     reviewLock: "Review the precheck result, then choose Continue to Job Tailoring below to unlock generation.",
     weakUnlock: "Unlocked because you chose to continue despite the weak CV warning."
@@ -200,6 +202,15 @@ window.CAREER_SIGNAL_CONFIG = {
             "example strong",
             "Stronger: Supported approximately 200 to 300 people per day during peak COVID operations, maintaining patient flow under high pressure conditions."
           ]
+        ]
+      },
+      {
+        title: "Tense and timing",
+        items: [
+          "Use past tense for completed work, especially in previous roles.",
+          "Use present tense only for responsibilities or work that is genuinely still ongoing.",
+          "For current roles, completed achievements should still read as completed outcomes, not as open-ended activity.",
+          "Avoid infinitive-style bullets when the achievement already happened."
         ]
       },
       {

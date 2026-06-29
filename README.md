@@ -9,9 +9,10 @@ The app is designed to be used by non-technical people too. You do not need to c
 - Reads a LinkedIn PDF export or pasted CV text.
 - Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
 - Gives a CV Evidence Score from 0 to 100.
-- Warns about weak evidence, unsupported claims, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
+- Warns about weak evidence, unsupported claims, tense problems, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
 - Lets the user continue only after the evidence precheck, or after explicitly choosing to continue despite a weak precheck.
 - Uses the target company, optional company description, and job description to create a job-specific reconstruction plan.
+- Lets the user test multiple target roles after a successful precheck without checking the same unchanged CV again.
 - Gives a profile match score from 0 to 100 for the selected company and role.
 - Lets the user download the final plan as a TXT file.
 - Supports Gemini or OpenAI. The user can choose the provider in the app.
@@ -226,6 +227,8 @@ Ctrl + C
 13. Review the profile match assessment and the recommended CV structure.
 14. Download the TXT file if you want to keep the plan.
 
+After the precheck has passed, you can change the target company, company description, role style, or job description and generate another plan. You do not need to run the CV Evidence Precheck again unless you change the CV text, uploaded PDF, years of experience, studies information, or experience selection mode.
+
 ## Understanding The Scores
 
 The CV Evidence Score is from 0 to 100.
@@ -243,6 +246,8 @@ This score estimates how well the provided CV evidence matches the company and j
 The app may highlight issues that do not mean the candidate is weak, but that can make the CV weaker than the real career.
 
 Long tenure at one company is a good example. Staying at one company for many years can show trust, loyalty, and depth. However, if the CV only shows the latest title, the reader may miss years of internal promotions, role changes, expanded scope, team moves, or bigger responsibilities. When true, split the tenure into internal roles or add clear progression bullets. Do not invent titles, dates, or promotions.
+
+Tense is another common issue. Previous roles and completed achievements should normally use past tense. Current roles can use present tense for responsibilities that are still active, but completed achievements inside a current role should still read as completed outcomes. Infinitive or present-tense wording can make strong accomplishments look unfinished, generic, or unclear.
 
 ## Using The Android Emulator
 

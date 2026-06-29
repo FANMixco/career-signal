@@ -1,6 +1,7 @@
 const state = {
   cvText: "",
   precheck: null,
+  precheckSignature: "",
   precheckInFlight: false,
   analysisInFlight: false,
   continueDespiteWeakPrecheck: false,
@@ -148,6 +149,36 @@ function updateMetadataVisibility() {
   show(els.allExperienceWarning, els.experienceSelectionMode.value === "all");
 }
 
+function currentPrecheckSignature() {
+  const file = els.cvPdf.files[0];
+  const fileSignature = file ? `${file.name}:${file.size}:${file.lastModified}` : "";
+  return JSON.stringify({
+    yearsOfExperience: els.yearsOfExperience.value.trim(),
+    hasDegree: els.hasDegree.value,
+    degreeYear: els.degreeYear.value.trim(),
+    experienceSelectionMode: els.experienceSelectionMode.value,
+    cvText: els.cvText.value.trim(),
+    cvPdf: fileSignature
+  });
+}
+
+function invalidatePrecheckIfSourceChanged() {
+  if (!state.precheck || state.precheckInFlight) return;
+  const signature = currentPrecheckSignature();
+  if (signature === state.precheckSignature) return;
+
+  state.precheck = null;
+  state.precheckSignature = "";
+  state.continueDespiteWeakPrecheck = false;
+  state.downloadableText = "";
+  els.decisionGate.innerHTML = "";
+  els.analysisResult.innerHTML = "";
+  show(els.outputPanel, false);
+  setTailoringAccess(false, config.tailoring.staleLock);
+  setFeedback("warning", config.feedback.precheckStale);
+  setStatus("Precheck needed");
+}
+
 function setTailoringAccess(isAllowed, message) {
   els.tailoringPanel.classList.toggle("locked", !isAllowed);
   els.analyzeButton.disabled = !isAllowed;
@@ -183,6 +214,7 @@ async function runPrecheck() {
   if (state.precheckInFlight) return;
 
   const form = new FormData();
+  const precheckSignature = currentPrecheckSignature();
   const yearsValue = els.yearsOfExperience.value.trim();
   const years = Number(yearsValue);
 
@@ -245,6 +277,9 @@ async function runPrecheck() {
   if (els.openaiApiKey.value.trim()) form.append("aiApiKey", els.openaiApiKey.value.trim());
 
   state.precheckInFlight = true;
+  state.downloadableText = "";
+  els.analysisResult.innerHTML = "";
+  show(els.outputPanel, false);
   setBusy(true);
   setStatus("Prechecking");
   setFeedback("loading", config.feedback.precheckLoading(API_BASE_URL));
@@ -255,6 +290,7 @@ async function runPrecheck() {
     if (!response.ok) throw new Error(data.error || "Precheck failed.");
 
     state.cvText = data.cvText;
+    state.precheckSignature = precheckSignature;
     state.precheck = {
       ...data.precheck,
       personalDataWarnings: data.personalDataWarnings || []
@@ -475,10 +511,18 @@ function setBusy(isBusy) {
 }
 
 ["input", "change"].forEach((eventName) => {
-  els.yearsOfExperience.addEventListener(eventName, updateMetadataVisibility);
-  els.hasDegree.addEventListener(eventName, updateMetadataVisibility);
-  els.degreeYear.addEventListener(eventName, updateMetadataVisibility);
-  els.experienceSelectionMode.addEventListener(eventName, updateMetadataVisibility);
+  [els.yearsOfExperience, els.hasDegree, els.degreeYear, els.experienceSelectionMode].forEach((element) => {
+    element.addEventListener(eventName, () => {
+      updateMetadataVisibility();
+      invalidatePrecheckIfSourceChanged();
+    });
+  });
+});
+
+[els.cvText, els.cvPdf].forEach((element) => {
+  ["input", "change"].forEach((eventName) => {
+    element.addEventListener(eventName, invalidatePrecheckIfSourceChanged);
+  });
 });
 
 els.aiProvider.addEventListener("change", updateApiKeyCopy);

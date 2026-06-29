@@ -1,4 +1,4 @@
-import { careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
+import { accomplishmentTenseGuidance, careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
 
 export function precheckPrompt(input: {
   cvText: string;
@@ -18,6 +18,10 @@ Scoring rules:
 Career progression visibility:
 - ${careerProgressionVisibility.precheckInstruction}
 - Do not punish long tenure by itself. The risk is unclear progression, not loyalty or stability.
+
+Achievement tense and chronology:
+- ${accomplishmentTenseGuidance.precheckInstruction}
+- Do not over-penalize one or two tense issues, but warn when tense makes completed work look generic, ongoing, or unclear.
 
 Candidate metadata:
 
@@ -62,6 +66,9 @@ Education and studies guidance:
 Career progression visibility:
 - ${careerProgressionVisibility.reconstructionInstruction}
 - Treat long tenure as potentially positive when progression, increasing scope, delivery, or promotion is visible.
+
+Achievement tense and chronology:
+- ${accomplishmentTenseGuidance.reconstructionInstruction}
 
 Job fit assessment guidance:
 - Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.

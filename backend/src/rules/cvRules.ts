@@ -51,6 +51,15 @@ export const careerProgressionVisibility = {
     "Preserve any precheck warning about hidden internal progression. If the candidate stayed at one company for a long period but appears to show only the latest role, recommend making promotions, internal moves, expanding scope, or role changes visible when they are true. Do not invent internal titles or dates."
 } as const;
 
+export const accomplishmentTenseGuidance = {
+  textReminder:
+    "Achievement tense reminder\nUse past tense for completed work, especially in previous roles. Current roles may use present tense for ongoing responsibilities, but completed achievements inside a current role should still read as completed outcomes. Avoid infinitive or generic activity language when a result has already happened.",
+  precheckInstruction:
+    "Check whether accomplishments are written with appropriate tense. Add a specific warning when previous roles use present tense or infinitive phrasing for completed work, or when current roles keep completed achievements in active/ongoing wording that makes the timing unclear.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about tense. Recommend past tense for completed achievements, present tense only for genuinely ongoing responsibilities, and clear completed-outcome wording for achievements inside current roles."
+} as const;
+
 export const sensitivePersonalDataRules = [
   {
     id: "dateOfBirth",
