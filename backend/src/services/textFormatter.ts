@@ -1,7 +1,12 @@
-import { accomplishmentTenseGuidance, careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
+import { accomplishmentTenseGuidance, careerProgressionVisibility, cvLengthGuidance, educationPrivacy } from "../rules/cvRules.js";
 
 export function planToText(analysis: Record<string, unknown>) {
-  const reminders = [educationPrivacy.textReminder, careerProgressionVisibility.textReminder, accomplishmentTenseGuidance.textReminder].join("\n\n");
+  const reminders = [
+    educationPrivacy.textReminder,
+    careerProgressionVisibility.textReminder,
+    accomplishmentTenseGuidance.textReminder,
+    cvLengthGuidance.textReminder
+  ].join("\n\n");
 
   if (typeof analysis.downloadableText === "string" && analysis.downloadableText.trim()) {
     const text = analysis.downloadableText.trim();
@@ -10,9 +15,12 @@ export function planToText(analysis: Record<string, unknown>) {
     const withProgressionReminder = lowerText.includes("career progression visibility reminder")
       ? withEducationReminder
       : `${careerProgressionVisibility.textReminder}\n\n${withEducationReminder}`;
-    return lowerText.includes("achievement tense reminder")
+    const withTenseReminder = lowerText.includes("achievement tense reminder")
       ? withProgressionReminder
       : `${accomplishmentTenseGuidance.textReminder}\n\n${withProgressionReminder}`;
+    return lowerText.includes("cv length and seniority reminder")
+      ? withTenseReminder
+      : `${cvLengthGuidance.textReminder}\n\n${withTenseReminder}`;
   }
 
   return `${reminders}\n\n${Object.entries(analysis)

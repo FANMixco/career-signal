@@ -132,6 +132,8 @@ window.CAREER_SIGNAL_CONFIG = {
     acknowledgeStudyWarning: "Acknowledge the study-year privacy warning before continuing.",
     runPrecheckFirst: "Run the CV Evidence Precheck before generating the reconstruction plan.",
     precheckComplete: "Precheck complete. Review the score and choose the next action below.",
+    precheckPassedWithWarnings:
+      "The precheck passed, but there are still warnings or suggestions worth reviewing before tailoring.",
     precheckStale: "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
     precheckLoading(apiBaseUrl) {
       return `Running CV Evidence Precheck against ${apiBaseUrl || "this server"}. This can take a little while while the model reviews the CV evidence.`;
@@ -221,6 +223,16 @@ window.CAREER_SIGNAL_CONFIG = {
           "Keep studies and credentials only when relevant or required; avoid unnecessary completion years after several years of experience.",
           "If you stayed at one company for many years, show real internal progression: promotions, role changes, expanded scope, team changes, or selected milestones.",
           "Never invent metrics, tools, responsibilities, employers, dates, certifications, or achievements."
+        ]
+      },
+      {
+        title: "Length by seniority",
+        items: [
+          "Junior or early-career CVs are usually strongest at 1 page.",
+          "Mid-career CVs are usually 1 to 2 pages.",
+          "Senior specialists, managers, or consultants usually need around 2 pages.",
+          "Executives, academics, researchers, public sector profiles, or highly credentialed experts may need more when the extra detail is relevant.",
+          "Length is not bad by itself; the problem is when it hides the strongest evidence or removes proof that should be visible."
         ]
       },
       {

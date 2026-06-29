@@ -60,6 +60,15 @@ export const accomplishmentTenseGuidance = {
     "Preserve any precheck warning about tense. Recommend past tense for completed achievements, present tense only for genuinely ongoing responsibilities, and clear completed-outcome wording for achievements inside current roles."
 } as const;
 
+export const cvLengthGuidance = {
+  textReminder:
+    "CV length and seniority reminder\nEvaluate length by career stage and relevance. Junior profiles are usually strongest at 1 page, mid-career profiles usually 1 to 2 pages, senior specialists/managers/consultants usually around 2 pages, and executives/academics/researchers/public sector or highly credentialed profiles may need more when the extra detail is relevant. Length is not the problem by itself; hiding evidence or removing proof is the problem.",
+  precheckInstruction:
+    "Check whether the CV length appears appropriate for the candidate's seniority and evidence needs. Warn when the CV seems too long because old, repeated, or irrelevant details hide the strongest evidence. Also warn when the CV seems too short because it removes scale, results, role context, leadership scope, progression, or evidence needed for the target role.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about CV length. Recommend compressing old or irrelevant experience when length hides evidence, but do not remove scale, results, role context, progression, or credentials needed to prove fit."
+} as const;
+
 export const sensitivePersonalDataRules = [
   {
     id: "dateOfBirth",

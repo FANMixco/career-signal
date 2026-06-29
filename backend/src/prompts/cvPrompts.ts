@@ -1,4 +1,4 @@
-import { accomplishmentTenseGuidance, careerProgressionVisibility, educationPrivacy } from "../rules/cvRules.js";
+import { accomplishmentTenseGuidance, careerProgressionVisibility, cvLengthGuidance, educationPrivacy } from "../rules/cvRules.js";
 
 export function precheckPrompt(input: {
   cvText: string;
@@ -22,6 +22,10 @@ Career progression visibility:
 Achievement tense and chronology:
 - ${accomplishmentTenseGuidance.precheckInstruction}
 - Do not over-penalize one or two tense issues, but warn when tense makes completed work look generic, ongoing, or unclear.
+
+CV length and seniority:
+- ${cvLengthGuidance.precheckInstruction}
+- If the CV passes overall but has length issues, include them in specificWarnings so the user can improve before tailoring.
 
 Candidate metadata:
 
@@ -69,6 +73,9 @@ Career progression visibility:
 
 Achievement tense and chronology:
 - ${accomplishmentTenseGuidance.reconstructionInstruction}
+
+CV length and seniority:
+- ${cvLengthGuidance.reconstructionInstruction}
 
 Job fit assessment guidance:
 - Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.

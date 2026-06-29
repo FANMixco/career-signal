@@ -322,7 +322,7 @@ function renderPrecheck(data) {
     ${data.agePrivacyWarning?.show ? `<p class="warning">${escapeHtml(data.agePrivacyWarning.message)}</p>` : ""}
     ${renderPersonalDataWarnings(data.personalDataWarnings)}
   `;
-  renderDecisionGate(precheck.proceedRecommendation, precheck.questionsToRecoverMetrics);
+  renderDecisionGate(precheck.proceedRecommendation, precheck.questionsToRecoverMetrics, precheck.specificWarnings);
 }
 
 function renderPersonalDataWarnings(warnings) {
@@ -353,7 +353,7 @@ function formatPrecheckValue(precheck, key, type) {
   return value;
 }
 
-function renderDecisionGate(recommendation, questions) {
+function renderDecisionGate(recommendation, questions, warnings = []) {
   els.decisionGate.innerHTML = "";
   const improve = document.createElement("button");
   improve.className = recommendation === config.recommendations.improve ? "primary" : "secondary";
@@ -372,8 +372,20 @@ function renderDecisionGate(recommendation, questions) {
   });
 
   if (recommendation === config.recommendations.proceed) {
+    if (warnings.length > 0) {
+      const warningNote = document.createElement("p");
+      warningNote.className = "warning";
+      warningNote.textContent = config.feedback.precheckPassedWithWarnings;
+      els.decisionGate.append(warningNote);
+    }
     els.decisionGate.append(continueButton);
   } else if (recommendation === config.recommendations.caution) {
+    if (warnings.length > 0) {
+      const warningNote = document.createElement("p");
+      warningNote.className = "warning";
+      warningNote.textContent = config.feedback.precheckPassedWithWarnings;
+      els.decisionGate.append(warningNote);
+    }
     els.decisionGate.append(continueButton, improve);
   } else {
     const strongWarning = document.createElement("p");
