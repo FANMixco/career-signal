@@ -2,7 +2,9 @@
 
 Career Signal Engine is a local CV review app. It checks whether a CV has enough real evidence before helping the user create a job-specific reconstruction plan.
 
-The app is designed to be used by non-technical people too. You do not need to create an account, connect LinkedIn, install a browser extension, or give the app access to job boards.
+The app is designed to be used by non-technical people too. You do not need to create an account, connect to LinkedIn, install a browser extension, or give the app access to job boards.
+
+![https://raw.githubusercontent.com/FANMixco/career-signal/refs/heads/main/frontend/img/preview.png](https://raw.githubusercontent.com/FANMixco/career-signal/refs/heads/main/frontend/img/preview.png)
 
 ## What It Does
 
@@ -39,9 +41,9 @@ You need:
   - a LinkedIn PDF export, or
   - text copied from an existing CV.
 - A job description if you want the job-specific reconstruction plan.
-- An optional company description if the company is small, new, private, or not well known.
+- An optional company description if the company is small, new, private, or not well-known.
 
-If you only want to test the app, you can paste the API key directly in the app. If you want to use it regularly, you can save the key in a local `.env` file.
+If you only want to test the app, you can paste the API key directly into the app. If you want to use it regularly, you can save the key in a local `.env` file.
 
 ## Step 1: Install Node.js
 
@@ -139,7 +141,7 @@ This is the simplest option for testing.
 3. Choose `Gemini` or `OpenAI`.
 4. Paste the matching API key in the API key field.
 
-The key is sent only to the local backend for that request. It is not stored by the app.
+The key is sent only to the local backend for that request. The app does not store it.
 
 ### Option B: Save The Key In `.env`
 
@@ -256,7 +258,7 @@ http://10.0.2.2:3001
 
 The backend must still be running on your computer.
 
-If you serve the frontend separately, for example from:
+If you serve the frontend separately, for example, from:
 
 ```text
 http://10.0.2.2:5500
