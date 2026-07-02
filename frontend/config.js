@@ -207,6 +207,14 @@ window.CAREER_SIGNAL_CONFIG = {
         ]
       },
       {
+        title: "Evidence-backed language",
+        items: [
+          "Personal claims such as motivated, efficient, strategic, reliable, or strong communicator should be supported by evidence.",
+          "The problem is not the adjective; the problem is when there is no proof nearby.",
+          "Replace unsupported self-description with outcomes, examples, scale, decisions, delivery, adoption, or measurable results."
+        ]
+      },
+      {
         title: "Tense and timing",
         items: [
           "Use past tense for completed work, especially in previous roles.",
@@ -257,6 +265,14 @@ window.CAREER_SIGNAL_CONFIG = {
           "Avoid date of birth, exact age, marital status, family status, gender, citizenship, nationality, full home address, or photo references unless they are explicitly required.",
           "Use location only at the useful level for the role, such as city, country, or work authorization when relevant.",
           "These details can create privacy, discrimination, or age-bias risk and usually do not strengthen the evidence of impact."
+        ]
+      },
+      {
+        title: "Contact basics",
+        items: [
+          "Put name, email, phone, and useful location near the top.",
+          "Add LinkedIn or portfolio when it helps prove the profile.",
+          "Missing contact details are uncommon, but they create unnecessary friction for recruiters."
         ]
       }
     ]

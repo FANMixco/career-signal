@@ -199,6 +199,60 @@ Good example:
 
 > Trained 180 employees across 5 sites on the new claims process, helping reduce repeated submission errors by 32%.
 
+## Evidence-Backed Language
+
+The evaluator should check whether personal claims are supported by evidence.
+
+The problem is not using words such as motivated, efficient, strategic, proactive, reliable, fast learner, team player, or strong communicator.
+
+The problem is using those words without proof nearby.
+
+If a CV says the candidate is efficient, the CV should show evidence such as:
+
+- Saved time.
+- Reduced manual work.
+- Improved delivery speed.
+- Increased throughput.
+- Reduced errors.
+- Simplified a process.
+
+If a CV says the candidate is strategic, the CV should show evidence such as:
+
+- Changed direction.
+- Prioritized investment.
+- Influenced leadership decisions.
+- Defined a roadmap.
+- Created governance.
+- Connected work to business outcomes.
+
+The evaluator should warn when the summary or bullets rely on unsupported self-assessment instead of concrete proof.
+
+Bad example:
+
+> Highly motivated and efficient professional with excellent communication skills.
+
+Good example:
+
+> Reduced monthly reporting effort by 40% by automating data preparation and aligning weekly updates across 6 stakeholder groups.
+
+## Contact Completeness
+
+The evaluator should check whether essential contact details are easy to find near the top.
+
+Expected signals usually include:
+
+- Name.
+- Email.
+- Phone.
+- Useful location, such as city/country or region.
+- LinkedIn or portfolio when relevant.
+
+Missing contact details are uncommon, but they create unnecessary recruiter friction.
+
+The evaluator should treat this as a low-severity warning unless multiple essential contact signals are missing.
+
+The evaluator must not invent contact details.
+
 ## Career Progression Visibility
 
 Long tenure at one company is not a weakness by itself.

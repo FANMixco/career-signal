@@ -253,6 +253,10 @@ Tense is another common issue. Previous roles and completed achievements should 
 
 The app may also warn when a role title and its responsibilities point in different directions. This does not mean hybrid roles are bad. It means the reader may be confused if, for example, a Project Manager role mainly describes product ownership, architecture, strategy, training, or operations. When true, clarify the scope with a subtitle, scope line, or bullet context. Do not invent a different official title.
 
+Personal narrative claims are also checked lightly. Words like motivated, efficient, strategic, reliable, or strong communicator are not bad by themselves, but they become weak when the CV does not prove them with outcomes, examples, scale, decisions, delivery, adoption, or measurable results.
+
+The app may also flag missing contact basics. Name, email, phone, and useful location should be easy to find near the top. LinkedIn or portfolio is optional but useful when it supports the profile.
+
 ## Using The Android Emulator
 
 If you test the app in an Android emulator, `localhost` inside the emulator means the emulator itself, not your computer.

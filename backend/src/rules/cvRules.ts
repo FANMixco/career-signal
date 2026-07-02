@@ -78,6 +78,24 @@ export const titleResponsibilityAlignment = {
     "Preserve any precheck warning about role-title and responsibility mismatch. Recommend clarifying unusual scope with truthful wording, such as a role subtitle, selected scope line, or bullets that explain why the responsibilities belonged to the role. Do not invent a different official title. If the mismatch is useful for the target job, explain how to position it honestly."
 } as const;
 
+export const evidenceBackedLanguage = {
+  textReminder:
+    "Evidence-backed language reminder\nClaims such as efficient, motivated, strategic, proactive, reliable, fast learner, team player, or strong communicator are weak unless the CV shows evidence nearby. Keep the claim only when bullets prove it through outcomes, examples, scale, decisions, adoption, delivery, or measurable results.",
+  precheckInstruction:
+    "Check whether the CV uses unsupported personal narrative or self-assessment language, especially in the summary. Warn when claims such as efficient, highly motivated, strategic, proactive, reliable, fast learner, team player, or strong communicator are not backed by nearby evidence. The issue is not the adjective itself; the issue is missing proof or correlation with concrete accomplishments.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about unsupported personal narrative claims. Replace or support self-assessment language with evidence-backed positioning. Do not simply polish adjectives; tie them to specific outcomes, scope, decisions, delivery, adoption, or measurable impact."
+} as const;
+
+export const contactCompleteness = {
+  textReminder:
+    "Contact completeness reminder\nA CV should make essential contact signals easy to find near the top: name, email, phone, location at a useful level, and usually LinkedIn or portfolio when relevant. Missing contact details are uncommon but costly because they create friction for recruiters.",
+  precheckInstruction:
+    "Check whether the CV includes essential contact details near the top: candidate name, email, phone, and location at a useful level such as city/country or region. LinkedIn or portfolio is optional but useful when relevant. Add a low-severity warning if email, phone, or location appears to be missing or hard to find.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about missing contact details. Recommend placing name, email, phone, useful location, and relevant LinkedIn or portfolio near the top. Do not add contact details that are not present; ask the user to provide them."
+} as const;
+
 export const sensitivePersonalDataRules = [
   {
     id: "dateOfBirth",

@@ -1,8 +1,10 @@
 import {
   accomplishmentTenseGuidance,
   careerProgressionVisibility,
+  contactCompleteness,
   cvLengthGuidance,
   educationPrivacy,
+  evidenceBackedLanguage,
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
 
@@ -36,6 +38,14 @@ CV length and seniority:
 Title and responsibility alignment:
 - ${titleResponsibilityAlignment.precheckInstruction}
 - Do not punish broad or hybrid roles by default. Warn only when the title and bullets could make the reader misunderstand the candidate's actual positioning.
+
+Evidence-backed language:
+- ${evidenceBackedLanguage.precheckInstruction}
+- Do not over-penalize one generic adjective. Warn when the CV relies on personal narrative claims instead of proof.
+
+Contact completeness:
+- ${contactCompleteness.precheckInstruction}
+- Treat this as a low-severity warning unless multiple essential contact signals are missing.
 
 Candidate metadata:
 
@@ -89,6 +99,12 @@ CV length and seniority:
 
 Title and responsibility alignment:
 - ${titleResponsibilityAlignment.reconstructionInstruction}
+
+Evidence-backed language:
+- ${evidenceBackedLanguage.reconstructionInstruction}
+
+Contact completeness:
+- ${contactCompleteness.reconstructionInstruction}
 
 Job fit assessment guidance:
 - Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.

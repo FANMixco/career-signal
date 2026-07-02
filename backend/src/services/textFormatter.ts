@@ -1,8 +1,10 @@
 import {
   accomplishmentTenseGuidance,
   careerProgressionVisibility,
+  contactCompleteness,
   cvLengthGuidance,
   educationPrivacy,
+  evidenceBackedLanguage,
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
 
@@ -12,7 +14,9 @@ export function planToText(analysis: Record<string, unknown>) {
     careerProgressionVisibility.textReminder,
     accomplishmentTenseGuidance.textReminder,
     cvLengthGuidance.textReminder,
-    titleResponsibilityAlignment.textReminder
+    titleResponsibilityAlignment.textReminder,
+    evidenceBackedLanguage.textReminder,
+    contactCompleteness.textReminder
   ].join("\n\n");
 
   if (typeof analysis.downloadableText === "string" && analysis.downloadableText.trim()) {
@@ -28,9 +32,15 @@ export function planToText(analysis: Record<string, unknown>) {
     const withLengthReminder = lowerText.includes("cv length and seniority reminder")
       ? withTenseReminder
       : `${cvLengthGuidance.textReminder}\n\n${withTenseReminder}`;
-    return lowerText.includes("title and responsibility alignment reminder")
+    const withTitleAlignmentReminder = lowerText.includes("title and responsibility alignment reminder")
       ? withLengthReminder
       : `${titleResponsibilityAlignment.textReminder}\n\n${withLengthReminder}`;
+    const withEvidenceLanguageReminder = lowerText.includes("evidence-backed language reminder")
+      ? withTitleAlignmentReminder
+      : `${evidenceBackedLanguage.textReminder}\n\n${withTitleAlignmentReminder}`;
+    return lowerText.includes("contact completeness reminder")
+      ? withEvidenceLanguageReminder
+      : `${contactCompleteness.textReminder}\n\n${withEvidenceLanguageReminder}`;
   }
 
   return `${reminders}\n\n${Object.entries(analysis)
