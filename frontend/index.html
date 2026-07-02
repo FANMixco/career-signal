@@ -72,28 +72,33 @@
       <section class="panel">
         <h2 data-copy="sections.cvInput"></h2>
         <p class="guidance" data-copy="feedback.cvInputGuidance"></p>
-        <div class="grid">
-          <label>
-            <span data-copy="labels.cvPdf"></span>
-            <input id="cvPdf" type="file" accept="application/pdf" />
-          </label>
+        <div class="cv-input-layout">
+          <div class="cv-source-controls">
+            <label>
+              <span data-copy="labels.cvPdf"></span>
+              <input id="cvPdf" type="file" accept="application/pdf" />
+            </label>
+            <div class="grid compact-grid">
+              <label>
+                <span data-copy="labels.aiProvider"></span>
+                <select id="aiProvider"></select>
+              </label>
+              <label>
+                <span data-copy="labels.aiModel"></span>
+                <select id="aiModel"></select>
+              </label>
+              <label class="api-key-field">
+                <span class="label-title-row">
+                  <span id="aiApiKeyLabel" data-copy="labels.aiApiKey"></span>
+                  <a id="apiKeyHelpLink" class="inline-help-link" target="_blank" rel="noreferrer"></a>
+                </span>
+                <input id="openaiApiKey" type="password" autocomplete="off" />
+              </label>
+            </div>
+          </div>
           <label>
             <span data-copy="labels.cvText"></span>
             <textarea id="cvText" rows="12" data-placeholder="placeholders.cvText"></textarea>
-          </label>
-        </div>
-        <div class="grid compact-grid">
-          <label>
-            <span data-copy="labels.aiProvider"></span>
-            <select id="aiProvider"></select>
-          </label>
-          <label>
-            <span data-copy="labels.aiModel"></span>
-            <select id="aiModel"></select>
-          </label>
-          <label>
-            <span id="aiApiKeyLabel" data-copy="labels.aiApiKey"></span>
-            <input id="openaiApiKey" type="password" autocomplete="off" />
           </label>
         </div>
         <div id="precheckFeedback" class="feedback" role="status" aria-live="polite"></div>

@@ -32,6 +32,7 @@ const els = {
   aiModel: document.querySelector("#aiModel"),
   aiApiKeyLabel: document.querySelector("#aiApiKeyLabel"),
   openaiApiKey: document.querySelector("#openaiApiKey"),
+  apiKeyHelpLink: document.querySelector("#apiKeyHelpLink"),
   precheckFeedback: document.querySelector("#precheckFeedback"),
   precheckButton: document.querySelector("#precheckButton"),
   precheckPanel: document.querySelector("#precheckPanel"),
@@ -213,6 +214,8 @@ function updateApiKeyCopy() {
   const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
   els.aiApiKeyLabel.textContent = providerCopy.label;
   els.openaiApiKey.setAttribute("placeholder", providerCopy.placeholder);
+  els.apiKeyHelpLink.href = providerCopy.keyUrl;
+  els.apiKeyHelpLink.textContent = providerCopy.keyLinkText;
 }
 
 async function runPrecheck() {

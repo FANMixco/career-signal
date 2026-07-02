@@ -141,7 +141,8 @@ This is the simplest option for testing.
 2. Open it in your browser.
 3. Choose `Gemini` or `OpenAI`.
 4. Choose one of the visible models for that provider.
-5. Paste the matching API key in the API key field.
+5. Use the `Get a Gemini API key` or `Get an OpenAI API key` link beside the field if you do not have a key yet.
+6. Paste the matching API key in the API key field.
 
 The key is sent only to the local backend for that request. The app does not store it.
 
@@ -274,6 +275,36 @@ If you prefer using an env file, pass it at runtime:
 ```bash
 docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
 ```
+
+## Optional: Build A Windows Desktop App
+
+The project also includes an Electron wrapper for Windows. It starts the same local backend internally and opens the app in a desktop window.
+
+Install the desktop packaging dependencies from the project root:
+
+```bash
+npm install
+```
+
+Run the desktop app in development mode:
+
+```bash
+npm run desktop:dev
+```
+
+Create an unpacked Windows build for quick testing:
+
+```bash
+npm run desktop:pack
+```
+
+Create a Windows installer and portable executable:
+
+```bash
+npm run desktop:dist
+```
+
+The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste keys in the app, or you can provide runtime environment variables while testing.
 
 ## Step 7: Use The App
 

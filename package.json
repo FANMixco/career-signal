@@ -1,0 +1,44 @@
+{
+  "name": "career-signal-engine-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop wrapper for Career Signal Engine.",
+  "author": "Federico Navarrete",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "desktop:prepare": "npm --prefix backend run build",
+    "desktop:dev": "npm run desktop:prepare && electron .",
+    "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
+    "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.federiconavarrete.careersignal",
+    "productName": "Career Signal Engine",
+    "asar": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "backend/dist/**/*",
+      "backend/node_modules/**/*",
+      "backend/package.json",
+      "frontend/**/*",
+      "LICENSE"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

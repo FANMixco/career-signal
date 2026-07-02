@@ -89,11 +89,15 @@ window.CAREER_SIGNAL_CONFIG = {
   apiKeys: {
     gemini: {
       label: "Gemini API key",
-      placeholder: "Optional if GEMINI_API_KEY is configured"
+      placeholder: "Optional if GEMINI_API_KEY is configured",
+      keyUrl: "https://aistudio.google.com/app/apikey",
+      keyLinkText: "Get a Gemini API key"
     },
     openai: {
       label: "OpenAI API key",
-      placeholder: "Optional if OPENAI_API_KEY is configured"
+      placeholder: "Optional if OPENAI_API_KEY is configured",
+      keyUrl: "https://platform.openai.com/api-keys",
+      keyLinkText: "Get an OpenAI API key"
     }
   },
   targetStyles: [
