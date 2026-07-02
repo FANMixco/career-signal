@@ -217,30 +217,34 @@ Ctrl + C
 
 ## Optional: Run With Docker
 
-Docker runs the backend and frontend in one container. The image does not include your `.env` file.
+Docker runs the backend and frontend in one container. This is often the easiest way to start if you do not want to install Node.js or clone the project internals.
 
-Build the image from the project root:
+You can use either Docker Desktop or Podman Desktop.
+
+### Option A: Use The Published Image
+
+Pull the image:
 
 ```bash
-docker build -t career-signal-engine .
+docker pull fanmixco/career-signal:latest
 ```
 
 Run it with a Gemini key:
 
 ```bash
-docker run --rm -p 3001:3001 -e GEMINI_API_KEY=your_gemini_key_here career-signal-engine
+docker run --rm -p 3001:3001 -e GEMINI_API_KEY=your_gemini_key_here fanmixco/career-signal:latest
 ```
 
 Or run it with an OpenAI key:
 
 ```bash
-docker run --rm -p 3001:3001 -e OPENAI_API_KEY=your_openai_key_here career-signal-engine
+docker run --rm -p 3001:3001 -e OPENAI_API_KEY=your_openai_key_here fanmixco/career-signal:latest
 ```
 
-If you prefer using an env file, pass it at runtime:
+If you use Podman Desktop, the command is almost the same:
 
 ```bash
-docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
+podman run --rm -p 3001:3001 -e GEMINI_API_KEY=your_gemini_key_here fanmixco/career-signal:latest
 ```
 
 Then open:
@@ -249,22 +253,45 @@ Then open:
 http://localhost:3001
 ```
 
+The image does not include your `.env` file. API keys are passed at runtime with `-e` or typed into the app.
+
+### Option B: Build The Image Yourself
+
+Build the image from the project root:
+
+```bash
+docker build -t career-signal-engine .
+```
+
+Run your local build:
+
+```bash
+docker run --rm -p 3001:3001 career-signal-engine
+```
+
+If you prefer using an env file, pass it at runtime:
+
+```bash
+docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
+```
+
 ## Step 7: Use The App
 
 1. Fill in the profile details.
 2. Upload a LinkedIn PDF export or paste CV text.
 3. Choose Gemini or OpenAI.
-4. Paste an API key if you did not configure one in `.env`.
-5. Click `Run CV Evidence Precheck`.
-6. Wait for the result. The button shows that validation is running.
-7. Review the CV Evidence Score, warnings, and suggested improvements.
-8. If the CV has weak evidence, improve it first or explicitly choose to continue anyway.
-9. Add the target company name.
-10. Optionally add a short company description.
-11. Paste the full job description.
-12. Generate the reconstruction plan.
-13. Review the profile match assessment and the recommended CV structure.
-14. Download the TXT file if you want to keep the plan.
+4. Choose the model you want to use.
+5. Paste an API key if you did not configure one in `.env`.
+6. Click `Run CV Evidence Precheck`.
+7. Wait for the result. The button shows that validation is running.
+8. Review the CV Evidence Score, warnings, and suggested improvements.
+9. If the CV has weak evidence, improve it first or explicitly choose to continue anyway.
+10. Add the target company name.
+11. Optionally add a short company description.
+12. Paste the full job description.
+13. Generate the reconstruction plan.
+14. Review the profile match assessment and the recommended CV structure.
+15. Download the TXT file if you want to keep the plan.
 
 After the precheck has passed, you can change the target company, company description, role style, or job description and generate another plan. You do not need to run the CV Evidence Precheck again unless you change the CV text, uploaded PDF, years of experience, studies information, or experience selection mode.
 
