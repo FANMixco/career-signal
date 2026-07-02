@@ -251,6 +251,8 @@ Long tenure at one company is a good example. Staying at one company for many ye
 
 Tense is another common issue. Previous roles and completed achievements should normally use past tense. Current roles can use present tense for responsibilities that are still active, but completed achievements inside a current role should still read as completed outcomes. Infinitive or present-tense wording can make strong accomplishments look unfinished, generic, or unclear.
 
+The app may also warn when a role title and its responsibilities point in different directions. This does not mean hybrid roles are bad. It means the reader may be confused if, for example, a Project Manager role mainly describes product ownership, architecture, strategy, training, or operations. When true, clarify the scope with a subtitle, scope line, or bullet context. Do not invent a different official title.
+
 ## Using The Android Emulator
 
 If you test the app in an Android emulator, `localhost` inside the emulator means the emulator itself, not your computer.

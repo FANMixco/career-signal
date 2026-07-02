@@ -229,6 +229,43 @@ Good example:
 
 > Ericsson, 2014-2024: show separate confirmed roles, such as Analyst, Project Lead, Program Manager, and Senior Manager, with dates and scope only if those titles and dates are true.
 
+## Title And Responsibility Alignment
+
+The evaluator should check whether each role title matches the responsibilities and accomplishments listed under it.
+
+The risk is not hybrid work. Many real roles combine project management, product management, architecture, operations, training, governance, strategy, or delivery.
+
+The risk is reader confusion.
+
+If the official title points in one direction but the bullets point somewhere else, the CV may make the candidate look unfocused or incorrectly positioned.
+
+The evaluator should warn when a role mixes materially different disciplines without context, for example:
+
+- A Project Manager title with mostly product ownership bullets.
+- A Product Manager title with mostly project coordination bullets.
+- A Support title with architecture or strategy bullets.
+- A Strategy title with mostly operational execution bullets.
+- A Delivery title with mostly training or communications bullets.
+
+The evaluator should recommend clarifying the scope honestly.
+
+Useful fixes include:
+
+- A truthful role subtitle.
+- A short scope line under the title.
+- Bullets that explain why the unusual responsibility belonged to the role.
+- Grouping bullets by theme when one role legitimately covered several disciplines.
+
+The evaluator must not invent a different official title.
+
+Bad example:
+
+> Project Manager: owned product roadmap, prioritized backlog, defined user stories, and managed release adoption.
+
+Good example:
+
+> Project Manager / Product Delivery Scope: coordinated delivery while also owning backlog prioritization and release adoption for an internal platform.
+
 ## Achievement Tense And Timing
 
 The evaluator should check whether accomplishments use appropriate tense.

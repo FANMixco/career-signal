@@ -1,4 +1,10 @@
-import { accomplishmentTenseGuidance, careerProgressionVisibility, cvLengthGuidance, educationPrivacy } from "../rules/cvRules.js";
+import {
+  accomplishmentTenseGuidance,
+  careerProgressionVisibility,
+  cvLengthGuidance,
+  educationPrivacy,
+  titleResponsibilityAlignment
+} from "../rules/cvRules.js";
 
 export function precheckPrompt(input: {
   cvText: string;
@@ -26,6 +32,10 @@ Achievement tense and chronology:
 CV length and seniority:
 - ${cvLengthGuidance.precheckInstruction}
 - If the CV passes overall but has length issues, include them in specificWarnings so the user can improve before tailoring.
+
+Title and responsibility alignment:
+- ${titleResponsibilityAlignment.precheckInstruction}
+- Do not punish broad or hybrid roles by default. Warn only when the title and bullets could make the reader misunderstand the candidate's actual positioning.
 
 Candidate metadata:
 
@@ -76,6 +86,9 @@ Achievement tense and chronology:
 
 CV length and seniority:
 - ${cvLengthGuidance.reconstructionInstruction}
+
+Title and responsibility alignment:
+- ${titleResponsibilityAlignment.reconstructionInstruction}
 
 Job fit assessment guidance:
 - Provide jobFitAssessment as a 0 to 100 score for how well the supplied CV evidence appears to match the target company and job description.

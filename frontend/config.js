@@ -244,6 +244,14 @@ window.CAREER_SIGNAL_CONFIG = {
         ]
       },
       {
+        title: "Title and responsibility alignment",
+        items: [
+          "Make sure each official title matches the responsibilities and accomplishments listed below it.",
+          "If the title is Project Manager but the bullets describe product ownership, architecture, strategy, training, or operations, clarify the scope instead of letting the reader guess.",
+          "Hybrid roles are fine, but unusual scope should be explained with truthful wording such as a role subtitle, scope line, or clear bullet context."
+        ]
+      },
+      {
         title: "Sensitive personal details",
         items: [
           "Avoid date of birth, exact age, marital status, family status, gender, citizenship, nationality, full home address, or photo references unless they are explicitly required.",

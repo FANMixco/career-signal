@@ -69,6 +69,15 @@ export const cvLengthGuidance = {
     "Preserve any precheck warning about CV length. Recommend compressing old or irrelevant experience when length hides evidence, but do not remove scale, results, role context, progression, or credentials needed to prove fit."
 } as const;
 
+export const titleResponsibilityAlignment = {
+  textReminder:
+    "Title and responsibility alignment reminder\nCheck whether the role title matches the responsibilities and accomplishments shown under it. If a title says project management but the bullets describe product management, strategy, operations, architecture, training, or another discipline, warn that the reader may misunderstand the candidate's real positioning. Recommend clarifying the scope in the role subtitle, summary, or bullets without inventing a new title.",
+  precheckInstruction:
+    "Check whether each visible role title aligns with the responsibilities and accomplishments listed under it. Add a specific warning when the CV mixes materially different disciplines under one title, such as project management bullets under a product management title, product ownership under a project manager title, architecture under a support title, or operational work under a strategy title. The risk is reader confusion and weak positioning, not multidisciplinary experience by itself.",
+  reconstructionInstruction:
+    "Preserve any precheck warning about role-title and responsibility mismatch. Recommend clarifying unusual scope with truthful wording, such as a role subtitle, selected scope line, or bullets that explain why the responsibilities belonged to the role. Do not invent a different official title. If the mismatch is useful for the target job, explain how to position it honestly."
+} as const;
+
 export const sensitivePersonalDataRules = [
   {
     id: "dateOfBirth",
