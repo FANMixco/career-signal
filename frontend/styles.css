@@ -97,24 +97,19 @@ h2 {
 
 .compact-grid {
   align-items: end;
-  margin-top: 4px;
+  margin-top: 18px;
 }
 
-.cv-input-layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+.cv-source-grid {
   align-items: start;
-  gap: 16px;
 }
 
-.cv-input-layout label,
-.cv-source-controls label {
+.cv-source-grid label {
   margin-bottom: 0;
 }
 
-.cv-source-controls {
-  display: grid;
-  gap: 16px;
+.ai-settings-grid {
+  grid-template-columns: minmax(170px, 0.75fr) minmax(220px, 0.9fr) minmax(340px, 1.35fr);
 }
 
 label {
@@ -134,7 +129,7 @@ label {
 }
 
 .api-key-field {
-  grid-column: 1 / -1;
+  grid-column: auto;
 }
 
 input,
@@ -493,7 +488,6 @@ pre {
 @media (max-width: 760px) {
   .topbar,
   .grid,
-  .cv-input-layout,
   .result-grid,
   .modal-body {
     grid-template-columns: 1fr;
