@@ -4,6 +4,9 @@ export const MIN_JOB_DESCRIPTION_LENGTH = 120;
 export const targetStyles = ["Consulting", "Strategy", "Product", "Cloud", "Engineering", "Procurement", "Sales", "Leadership", "Training", "Management", "General"] as const;
 export const experienceSelectionModes = ["lastFive", "all"] as const;
 export const aiProviders = ["gemini", "openai"] as const;
+export const openAiModels = ["gpt-5.5", "gpt-5.4", "gpt-5.4-mini"] as const;
+export const geminiModels = ["models/gemini-3.5-flash", "models/gemini-3.1-flash-lite", "models/gemini-2.5-pro"] as const;
+export const aiModels = [...openAiModels, ...geminiModels] as const;
 
 export const proceedRecommendations = ["Proceed", "Improve CV first", "Proceed with caution"] as const;
 

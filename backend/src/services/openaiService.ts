@@ -68,17 +68,17 @@ export function createModelProvider(providerKind: AiProviderKind = "gemini", api
   throw new Error("A Gemini API key is required. Paste a Gemini key or configure GEMINI_API_KEY in the backend .env file.");
 }
 
-function openAiModel() {
-  return process.env.OPENAI_MODEL || "gpt-5.2";
+function openAiModel(model?: string) {
+  return model || process.env.OPENAI_MODEL || "gpt-5.5";
 }
 
-function geminiModel() {
-  return process.env.GEMINI_MODEL || "models/gemini-3-flash-preview";
+function geminiModel(model?: string) {
+  return model || process.env.GEMINI_MODEL || "models/gemini-3.5-flash";
 }
 
-async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string) {
+async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
   const response = await client.responses.parse({
-    model: openAiModel(),
+    model: openAiModel(model),
     input,
     text: {
       format: zodTextFormat(schema, name)
@@ -116,9 +116,9 @@ function extractJson(text: string) {
   return trimmed;
 }
 
-async function createGeminiJsonResponse<T>(client: GoogleGenAI, name: string, schema: z.ZodType<T>, input: string) {
+async function createGeminiJsonResponse<T>(client: GoogleGenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
   const interaction = await client.interactions.create({
-    model: geminiModel(),
+    model: geminiModel(model),
     input: `${input}
 
 Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.`,
@@ -135,16 +135,17 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
   return schema.parse(JSON.parse(extractJson(outputText)));
 }
 
-async function createJsonResponse<T>(provider: Provider, name: string, schema: z.ZodType<T>, input: string) {
+async function createJsonResponse<T>(provider: Provider, name: string, schema: z.ZodType<T>, input: string, model?: string) {
   if (provider.kind === "openai") {
-    return createOpenAiJsonResponse(provider.client, name, schema, input);
+    return createOpenAiJsonResponse(provider.client, name, schema, input, model);
   }
 
-  return createGeminiJsonResponse(provider.client, name, schema, input);
+  return createGeminiJsonResponse(provider.client, name, schema, input, model);
 }
 
 export async function runPrecheck(input: {
   aiProvider?: AiProviderKind;
+  aiModel?: string;
   apiKey?: string;
   cvText: string;
   yearsOfExperience: number;
@@ -157,7 +158,8 @@ export async function runPrecheck(input: {
     provider,
     "cv_quality_precheck",
     precheckSchema,
-    precheckPrompt(input)
+    precheckPrompt(input),
+    input.aiModel
   );
 
   if (parsed.questionsToRecoverMetrics.length === 0) {
@@ -169,6 +171,7 @@ export async function runPrecheck(input: {
 
 export async function runAnalysis(input: {
   aiProvider?: AiProviderKind;
+  aiModel?: string;
   apiKey?: string;
   cvText: string;
   precheckResult: Record<string, unknown>;
@@ -183,7 +186,8 @@ export async function runAnalysis(input: {
     provider,
     "cv_reconstruction_plan",
     analysisSchema,
-    reconstructionPrompt(input)
+    reconstructionPrompt(input),
+    input.aiModel
   );
 
   return normalizeAnalysisResult(analysis);

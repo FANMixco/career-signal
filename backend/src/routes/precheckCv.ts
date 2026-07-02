@@ -26,7 +26,8 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       hasDegree: parseFormValue(req.body.hasDegree),
       degreeYear: parseFormValue(req.body.degreeYear) || undefined,
       experienceSelectionMode: parseFormValue(req.body.experienceSelectionMode),
-      aiProvider: parseFormValue(req.body.aiProvider)
+      aiProvider: parseFormValue(req.body.aiProvider),
+      aiModel: parseFormValue(req.body.aiModel) || undefined
     });
 
     if (metadata.yearsOfExperience > 5 && req.body.hasDegree === undefined) {
@@ -52,6 +53,7 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
 
     const precheck = await runPrecheck({
       aiProvider: metadata.aiProvider,
+      aiModel: metadata.aiModel,
       apiKey: req.body.aiApiKey || req.body.openaiApiKey,
       cvText,
       yearsOfExperience: metadata.yearsOfExperience,

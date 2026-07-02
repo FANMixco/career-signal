@@ -1,5 +1,7 @@
 function resolveApiBaseUrl(location) {
-  if (location.port === "3001") {
+  const separateFrontendPorts = new Set(["5500", "5173", "4173", "8080"]);
+
+  if (location.protocol.startsWith("http") && !separateFrontendPorts.has(location.port)) {
     return "";
   }
 
@@ -44,6 +46,7 @@ window.CAREER_SIGNAL_CONFIG = {
     cvPdf: "Upload LinkedIn PDF",
     cvText: "Paste CV text manually",
     aiProvider: "AI provider",
+    aiModel: "AI model",
     aiApiKey: "API key",
     targetCompany: "Target company name",
     companyDescription: "Company description (optional)",
@@ -61,6 +64,18 @@ window.CAREER_SIGNAL_CONFIG = {
       ["gemini", "Gemini"],
       ["openai", "OpenAI"]
     ],
+    aiModels: {
+      gemini: [
+        ["models/gemini-3.5-flash", "Gemini 3.5 Flash"],
+        ["models/gemini-3.1-flash-lite", "Gemini 3.1 Flash-Lite"],
+        ["models/gemini-2.5-pro", "Gemini 2.5 Pro"]
+      ],
+      openai: [
+        ["gpt-5.5", "GPT-5.5"],
+        ["gpt-5.4", "GPT-5.4"],
+        ["gpt-5.4-mini", "GPT-5.4 mini"]
+      ]
+    },
     studiesListed: [
       ["", "Select"],
       ["true", "Yes"],

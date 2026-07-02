@@ -29,6 +29,7 @@ const els = {
   cvPdf: document.querySelector("#cvPdf"),
   cvText: document.querySelector("#cvText"),
   aiProvider: document.querySelector("#aiProvider"),
+  aiModel: document.querySelector("#aiModel"),
   aiApiKeyLabel: document.querySelector("#aiApiKeyLabel"),
   openaiApiKey: document.querySelector("#openaiApiKey"),
   precheckFeedback: document.querySelector("#precheckFeedback"),
@@ -204,6 +205,10 @@ function populateStaticSelects() {
   els.experienceSelectionMode.innerHTML = optionList(config.options.experienceSelectionMode);
 }
 
+function populateAiModels() {
+  els.aiModel.innerHTML = optionList(config.options.aiModels[els.aiProvider.value] || []);
+}
+
 function updateApiKeyCopy() {
   const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
   els.aiApiKeyLabel.textContent = providerCopy.label;
@@ -270,6 +275,7 @@ async function runPrecheck() {
   form.append("yearsOfExperience", String(years));
   form.append("experienceSelectionMode", els.experienceSelectionMode.value);
   form.append("aiProvider", els.aiProvider.value);
+  form.append("aiModel", els.aiModel.value);
   if (years > 5) form.append("hasDegree", els.hasDegree.value);
   if (els.degreeYear.value) form.append("degreeYear", els.degreeYear.value);
   if (els.cvText.value.trim()) form.append("cvText", els.cvText.value.trim());
@@ -305,7 +311,7 @@ async function runPrecheck() {
     setFeedback("success", config.feedback.precheckComplete);
   } catch (error) {
     setStatus("Error");
-    setFeedback("error", error.message);
+    setFeedback("error", error instanceof TypeError ? `Could not reach the API at ${apiUrl("/api/precheck-cv")}.` : error.message);
   } finally {
     state.precheckInFlight = false;
     setBusy(false);
@@ -414,6 +420,7 @@ async function runAnalysis() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         aiProvider: els.aiProvider.value,
+        aiModel: els.aiModel.value,
         aiApiKey: els.openaiApiKey.value.trim(),
         cvText: state.cvText,
         jobDescription: els.jobDescription.value.trim(),
@@ -433,7 +440,7 @@ async function runAnalysis() {
     setStatus("Plan ready");
   } catch (error) {
     setStatus("Error");
-    setFeedback("error", error.message);
+    setFeedback("error", error instanceof TypeError ? `Could not reach the API at ${apiUrl("/api/analyze-cv")}.` : error.message);
   } finally {
     state.analysisInFlight = false;
     setBusy(false);
@@ -537,7 +544,10 @@ function setBusy(isBusy) {
   });
 });
 
-els.aiProvider.addEventListener("change", updateApiKeyCopy);
+els.aiProvider.addEventListener("change", () => {
+  populateAiModels();
+  updateApiKeyCopy();
+});
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
@@ -555,6 +565,7 @@ document.addEventListener("keydown", (event) => {
 });
 applyConfiguredText();
 populateStaticSelects();
+populateAiModels();
 populateTargetStyles();
 updateApiKeyCopy();
 updateMetadataVisibility();

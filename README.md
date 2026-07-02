@@ -140,7 +140,8 @@ This is the simplest option for testing.
 1. Start the app.
 2. Open it in your browser.
 3. Choose `Gemini` or `OpenAI`.
-4. Paste the matching API key in the API key field.
+4. Choose one of the visible models for that provider.
+5. Paste the matching API key in the API key field.
 
 The key is sent only to the local backend for that request. The app does not store it.
 
@@ -164,9 +165,9 @@ Open the new `.env` file and add either your Gemini key or your OpenAI key:
 
 ```env
 OPENAI_API_KEY=
-OPENAI_MODEL=gpt-5.2
+OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=
-GEMINI_MODEL=models/gemini-3-flash-preview
+GEMINI_MODEL=models/gemini-3.5-flash
 PORT=3001
 ```
 
@@ -174,11 +175,13 @@ Example:
 
 ```env
 OPENAI_API_KEY=
-OPENAI_MODEL=gpt-5.2
+OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=your_gemini_key_here
-GEMINI_MODEL=models/gemini-3-flash-preview
+GEMINI_MODEL=models/gemini-3.5-flash
 PORT=3001
 ```
+
+The app also shows model choices directly in the UI. The `.env` model values are only defaults for requests that do not send a selected model.
 
 Important: never share or commit the `.env` file. It contains private keys. The project is configured to ignore `.env`, but you should still treat it as secret.
 
@@ -210,6 +213,40 @@ To stop the app, click the terminal and press:
 
 ```text
 Ctrl + C
+```
+
+## Optional: Run With Docker
+
+Docker runs the backend and frontend in one container. The image does not include your `.env` file.
+
+Build the image from the project root:
+
+```bash
+docker build -t career-signal-engine .
+```
+
+Run it with a Gemini key:
+
+```bash
+docker run --rm -p 3001:3001 -e GEMINI_API_KEY=your_gemini_key_here career-signal-engine
+```
+
+Or run it with an OpenAI key:
+
+```bash
+docker run --rm -p 3001:3001 -e OPENAI_API_KEY=your_openai_key_here career-signal-engine
+```
+
+If you prefer using an env file, pass it at runtime:
+
+```bash
+docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
+```
+
+Then open:
+
+```text
+http://localhost:3001
 ```
 
 ## Step 7: Use The App
