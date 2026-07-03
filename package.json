@@ -31,7 +31,7 @@
       "LICENSE"
     ],
     "win": {
-      "icon": "frontend/img/favicons/favicon.ico",
+      "icon": "frontend/img/favicons/android-chrome-512x512.png",
       "target": [
         "nsis",
         "portable"
