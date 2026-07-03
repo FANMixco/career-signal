@@ -288,6 +288,44 @@ If you prefer using an env file, pass it at runtime:
 docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
 ```
 
+### Publish The Docker Image From GitHub
+
+The project includes a GitHub Actions workflow that can build and publish the Docker image for you. This avoids building and pushing the image from your own PC.
+
+You need to configure two GitHub repository secrets once:
+
+1. Create a Docker Hub access token:
+   - Open Docker Hub.
+   - Go to your account settings.
+   - Open Security.
+   - Create a personal access token with read/write access.
+   - Copy the token.
+
+2. Add the token to GitHub:
+   - Open the GitHub repository.
+   - Go to Settings.
+   - Open Secrets and variables.
+   - Open Actions.
+   - Add `DOCKERHUB_USERNAME` with your Docker Hub username.
+   - Add `DOCKERHUB_TOKEN` with the Docker Hub access token.
+
+After that, every pushed version tag such as `v1.0.3` publishes:
+
+```text
+fanmixco/career-signal:v1.0.3
+fanmixco/career-signal:latest
+```
+
+You can also publish manually from GitHub:
+
+1. Open the Actions tab.
+2. Select `Publish Docker Image`.
+3. Click `Run workflow`.
+4. Enter the image tag, for example `1.0.3`.
+5. Keep `Also update the latest tag` enabled if this should become the default Docker image.
+
+Do not add Docker Hub passwords or tokens to the code, README, or `.env` file.
+
 ## Optional: Build A Windows Desktop App
 
 The project also includes an Electron wrapper for Windows. It starts the same local backend internally and opens the app in a desktop window.
