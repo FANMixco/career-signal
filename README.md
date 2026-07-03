@@ -309,10 +309,10 @@ You need to configure two GitHub repository secrets once:
    - Add `DOCKERHUB_USERNAME` with your Docker Hub username.
    - Add `DOCKERHUB_TOKEN` with the Docker Hub access token.
 
-After that, every pushed version tag such as `v1.0.3` publishes:
+After that, every pushed version tag such as `v1.0.4` publishes:
 
 ```text
-fanmixco/career-signal:v1.0.3
+fanmixco/career-signal:v1.0.4
 fanmixco/career-signal:latest
 ```
 
@@ -321,7 +321,7 @@ You can also publish manually from GitHub:
 1. Open the Actions tab.
 2. Select `Publish Docker Image`.
 3. Click `Run workflow`.
-4. Enter the image tag, for example `1.0.3`.
+4. Enter the image tag, for example `1.0.4`.
 5. Keep `Also update the latest tag` enabled if this should become the default Docker image.
 
 Do not add Docker Hub passwords or tokens to the code, README, or `.env` file.
