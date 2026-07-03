@@ -17,7 +17,7 @@ The app is designed to be used by non-technical people too. You do not need to c
 - Lets the user test multiple target roles after a successful precheck without checking the same unchanged CV again.
 - Gives a profile match score from 0 to 100 for the selected company and role.
 - Lets the user download the final plan as a TXT file.
-- Supports Gemini or OpenAI. The user can choose the provider in the app.
+- Supports Gemini, OpenAI, or Mistral. The user can choose the provider in the app.
 
 ## What It Does Not Do
 
@@ -36,8 +36,9 @@ You need:
 - A modern browser such as Chrome, Edge, Firefox, or Safari.
 - Node.js installed on your computer.
 - One AI API key:
-  - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey), or
-  - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys).
+  - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey),
+  - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys), or
+  - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/).
 - A CV, either as:
   - a LinkedIn PDF export, or
   - text copied from an existing CV.
@@ -130,6 +131,7 @@ Get a key from the provider you want to use:
 
 - Gemini: [Google AI Studio API keys](https://aistudio.google.com/app/apikey)
 - OpenAI: [OpenAI Platform API keys](https://platform.openai.com/api-keys)
+- Mistral: [Mistral AI Console API keys](https://console.mistral.ai/api-keys/)
 
 You may need to sign in, create a project, add billing, or accept the provider's terms before a key works. Keep the key private. Anyone with the key may be able to use your account quota or billing.
 
@@ -139,9 +141,9 @@ This is the simplest option for testing.
 
 1. Start the app.
 2. Open it in your browser.
-3. Choose `Gemini` or `OpenAI`.
+3. Choose `Gemini`, `OpenAI`, or `Mistral`.
 4. Choose one of the visible models for that provider.
-5. Use the `Get a Gemini API key` or `Get an OpenAI API key` link beside the field if you do not have a key yet.
+5. Use the key link beside the field if you do not have a key yet.
 6. Paste the matching API key in the API key field.
 
 The key is sent only to the local backend for that request. The app does not store it.
@@ -162,13 +164,15 @@ On macOS or Linux, run:
 cp .env.example .env
 ```
 
-Open the new `.env` file and add either your Gemini key or your OpenAI key:
+Open the new `.env` file and add the key for the provider you want to use:
 
 ```env
 OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=
 GEMINI_MODEL=models/gemini-3.5-flash
+MISTRAL_API_KEY=
+MISTRAL_MODEL=mistral-medium-latest
 PORT=3001
 ```
 
@@ -179,6 +183,8 @@ OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=your_gemini_key_here
 GEMINI_MODEL=models/gemini-3.5-flash
+MISTRAL_API_KEY=
+MISTRAL_MODEL=mistral-medium-latest
 PORT=3001
 ```
 
@@ -240,6 +246,12 @@ Or run it with an OpenAI key:
 
 ```bash
 docker run --rm -p 3001:3001 -e OPENAI_API_KEY=your_openai_key_here fanmixco/career-signal:latest
+```
+
+Or run it with a Mistral key:
+
+```bash
+docker run --rm -p 3001:3001 -e MISTRAL_API_KEY=your_mistral_key_here fanmixco/career-signal:latest
 ```
 
 If you use Podman Desktop, the command is almost the same:
@@ -310,7 +322,7 @@ The generated files are written to the `release` folder. API keys are not bundle
 
 1. Fill in the profile details.
 2. Upload a LinkedIn PDF export or paste CV text.
-3. Choose Gemini or OpenAI.
+3. Choose Gemini, OpenAI, or Mistral.
 4. Choose the model you want to use.
 5. Paste an API key if you did not configure one in `.env`.
 6. Click `Run CV Evidence Precheck`.
@@ -432,6 +444,7 @@ Fix:
 
 - If `Gemini` is selected, paste a Gemini key or set `GEMINI_API_KEY` in `.env`.
 - If `OpenAI` is selected, paste an OpenAI key or set `OPENAI_API_KEY` in `.env`.
+- If `Mistral` is selected, paste a Mistral key or set `MISTRAL_API_KEY` in `.env`.
 
 ### The precheck button does nothing
 
@@ -475,7 +488,7 @@ If the precheck result is weak, improve the CV first or explicitly choose to con
 
 - Backend: Node.js, Express, TypeScript
 - Frontend: static HTML, CSS, JavaScript
-- AI providers: Gemini or OpenAI
+- AI providers: Gemini, OpenAI, or Mistral
 - PDF extraction: `pdf-parse`
 - Validation: Zod
 

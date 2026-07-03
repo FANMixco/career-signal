@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { runAnalysis } from "../services/openaiService.js";
+import { runAnalysis } from "../services/aiProviderService.js";
 import { planToText } from "../services/textFormatter.js";
 import { analyzeCvSchema } from "../utils/validation.js";
 

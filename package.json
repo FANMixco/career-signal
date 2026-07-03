@@ -1,6 +1,6 @@
 {
   "name": "career-signal-engine-desktop",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "private": true,
   "description": "Desktop wrapper for Career Signal Engine.",
   "author": "Federico Navarrete",
@@ -31,6 +31,7 @@
       "LICENSE"
     ],
     "win": {
+      "icon": "frontend/img/favicons/favicon.ico",
       "target": [
         "nsis",
         "portable"

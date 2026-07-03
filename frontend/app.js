@@ -5,7 +5,8 @@ const state = {
   precheckInFlight: false,
   analysisInFlight: false,
   continueDespiteWeakPrecheck: false,
-  downloadableText: ""
+  downloadableText: "",
+  appHelpTab: "use"
 };
 
 const config = window.CAREER_SIGNAL_CONFIG;
@@ -13,6 +14,11 @@ const config = window.CAREER_SIGNAL_CONFIG;
 const els = {
   status: document.querySelector("#status"),
   siteFooterInner: document.querySelector("#siteFooterInner"),
+  appHelpButton: document.querySelector("#appHelpButton"),
+  appHelpModal: document.querySelector("#appHelpModal"),
+  appHelpTabs: document.querySelector("#appHelpTabs"),
+  appHelpBody: document.querySelector("#appHelpBody"),
+  appHelpClose: document.querySelector("#appHelpClose"),
   cvBasicsButton: document.querySelector("#cvBasicsButton"),
   cvBasicsModal: document.querySelector("#cvBasicsModal"),
   cvBasicsBody: document.querySelector("#cvBasicsBody"),
@@ -81,7 +87,11 @@ function applyConfiguredText() {
 
   els.cvBasicsClose.textContent = config.buttons.closeModal;
   els.cvBasicsClose.setAttribute("aria-label", config.buttons.closeModalLabel);
+  els.appHelpButton.setAttribute("aria-label", config.buttons.appHelpLabel);
+  els.appHelpClose.textContent = config.buttons.closeModal;
+  els.appHelpClose.setAttribute("aria-label", config.buttons.closeHelpLabel);
   renderFooter();
+  renderAppHelp();
   renderCvBasics();
 }
 
@@ -89,14 +99,18 @@ function show(element, visible = true) {
   element.classList.toggle("hidden", !visible);
 }
 
-function setModalOpen(isOpen) {
-  show(els.cvBasicsModal, isOpen);
-  document.body.classList.toggle("modal-open", isOpen);
+function isAnyModalOpen() {
+  return !els.cvBasicsModal.classList.contains("hidden") || !els.appHelpModal.classList.contains("hidden");
+}
+
+function setModalOpen(modal, trigger, closeButton, isOpen) {
+  show(modal, isOpen);
+  document.body.classList.toggle("modal-open", isAnyModalOpen());
 
   if (isOpen) {
-    els.cvBasicsClose.focus();
-  } else {
-    els.cvBasicsButton.focus();
+    closeButton.focus();
+  } else if (trigger) {
+    trigger.focus();
   }
 }
 
@@ -119,6 +133,47 @@ function renderFooter() {
     <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
     <a href="${escapeHtml(config.footer.contributeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.contributeText)}</a>
   `;
+}
+
+function renderLinks(links = []) {
+  if (!links.length) return "";
+  return `<div class="help-links">${links
+    .map(([label, href]) => `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`)
+    .join("")}</div>`;
+}
+
+function renderHelpBlocks(blocks) {
+  return blocks
+    .map((block) => {
+      const text = block.text ? `<p>${escapeHtml(block.text)}</p>` : "";
+      const items = block.items ? `<ul>${block.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
+      const links = renderLinks(block.links);
+
+      return `<div class="help-block"><h3>${escapeHtml(block.title)}</h3>${text}${items}${links}</div>`;
+    })
+    .join("");
+}
+
+function renderAppHelp() {
+  const tabs = config.appHelp.tabs;
+  const activeTab = tabs.find((tab) => tab.id === state.appHelpTab) || tabs[0];
+  state.appHelpTab = activeTab.id;
+
+  els.appHelpTabs.innerHTML = tabs
+    .map(
+      (tab) => `
+        <button
+          class="tab-button ${tab.id === activeTab.id ? "is-active" : ""}"
+          type="button"
+          role="tab"
+          aria-selected="${tab.id === activeTab.id}"
+          data-help-tab="${escapeHtml(tab.id)}"
+        >${escapeHtml(tab.label)}</button>
+      `
+    )
+    .join("");
+
+  els.appHelpBody.innerHTML = renderHelpBlocks(activeTab.blocks);
 }
 
 function renderCvBasics() {
@@ -554,16 +609,35 @@ els.aiProvider.addEventListener("change", () => {
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
-els.cvBasicsButton.addEventListener("click", () => setModalOpen(true));
-els.cvBasicsClose.addEventListener("click", () => setModalOpen(false));
+els.appHelpButton.addEventListener("click", () => setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, true));
+els.appHelpClose.addEventListener("click", () => setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, false));
+els.appHelpTabs.addEventListener("click", (event) => {
+  const tabButton = event.target.closest("[data-help-tab]");
+  if (!tabButton) return;
+
+  state.appHelpTab = tabButton.dataset.helpTab;
+  renderAppHelp();
+  els.appHelpTabs.querySelector(`[data-help-tab="${CSS.escape(state.appHelpTab)}"]`)?.focus();
+});
+els.appHelpModal.addEventListener("click", (event) => {
+  if (event.target.matches("[data-close-modal]")) {
+    setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, false);
+  }
+});
+els.cvBasicsButton.addEventListener("click", () => setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, true));
+els.cvBasicsClose.addEventListener("click", () => setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false));
 els.cvBasicsModal.addEventListener("click", (event) => {
   if (event.target.matches("[data-close-modal]")) {
-    setModalOpen(false);
+    setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false);
   }
 });
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !els.cvBasicsModal.classList.contains("hidden")) {
-    setModalOpen(false);
+  if (event.key !== "Escape") return;
+
+  if (!els.appHelpModal.classList.contains("hidden")) {
+    setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, false);
+  } else if (!els.cvBasicsModal.classList.contains("hidden")) {
+    setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false);
   }
 });
 applyConfiguredText();

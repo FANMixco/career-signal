@@ -9,7 +9,8 @@ import { analysisSchema, precheckSchema, type AnalysisResult, type PrecheckResul
 
 type Provider =
   | { kind: "openai"; client: OpenAI }
-  | { kind: "gemini"; client: GoogleGenAI };
+  | { kind: "gemini"; client: GoogleGenAI }
+  | { kind: "mistral"; apiKey: string };
 
 type AiProviderKind = Provider["kind"];
 
@@ -59,6 +60,16 @@ export function createModelProvider(providerKind: AiProviderKind = "gemini", api
     throw new Error("An OpenAI API key is required. Paste an OpenAI key or configure OPENAI_API_KEY in the backend .env file.");
   }
 
+  if (providerKind === "mistral") {
+    const mistralKey = apiKey?.trim() || process.env.MISTRAL_API_KEY?.trim();
+
+    if (mistralKey) {
+      return { kind: "mistral", apiKey: mistralKey };
+    }
+
+    throw new Error("A Mistral API key is required. Paste a Mistral key or configure MISTRAL_API_KEY in the backend .env file.");
+  }
+
   const geminiKey = apiKey?.trim() || process.env.GEMINI_API_KEY?.trim();
 
   if (geminiKey) {
@@ -74,6 +85,10 @@ function openAiModel(model?: string) {
 
 function geminiModel(model?: string) {
   return model || process.env.GEMINI_MODEL || "models/gemini-3.5-flash";
+}
+
+function mistralModel(model?: string) {
+  return model || process.env.MISTRAL_MODEL || "mistral-medium-latest";
 }
 
 async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
@@ -135,9 +150,66 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
   return schema.parse(JSON.parse(extractJson(outputText)));
 }
 
+async function createMistralJsonResponse<T>(apiKey: string, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+  const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: mistralModel(model),
+      messages: [
+        {
+          role: "user",
+          content: `${input}
+
+Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.`
+        }
+      ],
+      response_format: {
+        type: "json_object"
+      },
+      temperature: 1,
+      max_tokens: 65536
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Mistral request failed (${response.status}): ${errorText}`);
+  }
+
+  const data = (await response.json()) as {
+    choices?: Array<{
+      message?: {
+        content?: string | Array<{ type?: string; text?: string }>;
+      };
+    }>;
+  };
+
+  const content = data.choices?.[0]?.message?.content;
+  const outputText = Array.isArray(content)
+    ? content
+        .map((part) => part.text || "")
+        .join("")
+        .trim()
+    : content || "";
+
+  if (!outputText.trim()) {
+    throw new Error("Mistral did not return text output.");
+  }
+
+  return schema.parse(JSON.parse(extractJson(outputText)));
+}
+
 async function createJsonResponse<T>(provider: Provider, name: string, schema: z.ZodType<T>, input: string, model?: string) {
   if (provider.kind === "openai") {
     return createOpenAiJsonResponse(provider.client, name, schema, input, model);
+  }
+
+  if (provider.kind === "mistral") {
+    return createMistralJsonResponse(provider.apiKey, name, schema, input, model);
   }
 
   return createGeminiJsonResponse(provider.client, name, schema, input, model);

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 import { detectSensitivePersonalDataWarnings } from "../rules/cvRules.js";
-import { runPrecheck } from "../services/openaiService.js";
+import { runPrecheck } from "../services/aiProviderService.js";
 import { extractPdfText } from "../services/pdfService.js";
 import { agePrivacyWarning, metadataSchema, MIN_CV_LENGTH, parseFormValue } from "../utils/validation.js";
 

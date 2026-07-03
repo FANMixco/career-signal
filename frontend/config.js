@@ -62,7 +62,8 @@ window.CAREER_SIGNAL_CONFIG = {
   options: {
     aiProviders: [
       ["gemini", "Gemini"],
-      ["openai", "OpenAI"]
+      ["openai", "OpenAI"],
+      ["mistral", "Mistral"]
     ],
     aiModels: {
       gemini: [
@@ -74,6 +75,11 @@ window.CAREER_SIGNAL_CONFIG = {
         ["gpt-5.5", "GPT-5.5"],
         ["gpt-5.4", "GPT-5.4"],
         ["gpt-5.4-mini", "GPT-5.4 mini"]
+      ],
+      mistral: [
+        ["mistral-medium-latest", "Mistral Medium"],
+        ["mistral-large-latest", "Mistral Large"],
+        ["mistral-small-latest", "Mistral Small"]
       ]
     },
     studiesListed: [
@@ -98,6 +104,12 @@ window.CAREER_SIGNAL_CONFIG = {
       placeholder: "Optional if OPENAI_API_KEY is configured",
       keyUrl: "https://platform.openai.com/api-keys",
       keyLinkText: "Get an OpenAI API key"
+    },
+    mistral: {
+      label: "Mistral API key",
+      placeholder: "Optional if MISTRAL_API_KEY is configured",
+      keyUrl: "https://console.mistral.ai/api-keys/",
+      keyLinkText: "Get a Mistral API key"
     }
   },
   targetStyles: [
@@ -119,9 +131,12 @@ window.CAREER_SIGNAL_CONFIG = {
     improve: "Improve CV first"
   },
   buttons: {
+    appHelp: "?",
+    appHelpLabel: "Open app guide",
     cvBasics: "High Impact CV basics",
     closeModal: "X",
     closeModalLabel: "Close CV basics",
+    closeHelpLabel: "Close app guide",
     precheckIdle: "Run CV Evidence Precheck",
     precheckLoading: "Running precheck...",
     analyzeIdle: "Generate CV Reconstruction Plan",
@@ -188,6 +203,129 @@ window.CAREER_SIGNAL_CONFIG = {
     separator: "/",
     contributeText: "Suggest changes on GitHub",
     contributeUrl: "https://github.com/FANMixco/career-signal"
+  },
+  appHelp: {
+    title: "Career Signal guide",
+    subtitle: "Simple help, privacy, scoring, and limits in one place.",
+    tabs: [
+      {
+        id: "use",
+        label: "How to use it",
+        blocks: [
+          {
+            title: "In simple words",
+            text: "Career Signal checks whether your CV has enough real evidence before helping you tailor it to a job."
+          },
+          {
+            title: "Basic flow",
+            items: [
+              "Add your years of experience and choose whether studies are listed.",
+              "Upload a LinkedIn PDF or paste your CV text.",
+              "Choose Gemini, OpenAI, or Mistral, choose a model, and add a key if it is not already configured.",
+              "Run the CV Evidence Precheck first.",
+              "If the CV has enough evidence, add the target company, optional company context, and the job description.",
+              "Generate the reconstruction plan and review it before using anything."
+            ]
+          },
+          {
+            title: "Important habit",
+            text: "Use the output as a review and rewriting assistant. Confirm every title, date, employer, tool, metric, and claim before sending a CV."
+          }
+        ]
+      },
+      {
+        id: "criteria",
+        label: "Evaluation criteria",
+        blocks: [
+          {
+            title: "CV Evidence Precheck",
+            text: "The precheck score is 0 to 100. It estimates whether the CV contains enough defensible evidence to tailor safely."
+          },
+          {
+            title: "What it looks for",
+            items: [
+              "Concrete outcomes, not only responsibilities.",
+              "Numbers, scale, scope, dates, users, systems, budgets, teams, risks, or measurable changes when they are true.",
+              "Bullets that explain what changed because of the work.",
+              "Warnings about unsupported claims, sensitive personal details, confusing titles, unclear progression, tense problems, and unnecessary education details.",
+              "Questions that help recover missing metrics without inventing anything."
+            ]
+          },
+          {
+            title: "Profile match assessment",
+            text: "After the precheck, the job-specific profile match score is also 0 to 100. It estimates how strongly the provided CV evidence matches the target role and company context."
+          },
+          {
+            title: "What the numbers mean",
+            items: [
+              "A high score means the evidence looks stronger, clearer, and more relevant.",
+              "A medium score means the CV may be usable but needs clarification, better proof, or stronger targeting.",
+              "A low score means tailoring may make the CV look better without solving the evidence problem.",
+              "No score guarantees interviews, hiring outcomes, or recruiter decisions."
+            ]
+          }
+        ]
+      },
+      {
+        id: "limits",
+        label: "What it does",
+        blocks: [
+          {
+            title: "What it does",
+            items: [
+              "Checks whether a CV has enough evidence before tailoring.",
+              "Highlights weak or risky areas before they become polished but unsupported claims.",
+              "Uses a target company and job description to produce a job-specific reconstruction plan.",
+              "Helps identify keywords, matching evidence, missing signals, recruiter interpretation, and integrity risks.",
+              "Encourages safer CV writing by warning about age, gender, citizenship, photo, address, and other personal details when they are unnecessary."
+            ]
+          },
+          {
+            title: "What it does not do",
+            items: [
+              "It does not invent achievements, metrics, employers, dates, tools, certifications, or responsibilities.",
+              "It does not apply to jobs automatically.",
+              "It does not guarantee interviews or hiring outcomes.",
+              "It does not replace the final judgment of a recruiter, hiring manager, or company.",
+              "It does not replace your responsibility to check the final CV before sending it."
+            ]
+          }
+        ]
+      },
+      {
+        id: "privacy",
+        label: "Privacy",
+        blocks: [
+          {
+            title: "What the app stores",
+            items: [
+              "The app does not store CVs in a database.",
+              "The app does not store API keys.",
+              "The app does not add analytics or tracking to the core CV workflow.",
+              "Your pasted key is sent only to the local backend for that request."
+            ]
+          },
+          {
+            title: "What leaves your machine",
+            items: [
+              "If you run an AI check, the CV text and job details are sent to the AI provider you selected.",
+              "If you use Gemini, the request goes to Google with the selected Gemini model.",
+              "If you use OpenAI, the request goes to OpenAI with the selected OpenAI model.",
+              "If you use Mistral, the request goes to Mistral with the selected Mistral model.",
+              "The Buy Me a Coffee button is an external support widget and may load assets from Buy Me a Coffee or its CDN."
+            ]
+          },
+          {
+            title: "Open source",
+            text: "The project is fully open source under the GPL-3.0 license, so people can inspect, run, improve, and suggest changes.",
+            links: [
+              ["View source on GitHub", "https://github.com/FANMixco/career-signal"],
+              ["Read the GPL-3.0 license", "https://github.com/FANMixco/career-signal/blob/main/LICENSE"]
+            ]
+          }
+        ]
+      }
+    ]
   },
   cvBasics: {
     title: "High impact CV basics",

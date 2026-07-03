@@ -218,6 +218,14 @@ button.is-loading::before {
   color: var(--ink);
 }
 
+.help-button {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--accent-dark);
+  font-size: 18px;
+}
+
 .danger {
   background: var(--danger);
   color: white;
@@ -300,6 +308,10 @@ button.is-loading::before {
   box-shadow: 0 24px 70px rgba(29, 37, 40, 0.28);
 }
 
+.help-panel {
+  width: min(920px, 100%);
+}
+
 .modal-header {
   position: sticky;
   top: 0;
@@ -326,6 +338,73 @@ button.is-loading::before {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   padding: 20px 22px 22px;
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  padding: 12px 22px;
+}
+
+.tab-button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f6f7f5;
+  color: var(--muted);
+  padding: 7px 12px;
+  white-space: nowrap;
+}
+
+.tab-button.is-active {
+  border-color: var(--accent);
+  background: #eef8f6;
+  color: var(--accent-dark);
+}
+
+.help-modal-body {
+  display: grid;
+  gap: 14px;
+  padding: 18px 22px 22px;
+}
+
+.help-block {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.help-block h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.help-block p {
+  color: var(--muted);
+}
+
+.help-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.help-links a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-weight: 750;
+  padding: 7px 10px;
+  text-decoration: none;
+}
+
+.help-links a:hover {
+  border-color: var(--accent);
+  background: #eef8f6;
+  text-decoration: underline;
 }
 
 .basics-block {

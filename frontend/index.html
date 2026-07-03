@@ -37,6 +37,7 @@
           <p data-copy="site.subtitle"></p>
         </div>
         <div class="topbar-actions">
+          <button id="appHelpButton" class="icon-button help-button" type="button" data-copy="buttons.appHelp"></button>
           <button id="cvBasicsButton" class="secondary" type="button" data-copy="buttons.cvBasics"></button>
           <span id="status" class="status" data-copy="feedback.readyStatus"></span>
         </div>
@@ -144,6 +145,22 @@
     <footer class="site-footer">
       <div id="siteFooterInner" class="site-footer-inner"></div>
     </footer>
+
+    <div id="appHelpModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="appHelpTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-panel help-panel">
+        <header class="modal-header">
+          <div>
+            <h2 id="appHelpTitle" data-copy="appHelp.title"></h2>
+            <p data-copy="appHelp.subtitle"></p>
+          </div>
+          <button id="appHelpClose" class="icon-button" type="button"></button>
+        </header>
+
+        <div id="appHelpTabs" class="modal-tabs" role="tablist"></div>
+        <div id="appHelpBody" class="help-modal-body"></div>
+      </section>
+    </div>
 
     <div id="cvBasicsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cvBasicsTitle">
       <div class="modal-backdrop" data-close-modal></div>
