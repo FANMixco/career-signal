@@ -35,8 +35,15 @@
         <div>
           <h1 data-copy="site.title"></h1>
           <p data-copy="site.subtitle"></p>
+          <div id="previewWarning" class="preview-warning hidden">
+            <p data-copy="backendSettings.previewMessage"></p>
+            <button id="previewSettingsButton" class="secondary" type="button" data-copy="backendSettings.openSettings"></button>
+          </div>
         </div>
         <div class="topbar-actions">
+          <button id="settingsButton" class="icon-button settings-button" type="button">
+            <img src="img/icons/settings.svg" alt="" aria-hidden="true" />
+          </button>
           <button id="appHelpButton" class="icon-button help-button" type="button" data-copy="buttons.appHelp"></button>
           <button id="cvBasicsButton" class="secondary" type="button" data-copy="buttons.cvBasics"></button>
           <span id="status" class="status" data-copy="feedback.readyStatus"></span>
@@ -158,6 +165,34 @@
     <footer class="site-footer">
       <div id="siteFooterInner" class="site-footer-inner"></div>
     </footer>
+
+    <div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-panel settings-panel">
+        <header class="modal-header">
+          <div>
+            <h2 id="settingsTitle" data-copy="backendSettings.title"></h2>
+            <p data-copy="backendSettings.subtitle"></p>
+          </div>
+          <button id="settingsClose" class="icon-button" type="button"></button>
+        </header>
+
+        <div class="settings-body">
+          <p class="warning" data-copy="backendSettings.trustWarning"></p>
+          <label>
+            <span data-copy="backendSettings.urlLabel"></span>
+            <input id="backendUrlInput" type="url" autocomplete="off" data-placeholder="backendSettings.urlPlaceholder" />
+          </label>
+          <p id="backendUrlCurrent" class="provider-note"></p>
+          <div id="backendSettingsFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
+          <div class="settings-actions">
+            <button id="saveBackendUrlButton" class="primary" type="button" data-copy="backendSettings.save"></button>
+            <button id="testBackendUrlButton" class="secondary" type="button" data-copy="backendSettings.test"></button>
+            <button id="resetBackendUrlButton" class="secondary" type="button" data-copy="backendSettings.reset"></button>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <div id="appHelpModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="appHelpTitle">
       <div class="modal-backdrop" data-close-modal></div>

@@ -314,6 +314,20 @@ http://localhost:3001
 
 The image does not include your `.env` file. API keys and the optional Ollama URL are passed at runtime with `-e` or typed into the app.
 
+### Use The GitHub Pages Frontend With Your Own Backend
+
+The GitHub Pages URL is a frontend preview:
+
+```text
+https://fanmixco.github.io/career-signal/frontend/
+```
+
+It does not include a running backend. To run CV checks from that page, start or deploy your own Career Signal backend and configure its URL from the settings button in the app.
+
+Only use a backend you control or trust. CV text, job descriptions, and pasted API keys are sent to the configured backend.
+
+If the frontend is loaded over HTTPS, the backend should normally also use HTTPS. Local development URLs such as `http://localhost:3001` are still useful when testing on your own computer.
+
 ### Option B: Build The Image Yourself
 
 Build the image from the project root:

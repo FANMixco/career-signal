@@ -13,10 +13,22 @@ const state = {
 };
 
 const config = window.CAREER_SIGNAL_CONFIG;
+const backendStorageKey = config.backendSettings.storageKey;
 
 const els = {
   status: document.querySelector("#status"),
   siteFooterInner: document.querySelector("#siteFooterInner"),
+  settingsButton: document.querySelector("#settingsButton"),
+  settingsModal: document.querySelector("#settingsModal"),
+  settingsClose: document.querySelector("#settingsClose"),
+  backendUrlInput: document.querySelector("#backendUrlInput"),
+  backendUrlCurrent: document.querySelector("#backendUrlCurrent"),
+  backendSettingsFeedback: document.querySelector("#backendSettingsFeedback"),
+  saveBackendUrlButton: document.querySelector("#saveBackendUrlButton"),
+  testBackendUrlButton: document.querySelector("#testBackendUrlButton"),
+  resetBackendUrlButton: document.querySelector("#resetBackendUrlButton"),
+  previewWarning: document.querySelector("#previewWarning"),
+  previewSettingsButton: document.querySelector("#previewSettingsButton"),
   appHelpButton: document.querySelector("#appHelpButton"),
   appHelpModal: document.querySelector("#appHelpModal"),
   appHelpTabs: document.querySelector("#appHelpTabs"),
@@ -66,10 +78,49 @@ const els = {
   downloadButton: document.querySelector("#downloadButton")
 };
 
-const API_BASE_URL = config.apiBaseUrl;
+let API_BASE_URL = storedBackendUrl() || config.apiBaseUrl;
 
 function apiUrl(path) {
   return `${API_BASE_URL}${path}`;
+}
+
+function isGitHubPagesPreview() {
+  return window.location.hostname === "fanmixco.github.io" && window.location.pathname.startsWith("/career-signal/frontend");
+}
+
+function storedBackendUrl() {
+  return localStorage.getItem(backendStorageKey) || "";
+}
+
+function normalizeBackendUrl(value) {
+  return value.trim().replace(/\/+$/, "");
+}
+
+function isLocalHttpBackend(url) {
+  return /^http:\/\/(?:localhost|127\.0\.0\.1|\[::1\]|10\.0\.2\.2|10\.0\.3\.2)(?::\d+)?$/i.test(url);
+}
+
+function validateBackendUrl(value) {
+  const normalized = normalizeBackendUrl(value);
+
+  if (!normalized) {
+    return { ok: false, message: config.backendSettings.emptyUrl };
+  }
+
+  try {
+    const parsed = new URL(normalized);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return { ok: false, message: config.backendSettings.invalidUrl };
+    }
+
+    if (window.location.protocol === "https:" && parsed.protocol === "http:" && !isLocalHttpBackend(normalized)) {
+      return { ok: false, message: config.backendSettings.httpsRequired };
+    }
+
+    return { ok: true, url: normalized };
+  } catch {
+    return { ok: false, message: config.backendSettings.invalidUrl };
+  }
 }
 
 function setStatus(message) {
@@ -85,6 +136,12 @@ function setTailoringFeedback(type, message) {
   els.tailoringFeedback.className = `feedback ${type}`;
   els.tailoringFeedback.textContent = message;
   show(els.tailoringFeedback, Boolean(message));
+}
+
+function setBackendSettingsFeedback(type, message) {
+  els.backendSettingsFeedback.className = `feedback ${type}`;
+  els.backendSettingsFeedback.textContent = message;
+  show(els.backendSettingsFeedback, Boolean(message));
 }
 
 function analysisErrorMessage(error) {
@@ -121,12 +178,17 @@ function applyConfiguredText() {
 
   els.cvBasicsClose.textContent = config.buttons.closeModal;
   els.cvBasicsClose.setAttribute("aria-label", config.buttons.closeModalLabel);
+  els.settingsButton.setAttribute("aria-label", config.buttons.settingsLabel);
+  els.settingsClose.textContent = config.buttons.closeModal;
+  els.settingsClose.setAttribute("aria-label", config.buttons.closeSettingsLabel);
   els.appHelpButton.setAttribute("aria-label", config.buttons.appHelpLabel);
   els.appHelpClose.textContent = config.buttons.closeModal;
   els.appHelpClose.setAttribute("aria-label", config.buttons.closeHelpLabel);
   renderFooter();
   renderAppHelp();
   renderCvBasics();
+  renderBackendSettings();
+  show(els.previewWarning, isGitHubPagesPreview());
 }
 
 function show(element, visible = true) {
@@ -134,7 +196,11 @@ function show(element, visible = true) {
 }
 
 function isAnyModalOpen() {
-  return !els.cvBasicsModal.classList.contains("hidden") || !els.appHelpModal.classList.contains("hidden");
+  return (
+    !els.settingsModal.classList.contains("hidden") ||
+    !els.cvBasicsModal.classList.contains("hidden") ||
+    !els.appHelpModal.classList.contains("hidden")
+  );
 }
 
 function setModalOpen(modal, trigger, closeButton, isOpen) {
@@ -251,6 +317,57 @@ function currentPrecheckSignature() {
     cvText: els.cvText.value.trim(),
     cvPdf: fileSignature
   });
+}
+
+function renderBackendSettings() {
+  const current = API_BASE_URL || config.backendSettings.defaultBackend;
+  els.backendUrlInput.value = storedBackendUrl();
+  els.backendUrlCurrent.textContent = `${config.backendSettings.currentPrefix} ${current}`;
+}
+
+function saveBackendUrl() {
+  const validation = validateBackendUrl(els.backendUrlInput.value);
+
+  if (!validation.ok) {
+    setBackendSettingsFeedback("error", validation.message);
+    els.backendUrlInput.focus();
+    return;
+  }
+
+  localStorage.setItem(backendStorageKey, validation.url);
+  API_BASE_URL = validation.url;
+  renderBackendSettings();
+  setBackendSettingsFeedback("success", config.backendSettings.saved);
+}
+
+function resetBackendUrl() {
+  localStorage.removeItem(backendStorageKey);
+  API_BASE_URL = config.apiBaseUrl;
+  renderBackendSettings();
+  setBackendSettingsFeedback("success", config.backendSettings.resetDone);
+}
+
+async function testBackendUrl() {
+  const validation = els.backendUrlInput.value.trim()
+    ? validateBackendUrl(els.backendUrlInput.value)
+    : { ok: true, url: API_BASE_URL };
+
+  if (!validation.ok) {
+    setBackendSettingsFeedback("error", validation.message);
+    els.backendUrlInput.focus();
+    return;
+  }
+
+  const testBaseUrl = validation.url || "";
+  setBackendSettingsFeedback("loading", config.backendSettings.testing);
+
+  try {
+    const response = await fetch(`${testBaseUrl}/api/health`);
+    if (!response.ok) throw new Error("Health check failed.");
+    setBackendSettingsFeedback("success", config.backendSettings.testSuccess);
+  } catch {
+    setBackendSettingsFeedback("error", config.backendSettings.testFailed);
+  }
 }
 
 // A successful precheck only applies to the exact CV/profile inputs that were
@@ -703,6 +820,25 @@ els.aiModel.addEventListener("change", updateApiKeyCopy);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
+els.settingsButton.addEventListener("click", () => {
+  renderBackendSettings();
+  setBackendSettingsFeedback("", "");
+  setModalOpen(els.settingsModal, els.settingsButton, els.settingsClose, true);
+});
+els.previewSettingsButton.addEventListener("click", () => {
+  renderBackendSettings();
+  setBackendSettingsFeedback("", "");
+  setModalOpen(els.settingsModal, els.previewSettingsButton, els.settingsClose, true);
+});
+els.settingsClose.addEventListener("click", () => setModalOpen(els.settingsModal, els.settingsButton, els.settingsClose, false));
+els.saveBackendUrlButton.addEventListener("click", saveBackendUrl);
+els.testBackendUrlButton.addEventListener("click", testBackendUrl);
+els.resetBackendUrlButton.addEventListener("click", resetBackendUrl);
+els.settingsModal.addEventListener("click", (event) => {
+  if (event.target.matches("[data-close-modal]")) {
+    setModalOpen(els.settingsModal, els.settingsButton, els.settingsClose, false);
+  }
+});
 els.appHelpButton.addEventListener("click", () => setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, true));
 els.appHelpClose.addEventListener("click", () => setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, false));
 els.appHelpTabs.addEventListener("click", (event) => {
@@ -728,7 +864,9 @@ els.cvBasicsModal.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
 
-  if (!els.appHelpModal.classList.contains("hidden")) {
+  if (!els.settingsModal.classList.contains("hidden")) {
+    setModalOpen(els.settingsModal, els.settingsButton, els.settingsClose, false);
+  } else if (!els.appHelpModal.classList.contains("hidden")) {
     setModalOpen(els.appHelpModal, els.appHelpButton, els.appHelpClose, false);
   } else if (!els.cvBasicsModal.classList.contains("hidden")) {
     setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false);

@@ -3,6 +3,11 @@
 // future copy/rule changes do not require digging through event-handler code.
 function resolveApiBaseUrl(location) {
   const separateFrontendPorts = new Set(["5500", "5173", "4173", "8080"]);
+  const isGitHubPagesPreview = location.hostname === "fanmixco.github.io" && location.pathname.startsWith("/career-signal/frontend");
+
+  if (isGitHubPagesPreview) {
+    return "";
+  }
 
   if (location.protocol.startsWith("http") && !separateFrontendPorts.has(location.port)) {
     return "";
@@ -166,6 +171,8 @@ window.CAREER_SIGNAL_CONFIG = {
     improve: "Improve CV first"
   },
   buttons: {
+    settingsLabel: "Configure backend",
+    closeSettingsLabel: "Close backend settings",
     appHelp: "?",
     appHelpLabel: "Open app guide",
     cvBasics: "High Impact CV basics",
@@ -179,6 +186,33 @@ window.CAREER_SIGNAL_CONFIG = {
     continueAnyway: "Continue anyway",
     continueToTailoring: "Continue to Job Tailoring",
     downloadPlan: "Download TXT plan"
+  },
+  backendSettings: {
+    storageKey: "careerSignalBackendUrl",
+    title: "Backend settings",
+    subtitle: "Use your own Career Signal backend with this frontend.",
+    previewTitle: "Preview mode",
+    previewMessage:
+      "This GitHub Pages version is only a frontend preview. To run CV checks, start Career Signal locally or deploy your own backend and configure its URL here.",
+    openSettings: "Configure backend",
+    trustWarning:
+      "Only use a backend you control or trust. Your CV text, job descriptions, and pasted API keys are sent to the configured backend.",
+    urlLabel: "Backend URL",
+    urlPlaceholder: "https://your-career-signal-backend.example.com",
+    save: "Save backend URL",
+    test: "Test connection",
+    reset: "Use default",
+    currentPrefix: "Current backend:",
+    defaultBackend: "Default backend",
+    saved: "Backend URL saved. Future checks will use this backend.",
+    resetDone: "Backend URL reset to the default behavior.",
+    emptyUrl: "Enter a backend URL or use reset to return to the default behavior.",
+    invalidUrl: "Enter a valid http:// or https:// backend URL.",
+    httpsRequired:
+      "This page is loaded over HTTPS. Use an HTTPS backend URL, or use localhost while developing.",
+    testSuccess: "Backend connection works.",
+    testing: "Testing backend connection...",
+    testFailed: "Could not reach the backend health endpoint. Check the URL, deployment, and CORS settings."
   },
   fallbackText: {
     emptyList: "None noted.",
