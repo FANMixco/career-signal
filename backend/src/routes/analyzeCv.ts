@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ZodError } from "zod";
 import { runAnalysis } from "../services/aiProviderService.js";
 import { planToText } from "../services/textFormatter.js";
 import { analyzeCvSchema } from "../utils/validation.js";
@@ -22,6 +23,7 @@ analyzeCvRouter.post("/", async (req, res) => {
       aiProvider: body.aiProvider,
       aiModel: body.aiModel,
       apiKey: body.aiApiKey || body.openaiApiKey,
+      ollamaBaseUrl: body.ollamaBaseUrl,
       cvText: body.cvText,
       precheckResult: body.precheckResult,
       companyName: body.companyName,
@@ -36,6 +38,13 @@ analyzeCvRouter.post("/", async (req, res) => {
       downloadableText: planToText(analysis)
     });
   } catch (error) {
+    if (error instanceof ZodError) {
+      res.status(400).json({
+        error: error.issues.map((issue) => issue.message).join(" ")
+      });
+      return;
+    }
+
     const message = error instanceof Error ? error.message : "Could not generate reconstruction plan.";
     const status = message.includes("AI API key") ? 401 : 400;
     res.status(status).json({ error: message });

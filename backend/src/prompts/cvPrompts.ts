@@ -67,6 +67,37 @@ ${input.cvText}
 Inspect this CV and return the required JSON structure. Include practical questions to recover metrics.`;
 }
 
+export function ollamaPrecheckPrompt(input: {
+  cvText: string;
+  yearsOfExperience: number;
+  hasDegree?: boolean;
+  degreeYear?: number;
+  experienceSelectionMode: "lastFive" | "all";
+}) {
+  return `You are a strict CV evidence reviewer. Analyze the CV only. Do not rewrite it. Do not invent achievements, dates, tools, employers, or numbers.
+
+Return one JSON object only. Use these exact keys:
+cvEvidenceScore, scoreBreakdown, hasQuantifiedResults, hasAccomplishments, mostlyJobDescriptions, impactClarityScore, quantifiedEvidenceCount, strongBulletCount, weakBulletCount, proceedRecommendation, mainProblem, specificWarnings, missingEvidenceTypes, examplesOfWeakBullets, questionsToRecoverMetrics, interviewRiskQuestions, nextStep.
+
+Rules:
+- cvEvidenceScore must be 0 to 100.
+- proceedRecommendation must be "Improve CV first" for 0-49, "Proceed with caution" for 50-74, or "Proceed" for 75-100.
+- scoreBreakdown must contain quantifiedResults, accomplishmentClarity, scopeAndScale, responsibilityVersusOutcomeRatio, and interviewDefensibility.
+- Arrays must be arrays of strings.
+- Keep arrays concise: 3 to 5 items maximum.
+- Warn about weak evidence, unsupported claims, tense problems, hidden progression, confusing title/responsibility alignment, unnecessary study dates, and sensitive personal data if present.
+- If evidence is missing, ask practical questions to recover metrics.
+
+Candidate metadata:
+Years of experience: ${input.yearsOfExperience}
+Studies listed: ${input.hasDegree ?? "not provided"}
+Study completion year: ${input.degreeYear ?? "not provided"}
+Experience selection mode: ${input.experienceSelectionMode}
+
+CV:
+${input.cvText}`;
+}
+
 export function reconstructionPrompt(input: {
   cvText: string;
   precheckResult: Record<string, unknown>;
@@ -135,4 +166,46 @@ Job description:
 ${input.jobDescription}
 
 Create a complete CV reconstruction plan using the required JSON structure.`;
+}
+
+export function ollamaReconstructionPrompt(input: {
+  cvText: string;
+  precheckResult: Record<string, unknown>;
+  companyName: string;
+  companyDescription?: string;
+  targetStyle: string;
+  experienceSelectionMode: "lastFive" | "all";
+  jobDescription: string;
+}) {
+  return `You are an honest CV reconstruction assistant. Create a job-specific reconstruction plan from the supplied CV and job description. Do not invent employers, dates, roles, certifications, metrics, tools, or achievements.
+
+Return one JSON object only. Use these exact keys:
+roleDiagnosis, companySignalInterpretation, candidatePositioning, jobFitAssessment, strongestMatchingEvidence, weakOrMissingSignals, keywordsToInclude, keywordsToAvoid, suggestedProfessionalSummary, rewrittenCvBullets, suggestedCvStructure, atsFriendlySkillsSection, recruiterInterpretation, finalReconstructionPlan, integrityAudit, precheckWarningSummary, downloadableText.
+
+Rules:
+- jobFitAssessment.score must be 0 to 100.
+- jobFitAssessment.verdict must be "Strong match", "Good match", "Partial match", or "Weak match".
+- rewrittenCvBullets must contain objects with original, rewritten, reason, and integrityClassification.
+- integrityClassification/classification must be one of: "Directly supported by CV", "Reasonable reframing", "Needs user confirmation", "Not supported and should not be used".
+- Keep every text field concise.
+- Use 1 to 2 items maximum in arrays.
+- Provide 1 to 2 rewrittenCvBullets maximum.
+- Keep downloadableText under 500 words.
+- Preserve privacy and integrity warnings from the precheck.
+- Suggest removing or de-emphasizing education/studies only when not relevant or risky; do not remove required credentials.
+- Always remind that final hiring decisions belong to the company.
+
+Target company: ${input.companyName}
+Optional company description: ${input.companyDescription?.trim() || "not provided"}
+Target style: ${input.targetStyle}
+Experience selection mode: ${input.experienceSelectionMode}
+
+Job description:
+${input.jobDescription}
+
+CV precheck result:
+${JSON.stringify(input.precheckResult)}
+
+CV:
+${input.cvText}`;
 }

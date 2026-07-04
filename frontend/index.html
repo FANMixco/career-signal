@@ -92,6 +92,10 @@
             <span data-copy="labels.aiModel"></span>
             <select id="aiModel"></select>
           </label>
+          <label id="ollamaCustomModelField" class="hidden">
+            <span data-copy="labels.ollamaCustomModel"></span>
+            <input id="ollamaCustomModel" type="text" autocomplete="off" data-placeholder="placeholders.ollamaCustomModel" />
+          </label>
           <label class="api-key-field">
             <span class="label-title-row">
               <span id="aiApiKeyLabel" data-copy="labels.aiApiKey"></span>
@@ -99,7 +103,15 @@
             </span>
             <input id="openaiApiKey" type="password" autocomplete="off" />
           </label>
+          <label id="ollamaUrlField" class="hidden">
+            <span class="label-title-row">
+              <span data-copy="labels.ollamaBaseUrl"></span>
+              <a id="ollamaHelpLink" class="inline-help-link" href="https://ollama.com/download" target="_blank" rel="noreferrer">Download Ollama</a>
+            </span>
+            <input id="ollamaBaseUrl" type="url" autocomplete="off" />
+          </label>
         </div>
+        <p id="ollamaGuidance" class="provider-note hidden"></p>
         <div id="precheckFeedback" class="feedback" role="status" aria-live="polite"></div>
         <button id="precheckButton" class="primary" data-copy="buttons.precheckIdle"></button>
       </section>
@@ -132,6 +144,7 @@
           <textarea id="jobDescription" rows="12" data-placeholder="placeholders.jobDescription"></textarea>
         </label>
         <p id="tailoringLockMessage" class="lock-message"></p>
+        <div id="tailoringFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
         <button id="analyzeButton" class="primary" data-copy="buttons.analyzeIdle"></button>
       </section>
 

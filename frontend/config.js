@@ -43,11 +43,13 @@ window.CAREER_SIGNAL_CONFIG = {
     studiesListed: "Do you list studies or education on your CV?",
     degreeYear: "Year studies were completed",
     experienceSelectionMode: "Experience selection mode",
-    cvPdf: "Upload LinkedIn PDF",
+    cvPdf: "Upload LinkedIn Export or CV in PDF format",
     cvText: "Paste CV text manually",
     aiProvider: "AI provider",
     aiModel: "AI model",
+    ollamaCustomModel: "Custom Ollama model",
     aiApiKey: "API key",
+    ollamaBaseUrl: "Ollama URL",
     targetCompany: "Target company name",
     companyDescription: "Company description (optional)",
     targetStyle: "Target role style",
@@ -56,6 +58,7 @@ window.CAREER_SIGNAL_CONFIG = {
   },
   placeholders: {
     cvText: "Paste complete CV text here",
+    ollamaCustomModel: "Type an installed model, for example llama3.2:3b, qwen3:14b, or mistral-small",
     companyDescription: "Add useful context if the company is not well-known: what it does, industry, size, product, market, values, or business model",
     jobDescription: "Paste the full job description"
   },
@@ -63,7 +66,8 @@ window.CAREER_SIGNAL_CONFIG = {
     aiProviders: [
       ["gemini", "Gemini"],
       ["openai", "OpenAI"],
-      ["mistral", "Mistral"]
+      ["mistral", "Mistral"],
+      ["ollama", "Ollama (offline, experimental)"]
     ],
     aiModels: {
       gemini: [
@@ -80,6 +84,12 @@ window.CAREER_SIGNAL_CONFIG = {
         ["mistral-medium-latest", "Mistral Medium"],
         ["mistral-large-latest", "Mistral Large"],
         ["mistral-small-latest", "Mistral Small"]
+      ],
+      ollama: [
+        ["local-mix", "Gemma 4 + Qwen 3.6"],
+        ["gemma4", "Gemma 4"],
+        ["qwen3.6", "Qwen 3.6"],
+        ["__custom__", "Custom Ollama model"]
       ]
     },
     studiesListed: [
@@ -110,6 +120,28 @@ window.CAREER_SIGNAL_CONFIG = {
       placeholder: "Optional if MISTRAL_API_KEY is configured",
       keyUrl: "https://console.mistral.ai/api-keys/",
       keyLinkText: "Get a Mistral API key"
+    },
+    ollama: {
+      label: "Ollama local setup",
+      placeholder: "No API key needed for Ollama",
+      keyUrl: "https://ollama.com/download",
+      keyLinkText: "Download Ollama"
+    }
+  },
+  ollama: {
+    defaultBaseUrl: "http://localhost:11434",
+    guidance:
+      "Local Ollama mode is experimental. It keeps requests on your computer, but the feedback can be slower, shorter, or less useful than Gemini, OpenAI, or Mistral. By default, Career Signal uses a mixed local strategy with Gemma 4 first and Qwen 3.6 as a fallback. You can choose one model manually if you prefer.",
+    analysisGuidance:
+      "Generating a full reconstruction plan with Ollama can take several minutes and may be less reliable than cloud models. For the fastest full plan, use Gemini, OpenAI, or Mistral.",
+    timeoutMessage:
+      "The local Ollama model took too long to answer this section. Try again, choose a smaller local model, or use Gemini, OpenAI, or Mistral for a more reliable reconstruction plan.",
+    customGuidance:
+      "Use this only for a model you already installed in Ollama. The app will send the typed model name to your local Ollama server.",
+    modelCommands: {
+      "local-mix": "Install both models if you want fallback: ollama run gemma4, then ollama run qwen3.6.",
+      gemma4: "Model command: ollama run gemma4",
+      "qwen3.6": "Model command: ollama run qwen3.6"
     }
   },
   targetStyles: [
@@ -164,13 +196,17 @@ window.CAREER_SIGNAL_CONFIG = {
     invalidPdf: "Only PDF uploads are supported. Choose a LinkedIn PDF export or paste CV text instead.",
     pdfTooLarge: "The PDF is larger than 5MB. Paste the CV text manually or upload a smaller PDF.",
     acknowledgeStudyWarning: "Acknowledge the study-year privacy warning before continuing.",
+    missingOllamaCustomModel: "Type the Ollama model name you installed, or choose Gemma 4 or Qwen 3.6.",
     runPrecheckFirst: "Run the CV Evidence Precheck before generating the reconstruction plan.",
     precheckComplete: "Precheck complete. Review the score and choose the next action below.",
     precheckPassedWithWarnings:
       "The precheck passed, but there are still warnings or suggestions worth reviewing before tailoring.",
+    analysisComplete: "Reconstruction plan ready. Review the output below before using it.",
+    analysisPartial:
+      "Partial local reconstruction ready. Some Ollama sections did not finish, so review the completed output and retry with a cloud provider or smaller local model for a full plan.",
     precheckStale: "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
-    precheckLoading(apiBaseUrl) {
-      return `Running CV Evidence Precheck against ${apiBaseUrl || "this server"}. This can take a little while while the model reviews the CV evidence.`;
+    precheckLoading() {
+      return "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence.";
     }
   },
   tailoring: {
@@ -221,7 +257,9 @@ window.CAREER_SIGNAL_CONFIG = {
             items: [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a LinkedIn PDF or paste your CV text.",
-              "Choose Gemini, OpenAI, or Mistral, choose a model, and add a key if it is not already configured.",
+              "Choose Gemini, OpenAI, Mistral, or Ollama (offline, experimental), then choose a model.",
+              "For cloud providers, add a key if it is not already configured.",
+              "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",
               "If the CV has enough evidence, add the target company, optional company context, and the job description.",
               "Generate the reconstruction plan and review it before using anything."
@@ -312,6 +350,7 @@ window.CAREER_SIGNAL_CONFIG = {
               "If you use Gemini, the request goes to Google with the selected Gemini model.",
               "If you use OpenAI, the request goes to OpenAI with the selected OpenAI model.",
               "If you use Mistral, the request goes to Mistral with the selected Mistral model.",
+              "If you use Ollama (offline, experimental), the backend sends the request to your configured local Ollama URL instead of a cloud AI provider.",
               "The Buy Me a Coffee button is an external support widget and may load assets from Buy Me a Coffee or its CDN."
             ]
           },

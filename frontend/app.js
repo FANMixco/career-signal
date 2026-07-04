@@ -36,9 +36,14 @@ const els = {
   cvText: document.querySelector("#cvText"),
   aiProvider: document.querySelector("#aiProvider"),
   aiModel: document.querySelector("#aiModel"),
+  ollamaCustomModelField: document.querySelector("#ollamaCustomModelField"),
+  ollamaCustomModel: document.querySelector("#ollamaCustomModel"),
   aiApiKeyLabel: document.querySelector("#aiApiKeyLabel"),
   openaiApiKey: document.querySelector("#openaiApiKey"),
   apiKeyHelpLink: document.querySelector("#apiKeyHelpLink"),
+  ollamaUrlField: document.querySelector("#ollamaUrlField"),
+  ollamaBaseUrl: document.querySelector("#ollamaBaseUrl"),
+  ollamaGuidance: document.querySelector("#ollamaGuidance"),
   precheckFeedback: document.querySelector("#precheckFeedback"),
   precheckButton: document.querySelector("#precheckButton"),
   precheckPanel: document.querySelector("#precheckPanel"),
@@ -47,6 +52,7 @@ const els = {
   tailoringPanel: document.querySelector("#tailoringPanel"),
   tailoringGuidance: document.querySelector("#tailoringGuidance"),
   tailoringLockMessage: document.querySelector("#tailoringLockMessage"),
+  tailoringFeedback: document.querySelector("#tailoringFeedback"),
   companyName: document.querySelector("#companyName"),
   companyDescription: document.querySelector("#companyDescription"),
   targetStyle: document.querySelector("#targetStyle"),
@@ -70,6 +76,29 @@ function setStatus(message) {
 function setFeedback(type, message) {
   els.precheckFeedback.className = `feedback ${type}`;
   els.precheckFeedback.textContent = message;
+}
+
+function setTailoringFeedback(type, message) {
+  els.tailoringFeedback.className = `feedback ${type}`;
+  els.tailoringFeedback.textContent = message;
+  show(els.tailoringFeedback, Boolean(message));
+}
+
+function analysisErrorMessage(error) {
+  if (error instanceof TypeError) {
+    return `Could not reach the API at ${apiUrl("/api/analyze-cv")}.`;
+  }
+
+  if (error?.name === "AbortError" || /aborted/i.test(error?.message || "")) {
+    return config.ollama.timeoutMessage;
+  }
+
+  return error?.message || "Could not generate the reconstruction plan.";
+}
+
+function isPartialLocalAnalysis(analysis) {
+  const warningText = `${analysis?.precheckWarningSummary || ""} ${(analysis?.finalReconstructionPlan || []).join(" ")}`;
+  return /partial local result|did not complete|took too long/i.test(warningText);
 }
 
 function configValue(path) {
@@ -241,6 +270,9 @@ function setTailoringAccess(isAllowed, message) {
   els.analyzeButton.disabled = !isAllowed;
   els.tailoringLockMessage.textContent = message;
   show(els.tailoringLockMessage, Boolean(message));
+  if (!isAllowed) {
+    setTailoringFeedback("", "");
+  }
 
   els.tailoringGuidance.textContent = isAllowed ? config.tailoring.guidanceUnlocked : config.tailoring.guidanceLocked;
 }
@@ -265,12 +297,41 @@ function populateAiModels() {
   els.aiModel.innerHTML = optionList(config.options.aiModels[els.aiProvider.value] || []);
 }
 
+function isCustomOllamaModelSelected() {
+  return els.aiProvider.value === "ollama" && els.aiModel.value === "__custom__";
+}
+
+function selectedAiModel() {
+  return isCustomOllamaModelSelected() ? els.ollamaCustomModel.value.trim() : els.aiModel.value;
+}
+
 function updateApiKeyCopy() {
   const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
+  const isOllama = els.aiProvider.value === "ollama";
+  const isCustomOllama = isCustomOllamaModelSelected();
   els.aiApiKeyLabel.textContent = providerCopy.label;
   els.openaiApiKey.setAttribute("placeholder", providerCopy.placeholder);
+  els.openaiApiKey.disabled = isOllama;
+  els.openaiApiKey.closest(".api-key-field").classList.toggle("hidden", isOllama);
   els.apiKeyHelpLink.href = providerCopy.keyUrl;
   els.apiKeyHelpLink.textContent = providerCopy.keyLinkText;
+  show(els.ollamaUrlField, isOllama);
+  show(els.ollamaGuidance, isOllama);
+  show(els.ollamaCustomModelField, isCustomOllama);
+  els.ollamaGuidance.classList.toggle("warning-note", isOllama);
+
+  if (isOllama && !els.ollamaBaseUrl.value.trim()) {
+    els.ollamaBaseUrl.value = config.ollama.defaultBaseUrl;
+  }
+
+  if (isOllama) {
+    const command = config.ollama.modelCommands[els.aiModel.value];
+    els.ollamaGuidance.textContent = isCustomOllama
+      ? `${config.ollama.guidance} ${config.ollama.customGuidance}`
+      : command
+        ? `${config.ollama.guidance} ${command}`
+        : config.ollama.guidance;
+  }
 }
 
 async function runPrecheck() {
@@ -330,10 +391,18 @@ async function runPrecheck() {
     return;
   }
 
+  if (isCustomOllamaModelSelected() && !selectedAiModel()) {
+    setStatus("Missing model");
+    setFeedback("error", config.feedback.missingOllamaCustomModel);
+    els.ollamaCustomModel.focus();
+    return;
+  }
+
   form.append("yearsOfExperience", String(years));
   form.append("experienceSelectionMode", els.experienceSelectionMode.value);
   form.append("aiProvider", els.aiProvider.value);
-  form.append("aiModel", els.aiModel.value);
+  form.append("aiModel", selectedAiModel());
+  if (els.aiProvider.value === "ollama") form.append("ollamaBaseUrl", els.ollamaBaseUrl.value.trim() || config.ollama.defaultBaseUrl);
   if (years > 5) form.append("hasDegree", els.hasDegree.value);
   if (els.degreeYear.value) form.append("degreeYear", els.degreeYear.value);
   if (els.cvText.value.trim()) form.append("cvText", els.cvText.value.trim());
@@ -346,7 +415,7 @@ async function runPrecheck() {
   show(els.outputPanel, false);
   setBusy(true);
   setStatus("Prechecking");
-  setFeedback("loading", config.feedback.precheckLoading(API_BASE_URL));
+  setFeedback("loading", config.feedback.precheckLoading());
 
   try {
     const response = await fetch(apiUrl("/api/precheck-cv"), { method: "POST", body: form });
@@ -421,6 +490,7 @@ function renderDecisionGate(recommendation, questions, warnings = []) {
   els.decisionGate.innerHTML = "";
   const improve = document.createElement("button");
   improve.className = recommendation === config.recommendations.improve ? "primary" : "secondary";
+  improve.classList.add("decision-action");
   improve.textContent = config.recommendations.improve;
   improve.addEventListener("click", () => {
     els.decisionGate.insertAdjacentHTML("beforeend", `<div class="warning">${list(questions)}</div>`);
@@ -428,6 +498,7 @@ function renderDecisionGate(recommendation, questions, warnings = []) {
 
   const continueButton = document.createElement("button");
   continueButton.className = recommendation === config.recommendations.improve ? "danger" : "primary";
+  continueButton.classList.add("decision-action");
   continueButton.textContent = recommendation === config.recommendations.improve ? config.buttons.continueAnyway : config.buttons.continueToTailoring;
   continueButton.addEventListener("click", () => {
     state.continueDespiteWeakPrecheck = recommendation === config.recommendations.improve;
@@ -468,9 +539,20 @@ async function runAnalysis() {
     return;
   }
 
+  if (isCustomOllamaModelSelected() && !selectedAiModel()) {
+    setStatus("Missing model");
+    setFeedback("error", config.feedback.missingOllamaCustomModel);
+    els.ollamaCustomModel.focus();
+    return;
+  }
+
   state.analysisInFlight = true;
   setBusy(true);
   setStatus("Tailoring");
+  setTailoringFeedback("", "");
+  if (els.aiProvider.value === "ollama") {
+    setTailoringFeedback("loading", config.ollama.analysisGuidance);
+  }
 
   try {
     const response = await fetch(apiUrl("/api/analyze-cv"), {
@@ -478,8 +560,9 @@ async function runAnalysis() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         aiProvider: els.aiProvider.value,
-        aiModel: els.aiModel.value,
+        aiModel: selectedAiModel(),
         aiApiKey: els.openaiApiKey.value.trim(),
+        ollamaBaseUrl: els.aiProvider.value === "ollama" ? els.ollamaBaseUrl.value.trim() || config.ollama.defaultBaseUrl : undefined,
         cvText: state.cvText,
         jobDescription: els.jobDescription.value.trim(),
         companyName: els.companyName.value.trim(),
@@ -496,9 +579,11 @@ async function runAnalysis() {
     state.downloadableText = data.downloadableText;
     renderAnalysis(data.analysis);
     setStatus("Plan ready");
+    const isPartial = isPartialLocalAnalysis(data.analysis);
+    setTailoringFeedback(isPartial ? "warning" : "success", isPartial ? config.feedback.analysisPartial : config.feedback.analysisComplete);
   } catch (error) {
     setStatus("Error");
-    setFeedback("error", error instanceof TypeError ? `Could not reach the API at ${apiUrl("/api/analyze-cv")}.` : error.message);
+    setTailoringFeedback("error", analysisErrorMessage(error));
   } finally {
     state.analysisInFlight = false;
     setBusy(false);
@@ -606,6 +691,7 @@ els.aiProvider.addEventListener("change", () => {
   populateAiModels();
   updateApiKeyCopy();
 });
+els.aiModel.addEventListener("change", updateApiKeyCopy);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);

@@ -27,7 +27,8 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       degreeYear: parseFormValue(req.body.degreeYear) || undefined,
       experienceSelectionMode: parseFormValue(req.body.experienceSelectionMode),
       aiProvider: parseFormValue(req.body.aiProvider),
-      aiModel: parseFormValue(req.body.aiModel) || undefined
+      aiModel: parseFormValue(req.body.aiModel) || undefined,
+      ollamaBaseUrl: parseFormValue(req.body.ollamaBaseUrl) || undefined
     });
 
     if (metadata.yearsOfExperience > 5 && req.body.hasDegree === undefined) {
@@ -55,6 +56,7 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       aiProvider: metadata.aiProvider,
       aiModel: metadata.aiModel,
       apiKey: req.body.aiApiKey || req.body.openaiApiKey,
+      ollamaBaseUrl: metadata.ollamaBaseUrl,
       cvText,
       yearsOfExperience: metadata.yearsOfExperience,
       hasDegree: metadata.hasDegree,

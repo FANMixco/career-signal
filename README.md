@@ -17,7 +17,7 @@ The app is designed to be used by non-technical people too. You do not need to c
 - Lets the user test multiple target roles after a successful precheck without checking the same unchanged CV again.
 - Gives a profile match score from 0 to 100 for the selected company and role.
 - Lets the user download the final plan as a TXT file.
-- Supports Gemini, OpenAI, or Mistral. The user can choose the provider in the app.
+- Supports Gemini, OpenAI, Mistral, or Ollama (offline, experimental). The user can choose the provider in the app.
 
 ## What It Does Not Do
 
@@ -35,17 +35,18 @@ You need:
 - A computer with internet access.
 - A modern browser such as Chrome, Edge, Firefox, or Safari.
 - Node.js installed on your computer.
-- One AI API key:
+- One AI option:
   - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey),
   - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys), or
   - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/).
+  - Or [Ollama](https://ollama.com/download) installed locally with a supported model such as `gemma4` or `qwen3.6`.
 - A CV, either as:
   - a LinkedIn PDF export, or
   - text copied from an existing CV.
 - A job description if you want the job-specific reconstruction plan.
 - An optional company description if the company is small, new, private, or not well-known.
 
-If you only want to test the app, you can paste the API key directly into the app. If you want to use it regularly, you can save the key in a local `.env` file.
+If you only want to test the app with a cloud provider, you can paste the API key directly into the app. If you want to use it regularly, you can save the key in a local `.env` file. If you use Ollama, no API key is needed, but Ollama must be installed and running on your computer.
 
 ## Step 1: Install Node.js
 
@@ -123,9 +124,11 @@ npm install
 
 This downloads the packages needed by the app. It may take a few minutes the first time.
 
-## Step 5: Choose How To Provide Your AI Key
+## Step 5: Choose Your AI Option
 
-You have two options.
+You can use a cloud AI provider with an API key, or Ollama locally without an API key.
+
+### Option A: Use Gemini, OpenAI, Or Mistral
 
 Get a key from the provider you want to use:
 
@@ -135,7 +138,7 @@ Get a key from the provider you want to use:
 
 You may need to sign in, create a project, add billing, or accept the provider's terms before a key works. Keep the key private. Anyone with the key may be able to use your account quota or billing.
 
-### Option A: Paste The Key In The App
+#### Paste The Key In The App
 
 This is the simplest option for testing.
 
@@ -148,7 +151,7 @@ This is the simplest option for testing.
 
 The key is sent only to the local backend for that request. The app does not store it.
 
-### Option B: Save The Key In `.env`
+#### Save The Key In `.env`
 
 This is more convenient if you use the app often.
 
@@ -173,6 +176,8 @@ GEMINI_API_KEY=
 GEMINI_MODEL=models/gemini-3.5-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=gemma4
 PORT=3001
 ```
 
@@ -185,12 +190,47 @@ GEMINI_API_KEY=your_gemini_key_here
 GEMINI_MODEL=models/gemini-3.5-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=gemma4
 PORT=3001
 ```
 
 The app also shows model choices directly in the UI. The `.env` model values are only defaults for requests that do not send a selected model.
 
 Important: never share or commit the `.env` file. It contains private keys. The project is configured to ignore `.env`, but you should still treat it as secret.
+
+### Option B: Use Ollama Offline (experimental)
+
+Ollama lets the AI model run on your computer. This is useful if you do not want CV text sent to a cloud AI provider.
+
+1. Download and install [Ollama](https://ollama.com/download).
+2. Open a terminal.
+3. Download and start one model:
+
+```bash
+ollama run gemma4
+```
+
+Or:
+
+```bash
+ollama run qwen3.6
+```
+
+4. Keep Ollama running.
+5. In Career Signal, choose `Ollama (offline, experimental)`.
+6. Choose `Gemma 4`, `Qwen 3.6`, or `Custom Ollama model`.
+7. Keep the Ollama URL as `http://localhost:11434` unless you changed it.
+
+If you choose `Custom Ollama model`, type the exact model name you installed in Ollama, for example:
+
+```text
+llama3.2:3b
+qwen3:14b
+mistral-small
+```
+
+Local models may be slower or less consistent than cloud models. Always review titles, dates, employers, metrics, tools, and claims before using the output.
 
 ## Step 6: Run The App
 
@@ -254,6 +294,12 @@ Or run it with a Mistral key:
 docker run --rm -p 3001:3001 -e MISTRAL_API_KEY=your_mistral_key_here fanmixco/career-signal:latest
 ```
 
+Or run it with Ollama on your host computer:
+
+```bash
+docker run --rm -p 3001:3001 -e OLLAMA_BASE_URL=http://host.docker.internal:11434 fanmixco/career-signal:latest
+```
+
 If you use Podman Desktop, the command is almost the same:
 
 ```bash
@@ -266,7 +312,7 @@ Then open:
 http://localhost:3001
 ```
 
-The image does not include your `.env` file. API keys are passed at runtime with `-e` or typed into the app.
+The image does not include your `.env` file. API keys and the optional Ollama URL are passed at runtime with `-e` or typed into the app.
 
 ### Option B: Build The Image Yourself
 
@@ -354,15 +400,15 @@ Create a Windows installer and portable executable:
 npm run desktop:dist
 ```
 
-The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste keys in the app, or you can provide runtime environment variables while testing.
+The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
 ## Step 7: Use The App
 
 1. Fill in the profile details.
 2. Upload a LinkedIn PDF export or paste CV text.
-3. Choose Gemini, OpenAI, or Mistral.
+3. Choose Gemini, OpenAI, Mistral, or Ollama (offline, experimental).
 4. Choose the model you want to use.
-5. Paste an API key if you did not configure one in `.env`.
+5. Paste an API key for cloud providers if you did not configure one in `.env`; for Ollama, confirm the local URL.
 6. Click `Run CV Evidence Precheck`.
 7. Wait for the result. The button shows that validation is running.
 8. Review the CV Evidence Score, warnings, and suggested improvements.
@@ -484,6 +530,20 @@ Fix:
 - If `OpenAI` is selected, paste an OpenAI key or set `OPENAI_API_KEY` in `.env`.
 - If `Mistral` is selected, paste a Mistral key or set `MISTRAL_API_KEY` in `.env`.
 
+### Ollama says the model is missing or cannot be reached
+
+Ollama must be installed, running, and have the selected model downloaded.
+
+Fix:
+
+1. Install Ollama from [https://ollama.com/download](https://ollama.com/download).
+2. Open a terminal.
+3. Run `ollama run gemma4` or `ollama run qwen3.6`.
+4. In the app, select `Ollama (offline, experimental)`.
+5. Keep the Ollama URL as `http://localhost:11434` unless your setup uses a different address.
+
+If you run Career Signal inside Docker and Ollama on your host computer, try `http://host.docker.internal:11434` as the Ollama URL.
+
 ### The precheck button does nothing
 
 Check that the backend is running at:
@@ -516,6 +576,7 @@ If the precheck result is weak, improve the CV first or explicitly choose to con
 - API keys are not logged or stored by this app.
 - AI calls happen only from the backend.
 - CV text and job descriptions are sent to the selected AI provider when you run an analysis.
+- If you choose `Ollama (offline, experimental)`, CV text and job descriptions are sent to the configured Ollama URL instead of a cloud AI provider.
 - `.env` files are ignored and must not be committed.
 - Internal planning docs and local templates are ignored and should not be committed unless they are intentionally productized.
 - The app provides CV guidance, not legal advice, career guarantees, or hiring guarantees.
@@ -526,7 +587,7 @@ If the precheck result is weak, improve the CV first or explicitly choose to con
 
 - Backend: Node.js, Express, TypeScript
 - Frontend: static HTML, CSS, JavaScript
-- AI providers: Gemini, OpenAI, or Mistral
+- AI providers: Gemini, OpenAI, Mistral, or Ollama
 - PDF extraction: `pdf-parse`
 - Validation: Zod
 
