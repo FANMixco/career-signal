@@ -1,3 +1,6 @@
+// Default model names and fallback ordering.
+// UI selections should map to the same strings where possible; environment
+// variables only act as defaults when a request does not send a model.
 export function openAiModel(model?: string) {
   return model || process.env.OPENAI_MODEL || "gpt-5.5";
 }

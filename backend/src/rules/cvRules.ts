@@ -1,3 +1,6 @@
+// Product rules and evaluator constants.
+// Keep CV-quality criteria here when they are shared by prompts, schemas,
+// validation, deterministic checks, or downloadable reminders.
 export const MIN_CV_LENGTH = 300;
 export const MIN_JOB_DESCRIPTION_LENGTH = 120;
 

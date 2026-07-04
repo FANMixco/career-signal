@@ -1,3 +1,6 @@
+// Frontend product configuration.
+// Keep user-facing text, option lists, modal content, and provider labels here so
+// future copy/rule changes do not require digging through event-handler code.
 function resolveApiBaseUrl(location) {
   const separateFrontendPorts = new Set(["5500", "5173", "4173", "8080"]);
 

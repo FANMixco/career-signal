@@ -1,3 +1,6 @@
+// Helpers for providers that return JSON as ordinary text.
+// Some models wrap JSON in Markdown or inside a named property, so parsing tries
+// the small set of shapes we intentionally support before failing clearly.
 import { z } from "zod";
 
 export function extractJson(text: string) {

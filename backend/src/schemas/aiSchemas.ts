@@ -1,3 +1,6 @@
+// Canonical AI response contracts.
+// Every provider, including local Ollama fallbacks, must eventually satisfy
+// these schemas before the frontend renders scores or reconstruction sections.
 import { z } from "zod";
 import { proceedRecommendations, scoreBreakdownMaximums } from "../rules/cvRules.js";
 

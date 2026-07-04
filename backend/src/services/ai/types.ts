@@ -1,3 +1,5 @@
+// Shared provider and request types for the AI service layer.
+// Keep these shapes aligned with frontend provider options and route payloads.
 import type { GoogleGenAI } from "@google/genai";
 import type OpenAI from "openai";
 import type { AnalysisResult } from "../../schemas/aiSchemas.js";

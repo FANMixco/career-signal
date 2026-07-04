@@ -1,3 +1,7 @@
+// Prompt builders for cloud providers and legacy full-object local prompts.
+// The main Ollama implementation now uses section prompts in ollamaService.ts,
+// but these full prompts remain useful for providers that handle strict JSON in
+// one response.
 import {
   accomplishmentTenseGuidance,
   careerProgressionVisibility,

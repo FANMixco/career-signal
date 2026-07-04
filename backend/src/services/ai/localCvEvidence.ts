@@ -1,3 +1,7 @@
+// Deterministic CV evidence checks used as the safety net for local Ollama.
+// These rules do not replace the LLM review; they make sure the app can still
+// return a defensible score and practical warnings when a local model is weak,
+// too slow, or unable to produce the requested JSON shape.
 import { defaultMetricRecoveryQuestions, detectSensitivePersonalDataWarnings, recommendationForScore } from "../../rules/cvRules.js";
 import type { PrecheckResult } from "../../schemas/aiSchemas.js";
 import type { OllamaPrecheckAdviceSection } from "./types.js";
@@ -44,6 +48,8 @@ export function compactForLocalModel(text: string, maxChars = 12000) {
 ${text.slice(-tailLength)}`;
 }
 
+// Produces the numeric precheck fields required by the shared schema. This is
+// intentionally conservative and evidence-based, using visible text signals only.
 export function buildLocalPrecheckBaseline(input: {
   cvText: string;
   yearsOfExperience: number;
@@ -116,6 +122,8 @@ export function buildLocalPrecheckBaseline(input: {
   };
 }
 
+// Adds richer advice from fast text signals when Ollama cannot finish the
+// reviewer pass. Keep these warnings specific to CV quality, not job tailoring.
 export function buildLocalPrecheckFallbackSections(
   input: {
     cvText: string;

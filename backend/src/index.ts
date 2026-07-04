@@ -1,3 +1,6 @@
+// Express entry point for the local web app, Docker image, and desktop wrapper.
+// The frontend is served statically from the same process so users can open one
+// local URL without running a separate frontend server.
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";

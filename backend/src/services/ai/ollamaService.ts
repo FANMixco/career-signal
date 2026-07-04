@@ -1,3 +1,7 @@
+// Local Ollama adapter.
+// Local models can be useful for privacy, but they are slower and less reliable
+// with large strict schemas. The precheck and reconstruction plan are therefore
+// requested in smaller sections, with deterministic fallbacks where possible.
 import { z } from "zod";
 import { analysisSchema, precheckSchema, type AnalysisResult } from "../../schemas/aiSchemas.js";
 import { parseJsonWithSchema } from "./jsonUtils.js";
@@ -76,6 +80,9 @@ async function createOllamaSectionJsonResponse<T>(
   let lastError: unknown;
   const candidates = allowFallback ? ollamaModelCandidates(model) : [ollamaModelCandidates(model)[0]];
 
+  // "Gemma 4 + Qwen 3.6" is represented by trying multiple installed models in
+  // order. A custom model does not fallback to built-ins unless it is one of the
+  // known default models.
   for (const candidateModel of candidates) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs);
@@ -189,6 +196,8 @@ export async function runOllamaSectionedPrecheck(
   };
 
   try {
+    // The baseline gives stable scoring. The local LLM only enriches warnings so
+    // a weak or slow model cannot erase deterministic evidence checks.
     warnings = (await createOllamaSectionJsonResponse(
       provider.baseUrl,
       "ollama_precheck_warnings_section",

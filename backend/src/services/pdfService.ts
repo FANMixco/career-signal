@@ -1,3 +1,6 @@
+// PDF text extraction for uploaded CVs.
+// The AI services receive plain text only; the uploaded PDF itself is never sent
+// to a model by this backend.
 import pdfParse from "pdf-parse";
 
 export async function extractPdfText(buffer: Buffer) {

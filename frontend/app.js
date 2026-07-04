@@ -1,3 +1,6 @@
+// Browser controller for the single-page app.
+// This file wires DOM state, validation, API calls, and rendering. Product copy
+// and visible rules should stay in config.js unless the behavior itself changes.
 const state = {
   cvText: "",
   precheck: null,
@@ -96,6 +99,8 @@ function analysisErrorMessage(error) {
   return error?.message || "Could not generate the reconstruction plan.";
 }
 
+// Local Ollama reconstruction can return a useful partial result if one section
+// times out. Detect that case so the UI warns without hiding completed sections.
 function isPartialLocalAnalysis(analysis) {
   const warningText = `${analysis?.precheckWarningSummary || ""} ${(analysis?.finalReconstructionPlan || []).join(" ")}`;
   return /partial local result|did not complete|took too long/i.test(warningText);
@@ -248,6 +253,9 @@ function currentPrecheckSignature() {
   });
 }
 
+// A successful precheck only applies to the exact CV/profile inputs that were
+// reviewed. If the user changes those inputs, lock tailoring until a fresh
+// precheck prevents polishing stale or unsupported evidence.
 function invalidatePrecheckIfSourceChanged() {
   if (!state.precheck || state.precheckInFlight) return;
   const signature = currentPrecheckSignature();

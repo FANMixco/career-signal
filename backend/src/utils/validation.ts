@@ -1,3 +1,6 @@
+// Request validation shared by the API routes.
+// This layer protects the provider services from impossible combinations such
+// as cloud models under the wrong provider or unsafe custom Ollama model names.
 import { z } from "zod";
 import {
   aiProviders,

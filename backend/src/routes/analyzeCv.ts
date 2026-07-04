@@ -1,3 +1,6 @@
+// POST /api/analyze-cv
+// Builds the job-specific reconstruction plan only after a precheck result is
+// supplied. Weak prechecks stay blocked unless the user explicitly continues.
 import { Router } from "express";
 import { ZodError } from "zod";
 import { runAnalysis } from "../services/aiProviderService.js";

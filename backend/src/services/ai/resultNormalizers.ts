@@ -1,3 +1,6 @@
+// Cross-provider cleanup after schema validation.
+// Providers sometimes return technically valid data that still needs product
+// guardrails, such as 8.6/10 scores or unsafe generic education suggestions.
 import { educationPrivacy, recommendationForScore } from "../../rules/cvRules.js";
 import type { AnalysisResult, PrecheckResult } from "../../schemas/aiSchemas.js";
 

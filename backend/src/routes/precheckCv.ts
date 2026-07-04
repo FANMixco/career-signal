@@ -1,3 +1,7 @@
+// POST /api/precheck-cv
+// Accepts either pasted CV text or one uploaded PDF, extracts text if needed,
+// validates profile metadata, then runs the evidence precheck before tailoring
+// is allowed.
 import { Router } from "express";
 import multer from "multer";
 import { detectSensitivePersonalDataWarnings } from "../rules/cvRules.js";

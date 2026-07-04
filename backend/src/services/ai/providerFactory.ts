@@ -1,3 +1,6 @@
+// Converts the UI/provider selection into a concrete model client.
+// API keys can be pasted per request or loaded from backend/.env; Ollama only
+// needs a local base URL because the model runs on the user's computer.
 import { GoogleGenAI } from "@google/genai";
 import OpenAI from "openai";
 import type { AiProviderKind, Provider } from "./types.js";

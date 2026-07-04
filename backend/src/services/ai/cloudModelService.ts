@@ -1,3 +1,6 @@
+// Structured-output adapter for cloud providers.
+// OpenAI uses the SDK parser, while Gemini and Mistral are asked for JSON and
+// then validated with the same Zod schemas used by the rest of the backend.
 import type { GoogleGenAI, Interactions } from "@google/genai";
 import type OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";

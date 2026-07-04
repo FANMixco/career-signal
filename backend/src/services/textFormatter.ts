@@ -1,3 +1,6 @@
+// Creates the TXT download from a reconstruction result.
+// Mandatory reminders are prepended if the model forgot them, preserving the CV
+// safety warnings even when provider output varies.
 import {
   accomplishmentTenseGuidance,
   careerProgressionVisibility,
