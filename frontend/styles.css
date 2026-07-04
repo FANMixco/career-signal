@@ -33,10 +33,9 @@ body.modal-open {
 }
 
 .topbar {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 24px;
   margin-bottom: 20px;
 }
@@ -89,11 +88,10 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
-  flex: 0 0 100%;
+  grid-column: 1 / -1;
   border: 1px solid #d6bd73;
   border-left: 4px solid #d09500;
   border-radius: 6px;
-  border-color: #d6bd73;
   background: #fff8df;
   padding: 12px;
 }
@@ -660,7 +658,13 @@ pre {
   }
 
   .topbar-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: stretch;
+  }
+
+  .preview-warning {
+    grid-template-columns: 1fr;
   }
 
   .site-footer-inner {
