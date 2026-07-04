@@ -10,12 +10,12 @@ The app is designed to be used by non-technical people too. You do not need to c
 
 - Reads a LinkedIn PDF export or pasted CV text.
 - Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
-- Gives a CV Evidence Score from 0 to 100.
+- Gives a CV Evidence Score from **0 to 100**.
 - Warns about weak evidence, unsupported claims, tense problems, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
 - Lets the user continue only after the evidence precheck, or after explicitly choosing to continue despite a weak precheck.
 - Uses the target company, optional company description, and job description to create a job-specific reconstruction plan.
 - Lets the user test multiple target roles after a successful precheck without checking the same unchanged CV again.
-- Gives a profile match score from 0 to 100 for the selected company and role.
+- Gives a profile match score from **0 to 100** for the selected company and role.
 - Lets the user download the final plan as a TXT file.
 - Supports Gemini, OpenAI, Mistral, or Ollama (offline, experimental). The user can choose the provider in the app.
 
