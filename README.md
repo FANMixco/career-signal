@@ -318,9 +318,7 @@ The image does not include your `.env` file. API keys and the optional Ollama UR
 
 The GitHub Pages URL is a frontend preview:
 
-```text
-https://fanmixco.github.io/career-signal/frontend/
-```
+[https://fanmixco.github.io/career-signal/frontend](https://fanmixco.github.io/career-signal/frontend)
 
 It does not include a running backend. To run CV checks from that page, start or deploy your own Career Signal backend and configure its URL from the settings button in the app.
 
