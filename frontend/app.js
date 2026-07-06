@@ -18,6 +18,7 @@ const backendStorageKey = config.backendSettings.storageKey;
 const els = {
   status: document.querySelector("#status"),
   siteFooterInner: document.querySelector("#siteFooterInner"),
+  shareButton: document.querySelector("#shareButton"),
   settingsButton: document.querySelector("#settingsButton"),
   settingsModal: document.querySelector("#settingsModal"),
   settingsClose: document.querySelector("#settingsClose"),
@@ -178,6 +179,8 @@ function applyConfiguredText() {
 
   els.cvBasicsClose.textContent = config.buttons.closeModal;
   els.cvBasicsClose.setAttribute("aria-label", config.buttons.closeModalLabel);
+  els.shareButton.setAttribute("aria-label", config.buttons.shareLabel);
+  els.shareButton.setAttribute("title", config.buttons.shareLabel);
   els.settingsButton.setAttribute("aria-label", config.buttons.settingsLabel);
   els.settingsClose.textContent = config.buttons.closeModal;
   els.settingsClose.setAttribute("aria-label", config.buttons.closeSettingsLabel);
@@ -368,6 +371,25 @@ async function testBackendUrl() {
   } catch {
     setBackendSettingsFeedback("error", config.backendSettings.testFailed);
   }
+}
+
+async function shareApp() {
+  const shareData = {
+    title: config.site.title,
+    text: config.share.text,
+    url: config.share.url
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      return;
+    } catch (error) {
+      if (error?.name === "AbortError") return;
+    }
+  }
+
+  window.open(config.share.url, "_blank", "noopener,noreferrer");
 }
 
 // A successful precheck only applies to the exact CV/profile inputs that were
@@ -672,12 +694,12 @@ async function runAnalysis() {
   }
 
   state.analysisInFlight = true;
+  state.downloadableText = "";
+  els.analysisResult.innerHTML = "";
+  show(els.outputPanel, false);
   setBusy(true);
   setStatus("Tailoring");
-  setTailoringFeedback("", "");
-  if (els.aiProvider.value === "ollama") {
-    setTailoringFeedback("loading", config.ollama.analysisGuidance);
-  }
+  setTailoringFeedback("loading", els.aiProvider.value === "ollama" ? config.ollama.analysisGuidance : config.feedback.analysisLoading);
 
   try {
     const response = await fetch(apiUrl("/api/analyze-cv"), {
@@ -817,6 +839,7 @@ els.aiProvider.addEventListener("change", () => {
   updateApiKeyCopy();
 });
 els.aiModel.addEventListener("change", updateApiKeyCopy);
+els.shareButton.addEventListener("click", shareApp);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);

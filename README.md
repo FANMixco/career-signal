@@ -434,6 +434,12 @@ Create a Windows installer and portable executable:
 npm run desktop:dist
 ```
 
+Create a Windows ARM64 installer and portable executable:
+
+```bash
+npm run desktop:dist:arm64
+```
+
 The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
 ### Build A Microsoft Store Package
@@ -444,22 +450,23 @@ Microsoft Store packages must match the app identity reserved in Microsoft Partn
 2. Open `Apps and games`.
 3. Open `Career Signal Engine`.
 4. Expand `View product identity`.
-5. Use those package identity values as local environment variables:
-   - `WINDOWS_STORE_IDENTITY_NAME`
-   - `WINDOWS_STORE_PUBLISHER`
-   - `WINDOWS_STORE_PUBLISHER_DISPLAY_NAME`
-   - Optional: `WINDOWS_STORE_APPLICATION_ID` (defaults to `CareerSignalEngine`)
-   - Optional: `WINDOWS_STORE_DISPLAY_NAME`
+5. Copy the package identity values into your local shell environment.
 
-Build the Store package locally from the project root:
+After your local shell has those values, build the Store package from the project root:
 
 ```bash
 npm run desktop:store
 ```
 
+You can also use the local helper script, which checks that the required Partner Center identity values exist before building:
+
+```bash
+npm run desktop:store:local
+```
+
 The generated package is written to the `release` folder. Upload it in Partner Center under `Manage packages`.
 
-The local command requires the `WINDOWS_STORE_*` environment variables. The normal `.exe` release workflow does not need these values.
+The normal `.exe` release workflow does not need Microsoft Store identity values.
 
 ## Step 7: Use The App
 

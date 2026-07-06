@@ -39,6 +39,10 @@ window.CAREER_SIGNAL_CONFIG = {
     title: "Career Signal Engine",
     subtitle: "Evidence check first. Tailoring second."
   },
+  share: {
+    text: "Discover Career Signal Engine, an open-source CV evidence checker and job-tailoring assistant.",
+    url: "https://github.com/FANMixco/career-signal"
+  },
   sections: {
     profile: "1. Profile",
     cvInput: "2. CV Input",
@@ -172,6 +176,7 @@ window.CAREER_SIGNAL_CONFIG = {
   },
   buttons: {
     settingsLabel: "Configure backend",
+    shareLabel: "Share Career Signal Engine",
     closeSettingsLabel: "Close backend settings",
     appHelp: "?",
     appHelpLabel: "Open app guide",
@@ -238,6 +243,8 @@ window.CAREER_SIGNAL_CONFIG = {
     precheckComplete: "Precheck complete. Review the score and choose the next action below.",
     precheckPassedWithWarnings:
       "The precheck passed, but there are still warnings or suggestions worth reviewing before tailoring.",
+    analysisLoading:
+      "Generating a new reconstruction plan. The previous plan was cleared to avoid mixing outputs from different target roles.",
     analysisComplete: "Reconstruction plan ready. Review the output below before using it.",
     analysisPartial:
       "Partial local reconstruction ready. Some Ollama sections did not finish, so review the completed output and retry with a cloud provider or smaller local model for a full plan.",

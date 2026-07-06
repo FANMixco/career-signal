@@ -10,7 +10,9 @@
     "desktop:dev": "npm run desktop:prepare && electron .",
     "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
     "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
-    "desktop:store": "npm run desktop:prepare && electron-builder --win appx --config electron-builder.store.cjs --publish=never"
+    "desktop:dist:arm64": "npm run desktop:prepare && electron-builder --win --arm64 --publish=never",
+    "desktop:store": "npm run desktop:prepare && electron-builder --win appx --config electron-builder.store.cjs --publish=never",
+    "desktop:store:local": "powershell -ExecutionPolicy Bypass -File scripts/build-store-app.ps1"
   },
   "devDependencies": {
     "electron": "^39.8.5",
@@ -39,8 +41,12 @@
       ]
     },
     "nsis": {
+      "artifactName": "${productName}-Setup-${version}-${arch}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}-${arch}.${ext}"
     }
   }
 }

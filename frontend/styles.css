@@ -266,6 +266,16 @@ button.is-loading::before {
   background: var(--panel);
 }
 
+.share-button {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+}
+
+.share-button img {
+  filter: invert(25%) sepia(24%) saturate(1012%) hue-rotate(127deg) brightness(89%) contrast(89%);
+}
+
 .help-button {
   border: 1px solid var(--line);
   border-radius: 50%;
