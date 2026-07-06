@@ -9,6 +9,11 @@ backend/node_modules/
 backend/templates
 release/
 
+# Local/private packaging files
+electron-builder.store.cjs
+scripts/build-store-app.ps1
+frontend/img/store-logos/
+
 # Build output
 dist/
 backend/dist/
