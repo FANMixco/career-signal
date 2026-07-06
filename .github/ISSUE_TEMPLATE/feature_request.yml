@@ -1,0 +1,58 @@
+name: Feature request
+description: Suggest a new capability or larger product idea.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for larger ideas that would add a new capability to Career Signal.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain the user problem or workflow gap.
+      placeholder: "Example: I want to compare the same CV against multiple jobs without rerunning the evidence precheck."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+      description: Describe the feature in plain language.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - CV evidence precheck
+        - Job tailoring
+        - Profile match assessment
+        - Printable CV / export
+        - AI provider settings
+        - Desktop app
+        - Docker / deployment
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional. Mention any workaround or similar tool you have tried.
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Optional. Add screenshots, examples, or links that clarify the idea.
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I did not include private CV content, API keys, emails, phone numbers, or personal identifiers.
+          required: true

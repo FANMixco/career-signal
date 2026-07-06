@@ -1,0 +1,62 @@
+name: CV tips and tricks
+description: Suggest CV advice, examples, or warnings for a country, industry, role, or context.
+title: "[Tip]: "
+labels:
+  - documentation
+  - cv-rules
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this to suggest practical CV guidance that could improve the app's rules, examples, modal, or documentation.
+  - type: textarea
+    id: tip
+    attributes:
+      label: What tip, warning, or best practice should be added?
+      placeholder: "Example: In some countries, adding a photo is common; in others, it can be risky or discouraged."
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: What is this advice related to?
+      options:
+        - Country or region
+        - Industry
+        - Role type
+        - Seniority level
+        - CV structure
+        - Evidence / accomplishments
+        - ATS / keywords
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Country, industry, role, or context
+      placeholder: "Example: Luxembourg, Spain, consulting, cloud strategy, junior roles"
+    validations:
+      required: true
+  - type: textarea
+    id: good-example
+    attributes:
+      label: Good example
+      description: Optional. Add a safe, anonymized example.
+  - type: textarea
+    id: bad-example
+    attributes:
+      label: Weak or risky example
+      description: Optional. Add a safe, anonymized example.
+  - type: input
+    id: source
+    attributes:
+      label: Source or reason
+      description: Optional. Add a link, personal hiring experience, recruiter feedback, or local practice.
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I did not include real private CV content, API keys, emails, phone numbers, or personal identifiers.
+          required: true

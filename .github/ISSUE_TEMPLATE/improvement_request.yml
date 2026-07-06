@@ -1,0 +1,51 @@
+name: Small improvement
+description: Suggest a smaller change to something that already exists.
+title: "[Improvement]: "
+labels:
+  - enhancement
+  - good first issue
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for wording, layout, rules, examples, or flow improvements that are smaller than a full new feature.
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: What feels unclear or could be better?
+      placeholder: "Example: The warning after the precheck is hard to understand for non-technical users."
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: Tell us what wording, layout, rule, or behavior would work better.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Wording / labels
+        - Layout / visual design
+        - CV rules
+        - Modal guidance
+        - README / documentation
+        - AI output quality
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Optional. Add a before/after example if useful.
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed or anonymized any private CV or personal information.
+          required: true

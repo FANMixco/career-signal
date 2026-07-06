@@ -11,6 +11,7 @@
     "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
     "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
     "desktop:dist:arm64": "npm run desktop:prepare && electron-builder --win --arm64 --publish=never",
+    "desktop:dist:mac": "npm run desktop:prepare && electron-builder --mac dmg zip --publish=never",
     "desktop:store": "npm run desktop:prepare && electron-builder --win appx --config electron-builder.store.cjs --publish=never",
     "desktop:store:local": "powershell -ExecutionPolicy Bypass -File scripts/build-store-app.ps1"
   },

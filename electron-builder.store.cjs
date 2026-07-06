@@ -1,4 +1,5 @@
 const basePackage = require("./package.json");
+const { readFile, writeFile } = require("node:fs/promises");
 
 const requiredStoreVars = [
   "WINDOWS_STORE_IDENTITY_NAME",
@@ -16,9 +17,22 @@ if (missingStoreVars.length > 0) {
 }
 
 const baseBuild = basePackage.build;
+const storeBuildVersion = process.env.WINDOWS_STORE_BUILD_VERSION;
 
 module.exports = {
   ...baseBuild,
+  buildVersion: storeBuildVersion || basePackage.version,
+  appxManifestCreated: async (manifestPath) => {
+    if (!storeBuildVersion) {
+      return;
+    }
+
+    const manifest = await readFile(manifestPath, "utf8");
+    await writeFile(
+      manifestPath,
+      manifest.replace(/Version="[^"]+"/, `Version="${storeBuildVersion}"`),
+    );
+  },
   win: {
     ...baseBuild.win,
     target: ["appx"],

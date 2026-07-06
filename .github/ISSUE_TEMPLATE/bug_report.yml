@@ -1,0 +1,78 @@
+name: Bug report
+description: Report something that is broken or behaves unexpectedly.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Career Signal. Please avoid adding private API keys, CVs, emails, phone numbers, or personal documents.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the issue in simple words.
+      placeholder: "Example: I clicked Run CV Evidence Precheck and nothing changed."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps that caused the problem.
+      placeholder: |
+        1. Open the app
+        2. Upload a PDF CV
+        3. Click Run CV Evidence Precheck
+        4. See the error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: "Example: I expected the precheck score and warnings to appear."
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Where did it happen?
+      options:
+        - Windows desktop app
+        - Docker
+        - Local web app
+        - GitHub Pages frontend preview
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      placeholder: "Example: v1.0.8.1"
+  - type: dropdown
+    id: provider
+    attributes:
+      label: AI provider used
+      options:
+        - Gemini
+        - OpenAI
+        - Mistral
+        - Ollama offline
+        - Not applicable
+        - I am not sure
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error message or screenshot
+      description: Paste the error text or attach a screenshot. Remove private information first.
+      render: text
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private CV content, API keys, emails, phone numbers, and personal identifiers from this report.
+          required: true
