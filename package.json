@@ -9,7 +9,8 @@
     "desktop:prepare": "npm --prefix backend run build",
     "desktop:dev": "npm run desktop:prepare && electron .",
     "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
-    "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never"
+    "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
+    "desktop:store": "npm run desktop:prepare && electron-builder --win appx --config electron-builder.store.cjs --publish=never"
   },
   "devDependencies": {
     "electron": "^37.0.0",

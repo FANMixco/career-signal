@@ -414,6 +414,38 @@ npm run desktop:dist
 
 The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
+### Build A Microsoft Store Package
+
+Microsoft Store packages must match the app identity reserved in Microsoft Partner Center.
+
+1. Open Partner Center.
+2. Open `Apps and games`.
+3. Open `Career Signal Engine`.
+4. Expand `View product identity`.
+5. Copy the package identity values into GitHub repository variables or secrets:
+   - `WINDOWS_STORE_IDENTITY_NAME`
+   - `WINDOWS_STORE_PUBLISHER`
+   - `WINDOWS_STORE_PUBLISHER_DISPLAY_NAME`
+   - Optional: `WINDOWS_STORE_APPLICATION_ID`
+   - Optional: `WINDOWS_STORE_DISPLAY_NAME`
+
+After those values are configured:
+
+1. Open the GitHub repository.
+2. Open `Actions`.
+3. Select `Build Microsoft Store Package`.
+4. Click `Run workflow`.
+5. Download the generated `career-signal-store-package` artifact.
+6. Upload the generated package in Partner Center under `Manage packages`.
+
+You can also test the Store package locally from the project root:
+
+```bash
+npm run desktop:store
+```
+
+The local command requires the same `WINDOWS_STORE_*` environment variables. The normal `.exe` release workflow does not need these values.
+
 ## Step 7: Use The App
 
 1. Fill in the profile details.
