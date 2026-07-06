@@ -422,29 +422,22 @@ Microsoft Store packages must match the app identity reserved in Microsoft Partn
 2. Open `Apps and games`.
 3. Open `Career Signal Engine`.
 4. Expand `View product identity`.
-5. Copy the package identity values into GitHub repository variables or secrets:
+5. Use those package identity values as local environment variables:
    - `WINDOWS_STORE_IDENTITY_NAME`
    - `WINDOWS_STORE_PUBLISHER`
    - `WINDOWS_STORE_PUBLISHER_DISPLAY_NAME`
    - Optional: `WINDOWS_STORE_APPLICATION_ID`
    - Optional: `WINDOWS_STORE_DISPLAY_NAME`
 
-After those values are configured:
-
-1. Open the GitHub repository.
-2. Open `Actions`.
-3. Select `Build Microsoft Store Package`.
-4. Click `Run workflow`.
-5. Download the generated `career-signal-store-package` artifact.
-6. Upload the generated package in Partner Center under `Manage packages`.
-
-You can also test the Store package locally from the project root:
+Build the Store package locally from the project root:
 
 ```bash
 npm run desktop:store
 ```
 
-The local command requires the same `WINDOWS_STORE_*` environment variables. The normal `.exe` release workflow does not need these values.
+The generated package is written to the `release` folder. Upload it in Partner Center under `Manage packages`.
+
+The local command requires the `WINDOWS_STORE_*` environment variables. The normal `.exe` release workflow does not need these values.
 
 ## Step 7: Use The App
 
