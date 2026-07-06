@@ -346,6 +346,28 @@ If you prefer using an env file, pass it at runtime:
 docker run --rm -p 3001:3001 --env-file backend/.env career-signal-engine
 ```
 
+### Optional: Build A Backend-Only Image
+
+If you only need the API backend and plan to host the frontend separately, use the backend-only Dockerfile:
+
+```bash
+docker build -f Dockerfile.backend -t career-signal-backend .
+```
+
+Run it:
+
+```bash
+docker run --rm -p 3001:3001 --env-file backend/.env career-signal-backend
+```
+
+Then point the frontend settings to:
+
+```text
+http://localhost:3001
+```
+
+This image does not include the frontend files. It only serves the API routes such as `/api/health`, `/api/precheck-cv`, and `/api/analyze-cv`.
+
 ### Publish The Docker Image From GitHub
 
 The project includes a GitHub Actions workflow that can build and publish the Docker image for you. This avoids building and pushing the image from your own PC.
