@@ -442,32 +442,6 @@ npm run desktop:dist:arm64
 
 The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
-### Build A Microsoft Store Package
-
-Microsoft Store packages must match the app identity reserved in Microsoft Partner Center.
-
-1. Open Partner Center.
-2. Open `Apps and games`.
-3. Open `Career Signal Engine`.
-4. Expand `View product identity`.
-5. Copy the package identity values into your local shell environment.
-
-After your local shell has those values, build the Store package from the project root:
-
-```bash
-npm run desktop:store
-```
-
-You can also use the local helper script, which checks that the required Partner Center identity values exist before building:
-
-```bash
-npm run desktop:store:local
-```
-
-The generated package is written to the `release` folder. Upload it in Partner Center under `Manage packages`.
-
-The normal `.exe` release workflow does not need Microsoft Store identity values.
-
 ## Step 7: Use The App
 
 1. Fill in the profile details.
