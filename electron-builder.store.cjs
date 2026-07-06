@@ -25,8 +25,7 @@ module.exports = {
   },
   appx: {
     identityName: process.env.WINDOWS_STORE_IDENTITY_NAME,
-    applicationId:
-      process.env.WINDOWS_STORE_APPLICATION_ID || process.env.WINDOWS_STORE_IDENTITY_NAME,
+    applicationId: process.env.WINDOWS_STORE_APPLICATION_ID || "CareerSignalEngine",
     publisher: process.env.WINDOWS_STORE_PUBLISHER,
     publisherDisplayName: process.env.WINDOWS_STORE_PUBLISHER_DISPLAY_NAME,
     displayName: process.env.WINDOWS_STORE_DISPLAY_NAME || baseBuild.productName,

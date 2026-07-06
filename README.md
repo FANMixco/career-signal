@@ -426,7 +426,7 @@ Microsoft Store packages must match the app identity reserved in Microsoft Partn
    - `WINDOWS_STORE_IDENTITY_NAME`
    - `WINDOWS_STORE_PUBLISHER`
    - `WINDOWS_STORE_PUBLISHER_DISPLAY_NAME`
-   - Optional: `WINDOWS_STORE_APPLICATION_ID`
+   - Optional: `WINDOWS_STORE_APPLICATION_ID` (defaults to `CareerSignalEngine`)
    - Optional: `WINDOWS_STORE_DISPLAY_NAME`
 
 Build the Store package locally from the project root:
