@@ -8,7 +8,7 @@ The app is designed to be used by non-technical people too. You do not need to c
 
 ## What It Does
 
-- Reads a LinkedIn PDF export or pasted CV text.
+- Reads a CV PDF, LinkedIn PDF export, or pasted CV text.
 - Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
 - Gives a CV Evidence Score from **0 to 100**.
 - Warns about weak evidence, unsupported claims, tense problems, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
@@ -41,7 +41,7 @@ You need:
   - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/).
   - Or [Ollama](https://ollama.com/download) installed locally with a supported model such as `gemma4` or `qwen3.6`.
 - A CV, either as:
-  - a LinkedIn PDF export, or
+  - a CV PDF or LinkedIn PDF export, or
   - text copied from an existing CV.
 - A job description if you want the job-specific reconstruction plan.
 - An optional company description if the company is small, new, private, or not well-known.
@@ -471,7 +471,7 @@ The normal `.exe` release workflow does not need Microsoft Store identity values
 ## Step 7: Use The App
 
 1. Fill in the profile details.
-2. Upload a LinkedIn PDF export or paste CV text.
+2. Upload a CV PDF, LinkedIn PDF export, or paste CV text.
 3. Choose Gemini, OpenAI, Mistral, or Ollama (offline, experimental).
 4. Choose the model you want to use.
 5. Paste an API key for cloud providers if you did not configure one in `.env`; for Ollama, confirm the local URL.
