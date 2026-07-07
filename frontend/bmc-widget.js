@@ -1,5 +1,6 @@
 // Buy Me a Coffee's widget initializes only from a parser-loaded script because
-// its own code waits for DOMContentLoaded. Keep this small loader before app.js.
+// its own code waits for DOMContentLoaded. Keep this after app.js so the UI copy
+// is visible even when the external widget script is slow.
 (function () {
   const baseConfig = window.CAREER_SIGNAL_CONFIG;
   const languageStorageKey = "careerSignalLanguage";

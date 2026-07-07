@@ -12,6 +12,7 @@ release/
 # Local/private packaging files
 electron-builder.store.cjs
 scripts/build-store-app.ps1
+store-package.local.ps1
 build/appx/
 frontend/img/store-logos/
 
