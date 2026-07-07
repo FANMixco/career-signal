@@ -144,6 +144,25 @@ function setTailoringFeedback(type, message) {
   show(els.tailoringFeedback, Boolean(message));
 }
 
+function clearAnalysisReview() {
+  state.downloadableText = "";
+  state.lastAnalysis = null;
+  els.analysisResult.innerHTML = "";
+  show(els.outputPanel, false);
+  setTailoringFeedback("", "");
+}
+
+function clearPrecheckReview() {
+  state.precheck = null;
+  state.precheckSignature = "";
+  state.continueDespiteWeakPrecheck = false;
+  state.lastPrecheckPayload = null;
+  els.precheckResult.innerHTML = "";
+  els.decisionGate.innerHTML = "";
+  show(els.precheckPanel, false);
+  clearAnalysisReview();
+}
+
 function setBackendSettingsFeedback(type, message) {
   els.backendSettingsFeedback.className = `feedback ${type}`;
   els.backendSettingsFeedback.textContent = message;
@@ -512,15 +531,7 @@ function invalidatePrecheckIfSourceChanged() {
   const signature = currentPrecheckSignature();
   if (signature === state.precheckSignature) return;
 
-  state.precheck = null;
-  state.precheckSignature = "";
-  state.continueDespiteWeakPrecheck = false;
-  state.lastPrecheckPayload = null;
-  state.lastAnalysis = null;
-  state.downloadableText = "";
-  els.decisionGate.innerHTML = "";
-  els.analysisResult.innerHTML = "";
-  show(els.outputPanel, false);
+  clearPrecheckReview();
   setTailoringAccess(false, config.tailoring.staleLock);
   setFeedback("warning", config.feedback.precheckStale);
   setStatus("Precheck needed");
@@ -673,10 +684,8 @@ async function runPrecheck() {
   if (els.openaiApiKey.value.trim()) form.append("aiApiKey", els.openaiApiKey.value.trim());
 
   state.precheckInFlight = true;
-  state.downloadableText = "";
-  state.lastAnalysis = null;
-  els.analysisResult.innerHTML = "";
-  show(els.outputPanel, false);
+  clearPrecheckReview();
+  setTailoringAccess(false, config.tailoring.initialLock);
   setBusy(true);
   setStatus("Prechecking");
   setFeedback("loading", config.feedback.precheckLoadingText);
@@ -816,9 +825,7 @@ async function runAnalysis() {
   }
 
   state.analysisInFlight = true;
-  state.downloadableText = "";
-  els.analysisResult.innerHTML = "";
-  show(els.outputPanel, false);
+  clearAnalysisReview();
   setBusy(true);
   setStatus("Tailoring");
   setTailoringFeedback("loading", els.aiProvider.value === "ollama" ? config.ollama.analysisGuidance : config.feedback.analysisLoading);
