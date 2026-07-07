@@ -2,6 +2,8 @@ FROM node:24-alpine AS build
 
 WORKDIR /app/backend
 
+COPY backend/scripts/ .
+
 COPY backend/package*.json ./
 RUN npm ci
 
