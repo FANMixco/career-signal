@@ -2,6 +2,8 @@ const { app, BrowserWindow, dialog, shell } = require("electron");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
+const desktopHost = "127.0.0.1";
+const desktopPort = Number(process.env.CAREER_SIGNAL_DESKTOP_PORT || 38691);
 let mainWindow;
 let startedServer;
 
@@ -15,12 +17,12 @@ async function startBackend() {
   const backendModule = await import(pathToFileURL(backendEntry).href);
 
   process.env.NODE_ENV = process.env.NODE_ENV || "production";
-  process.env.HOST = "127.0.0.1";
+  process.env.HOST = desktopHost;
 
   startedServer = await backendModule.startServer({
     frontendPath,
-    host: "127.0.0.1",
-    port: 0
+    host: desktopHost,
+    port: desktopPort
   });
 
   return startedServer.url;
@@ -33,6 +35,7 @@ function createWindow(url) {
     minWidth: 960,
     minHeight: 680,
     title: "Career Signal Engine",
+    icon: appPath("frontend", "img", "favicons", "android-chrome-512x512.png"),
     backgroundColor: "#f6f4ef",
     webPreferences: {
       contextIsolation: true,

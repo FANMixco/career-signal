@@ -61,7 +61,7 @@ export function startServer(options: ServerStartOptions = {}) {
   const port = Number(options.port ?? process.env.PORT ?? 3001);
   const host = options.host ?? process.env.HOST;
 
-  return new Promise<StartedServer>((resolve) => {
+  return new Promise<StartedServer>((resolve, reject) => {
     const onListening = () => {
       const address = server.address();
       const actualPort = typeof address === "object" && address ? address.port : port;
@@ -72,6 +72,7 @@ export function startServer(options: ServerStartOptions = {}) {
       resolve({ app, port: actualPort, server, url });
     };
     const server = host ? app.listen(port, host, onListening) : app.listen(port, onListening);
+    server.once("error", reject);
   });
 }
 
