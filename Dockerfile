@@ -2,13 +2,12 @@ FROM node:24-alpine AS build
 
 WORKDIR /app/backend
 
-COPY backend/scripts/ .
-
 COPY backend/package*.json ./
 RUN npm ci
 
 COPY backend/tsconfig.json ./
 COPY backend/src ./src
+COPY backend/scripts/ ./scripts
 RUN npm run build
 
 FROM node:24-alpine AS production-deps
