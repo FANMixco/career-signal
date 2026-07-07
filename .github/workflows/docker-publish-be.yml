@@ -1,4 +1,4 @@
-name: Publish Docker Image
+name: Publish Docker Image Backend
 
 on:
   push:
@@ -69,6 +69,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
+          file: ./Dockerfile.backend
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
