@@ -444,5 +444,40 @@
   "buyMeCoffee": {
     "description": "Soutenez-moi sur Buy Me a Coffee",
     "message": "Merci d’utiliser Career Signal. Soutenez ce projet avec un café."
+  },
+  "targetStyleLabels": {
+    "Consulting": "Conseil",
+    "Strategy": "Strategie",
+    "Product": "Produit",
+    "Cloud": "Cloud",
+    "Engineering": "Ingenierie",
+    "Procurement": "Achats",
+    "Sales": "Ventes",
+    "Leadership": "Leadership",
+    "Training": "Formation",
+    "Management": "Management",
+    "General": "General"
+  },
+  "apiKeys": {
+    "gemini": {
+      "label": "Cle API Gemini",
+      "placeholder": "Optionnel si GEMINI_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Gemini"
+    },
+    "openai": {
+      "label": "Cle API OpenAI",
+      "placeholder": "Optionnel si OPENAI_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API OpenAI"
+    },
+    "mistral": {
+      "label": "Cle API Mistral",
+      "placeholder": "Optionnel si MISTRAL_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Mistral"
+    },
+    "ollama": {
+      "label": "Configuration locale Ollama",
+      "placeholder": "Aucune cle API necessaire pour Ollama",
+      "keyLinkText": "Telecharger Ollama"
+    }
   }
 }

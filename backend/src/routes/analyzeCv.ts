@@ -3,6 +3,7 @@
 // supplied. Weak prechecks stay blocked unless the user explicitly continues.
 import { Router } from "express";
 import { ZodError } from "zod";
+import { proceedRecommendationValues } from "../rules/cvRules.js";
 import { runAnalysis } from "../services/aiProviderService.js";
 import { planToText } from "../services/textFormatter.js";
 import { messages } from "../utils/messages.js";
@@ -15,7 +16,7 @@ analyzeCvRouter.post("/", async (req, res) => {
     const body = analyzeCvSchema.parse(req.body);
     const recommendation = body.precheckResult.proceedRecommendation;
 
-    if (recommendation === "Improve CV first" && !body.continueDespiteWeakPrecheck) {
+    if (recommendation === proceedRecommendationValues.improve && !body.continueDespiteWeakPrecheck) {
       res.status(400).json({
         error: messages.errors.weakPrecheckBlocked
       });

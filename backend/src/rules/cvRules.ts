@@ -12,6 +12,8 @@ type GuidanceBlock = {
 };
 
 type CvRulesContent = {
+  targetStyles: string[];
+  proceedRecommendations: string[];
   outputLanguageNames: Record<"en" | "es" | "fr" | "de", string>;
   defaultMetricRecoveryQuestions: string[];
   educationPrivacy: {
@@ -31,7 +33,19 @@ type CvRulesContent = {
 
 const cvRulesContent = JSON.parse(readFileSync(new URL("../content/cvRules.json", import.meta.url), "utf8")) as CvRulesContent;
 
-export const targetStyles = ["Consulting", "Strategy", "Product", "Cloud", "Engineering", "Procurement", "Sales", "Leadership", "Training", "Management", "General"] as const;
+export const targetStyles = cvRulesContent.targetStyles as [
+  "Consulting",
+  "Strategy",
+  "Product",
+  "Cloud",
+  "Engineering",
+  "Procurement",
+  "Sales",
+  "Leadership",
+  "Training",
+  "Management",
+  "General"
+];
 export const experienceSelectionModes = ["lastFive", "all"] as const;
 export const aiProviders = ["gemini", "openai", "mistral", "ollama"] as const;
 export const outputLanguages = ["en", "es", "fr", "de"] as const;
@@ -42,7 +56,12 @@ export const mistralModels = ["mistral-medium-latest", "mistral-large-latest", "
 export const ollamaModels = ["local-mix", "gemma4", "qwen3.6"] as const;
 export const aiModels = [...openAiModels, ...geminiModels, ...mistralModels, ...ollamaModels] as const;
 
-export const proceedRecommendations = ["Proceed", "Improve CV first", "Proceed with caution"] as const;
+export const proceedRecommendations = cvRulesContent.proceedRecommendations as ["Proceed", "Improve CV first", "Proceed with caution"];
+export const proceedRecommendationValues = {
+  proceed: proceedRecommendations[0],
+  improve: proceedRecommendations[1],
+  caution: proceedRecommendations[2]
+} as const;
 
 export const scoreBands = {
   improveFirstMax: 49,
@@ -108,9 +127,9 @@ export const sensitivePersonalDataRules = [
 ] as const;
 
 export function recommendationForScore(score: number) {
-  if (score > scoreBands.cautionMax) return "Proceed";
-  if (score > scoreBands.improveFirstMax) return "Proceed with caution";
-  return "Improve CV first";
+  if (score > scoreBands.cautionMax) return proceedRecommendationValues.proceed;
+  if (score > scoreBands.improveFirstMax) return proceedRecommendationValues.caution;
+  return proceedRecommendationValues.improve;
 }
 
 export function detectSensitivePersonalDataWarnings(cvText: string) {

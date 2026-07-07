@@ -244,7 +244,6 @@ function refreshLanguage() {
   renderCurrentOutputs();
   refreshTailoringLockCopy();
   setBusy(state.precheckInFlight || state.analysisInFlight);
-  loadBuyMeCoffeeWidget();
 }
 
 function refreshTailoringLockCopy() {
@@ -300,24 +299,6 @@ function applyConfiguredText() {
   renderCvBasics();
   renderBackendSettings();
   show(els.previewWarning, isGitHubPagesPreview());
-}
-
-function loadBuyMeCoffeeWidget() {
-  document.querySelector('script[data-name="BMC-Widget"]').remove();
-  document.querySelectorAll("#bmc-wbtn, #bmc-iframe, .bmc-btn-container").forEach((element) => element.remove());
-
-  const script = document.createElement("script");
-  script.dataset.name = "BMC-Widget";
-  script.dataset.cfasync = "false";
-  script.src = "https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js";
-  script.dataset.id = "fanmixco";
-  script.dataset.description = config.buyMeCoffee.description;
-  script.dataset.message = config.buyMeCoffee.message;
-  script.dataset.color = "#FF813F";
-  script.dataset.position = "Right";
-  script.dataset.x_margin = "18";
-  script.dataset.y_margin = "18";
-  document.body.append(script);
 }
 
 function show(element, visible = true) {
@@ -562,7 +543,7 @@ function populateTargetStyles() {
   config.targetStyles.forEach((style) => {
     const option = document.createElement("option");
     option.value = style;
-    option.textContent = style;
+    option.textContent = config.targetStyleLabels?.[style] || style;
     els.targetStyle.append(option);
   });
 }
@@ -990,6 +971,7 @@ els.aiProvider.addEventListener("change", () => {
 });
 els.aiModel.addEventListener("change", updateApiKeyCopy);
 els.outputLanguage.addEventListener("change", () => {
+  localStorage.setItem(languageStorageKey, els.outputLanguage.value);
   refreshLanguage();
   invalidatePrecheckIfSourceChanged();
 });
@@ -1049,9 +1031,11 @@ document.addEventListener("keydown", (event) => {
     setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false);
   }
 });
-setActiveLanguage("en");
+const initialLanguage = preferredLanguage();
+setActiveLanguage(initialLanguage);
 applyConfiguredText();
 populateStaticSelects();
+els.outputLanguage.value = initialLanguage;
 populateAiModels();
 populateTargetStyles();
 updateApiKeyCopy();

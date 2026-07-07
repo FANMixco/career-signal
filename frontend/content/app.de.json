@@ -2,6 +2,7 @@
   "site": {
     "subtitle": "Erst Nachweise prüfen. Dann anpassen."
   },
+  "sections": {
     "profile": "1. Profil",
     "cvInput": "2. CV-Eingabe",
     "precheck": "3. CV-Nachweisprüfung",
@@ -443,5 +444,40 @@
   "buyMeCoffee": {
     "description": "Unterstütze mich auf Buy Me a Coffee",
     "message": "Danke, dass du Career Signal nutzt. Unterstütze dieses Projekt mit einem Kaffee."
+  },
+  "targetStyleLabels": {
+    "Consulting": "Beratung",
+    "Strategy": "Strategie",
+    "Product": "Produkt",
+    "Cloud": "Cloud",
+    "Engineering": "Engineering",
+    "Procurement": "Einkauf",
+    "Sales": "Vertrieb",
+    "Leadership": "Fuehrung",
+    "Training": "Training",
+    "Management": "Management",
+    "General": "Allgemein"
+  },
+  "apiKeys": {
+    "gemini": {
+      "label": "Gemini-API-Schluessel",
+      "placeholder": "Optional, wenn GEMINI_API_KEY konfiguriert ist",
+      "keyLinkText": "Gemini-API-Schluessel erhalten"
+    },
+    "openai": {
+      "label": "OpenAI-API-Schluessel",
+      "placeholder": "Optional, wenn OPENAI_API_KEY konfiguriert ist",
+      "keyLinkText": "OpenAI-API-Schluessel erhalten"
+    },
+    "mistral": {
+      "label": "Mistral-API-Schluessel",
+      "placeholder": "Optional, wenn MISTRAL_API_KEY konfiguriert ist",
+      "keyLinkText": "Mistral-API-Schluessel erhalten"
+    },
+    "ollama": {
+      "label": "Lokale Ollama-Einrichtung",
+      "placeholder": "Fuer Ollama wird kein API-Schluessel benoetigt",
+      "keyLinkText": "Ollama herunterladen"
+    }
   }
 }

@@ -1,4 +1,22 @@
 {
+  "targetStyles": [
+    "Consulting",
+    "Strategy",
+    "Product",
+    "Cloud",
+    "Engineering",
+    "Procurement",
+    "Sales",
+    "Leadership",
+    "Training",
+    "Management",
+    "General"
+  ],
+  "proceedRecommendations": [
+    "Proceed",
+    "Improve CV first",
+    "Proceed with caution"
+  ],
   "outputLanguageNames": {
     "en": "English",
     "es": "Spanish",
