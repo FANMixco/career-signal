@@ -11,6 +11,7 @@ import {
   MIN_JOB_DESCRIPTION_LENGTH,
   mistralModels,
   openAiModels,
+  outputLanguages,
   targetStyles
 } from "../rules/cvRules.js";
 
@@ -60,6 +61,7 @@ export const metadataSchema = z
       .transform((value) => value === true || value === "true"),
     degreeYear: z.coerce.number().int().min(1900).max(new Date().getFullYear()).optional(),
     experienceSelectionMode: z.enum(experienceSelectionModes),
+    outputLanguage: z.enum(outputLanguages).optional().default("en"),
     aiProvider: z.enum(aiProviders).optional().default("gemini"),
     aiModel: z.string().trim().optional(),
     ollamaBaseUrl: z.string().url("Ollama URL must be a valid URL.").max(200).optional()
@@ -81,6 +83,7 @@ export const analyzeCvSchema = z
     companyDescription: z.string().max(2000, "Company description must be 2,000 characters or fewer.").optional().default(""),
     targetStyle: z.enum(targetStyles),
     experienceSelectionMode: z.enum(experienceSelectionModes),
+    outputLanguage: z.enum(outputLanguages).optional().default("en"),
     precheckResult: z.record(z.unknown()),
     continueDespiteWeakPrecheck: z.boolean().optional().default(false)
   })

@@ -8,12 +8,16 @@ const state = {
   precheckInFlight: false,
   analysisInFlight: false,
   continueDespiteWeakPrecheck: false,
+  lastPrecheckPayload: null,
+  lastAnalysis: null,
   downloadableText: "",
   appHelpTab: "use"
 };
 
-const config = window.CAREER_SIGNAL_CONFIG;
-const backendStorageKey = config.backendSettings.storageKey;
+const baseConfig = window.CAREER_SIGNAL_CONFIG;
+let config = baseConfig;
+const backendStorageKey = baseConfig.backendSettings.storageKey;
+const languageStorageKey = "careerSignalLanguage";
 
 const els = {
   status: document.querySelector("#status"),
@@ -48,6 +52,7 @@ const els = {
   allExperienceWarning: document.querySelector("#allExperienceWarning"),
   ageWarningAcknowledged: document.querySelector("#ageWarningAcknowledged"),
   experienceSelectionMode: document.querySelector("#experienceSelectionMode"),
+  outputLanguage: document.querySelector("#outputLanguage"),
   cvPdf: document.querySelector("#cvPdf"),
   cvText: document.querySelector("#cvText"),
   aiProvider: document.querySelector("#aiProvider"),
@@ -79,7 +84,7 @@ const els = {
   downloadButton: document.querySelector("#downloadButton")
 };
 
-let API_BASE_URL = storedBackendUrl() || config.apiBaseUrl;
+let API_BASE_URL = storedBackendUrl() || baseConfig.apiBaseUrl;
 
 function apiUrl(path) {
   return `${API_BASE_URL}${path}`;
@@ -125,7 +130,7 @@ function validateBackendUrl(value) {
 }
 
 function setStatus(message) {
-  els.status.textContent = message;
+  els.status.textContent = config.statusMessages?.[message] || message;
 }
 
 function setFeedback(type, message) {
@@ -147,14 +152,14 @@ function setBackendSettingsFeedback(type, message) {
 
 function analysisErrorMessage(error) {
   if (error instanceof TypeError) {
-    return `Could not reach the API at ${apiUrl("/api/analyze-cv")}.`;
+    return config.errorMessages.apiAnalyzeUnreachable;
   }
 
   if (error?.name === "AbortError" || /aborted/i.test(error?.message || "")) {
     return config.ollama.timeoutMessage;
   }
 
-  return error?.message || "Could not generate the reconstruction plan.";
+  return error?.message || config.errorMessages.reconstructionFailed;
 }
 
 // Local Ollama reconstruction can return a useful partial result if one section
@@ -166,6 +171,108 @@ function isPartialLocalAnalysis(analysis) {
 
 function configValue(path) {
   return path.split(".").reduce((value, key) => value?.[key], config);
+}
+
+function mergeConfig(base, override) {
+  if (!override || typeof override !== "object") return base;
+
+  const output = Array.isArray(base) ? [...base] : { ...base };
+  Object.entries(override).forEach(([key, value]) => {
+    const current = output[key];
+    output[key] =
+      current &&
+      value &&
+      typeof current === "object" &&
+      typeof value === "object" &&
+      !Array.isArray(current) &&
+      !Array.isArray(value)
+        ? mergeConfig(current, value)
+        : value;
+  });
+  return output;
+}
+
+function setActiveLanguage(language) {
+  config = mergeConfig(baseConfig, baseConfig.translations?.[language] || {});
+}
+
+function supportedLanguageCodes() {
+  return (baseConfig.options.outputLanguages || []).map(([code]) => code);
+}
+
+function normalizeLanguage(language) {
+  const code = String(language || "").toLowerCase().split("-")[0];
+  return supportedLanguageCodes().includes(code) ? code : "en";
+}
+
+function preferredLanguage() {
+  const savedLanguage = normalizeLanguage(localStorage.getItem(languageStorageKey));
+  if (localStorage.getItem(languageStorageKey)) return savedLanguage;
+
+  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  const detected = browserLanguages.map(normalizeLanguage).find((language) => language !== "en");
+  return detected || normalizeLanguage(browserLanguages[0]) || "en";
+}
+
+function refreshLanguage() {
+  const selectedLanguage = els.outputLanguage.value || "en";
+  const values = {
+    aiProvider: els.aiProvider.value,
+    aiModel: els.aiModel.value,
+    hasDegree: els.hasDegree.value,
+    experienceSelectionMode: els.experienceSelectionMode.value,
+    targetStyle: els.targetStyle.value
+  };
+
+  setActiveLanguage(selectedLanguage);
+  applyConfiguredText();
+  populateStaticSelects();
+  populateAiModels();
+  populateTargetStyles();
+
+  els.outputLanguage.value = selectedLanguage;
+  els.aiProvider.value = values.aiProvider || els.aiProvider.value;
+  populateAiModels();
+  els.aiModel.value = values.aiModel || els.aiModel.value;
+  els.hasDegree.value = values.hasDegree;
+  els.experienceSelectionMode.value = values.experienceSelectionMode || els.experienceSelectionMode.value;
+  els.targetStyle.value = values.targetStyle || els.targetStyle.value;
+
+  updateApiKeyCopy();
+  updateMetadataVisibility();
+  setFeedback("", state.precheck ? config.feedback.precheckComplete : config.feedback.initial);
+  renderCurrentOutputs();
+  refreshTailoringLockCopy();
+  setBusy(state.precheckInFlight || state.analysisInFlight);
+}
+
+function refreshTailoringLockCopy() {
+  const isAllowed = !els.tailoringPanel.classList.contains("locked");
+  if (isAllowed) {
+    setTailoringAccess(true, state.continueDespiteWeakPrecheck ? config.tailoring.weakUnlock : "");
+    return;
+  }
+
+  if (!state.precheck) {
+    setTailoringAccess(false, config.tailoring.initialLock);
+    return;
+  }
+
+  const message =
+    state.precheck.proceedRecommendation === baseConfig.recommendations.improve
+      ? config.tailoring.weakLock
+      : config.tailoring.reviewLock;
+  setTailoringAccess(false, message);
+}
+
+function renderCurrentOutputs() {
+  if (state.lastPrecheckPayload) {
+    renderPrecheck(state.lastPrecheckPayload);
+  }
+
+  if (state.lastAnalysis) {
+    renderAnalysis(state.lastAnalysis, { scroll: false });
+  }
 }
 
 function applyConfiguredText() {
@@ -228,6 +335,10 @@ function escapeHtml(value) {
 
 function optionList(options) {
   return options.map(([value, label]) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+}
+
+function localizedTitle(title) {
+  return config.localizedSectionTitles?.[els.outputLanguage.value]?.[title] || title;
 }
 
 function renderFooter() {
@@ -317,6 +428,7 @@ function currentPrecheckSignature() {
     hasDegree: els.hasDegree.value,
     degreeYear: els.degreeYear.value.trim(),
     experienceSelectionMode: els.experienceSelectionMode.value,
+    outputLanguage: els.outputLanguage.value,
     cvText: els.cvText.value.trim(),
     cvPdf: fileSignature
   });
@@ -345,7 +457,7 @@ function saveBackendUrl() {
 
 function resetBackendUrl() {
   localStorage.removeItem(backendStorageKey);
-  API_BASE_URL = config.apiBaseUrl;
+  API_BASE_URL = baseConfig.apiBaseUrl;
   renderBackendSettings();
   setBackendSettingsFeedback("success", config.backendSettings.resetDone);
 }
@@ -366,7 +478,7 @@ async function testBackendUrl() {
 
   try {
     const response = await fetch(`${testBaseUrl}/api/health`);
-    if (!response.ok) throw new Error("Health check failed.");
+    if (!response.ok) throw new Error(config.errorMessages.healthCheckFailed);
     setBackendSettingsFeedback("success", config.backendSettings.testSuccess);
   } catch {
     setBackendSettingsFeedback("error", config.backendSettings.testFailed);
@@ -403,6 +515,8 @@ function invalidatePrecheckIfSourceChanged() {
   state.precheck = null;
   state.precheckSignature = "";
   state.continueDespiteWeakPrecheck = false;
+  state.lastPrecheckPayload = null;
+  state.lastAnalysis = null;
   state.downloadableText = "";
   els.decisionGate.innerHTML = "";
   els.analysisResult.innerHTML = "";
@@ -429,7 +543,7 @@ function populateTargetStyles() {
   config.targetStyles.forEach((style) => {
     const option = document.createElement("option");
     option.value = style;
-    option.textContent = style;
+    option.textContent = config.targetStyleLabels?.[style] || style;
     els.targetStyle.append(option);
   });
 }
@@ -438,6 +552,7 @@ function populateStaticSelects() {
   els.aiProvider.innerHTML = optionList(config.options.aiProviders);
   els.hasDegree.innerHTML = optionList(config.options.studiesListed);
   els.experienceSelectionMode.innerHTML = optionList(config.options.experienceSelectionMode);
+  els.outputLanguage.innerHTML = optionList(config.options.outputLanguages);
 }
 
 function populateAiModels() {
@@ -547,6 +662,7 @@ async function runPrecheck() {
 
   form.append("yearsOfExperience", String(years));
   form.append("experienceSelectionMode", els.experienceSelectionMode.value);
+  form.append("outputLanguage", els.outputLanguage.value);
   form.append("aiProvider", els.aiProvider.value);
   form.append("aiModel", selectedAiModel());
   if (els.aiProvider.value === "ollama") form.append("ollamaBaseUrl", els.ollamaBaseUrl.value.trim() || config.ollama.defaultBaseUrl);
@@ -558,16 +674,17 @@ async function runPrecheck() {
 
   state.precheckInFlight = true;
   state.downloadableText = "";
+  state.lastAnalysis = null;
   els.analysisResult.innerHTML = "";
   show(els.outputPanel, false);
   setBusy(true);
   setStatus("Prechecking");
-  setFeedback("loading", config.feedback.precheckLoading());
+  setFeedback("loading", config.feedback.precheckLoadingText);
 
   try {
     const response = await fetch(apiUrl("/api/precheck-cv"), { method: "POST", body: form });
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Precheck failed.");
+    if (!response.ok) throw new Error(data.error || config.errorMessages.precheckFailed);
 
     state.cvText = data.cvText;
     state.precheckSignature = precheckSignature;
@@ -575,17 +692,18 @@ async function runPrecheck() {
       ...data.precheck,
       personalDataWarnings: data.personalDataWarnings || []
     };
+    state.lastPrecheckPayload = data;
     state.continueDespiteWeakPrecheck = false;
     setTailoringAccess(
       false,
-      data.precheck.proceedRecommendation === config.recommendations.improve ? config.tailoring.weakLock : config.tailoring.reviewLock
+      data.precheck.proceedRecommendation === baseConfig.recommendations.improve ? config.tailoring.weakLock : config.tailoring.reviewLock
     );
     renderPrecheck(data);
     setStatus("Precheck done");
     setFeedback("success", config.feedback.precheckComplete);
   } catch (error) {
     setStatus("Error");
-    setFeedback("error", error instanceof TypeError ? `Could not reach the API at ${apiUrl("/api/precheck-cv")}.` : error.message);
+    setFeedback("error", error instanceof TypeError ? config.errorMessages.apiPrecheckUnreachable : error.message);
   } finally {
     state.precheckInFlight = false;
     setBusy(false);
@@ -594,7 +712,7 @@ async function runPrecheck() {
 
 function renderPrecheck(data) {
   const precheck = data.precheck;
-  const blocks = config.precheckSections.map(([title, key, type]) => [title, formatPrecheckValue(precheck, key, type)]);
+  const blocks = config.precheckSections.map(([title, key, type]) => [localizedTitle(title), formatPrecheckValue(precheck, key, type)]);
   show(els.precheckPanel);
   els.precheckResult.innerHTML = `
     <div class="score">${precheck.cvEvidenceScore}<span>/ 100</span></div>
@@ -622,6 +740,10 @@ function renderPersonalDataWarnings(warnings) {
 function formatPrecheckValue(precheck, key, type) {
   const value = precheck[key];
 
+  if (key === "proceedRecommendation") {
+    return displayRecommendation(value);
+  }
+
   if (type === "list") {
     return list(value);
   }
@@ -636,24 +758,24 @@ function formatPrecheckValue(precheck, key, type) {
 function renderDecisionGate(recommendation, questions, warnings = []) {
   els.decisionGate.innerHTML = "";
   const improve = document.createElement("button");
-  improve.className = recommendation === config.recommendations.improve ? "primary" : "secondary";
+  improve.className = recommendation === baseConfig.recommendations.improve ? "primary" : "secondary";
   improve.classList.add("decision-action");
-  improve.textContent = config.recommendations.improve;
+  improve.textContent = displayRecommendation(baseConfig.recommendations.improve);
   improve.addEventListener("click", () => {
     els.decisionGate.insertAdjacentHTML("beforeend", `<div class="warning">${list(questions)}</div>`);
   });
 
   const continueButton = document.createElement("button");
-  continueButton.className = recommendation === config.recommendations.improve ? "danger" : "primary";
+  continueButton.className = recommendation === baseConfig.recommendations.improve ? "danger" : "primary";
   continueButton.classList.add("decision-action");
-  continueButton.textContent = recommendation === config.recommendations.improve ? config.buttons.continueAnyway : config.buttons.continueToTailoring;
+  continueButton.textContent = recommendation === baseConfig.recommendations.improve ? config.buttons.continueAnyway : config.buttons.continueToTailoring;
   continueButton.addEventListener("click", () => {
-    state.continueDespiteWeakPrecheck = recommendation === config.recommendations.improve;
-    setTailoringAccess(true, recommendation === config.recommendations.improve ? config.tailoring.weakUnlock : "");
+    state.continueDespiteWeakPrecheck = recommendation === baseConfig.recommendations.improve;
+    setTailoringAccess(true, recommendation === baseConfig.recommendations.improve ? config.tailoring.weakUnlock : "");
     els.tailoringPanel.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  if (recommendation === config.recommendations.proceed) {
+  if (recommendation === baseConfig.recommendations.proceed) {
     if (warnings.length > 0) {
       const warningNote = document.createElement("p");
       warningNote.className = "warning";
@@ -661,7 +783,7 @@ function renderDecisionGate(recommendation, questions, warnings = []) {
       els.decisionGate.append(warningNote);
     }
     els.decisionGate.append(continueButton);
-  } else if (recommendation === config.recommendations.caution) {
+  } else if (recommendation === baseConfig.recommendations.caution) {
     if (warnings.length > 0) {
       const warningNote = document.createElement("p");
       warningNote.className = "warning";
@@ -716,14 +838,16 @@ async function runAnalysis() {
         companyDescription: els.companyDescription.value.trim(),
         targetStyle: els.targetStyle.value,
         experienceSelectionMode: els.experienceSelectionMode.value,
+        outputLanguage: els.outputLanguage.value,
         precheckResult: state.precheck,
         continueDespiteWeakPrecheck: state.continueDespiteWeakPrecheck
       })
     });
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Analysis failed.");
+    if (!response.ok) throw new Error(data.error || config.errorMessages.analysisFailed);
 
     state.downloadableText = data.downloadableText;
+    state.lastAnalysis = data.analysis;
     renderAnalysis(data.analysis);
     setStatus("Plan ready");
     const isPartial = isPartialLocalAnalysis(data.analysis);
@@ -737,14 +861,16 @@ async function runAnalysis() {
   }
 }
 
-function renderAnalysis(analysis) {
+function renderAnalysis(analysis, options = {}) {
   show(els.outputPanel);
-  const blocks = config.analysisSections.map(([title, key, type]) => [title, formatAnalysisValue(analysis, key, type)]);
+  const blocks = config.analysisSections.map(([title, key, type]) => [localizedTitle(title), formatAnalysisValue(analysis, key, type)]);
 
   els.analysisResult.innerHTML = `<div class="result-grid">${blocks
     .map(([title, value]) => renderResultBlock(title, value))
     .join("")}</div>`;
-  els.outputPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (options.scroll !== false) {
+    els.outputPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function renderResultBlock(title, value) {
@@ -782,21 +908,26 @@ function renderJobFitAssessment(assessment) {
 
   const score = Math.max(0, Math.min(100, Math.round(Number(assessment.score) || 0)));
   const warning = assessment.companyDecisionWarning || config.jobFitAssessment.warningFallback;
+  const verdict = config.jobFitAssessment.verdictLabels?.[assessment.verdict] || assessment.verdict || config.jobFitAssessment.scoreLabel;
 
   return `
     <div class="fit-assessment">
       <div class="fit-score">
         <span class="score compact">${score}<span>/ 100</span></span>
-        <strong>${escapeHtml(assessment.verdict || config.jobFitAssessment.scoreLabel)}</strong>
+        <strong>${escapeHtml(verdict)}</strong>
       </div>
       <p>${escapeHtml(assessment.explanation || "")}</p>
-      <h4>Strongest reasons</h4>
+      <h4>${escapeHtml(localizedTitle("Strongest reasons"))}</h4>
       ${list(assessment.strongestReasons)}
-      <h4>Main risks</h4>
+      <h4>${escapeHtml(localizedTitle("Main risks"))}</h4>
       ${list(assessment.mainRisks)}
       <p class="warning">${escapeHtml(warning)}</p>
     </div>
   `;
+}
+
+function displayRecommendation(recommendation) {
+  return config.recommendationLabels?.[recommendation] || recommendation || "";
 }
 
 function downloadTxt() {
@@ -839,6 +970,11 @@ els.aiProvider.addEventListener("change", () => {
   updateApiKeyCopy();
 });
 els.aiModel.addEventListener("change", updateApiKeyCopy);
+els.outputLanguage.addEventListener("change", () => {
+  localStorage.setItem(languageStorageKey, els.outputLanguage.value);
+  refreshLanguage();
+  invalidatePrecheckIfSourceChanged();
+});
 els.shareButton.addEventListener("click", shareApp);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
@@ -895,8 +1031,11 @@ document.addEventListener("keydown", (event) => {
     setModalOpen(els.cvBasicsModal, els.cvBasicsButton, els.cvBasicsClose, false);
   }
 });
+const initialLanguage = preferredLanguage();
+setActiveLanguage(initialLanguage);
 applyConfiguredText();
 populateStaticSelects();
+els.outputLanguage.value = initialLanguage;
 populateAiModels();
 populateTargetStyles();
 updateApiKeyCopy();

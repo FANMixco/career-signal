@@ -1,0 +1,483 @@
+{
+  "site": {
+    "subtitle": "Primero evidencia. Después adaptación."
+  },
+  "sections": {
+    "profile": "1. Perfil",
+    "cvInput": "2. Entrada del CV",
+    "precheck": "3. Precheck de evidencia del CV",
+    "tailoring": "4. Adaptación al puesto",
+    "output": "5. Plan de reconstrucción"
+  },
+  "labels": {
+    "yearsOfExperience": "Años de experiencia profesional",
+    "studiesListed": "¿Incluyes estudios o educación en tu CV?",
+    "degreeYear": "Año de finalización de los estudios",
+    "experienceSelectionMode": "Modo de selección de experiencia",
+    "outputLanguage": "Idioma",
+    "cvPdf": "Subir exportación de LinkedIn o CV en PDF",
+    "cvText": "Pegar CV manualmente",
+    "aiProvider": "Proveedor de IA",
+    "aiModel": "Modelo de IA",
+    "ollamaCustomModel": "Modelo personalizado de Ollama",
+    "aiApiKey": "Clave API",
+    "ollamaBaseUrl": "URL de Ollama",
+    "targetCompany": "Nombre de la empresa objetivo",
+    "companyDescription": "Descripción de la empresa (opcional)",
+    "targetStyle": "Estilo del puesto objetivo",
+    "jobDescription": "Descripción del puesto",
+    "ageWarningAcknowledgement": "Entiendo la advertencia y quiero continuar."
+  },
+  "placeholders": {
+    "cvText": "Pega aquí el texto completo del CV",
+    "ollamaCustomModel": "Escribe un modelo instalado, por ejemplo llama3.2:3b, qwen3:14b o mistral-small",
+    "companyDescription": "Añade contexto útil si la empresa no es conocida: qué hace, industria, tamaño, producto, mercado, valores o modelo de negocio",
+    "jobDescription": "Pega la descripción completa del puesto"
+  },
+  "options": {
+    "studiesListed": [
+      [
+        "",
+        "Selecciona"
+      ],
+      [
+        "true",
+        "Sí"
+      ],
+      [
+        "false",
+        "No"
+      ]
+    ],
+    "experienceSelectionMode": [
+      [
+        "lastFive",
+        "Solo las últimas cinco experiencias"
+      ],
+      [
+        "all",
+        "Todas las experiencias"
+      ]
+    ],
+    "outputLanguages": [
+      [
+        "en",
+        "Inglés"
+      ],
+      [
+        "es",
+        "Español"
+      ],
+      [
+        "fr",
+        "Francés"
+      ],
+      [
+        "de",
+        "Alemán"
+      ]
+    ]
+  },
+  "buttons": {
+    "settingsLabel": "Configurar backend",
+    "shareLabel": "Compartir Career Signal Engine",
+    "closeSettingsLabel": "Cerrar configuración del backend",
+    "appHelpLabel": "Abrir guía de la app",
+    "cvBasics": "Bases de un CV de alto impacto",
+    "closeModal": "X",
+    "closeModalLabel": "Cerrar bases del CV",
+    "closeHelpLabel": "Cerrar guía de la app",
+    "precheckIdle": "Ejecutar precheck de evidencia del CV",
+    "precheckLoading": "Ejecutando precheck...",
+    "analyzeIdle": "Generar plan de reconstrucción del CV",
+    "analyzeLoading": "Generando plan...",
+    "continueAnyway": "Continuar de todas formas",
+    "continueToTailoring": "Continuar a adaptación del puesto",
+    "downloadPlan": "Descargar plan TXT"
+  },
+  "backendSettings": {
+    "title": "Configuración del backend",
+    "subtitle": "Usa tu propio backend de Career Signal con este frontend.",
+    "previewMessage": "Esta versión de GitHub Pages es solo una vista previa del frontend. Para ejecutar revisiones de CV, inicia Career Signal localmente o despliega tu propio backend y configura aquí su URL.",
+    "openSettings": "Configurar backend",
+    "trustWarning": "Usa solo un backend que controles o en el que confíes. Tu CV, descripciones de puestos y claves API pegadas se envían al backend configurado.",
+    "urlLabel": "URL del backend",
+    "save": "Guardar URL del backend",
+    "test": "Probar conexión",
+    "reset": "Usar valor predeterminado",
+    "currentPrefix": "Backend actual:",
+    "defaultBackend": "Backend predeterminado",
+    "saved": "URL del backend guardada. Las próximas revisiones usarán este backend.",
+    "resetDone": "URL del backend restablecida al comportamiento predeterminado.",
+    "emptyUrl": "Introduce una URL de backend o usa restablecer para volver al valor predeterminado.",
+    "invalidUrl": "Introduce una URL válida http:// o https://.",
+    "httpsRequired": "Esta página se cargó por HTTPS. Usa una URL HTTPS o localhost durante el desarrollo.",
+    "testSuccess": "La conexión con el backend funciona.",
+    "testing": "Probando conexión con el backend...",
+    "testFailed": "No se pudo alcanzar el endpoint de salud del backend. Revisa la URL, el despliegue y CORS."
+  },
+  "fallbackText": {
+    "emptyList": "No se indicó nada.",
+    "noMainProblem": "No se reportó un problema central."
+  },
+  "feedback": {
+    "initial": "Añade tu CV y ejecuta el precheck de evidencia antes de generar un plan específico para un puesto.",
+    "readyStatus": "Listo",
+    "cvInputGuidance": "Primero añade el CV fuente. La app comprueba si hay suficiente evidencia antes de reescribir algo para un puesto objetivo.",
+    "ageWarning": "El año de estudios puede revelar más información sobre tu edad de la necesaria. En muchos CVs del sector privado, especialmente tras varios años de experiencia, puede ser mejor mantener estudios relevantes pero quitar años de finalización o detalles antiguos.",
+    "allExperienceWarning": "Incluir todas las experiencias puede alargar demasiado el CV o revelar información histórica innecesaria. Úsalo solo si la experiencia antigua es muy relevante para el puesto objetivo.",
+    "missingYears": "Introduce tus años de experiencia profesional antes de ejecutar el precheck.",
+    "missingStudies": "Selecciona si incluyes estudios o educación en tu CV antes de ejecutar el precheck.",
+    "missingStudyYear": "Introduce el año de finalización de estudios, o selecciona No si no incluyes estudios o educación.",
+    "missingCv": "Añade un CV en PDF, exportación de LinkedIn en PDF o pega el texto completo del CV antes de ejecutar el precheck.",
+    "invalidPdf": "Solo se admiten PDFs. Elige un CV en PDF, una exportación de LinkedIn en PDF o pega el texto del CV.",
+    "pdfTooLarge": "El PDF supera 5MB. Pega el texto del CV manualmente o sube un PDF más pequeño.",
+    "acknowledgeStudyWarning": "Acepta la advertencia de privacidad sobre el año de estudios antes de continuar.",
+    "missingOllamaCustomModel": "Escribe el modelo de Ollama instalado o elige Gemma 4 o Qwen 3.6.",
+    "runPrecheckFirst": "Ejecuta el precheck de evidencia del CV antes de generar el plan de reconstrucción.",
+    "precheckComplete": "Precheck completo. Revisa la puntuación y elige la siguiente acción.",
+    "precheckPassedWithWarnings": "El precheck pasó, pero aún hay advertencias o sugerencias que conviene revisar antes de adaptar.",
+    "analysisLoading": "Generando un nuevo plan de reconstrucción. El plan anterior se limpió para evitar mezclar puestos distintos.",
+    "analysisComplete": "Plan de reconstrucción listo. Revisa el resultado antes de usarlo.",
+    "analysisPartial": "Reconstrucción local parcial lista. Algunas secciones de Ollama no terminaron; revisa lo completado y prueba con un proveedor cloud o un modelo local más pequeño.",
+    "precheckStale": "El CV o los datos del perfil cambiaron. Ejecuta de nuevo el precheck antes de generar otro plan.",
+    "precheckLoadingText": "Ejecutando el precheck de evidencia del CV. Puede tardar un poco mientras el modelo revisa la evidencia."
+  },
+  "tailoring": {
+    "guidanceLocked": "Puedes añadir la empresa objetivo y la descripción del puesto ahora. La generación se desbloquea después del precheck, o si eliges continuar pese a un precheck débil.",
+    "guidanceUnlocked": "Usa la empresa objetivo y la descripción del puesto para generar un plan basado en la evidencia ya revisada. Puedes probar varios puestos sin repetir el precheck si el CV y el perfil no cambian.",
+    "initialLock": "Ejecuta primero el precheck de evidencia del CV. Así evitamos pulir afirmaciones débiles o sin soporte.",
+    "staleLock": "El CV o el perfil cambiaron después del último precheck. Ejecuta de nuevo el precheck antes de adaptar.",
+    "weakLock": "El precheck recomienda mejorar primero el CV. Elige Continuar de todas formas para desbloquear la generación.",
+    "reviewLock": "Revisa el resultado del precheck y luego elige Continuar a adaptación del puesto.",
+    "weakUnlock": "Desbloqueado porque elegiste continuar pese a la advertencia de CV débil."
+  },
+  "weakCvWarning": "Este CV parece contener sobre todo responsabilidades en vez de resultados medibles. Adaptarlo ahora puede hacerlo verse mejor, pero no resolverá el problema central. Añade resultados concretos y evidencia numérica primero.",
+  "personalDataWarnings": {
+    "title": "Revisión de riesgos de privacidad y sesgo",
+    "intro": "El CV parece incluir datos personales que pueden ser innecesarios o arriesgados en muchos procesos. Es una advertencia práctica, no una decisión legal."
+  },
+  "jobFitAssessment": {
+    "scoreLabel": "Puntuación de ajuste del perfil",
+    "warningFallback": "Esta es una estimación basada en evidencia, no una decisión de contratación. La decisión final siempre pertenece a la empresa.",
+    "verdictLabels": {
+      "Strong match": "Muy buen ajuste",
+      "Good match": "Buen ajuste",
+      "Partial match": "Ajuste parcial",
+      "Weak match": "Ajuste débil"
+    }
+  },
+  "footer": {
+    "createdByPrefix": "Creado por",
+    "contributeText": "Sugerir cambios en GitHub"
+  },
+  "cvBasics": {
+    "title": "Bases de un CV de alto impacto",
+    "subtitle": "Un CV fuerte hace que la evidencia real sea fácil de ver.",
+    "playlistText": "Ver la playlist sobre redacción de CV",
+    "blocks": [
+      {
+        "title": "Qué prueban las viñetas fuertes",
+        "items": [
+          "Qué cambió gracias a tu trabajo.",
+          "Quién o qué fue afectado: usuarios, clientes, sistemas, equipos, países, presupuestos, riesgos o procesos.",
+          "La escala del trabajo y por qué importó.",
+          "El resultado: ahorro de tiempo, reducción de costes, mayor fiabilidad, más adopción, menor riesgo, migración entregada o mejores decisiones."
+        ]
+      },
+      {
+        "title": "Lenguaje débil de actividad",
+        "items": [
+          "Responsable de formar equipos.",
+          "Introduje un marco de gobernanza.",
+          "Apoyé a stakeholders.",
+          "Implementé mejoras de procesos.",
+          "Participé en proyectos."
+        ]
+      },
+      {
+        "title": "Patrón de evidencia más fuerte",
+        "text": "Usa acción, objeto, escala, propósito y resultado. La viñeta debería sobrevivir a la pregunta: ¿y qué?",
+        "examples": [
+          [
+            "example",
+            "Débil: Formé equipos durante COVID."
+          ],
+          [
+            "example strong",
+            "Más fuerte: Apoyé aproximadamente a 200-300 personas por día durante el pico de operaciones COVID, manteniendo el flujo de pacientes bajo condiciones de alta presión."
+          ]
+        ]
+      },
+      {
+        "title": "Lenguaje respaldado por evidencia",
+        "items": [
+          "Afirmaciones personales como motivado, eficiente, estratégico, fiable o buen comunicador deben estar respaldadas por evidencia.",
+          "El problema no es el adjetivo; el problema es cuando no hay prueba cerca.",
+          "Sustituye autodescripciones sin soporte por resultados, ejemplos, escala, decisiones, entregas, adopción o resultados medibles."
+        ]
+      },
+      {
+        "title": "Tiempos verbales y cronología",
+        "items": [
+          "Usa pasado para trabajo completado, especialmente en roles anteriores.",
+          "Usa presente solo para responsabilidades o trabajo que sigue realmente en curso.",
+          "En roles actuales, los logros completados deberían leerse como resultados terminados, no como actividad abierta.",
+          "Evita viñetas en infinitivo cuando el logro ya ocurrió."
+        ]
+      },
+      {
+        "title": "Antes de adaptar",
+        "items": [
+          "Recupera números cuando sean reales y defendibles.",
+          "Elimina o reduce detalles antiguos que no ayudan al puesto objetivo.",
+          "Mantén estudios y credenciales solo cuando sean relevantes o requeridos; evita años de finalización innecesarios tras varios años de experiencia.",
+          "Si estuviste muchos años en una empresa, muestra la progresión real: promociones, cambios de rol, mayor alcance, cambios de equipo o hitos seleccionados.",
+          "Nunca inventes métricas, herramientas, responsabilidades, empleadores, fechas, certificaciones o logros."
+        ]
+      },
+      {
+        "title": "Longitud por seniority",
+        "items": [
+          "Los CVs junior o early-career suelen funcionar mejor en 1 página.",
+          "Los CVs mid-career suelen tener 1 a 2 páginas.",
+          "Especialistas senior, managers o consultores suelen necesitar alrededor de 2 páginas.",
+          "Ejecutivos, perfiles académicos, investigadores, sector público o expertos con muchas credenciales pueden necesitar más si el detalle extra es relevante.",
+          "La longitud no es mala por sí sola; el problema es cuando oculta la evidencia más fuerte o elimina pruebas que deberían verse."
+        ]
+      },
+      {
+        "title": "Permanencia larga y progresión",
+        "items": [
+          "Una permanencia larga no es un problema por sí sola, pero un único título durante muchos años puede hacer que el crecimiento parezca plano.",
+          "Si tuviste varios puestos internos, muestra la secuencia real en vez de solo el último título.",
+          "Si los títulos formales no cambiaron, muestra la progresión con viñetas verdaderas: equipos más grandes, presupuestos mayores, regiones más amplias, sistemas más complejos o trabajo de mayor impacto."
+        ]
+      },
+      {
+        "title": "Alineación entre título y responsabilidades",
+        "items": [
+          "Asegúrate de que cada título oficial coincida con las responsabilidades y logros debajo.",
+          "Si el título es Project Manager pero las viñetas describen product ownership, arquitectura, estrategia, formación u operaciones, aclara el alcance en vez de dejar que el lector adivine.",
+          "Los roles híbridos están bien, pero un alcance inusual debe explicarse con una subtitulación, línea de alcance o contexto claro en la viñeta."
+        ]
+      },
+      {
+        "title": "Datos personales sensibles",
+        "items": [
+          "Evita fecha de nacimiento, edad exacta, estado civil, situación familiar, género, ciudadanía, nacionalidad, dirección completa o referencias a foto salvo que sean requeridas explícitamente.",
+          "Usa ubicación solo al nivel útil para el rol, como ciudad, país o autorización de trabajo cuando sea relevante.",
+          "Estos datos pueden crear riesgo de privacidad, discriminación o sesgo por edad y normalmente no fortalecen la evidencia de impacto."
+        ]
+      },
+      {
+        "title": "Datos básicos de contacto",
+        "items": [
+          "Pon nombre, email, teléfono y ubicación útil al inicio.",
+          "Añade LinkedIn o portfolio cuando ayude a demostrar el perfil.",
+          "Que falten datos de contacto es poco común, pero crea fricción innecesaria para reclutadores."
+        ]
+      }
+    ]
+  },
+  "appHelp": {
+    "title": "Guía de Career Signal",
+    "subtitle": "Ayuda simple, privacidad, puntuación y límites en un solo lugar.",
+    "tabs": [
+      {
+        "id": "use",
+        "label": "Cómo usarlo",
+        "blocks": [
+          {
+            "title": "En palabras simples",
+            "text": "Career Signal comprueba si tu CV tiene suficiente evidencia real antes de ayudarte a adaptarlo a un puesto."
+          },
+          {
+            "title": "Flujo básico",
+            "items": [
+              "Añade tus años de experiencia y elige si los estudios aparecen en el CV.",
+              "Sube un CV en PDF, una exportación de LinkedIn en PDF o pega el texto del CV.",
+              "Elige Gemini, OpenAI, Mistral u Ollama (offline, experimental), y luego un modelo.",
+              "Para proveedores cloud, añade una clave si no está configurada.",
+              "Para Ollama, instala Ollama localmente, descarga el modelo seleccionado y mantén Ollama en ejecución.",
+              "Ejecuta primero el precheck de evidencia del CV.",
+              "Si el CV tiene suficiente evidencia, añade la empresa objetivo, contexto opcional de la empresa y la descripción del puesto.",
+              "Genera el plan de reconstrucción y revísalo antes de usar cualquier cosa."
+            ]
+          },
+          {
+            "title": "Hábito importante",
+            "text": "Usa el resultado como asistente de revisión y reescritura. Confirma cada título, fecha, empleador, herramienta, métrica y afirmación antes de enviar un CV."
+          }
+        ]
+      },
+      {
+        "id": "criteria",
+        "label": "Criterios",
+        "blocks": [
+          {
+            "title": "Precheck de evidencia del CV",
+            "text": "La puntuación del precheck va de 0 a 100. Estima si el CV contiene suficiente evidencia defendible para adaptarlo de forma segura."
+          },
+          {
+            "title": "Qué revisa",
+            "items": [
+              "Resultados concretos, no solo responsabilidades.",
+              "Números, escala, alcance, fechas, usuarios, sistemas, presupuestos, equipos, riesgos o cambios medibles cuando sean reales.",
+              "Viñetas que expliquen qué cambió gracias al trabajo.",
+              "Advertencias sobre afirmaciones sin soporte, datos personales sensibles, títulos confusos, progresión poco clara, problemas de tiempo verbal y detalles educativos innecesarios.",
+              "Preguntas que ayudan a recuperar métricas faltantes sin inventar nada."
+            ]
+          },
+          {
+            "title": "Evaluación de ajuste del perfil",
+            "text": "Después del precheck, la puntuación de ajuste al puesto también va de 0 a 100. Estima qué tan bien la evidencia del CV encaja con el rol y el contexto de la empresa."
+          },
+          {
+            "title": "Qué significan los números",
+            "items": [
+              "Una puntuación alta significa que la evidencia parece más fuerte, clara y relevante.",
+              "Una puntuación media significa que el CV puede ser usable, pero necesita aclaración, mejor prueba o mejor enfoque.",
+              "Una puntuación baja significa que adaptar el CV puede hacerlo verse mejor sin resolver el problema de evidencia.",
+              "Ninguna puntuación garantiza entrevistas, contratación o decisiones de reclutadores."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "label": "Qué hace",
+        "blocks": [
+          {
+            "title": "Qué hace",
+            "items": [
+              "Comprueba si un CV tiene suficiente evidencia antes de adaptarlo.",
+              "Señala áreas débiles o riesgosas antes de convertirlas en afirmaciones pulidas pero sin soporte.",
+              "Usa una empresa objetivo y una descripción del puesto para producir un plan de reconstrucción específico.",
+              "Ayuda a identificar palabras clave, evidencia coincidente, señales faltantes, interpretación del reclutador y riesgos de integridad.",
+              "Promueve una escritura más segura del CV advirtiendo sobre edad, género, ciudadanía, foto, dirección y otros datos personales cuando no son necesarios."
+            ]
+          },
+          {
+            "title": "Qué no hace",
+            "items": [
+              "No inventa logros, métricas, empleadores, fechas, herramientas, certificaciones o responsabilidades.",
+              "No aplica automáticamente a empleos.",
+              "No garantiza entrevistas ni resultados de contratación.",
+              "No sustituye el juicio final de un reclutador, hiring manager o empresa.",
+              "No sustituye tu responsabilidad de revisar el CV final antes de enviarlo."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "label": "Privacidad",
+        "blocks": [
+          {
+            "title": "Qué almacena la app",
+            "items": [
+              "La app no almacena CVs en una base de datos.",
+              "La app no almacena claves API.",
+              "La app no añade analítica ni seguimiento al flujo principal del CV.",
+              "Tu clave pegada se envía solo al backend local para esa solicitud."
+            ]
+          },
+          {
+            "title": "Qué sale de tu equipo",
+            "items": [
+              "Si ejecutas una revisión con IA, el texto del CV y los detalles del puesto se envían al proveedor de IA que elegiste.",
+              "Si usas Gemini, la solicitud va a Google con el modelo Gemini seleccionado.",
+              "Si usas OpenAI, la solicitud va a OpenAI con el modelo OpenAI seleccionado.",
+              "Si usas Mistral, la solicitud va a Mistral con el modelo Mistral seleccionado.",
+              "Si usas Ollama (offline, experimental), el backend envía la solicitud a tu URL local de Ollama en vez de a un proveedor cloud.",
+              "El botón Buy Me a Coffee es un widget externo de apoyo y puede cargar recursos desde Buy Me a Coffee o su CDN."
+            ]
+          },
+          {
+            "title": "Open source",
+            "text": "El proyecto es completamente open source bajo licencia GPL-3.0, así que cualquiera puede inspeccionarlo, ejecutarlo, mejorarlo y sugerir cambios.",
+            "links": [
+              [
+                "Ver el código en GitHub",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "Leer la licencia GPL-3.0",
+                "https://github.com/FANMixco/career-signal/blob/main/LICENSE"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "statusMessages": {
+    "ready": "Listo",
+    "Precheck needed": "Precheck necesario",
+    "Missing profile": "Falta perfil",
+    "Add CV": "Añade CV",
+    "Invalid PDF": "PDF no válido",
+    "PDF too large": "PDF demasiado grande",
+    "Acknowledge warning": "Acepta la advertencia",
+    "Missing model": "Falta modelo",
+    "Prechecking": "Revisando",
+    "Precheck done": "Precheck completo",
+    "Error": "Error",
+    "Run precheck first": "Ejecuta primero el precheck",
+    "Tailoring": "Adaptando",
+    "Plan ready": "Plan listo"
+  },
+  "recommendationLabels": {
+    "Proceed": "Continuar",
+    "Proceed with caution": "Continuar con precaución",
+    "Improve CV first": "Mejorar primero el CV"
+  },
+  "errorMessages": {
+    "apiAnalyzeUnreachable": "No se pudo alcanzar la API de reconstrucción.",
+    "apiPrecheckUnreachable": "No se pudo alcanzar la API del precheck.",
+    "reconstructionFailed": "No se pudo generar el plan de reconstrucción.",
+    "healthCheckFailed": "Falló la revisión de salud.",
+    "precheckFailed": "Falló el precheck.",
+    "analysisFailed": "Falló el análisis."
+  },
+  "buyMeCoffee": {
+    "description": "Apóyame en Buy Me a Coffee",
+    "message": "Gracias por usar Career Signal. Apoya este proyecto con un café."
+  },
+  "targetStyleLabels": {
+    "Consulting": "Consultoria",
+    "Strategy": "Estrategia",
+    "Product": "Producto",
+    "Cloud": "Cloud",
+    "Engineering": "Ingenieria",
+    "Procurement": "Compras",
+    "Sales": "Ventas",
+    "Leadership": "Liderazgo",
+    "Training": "Formacion",
+    "Management": "Gestion",
+    "General": "General"
+  },
+  "apiKeys": {
+    "gemini": {
+      "label": "Clave API de Gemini",
+      "placeholder": "Opcional si GEMINI_API_KEY esta configurada",
+      "keyLinkText": "Obtener una clave API de Gemini"
+    },
+    "openai": {
+      "label": "Clave API de OpenAI",
+      "placeholder": "Opcional si OPENAI_API_KEY esta configurada",
+      "keyLinkText": "Obtener una clave API de OpenAI"
+    },
+    "mistral": {
+      "label": "Clave API de Mistral",
+      "placeholder": "Opcional si MISTRAL_API_KEY esta configurada",
+      "keyLinkText": "Obtener una clave API de Mistral"
+    },
+    "ollama": {
+      "label": "Configuracion local de Ollama",
+      "placeholder": "No se necesita clave API para Ollama",
+      "keyLinkText": "Descargar Ollama"
+    }
+  }
+}

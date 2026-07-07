@@ -3,8 +3,10 @@
 // supplied. Weak prechecks stay blocked unless the user explicitly continues.
 import { Router } from "express";
 import { ZodError } from "zod";
+import { proceedRecommendationValues } from "../rules/cvRules.js";
 import { runAnalysis } from "../services/aiProviderService.js";
 import { planToText } from "../services/textFormatter.js";
+import { messages } from "../utils/messages.js";
 import { analyzeCvSchema } from "../utils/validation.js";
 
 export const analyzeCvRouter = Router();
@@ -14,10 +16,9 @@ analyzeCvRouter.post("/", async (req, res) => {
     const body = analyzeCvSchema.parse(req.body);
     const recommendation = body.precheckResult.proceedRecommendation;
 
-    if (recommendation === "Improve CV first" && !body.continueDespiteWeakPrecheck) {
+    if (recommendation === proceedRecommendationValues.improve && !body.continueDespiteWeakPrecheck) {
       res.status(400).json({
-        error:
-          "The CV quality precheck recommends improving the CV first. Add concrete outcomes and numerical evidence before tailoring, or explicitly choose Continue anyway."
+        error: messages.errors.weakPrecheckBlocked
       });
       return;
     }
@@ -33,12 +34,13 @@ analyzeCvRouter.post("/", async (req, res) => {
       companyDescription: body.companyDescription,
       targetStyle: body.targetStyle,
       experienceSelectionMode: body.experienceSelectionMode,
+      outputLanguage: body.outputLanguage,
       jobDescription: body.jobDescription
     });
 
     res.json({
       analysis,
-      downloadableText: planToText(analysis)
+      downloadableText: planToText(analysis, body.outputLanguage)
     });
   } catch (error) {
     if (error instanceof ZodError) {
@@ -48,7 +50,7 @@ analyzeCvRouter.post("/", async (req, res) => {
       return;
     }
 
-    const message = error instanceof Error ? error.message : "Could not generate reconstruction plan.";
+    const message = error instanceof Error ? error.message : messages.errors.couldNotGeneratePlan;
     const status = message.includes("AI API key") ? 401 : 400;
     res.status(status).json({ error: message });
   }

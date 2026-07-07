@@ -22,6 +22,7 @@ export type PrecheckInput = {
   hasDegree?: boolean;
   degreeYear?: number;
   experienceSelectionMode: "lastFive" | "all";
+  outputLanguage?: "en" | "es" | "fr" | "de";
 };
 
 export type AnalysisInput = {
@@ -35,6 +36,7 @@ export type AnalysisInput = {
   companyDescription?: string;
   targetStyle: string;
   experienceSelectionMode: "lastFive" | "all";
+  outputLanguage?: "en" | "es" | "fr" | "de";
   jobDescription: string;
 };
 

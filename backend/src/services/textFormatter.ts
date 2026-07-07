@@ -11,7 +11,7 @@ import {
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
 
-export function planToText(analysis: Record<string, unknown>) {
+export function planToText(analysis: Record<string, unknown>, outputLanguage = "en") {
   const reminders = [
     educationPrivacy.textReminder,
     careerProgressionVisibility.textReminder,
@@ -24,6 +24,10 @@ export function planToText(analysis: Record<string, unknown>) {
 
   if (typeof analysis.downloadableText === "string" && analysis.downloadableText.trim()) {
     const text = analysis.downloadableText.trim();
+    if (outputLanguage !== "en") {
+      return text;
+    }
+
     const lowerText = text.toLowerCase();
     const withEducationReminder = lowerText.includes("education and studies privacy reminder") ? text : `${educationPrivacy.textReminder}\n\n${text}`;
     const withProgressionReminder = lowerText.includes("career progression visibility reminder")

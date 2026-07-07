@@ -3,6 +3,7 @@
 // with large strict schemas. The precheck and reconstruction plan are therefore
 // requested in smaller sections, with deterministic fallbacks where possible.
 import { z } from "zod";
+import { outputLanguageNames } from "../../rules/cvRules.js";
 import { analysisSchema, precheckSchema, type AnalysisResult } from "../../schemas/aiSchemas.js";
 import { parseJsonWithSchema } from "./jsonUtils.js";
 import { buildLocalPrecheckBaseline, buildLocalPrecheckFallbackSections, compactForLocalModel } from "./localCvEvidence.js";
@@ -65,6 +66,13 @@ const ollamaPrecheckQuestionsSectionSchema = z.object({
   questionsToRecoverMetrics: z.array(z.string()).catch([]),
   interviewRiskQuestions: z.array(z.string()).catch([])
 });
+
+type OutputLanguage = keyof typeof outputLanguageNames;
+
+function outputLanguageInstruction(outputLanguage: OutputLanguage = "en") {
+  const languageName = outputLanguageNames[outputLanguage] || outputLanguageNames.en;
+  return `Write human-facing explanations, warnings, questions, bullets, summaries, and plan items in ${languageName}. Keep JSON keys and fixed enum values in English.`;
+}
 
 async function createOllamaSectionJsonResponse<T>(
   baseUrl: string,
@@ -151,6 +159,8 @@ Return only one valid JSON object for ${name}. Do not use Markdown. Do not add c
 function ollamaAnalysisContext(input: AnalysisInput) {
   return `Use only the evidence below. Do not invent employers, dates, tools, certifications, metrics, responsibilities, or achievements.
 
+${outputLanguageInstruction(input.outputLanguage)}
+
 Target company: ${input.companyName}
 Optional company description: ${input.companyDescription?.trim() || "not provided"}
 Target style: ${input.targetStyle}
@@ -168,6 +178,8 @@ ${compactForLocalModel(input.cvText, 3200)}`;
 
 function ollamaPrecheckContext(input: PrecheckInput) {
   return `Analyze only this CV evidence. Do not rewrite the CV and do not invent facts.
+
+${outputLanguageInstruction(input.outputLanguage)}
 
 Years of experience: ${input.yearsOfExperience}
 Studies listed: ${input.hasDegree ?? "not provided"}
