@@ -7,6 +7,7 @@ import multer from "multer";
 import { detectSensitivePersonalDataWarnings } from "../rules/cvRules.js";
 import { runPrecheck } from "../services/aiProviderService.js";
 import { extractPdfText } from "../services/pdfService.js";
+import { messages } from "../utils/messages.js";
 import { agePrivacyWarning, metadataSchema, MIN_CV_LENGTH, parseFormValue } from "../utils/validation.js";
 
 const upload = multer({
@@ -14,7 +15,7 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (_req, file, callback) => {
     if (file.mimetype !== "application/pdf") {
-      callback(new Error("Only PDF files are supported."));
+      callback(new Error(messages.errors.pdfOnly));
       return;
     }
     callback(null, true);
@@ -30,18 +31,19 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       hasDegree: parseFormValue(req.body.hasDegree),
       degreeYear: parseFormValue(req.body.degreeYear) || undefined,
       experienceSelectionMode: parseFormValue(req.body.experienceSelectionMode),
+      outputLanguage: parseFormValue(req.body.outputLanguage),
       aiProvider: parseFormValue(req.body.aiProvider),
       aiModel: parseFormValue(req.body.aiModel) || undefined,
       ollamaBaseUrl: parseFormValue(req.body.ollamaBaseUrl) || undefined
     });
 
     if (metadata.yearsOfExperience > 5 && req.body.hasDegree === undefined) {
-      res.status(400).json({ error: "Study or education answer is required when experience is greater than five years." });
+      res.status(400).json({ error: messages.errors.studyAnswerRequired });
       return;
     }
 
     if (metadata.yearsOfExperience > 5 && metadata.hasDegree && !metadata.degreeYear) {
-      res.status(400).json({ error: "Study completion year is required when you list studies and have more than five years of experience." });
+      res.status(400).json({ error: messages.errors.studyYearRequired });
       return;
     }
 
@@ -52,7 +54,7 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
     }
 
     if (!cvText || cvText.length < MIN_CV_LENGTH) {
-      res.status(400).json({ error: "Please provide a complete CV or LinkedIn PDF export." });
+      res.status(400).json({ error: messages.errors.completeCvRequired });
       return;
     }
 
@@ -65,7 +67,8 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       yearsOfExperience: metadata.yearsOfExperience,
       hasDegree: metadata.hasDegree,
       degreeYear: metadata.degreeYear,
-      experienceSelectionMode: metadata.experienceSelectionMode
+      experienceSelectionMode: metadata.experienceSelectionMode,
+      outputLanguage: metadata.outputLanguage
     });
 
     res.json({
@@ -77,15 +80,15 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       recommendedNextAction: precheck.proceedRecommendation
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Could not run CV precheck.";
+    const message = error instanceof Error ? error.message : messages.errors.couldNotRunPrecheck;
     const status = message.includes("AI API key") ? 401 : 400;
     res.status(status).json({ error: message });
   }
 });
 
 precheckCvRouter.use((error: Error, _req: unknown, res: { status: (code: number) => { json: (body: unknown) => void } }, _next: unknown) => {
-  const message = error.message || "Could not upload CV.";
+  const message = error.message || messages.errors.couldNotUploadCv;
   res.status(400).json({
-    error: message.includes("File too large") ? "Maximum PDF upload size is 5MB." : message
+    error: message.includes("File too large") ? messages.errors.pdfTooLarge : message
   });
 });

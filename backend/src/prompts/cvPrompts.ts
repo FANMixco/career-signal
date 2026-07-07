@@ -9,8 +9,19 @@ import {
   cvLengthGuidance,
   educationPrivacy,
   evidenceBackedLanguage,
+  outputLanguageNames,
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
+
+type OutputLanguage = keyof typeof outputLanguageNames;
+
+function outputLanguageInstruction(outputLanguage: OutputLanguage = "en") {
+  const languageName = outputLanguageNames[outputLanguage] || outputLanguageNames.en;
+  return `Output language:
+- Write every human-facing explanation, warning, question, rewritten bullet, summary, and plan item in ${languageName}.
+- Keep JSON keys exactly as requested in English.
+- Keep fixed enum values exactly in English, including proceedRecommendation, jobFitAssessment.verdict, integrityClassification, and classification.`;
+}
 
 export function precheckPrompt(input: {
   cvText: string;
@@ -18,9 +29,12 @@ export function precheckPrompt(input: {
   hasDegree?: boolean;
   degreeYear?: number;
   experienceSelectionMode: "lastFive" | "all";
+  outputLanguage?: OutputLanguage;
 }) {
   return `System:
 You are an honest senior CV reviewer. Inspect the candidate CV before any job specific tailoring. Do not rewrite the CV. Do not analyze a job description. Do not invent achievements or numbers. Only determine whether the CV contains enough accomplishments, quantified results, scale, scope, consequence, and impact evidence to be worth tailoring. Return only valid JSON.
+
+${outputLanguageInstruction(input.outputLanguage)}
 
 Scoring rules:
 - cvEvidenceScore must be an integer from 0 to 100, not a decimal score out of 10.
@@ -77,8 +91,11 @@ export function ollamaPrecheckPrompt(input: {
   hasDegree?: boolean;
   degreeYear?: number;
   experienceSelectionMode: "lastFive" | "all";
+  outputLanguage?: OutputLanguage;
 }) {
   return `You are a strict CV evidence reviewer. Analyze the CV only. Do not rewrite it. Do not invent achievements, dates, tools, employers, or numbers.
+
+${outputLanguageInstruction(input.outputLanguage)}
 
 Return one JSON object only. Use these exact keys:
 cvEvidenceScore, scoreBreakdown, hasQuantifiedResults, hasAccomplishments, mostlyJobDescriptions, impactClarityScore, quantifiedEvidenceCount, strongBulletCount, weakBulletCount, proceedRecommendation, mainProblem, specificWarnings, missingEvidenceTypes, examplesOfWeakBullets, questionsToRecoverMetrics, interviewRiskQuestions, nextStep.
@@ -110,9 +127,12 @@ export function reconstructionPrompt(input: {
   targetStyle: string;
   experienceSelectionMode: "lastFive" | "all";
   jobDescription: string;
+  outputLanguage?: OutputLanguage;
 }) {
   return `System:
 You are a senior career strategist, executive recruiter, ATS optimization specialist, and honest CV editor. Create a CV reconstruction plan for the target role. Never invent experience, employers, dates, studies, certifications, metrics, tools, or achievements. Reframe only existing experience, identify missing signals, and classify each important recommendation by integrity level. Return only valid JSON.
+
+${outputLanguageInstruction(input.outputLanguage)}
 
 Education and studies guidance:
 - Preserve any precheck privacy warning about study years, graduation years, older education details, or age inference in the final plan.
@@ -180,8 +200,11 @@ export function ollamaReconstructionPrompt(input: {
   targetStyle: string;
   experienceSelectionMode: "lastFive" | "all";
   jobDescription: string;
+  outputLanguage?: OutputLanguage;
 }) {
   return `You are an honest CV reconstruction assistant. Create a job-specific reconstruction plan from the supplied CV and job description. Do not invent employers, dates, roles, certifications, metrics, tools, or achievements.
+
+${outputLanguageInstruction(input.outputLanguage)}
 
 Return one JSON object only. Use these exact keys:
 roleDiagnosis, companySignalInterpretation, candidatePositioning, jobFitAssessment, strongestMatchingEvidence, weakOrMissingSignals, keywordsToInclude, keywordsToAvoid, suggestedProfessionalSummary, rewrittenCvBullets, suggestedCvStructure, atsFriendlySkillsSection, recruiterInterpretation, finalReconstructionPlan, integrityAudit, precheckWarningSummary, downloadableText.

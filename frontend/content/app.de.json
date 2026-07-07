@@ -1,0 +1,447 @@
+{
+  "site": {
+    "subtitle": "Erst Nachweise prüfen. Dann anpassen."
+  },
+    "profile": "1. Profil",
+    "cvInput": "2. CV-Eingabe",
+    "precheck": "3. CV-Nachweisprüfung",
+    "tailoring": "4. Anpassung an die Stelle",
+    "output": "5. Rekonstruktionsplan"
+  },
+  "labels": {
+    "yearsOfExperience": "Jahre Berufserfahrung",
+    "studiesListed": "Führst du Studium oder Ausbildung im CV auf?",
+    "degreeYear": "Abschlussjahr",
+    "experienceSelectionMode": "Auswahlmodus der Erfahrung",
+    "outputLanguage": "Sprache",
+    "cvPdf": "LinkedIn-Export oder CV als PDF hochladen",
+    "cvText": "CV-Text manuell einfügen",
+    "aiProvider": "KI-Anbieter",
+    "aiModel": "KI-Modell",
+    "ollamaCustomModel": "Eigenes Ollama-Modell",
+    "aiApiKey": "API-Schlüssel",
+    "ollamaBaseUrl": "Ollama-URL",
+    "targetCompany": "Zielunternehmen",
+    "companyDescription": "Unternehmensbeschreibung (optional)",
+    "targetStyle": "Stil der Zielrolle",
+    "jobDescription": "Stellenbeschreibung",
+    "ageWarningAcknowledgement": "Ich verstehe die Warnung und möchte fortfahren."
+  },
+  "placeholders": {
+    "cvText": "Vollständigen CV-Text hier einfügen",
+    "ollamaCustomModel": "Installiertes Modell eingeben, z. B. llama3.2:3b, qwen3:14b oder mistral-small",
+    "companyDescription": "Nützlichen Kontext ergänzen, wenn das Unternehmen wenig bekannt ist: Tätigkeit, Branche, Größe, Produkt, Markt oder Geschäftsmodell",
+    "jobDescription": "Vollständige Stellenbeschreibung einfügen"
+  },
+  "options": {
+    "studiesListed": [
+      [
+        "",
+        "Auswählen"
+      ],
+      [
+        "true",
+        "Ja"
+      ],
+      [
+        "false",
+        "Nein"
+      ]
+    ],
+    "experienceSelectionMode": [
+      [
+        "lastFive",
+        "Nur die letzten fünf Erfahrungen"
+      ],
+      [
+        "all",
+        "Alle Erfahrungen"
+      ]
+    ],
+    "outputLanguages": [
+      [
+        "en",
+        "Englisch"
+      ],
+      [
+        "es",
+        "Spanisch"
+      ],
+      [
+        "fr",
+        "Französisch"
+      ],
+      [
+        "de",
+        "Deutsch"
+      ]
+    ]
+  },
+  "buttons": {
+    "settingsLabel": "Backend konfigurieren",
+    "shareLabel": "Career Signal Engine teilen",
+    "closeSettingsLabel": "Backend-Einstellungen schließen",
+    "appHelpLabel": "App-Anleitung öffnen",
+    "cvBasics": "Grundlagen eines starken CV",
+    "closeModal": "X",
+    "closeModalLabel": "CV-Grundlagen schließen",
+    "closeHelpLabel": "Anleitung schließen",
+    "precheckIdle": "CV-Nachweisprüfung starten",
+    "precheckLoading": "Prüfung läuft...",
+    "analyzeIdle": "CV-Rekonstruktionsplan erstellen",
+    "analyzeLoading": "Plan wird erstellt...",
+    "continueAnyway": "Trotzdem fortfahren",
+    "continueToTailoring": "Zur Stellenanpassung",
+    "downloadPlan": "TXT-Plan herunterladen"
+  },
+  "backendSettings": {
+    "title": "Backend-Einstellungen",
+    "subtitle": "Nutze dein eigenes Career-Signal-Backend mit diesem Frontend.",
+    "previewMessage": "Diese GitHub-Pages-Version ist nur eine Frontend-Vorschau. Für CV-Prüfungen starte Career Signal lokal oder konfiguriere dein eigenes Backend.",
+    "openSettings": "Backend konfigurieren",
+    "trustWarning": "Nutze nur ein Backend, das du kontrollierst oder dem du vertraust. CV-Text, Stellenbeschreibungen und API-Schlüssel werden an das konfigurierte Backend gesendet.",
+    "urlLabel": "Backend-URL",
+    "save": "Backend-URL speichern",
+    "test": "Verbindung testen",
+    "reset": "Standard verwenden",
+    "currentPrefix": "Aktuelles Backend:",
+    "defaultBackend": "Standard-Backend",
+    "saved": "Backend-URL gespeichert.",
+    "resetDone": "Backend-URL zurückgesetzt.",
+    "emptyUrl": "Backend-URL eingeben oder zurücksetzen.",
+    "invalidUrl": "Gültige http:// oder https:// URL eingeben.",
+    "httpsRequired": "Diese Seite wurde über HTTPS geladen. Nutze eine HTTPS-URL oder localhost.",
+    "testSuccess": "Backend-Verbindung funktioniert.",
+    "testing": "Backend-Verbindung wird getestet...",
+    "testFailed": "Backend-Health-Endpunkt nicht erreichbar."
+  },
+  "fallbackText": {
+    "emptyList": "Nichts angegeben.",
+    "noMainProblem": "Kein zentrales Problem gemeldet."
+  },
+  "feedback": {
+    "initial": "Füge deinen CV hinzu und starte die Nachweisprüfung, bevor du einen stellenbezogenen Plan erstellst.",
+    "readyStatus": "Bereit",
+    "cvInputGuidance": "Füge zuerst den Quell-CV hinzu. Die App prüft, ob genügend Nachweise vorhanden sind.",
+    "ageWarning": "Das Abschlussjahr kann mehr altersbezogene Informationen preisgeben als nötig.",
+    "allExperienceWarning": "Alle Erfahrungen einzubeziehen kann den CV zu lang machen oder unnötige alte Informationen zeigen.",
+    "missingYears": "Gib deine Jahre Berufserfahrung ein.",
+    "missingStudies": "Wähle aus, ob Studium oder Ausbildung im CV stehen.",
+    "missingStudyYear": "Gib das Abschlussjahr ein oder wähle Nein.",
+    "missingCv": "Füge einen CV als PDF hinzu, lade einen LinkedIn-PDF-Export hoch oder füge den vollständigen CV-Text ein.",
+    "invalidPdf": "Es werden nur PDF-Dateien unterstützt.",
+    "pdfTooLarge": "Die PDF-Datei ist größer als 5 MB.",
+    "acknowledgeStudyWarning": "Bestätige die Datenschutzwarnung zum Abschlussjahr.",
+    "missingOllamaCustomModel": "Gib das installierte Ollama-Modell ein oder wähle Gemma 4 oder Qwen 3.6.",
+    "runPrecheckFirst": "Starte zuerst die CV-Nachweisprüfung.",
+    "precheckComplete": "Prüfung abgeschlossen. Prüfe den Score und wähle die nächste Aktion.",
+    "precheckPassedWithWarnings": "Die Prüfung ist bestanden, aber einige Warnungen sollten vor der Anpassung geprüft werden.",
+    "analysisLoading": "Ein neuer Rekonstruktionsplan wird erstellt. Der vorherige Plan wurde geleert.",
+    "analysisComplete": "Rekonstruktionsplan bereit. Prüfe das Ergebnis vor der Nutzung.",
+    "analysisPartial": "Teilweises lokales Ergebnis bereit. Einige Ollama-Abschnitte wurden nicht abgeschlossen.",
+    "precheckStale": "CV oder Profildaten haben sich geändert. Starte die Prüfung erneut.",
+    "precheckLoadingText": "CV-Nachweisprüfung läuft. Das kann einen Moment dauern."
+  },
+  "tailoring": {
+    "guidanceLocked": "Du kannst Zielunternehmen und Stellenbeschreibung bereits hinzufügen. Die Generierung wird nach der Prüfung freigeschaltet.",
+    "guidanceUnlocked": "Nutze Zielunternehmen und Stellenbeschreibung, um einen Plan auf Basis der geprüften CV-Nachweise zu erstellen.",
+    "initialLock": "Starte zuerst die CV-Nachweisprüfung.",
+    "staleLock": "CV oder Profil haben sich seit der letzten Prüfung geändert.",
+    "weakLock": "Die Prüfung empfiehlt, den CV zuerst zu verbessern.",
+    "reviewLock": "Prüfe das Ergebnis und fahre dann mit der Stellenanpassung fort.",
+    "weakUnlock": "Freigeschaltet, weil du trotz Warnung fortfahren möchtest."
+  },
+  "weakCvWarning": "Dieser CV scheint vor allem Verantwortlichkeiten statt messbarer Ergebnisse zu enthalten.",
+  "personalDataWarnings": {
+    "title": "Prüfung von Datenschutz- und Bias-Risiken",
+    "intro": "Der CV scheint persönliche Daten zu enthalten, die unnötig oder riskant sein können."
+  },
+  "jobFitAssessment": {
+    "scoreLabel": "Profil-Match-Score",
+    "warningFallback": "Dies ist eine evidenzbasierte Schätzung, keine Einstellungsentscheidung.",
+    "verdictLabels": {
+      "Strong match": "Sehr gute Passung",
+      "Good match": "Gute Passung",
+      "Partial match": "Teilweise Passung",
+      "Weak match": "Schwache Passung"
+    }
+  },
+  "footer": {
+    "createdByPrefix": "Erstellt von",
+    "contributeText": "Änderungen auf GitHub vorschlagen"
+  },
+  "cvBasics": {
+    "title": "Grundlagen eines starken CV",
+    "subtitle": "Ein starker CV macht echte Nachweise leicht sichtbar.",
+    "playlistText": "Playlist zum CV-Schreiben ansehen",
+    "blocks": [
+      {
+        "title": "Was starke Stichpunkte beweisen",
+        "items": [
+          "Was sich durch deine Arbeit verändert hat.",
+          "Wer oder was betroffen war: Nutzer, Kunden, Systeme, Teams, Länder, Budgets, Risiken oder Prozesse.",
+          "Die Größenordnung der Arbeit und warum sie wichtig war.",
+          "Das Ergebnis: Zeit gespart, Kosten reduziert, Zuverlässigkeit verbessert, Akzeptanz erhöht, Risiko gesenkt, Migration geliefert oder Entscheidungen unterstützt."
+        ]
+      },
+      {
+        "title": "Schwache Tätigkeitsformulierung",
+        "items": [
+          "Verantwortlich für Teamschulungen.",
+          "Governance-Framework eingeführt.",
+          "Stakeholder unterstützt.",
+          "Prozessverbesserungen umgesetzt.",
+          "An Projekten teilgenommen."
+        ]
+      },
+      {
+        "title": "Stärkeres Nachweismuster",
+        "text": "Nutze Aktion, Objekt, Umfang, Zweck und Ergebnis. Der Stichpunkt sollte die Frage überstehen: Und was hat es gebracht?",
+        "examples": [
+          [
+            "example",
+            "Schwach: Teams während COVID geschult."
+          ],
+          [
+            "example strong",
+            "Stärker: Während der COVID-Spitzenphase täglich etwa 200 bis 300 Personen unterstützt und den Patientenfluss unter hohem Druck aufrechterhalten."
+          ]
+        ]
+      },
+      {
+        "title": "Evidenzbasierte Sprache",
+        "items": [
+          "Persönliche Aussagen wie motiviert, effizient, strategisch, zuverlässig oder kommunikationsstark sollten durch Nachweise gestützt werden.",
+          "Das Problem ist nicht das Adjektiv; das Problem ist fehlender Beleg in der Nähe.",
+          "Ersetze unbelegte Selbstbeschreibung durch Ergebnisse, Beispiele, Umfang, Entscheidungen, Lieferung, Akzeptanz oder messbare Resultate."
+        ]
+      },
+      {
+        "title": "Zeitform und Timing",
+        "items": [
+          "Nutze Vergangenheitsform für abgeschlossene Arbeit, besonders in früheren Rollen.",
+          "Nutze Gegenwartsform nur für Verantwortlichkeiten oder Arbeit, die wirklich noch läuft.",
+          "In aktuellen Rollen sollten abgeschlossene Erfolge trotzdem wie abgeschlossene Ergebnisse klingen.",
+          "Vermeide Infinitiv-Stichpunkte, wenn der Erfolg bereits passiert ist."
+        ]
+      },
+      {
+        "title": "Vor der Anpassung",
+        "items": [
+          "Ergänze Zahlen, wenn sie wahr und verteidigbar sind.",
+          "Entferne oder reduziere alte Details, die der Zielrolle nicht helfen.",
+          "Behalte Studien und Qualifikationen nur, wenn sie relevant oder erforderlich sind; vermeide unnötige Abschlussjahre nach mehreren Jahren Erfahrung.",
+          "Wenn du viele Jahre in einem Unternehmen warst, zeige echte Entwicklung: Beförderungen, Rollenwechsel, größerer Umfang, Teamwechsel oder ausgewählte Meilensteine.",
+          "Erfinde niemals Kennzahlen, Tools, Verantwortlichkeiten, Arbeitgeber, Daten, Zertifikate oder Erfolge."
+        ]
+      },
+      {
+        "title": "Länge nach Seniorität",
+        "items": [
+          "Junior- oder Berufseinsteiger-CVs sind meist mit 1 Seite am stärksten.",
+          "Mid-Career-CVs haben meist 1 bis 2 Seiten.",
+          "Senior Specialists, Manager oder Consultants brauchen oft etwa 2 Seiten.",
+          "Executives, Akademiker, Forschende, öffentliche Profile oder stark zertifizierte Experten können mehr brauchen, wenn die Zusatzdetails relevant sind.",
+          "Länge ist nicht an sich schlecht; problematisch ist, wenn sie die stärksten Nachweise versteckt oder wichtige Belege entfernt."
+        ]
+      },
+      {
+        "title": "Lange Betriebszugehörigkeit und Entwicklung",
+        "items": [
+          "Lange Zugehörigkeit ist kein Problem an sich, aber ein einziger Titel über viele Jahre kann Wachstum flach wirken lassen.",
+          "Wenn du mehrere interne Positionen hattest, zeige die echte Reihenfolge statt nur den letzten Titel.",
+          "Wenn formale Titel gleich blieben, zeige Entwicklung durch ehrliche Stichpunkte: größere Teams, höhere Budgets, breitere Regionen, schwierigere Systeme oder wirkungsvollere Arbeit."
+        ]
+      },
+      {
+        "title": "Abgleich von Titel und Verantwortung",
+        "items": [
+          "Achte darauf, dass jeder offizielle Titel zu den darunter stehenden Verantwortlichkeiten und Erfolgen passt.",
+          "Wenn der Titel Project Manager lautet, die Stichpunkte aber Product Ownership, Architektur, Strategie, Training oder Operations beschreiben, kläre den Umfang statt den Leser raten zu lassen.",
+          "Hybride Rollen sind in Ordnung, aber ungewöhnlicher Umfang sollte durch Untertitel, Umfangszeile oder klare Kontext-Stichpunkte erklärt werden."
+        ]
+      },
+      {
+        "title": "Sensible persönliche Daten",
+        "items": [
+          "Vermeide Geburtsdatum, genaues Alter, Familienstand, Familiensituation, Geschlecht, Staatsbürgerschaft, Nationalität, vollständige Adresse oder Fotohinweise, außer sie sind ausdrücklich erforderlich.",
+          "Nutze Standort nur auf dem für die Rolle hilfreichen Niveau, etwa Stadt, Land oder Arbeitserlaubnis, wenn relevant.",
+          "Diese Angaben können Datenschutz-, Diskriminierungs- oder Altersbias-Risiken schaffen und stärken selten den Wirkungsnachweis."
+        ]
+      },
+      {
+        "title": "Kontaktgrundlagen",
+        "items": [
+          "Setze Name, E-Mail, Telefon und hilfreichen Standort nach oben.",
+          "Füge LinkedIn oder Portfolio hinzu, wenn es das Profil belegt.",
+          "Fehlende Kontaktdaten sind selten, verursachen aber unnötige Reibung für Recruiter."
+        ]
+      }
+    ]
+  },
+  "appHelp": {
+    "title": "Career-Signal-Anleitung",
+    "subtitle": "Einfache Hilfe, Datenschutz, Scores und Grenzen an einem Ort.",
+    "tabs": [
+      {
+        "id": "use",
+        "label": "Nutzung",
+        "blocks": [
+          {
+            "title": "Einfach gesagt",
+            "text": "Career Signal prüft, ob dein CV genug echte Nachweise enthält, bevor es beim Anpassen an eine Stelle hilft."
+          },
+          {
+            "title": "Grundablauf",
+            "items": [
+              "Gib deine Jahre Berufserfahrung an und wähle, ob Studien im CV stehen.",
+              "Lade einen CV als PDF, einen LinkedIn-PDF-Export hoch oder füge den CV-Text ein.",
+              "Wähle Gemini, OpenAI, Mistral oder Ollama (offline, experimentell), dann ein Modell.",
+              "Für Cloud-Anbieter füge einen Schlüssel hinzu, falls keiner konfiguriert ist.",
+              "Für Ollama installiere Ollama lokal, lade das gewählte Modell herunter und lasse Ollama laufen.",
+              "Starte zuerst die CV-Nachweisprüfung.",
+              "Wenn der CV genug Nachweise hat, füge Zielunternehmen, optionalen Unternehmenskontext und Stellenbeschreibung hinzu.",
+              "Erstelle den Rekonstruktionsplan und prüfe ihn, bevor du etwas verwendest."
+            ]
+          },
+          {
+            "title": "Wichtige Gewohnheit",
+            "text": "Nutze das Ergebnis als Review- und Umschreibassistent. Bestätige jeden Titel, jedes Datum, jeden Arbeitgeber, jedes Tool, jede Kennzahl und jede Aussage, bevor du einen CV versendest."
+          }
+        ]
+      },
+      {
+        "id": "criteria",
+        "label": "Kriterien",
+        "blocks": [
+          {
+            "title": "CV-Nachweisprüfung",
+            "text": "Der Precheck-Score reicht von 0 bis 100. Er schätzt, ob der CV genug belastbare Nachweise enthält, um ihn sicher anzupassen."
+          },
+          {
+            "title": "Worauf geprüft wird",
+            "items": [
+              "Konkrete Ergebnisse, nicht nur Verantwortlichkeiten.",
+              "Zahlen, Umfang, Daten, Nutzer, Systeme, Budgets, Teams, Risiken oder messbare Veränderungen, wenn sie wahr sind.",
+              "Stichpunkte, die erklären, was sich durch die Arbeit verändert hat.",
+              "Warnungen zu unbelegten Aussagen, sensiblen persönlichen Daten, unklaren Titeln, versteckter Entwicklung, Zeitformproblemen und unnötigen Bildungsdetails.",
+              "Fragen, die helfen, fehlende Kennzahlen zu rekonstruieren, ohne etwas zu erfinden."
+            ]
+          },
+          {
+            "title": "Bewertung der Profilpassung",
+            "text": "Nach dem Precheck geht auch der stellenbezogene Match-Score von 0 bis 100. Er schätzt, wie stark die CV-Nachweise zur Zielrolle und zum Unternehmenskontext passen."
+          },
+          {
+            "title": "Was die Zahlen bedeuten",
+            "items": [
+              "Ein hoher Score bedeutet, dass die Nachweise stärker, klarer und relevanter wirken.",
+              "Ein mittlerer Score bedeutet, dass der CV nutzbar sein kann, aber mehr Klarheit, bessere Belege oder stärkeres Targeting braucht.",
+              "Ein niedriger Score bedeutet, dass Anpassung den CV besser aussehen lassen kann, ohne das Nachweisproblem zu lösen.",
+              "Kein Score garantiert Interviews, Einstellung oder Recruiter-Entscheidungen."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "label": "Was es tut",
+        "blocks": [
+          {
+            "title": "Was die App tut",
+            "items": [
+              "Prüft, ob ein CV genug Nachweise enthält, bevor er angepasst wird.",
+              "Zeigt schwache oder riskante Bereiche, bevor sie zu polierten, aber unbelegten Aussagen werden.",
+              "Nutzt Zielunternehmen und Stellenbeschreibung, um einen spezifischen Rekonstruktionsplan zu erzeugen.",
+              "Hilft bei Keywords, passenden Nachweisen, fehlenden Signalen, Recruiter-Interpretation und Integritätsrisiken.",
+              "Fördert sichereres CV-Schreiben durch Warnungen zu Alter, Geschlecht, Staatsbürgerschaft, Foto, Adresse und anderen persönlichen Details, wenn sie unnötig sind."
+            ]
+          },
+          {
+            "title": "Was sie nicht tut",
+            "items": [
+              "Sie erfindet keine Erfolge, Kennzahlen, Arbeitgeber, Daten, Tools, Zertifikate oder Verantwortlichkeiten.",
+              "Sie bewirbt sich nicht automatisch auf Stellen.",
+              "Sie garantiert keine Interviews oder Einstellungen.",
+              "Sie ersetzt nicht die finale Entscheidung von Recruiter, Hiring Manager oder Unternehmen.",
+              "Sie ersetzt nicht deine Verantwortung, den finalen CV vor dem Senden zu prüfen."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "label": "Datenschutz",
+        "blocks": [
+          {
+            "title": "Was die App speichert",
+            "items": [
+              "Die App speichert keine CVs in einer Datenbank.",
+              "Die App speichert keine API-Schlüssel.",
+              "Die App fügt dem Kern-CV-Workflow keine Analytics oder Tracking hinzu.",
+              "Dein eingefügter Schlüssel wird nur für diese Anfrage an das lokale Backend gesendet."
+            ]
+          },
+          {
+            "title": "Was deinen Rechner verlässt",
+            "items": [
+              "Wenn du eine KI-Prüfung ausführst, werden CV-Text und Stellendetails an den gewählten KI-Anbieter gesendet.",
+              "Bei Gemini geht die Anfrage an Google mit dem gewählten Gemini-Modell.",
+              "Bei OpenAI geht die Anfrage an OpenAI mit dem gewählten OpenAI-Modell.",
+              "Bei Mistral geht die Anfrage an Mistral mit dem gewählten Mistral-Modell.",
+              "Bei Ollama (offline, experimentell) sendet das Backend die Anfrage an deine konfigurierte lokale Ollama-URL statt an einen Cloud-Anbieter.",
+              "Der Buy-Me-a-Coffee-Button ist ein externes Unterstützungs-Widget und kann Ressourcen von Buy Me a Coffee oder dessen CDN laden."
+            ]
+          },
+          {
+            "title": "Open Source",
+            "text": "Das Projekt ist vollständig Open Source unter der GPL-3.0-Lizenz, sodass Menschen es prüfen, ausführen, verbessern und Änderungen vorschlagen können.",
+            "links": [
+              [
+                "Quellcode auf GitHub ansehen",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "GPL-3.0-Lizenz lesen",
+                "https://github.com/FANMixco/career-signal/blob/main/LICENSE"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "statusMessages": {
+    "ready": "Bereit",
+    "Precheck needed": "Prüfung erforderlich",
+    "Missing profile": "Profil fehlt",
+    "Add CV": "CV hinzufügen",
+    "Invalid PDF": "Ungültige PDF",
+    "PDF too large": "PDF zu groß",
+    "Acknowledge warning": "Warnung bestätigen",
+    "Missing model": "Modell fehlt",
+    "Prechecking": "Prüfung läuft",
+    "Precheck done": "Prüfung abgeschlossen",
+    "Error": "Fehler",
+    "Run precheck first": "Zuerst Prüfung starten",
+    "Tailoring": "Anpassung",
+    "Plan ready": "Plan bereit"
+  },
+  "recommendationLabels": {
+    "Proceed": "Fortfahren",
+    "Proceed with caution": "Mit Vorsicht fortfahren",
+    "Improve CV first": "CV zuerst verbessern"
+  },
+  "errorMessages": {
+    "apiAnalyzeUnreachable": "Die Rekonstruktions-API ist nicht erreichbar.",
+    "apiPrecheckUnreachable": "Die Prüfungs-API ist nicht erreichbar.",
+    "reconstructionFailed": "Der Rekonstruktionsplan konnte nicht erstellt werden.",
+    "healthCheckFailed": "Healthcheck fehlgeschlagen.",
+    "precheckFailed": "Prüfung fehlgeschlagen.",
+    "analysisFailed": "Analyse fehlgeschlagen."
+  },
+  "buyMeCoffee": {
+    "description": "Unterstütze mich auf Buy Me a Coffee",
+    "message": "Danke, dass du Career Signal nutzt. Unterstütze dieses Projekt mit einem Kaffee."
+  }
+}
