@@ -442,6 +442,42 @@ npm run desktop:dist:arm64
 
 The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
+### Optional: Build The Microsoft Store Package
+
+The Microsoft Store package uses private Partner Center identity values. Keep the local Store files out of commits:
+
+- `electron-builder.store.cjs`
+- `store-package.local.ps1`
+- `scripts/build-store-app.ps1`
+
+These paths are ignored by git. Fill `store-package.local.ps1` with values from Partner Center > Product identity:
+
+```powershell
+$env:WINDOWS_STORE_IDENTITY_NAME = "your-package-identity-name"
+$env:WINDOWS_STORE_PUBLISHER = "CN=your-publisher-id"
+$env:WINDOWS_STORE_PUBLISHER_DISPLAY_NAME = "your-publisher-display-name"
+```
+
+Microsoft Store package versions normally need four numeric parts. The local Store config automatically converts a three-part `package.json` version such as `1.0.12` into `1.0.12.0`. If you need a different Store package version, set this optional value too:
+
+```powershell
+$env:WINDOWS_STORE_PACKAGE_VERSION = "1.0.12.0"
+```
+
+Then build the Store package from the project root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\build-store-app.ps1
+```
+
+The output is written to:
+
+```text
+release\store-build
+```
+
+Upload the generated `.appx` package in Partner Center. Do not commit the local Store identity files or generated `release` output.
+
 ## Step 7: Use The App
 
 1. Fill in the profile details.

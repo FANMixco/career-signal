@@ -44,6 +44,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   gap: 10px;
+  --topbar-control-height: 46px;
 }
 
 .sr-only {
@@ -59,7 +60,7 @@ body.modal-open {
 
 .language-picker {
   width: auto;
-  height: 48px;
+  height: var(--topbar-control-height);
   display: inline-flex;
   grid-template-columns: none;
   align-items: center;
@@ -106,10 +107,32 @@ h2 {
   min-width: 96px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: 0 16px;
   background: var(--panel);
   color: var(--muted);
   text-align: center;
+}
+
+.topbar-actions .icon-button,
+.topbar-actions .secondary,
+.topbar-actions .status {
+  min-height: var(--topbar-control-height);
+}
+
+.topbar-actions .icon-button {
+  width: var(--topbar-control-height);
+  height: var(--topbar-control-height);
+}
+
+.topbar-actions .secondary {
+  border-radius: 8px;
+  padding-block: 0;
+}
+
+.topbar-actions .status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .panel {
