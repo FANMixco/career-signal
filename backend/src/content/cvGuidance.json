@@ -1,28 +1,4 @@
 {
-  "targetStyles": [
-    "Consulting",
-    "Strategy",
-    "Product",
-    "Cloud",
-    "Engineering",
-    "Procurement",
-    "Sales",
-    "Leadership",
-    "Training",
-    "Management",
-    "General"
-  ],
-  "proceedRecommendations": [
-    "Proceed",
-    "Improve CV first",
-    "Proceed with caution"
-  ],
-  "outputLanguageNames": {
-    "en": "English",
-    "es": "Spanish",
-    "fr": "French",
-    "de": "German"
-  },
   "defaultMetricRecoveryQuestions": [
     "What changed because of your work?",
     "How many users, clients, systems, teams, or countries were affected?",
@@ -68,31 +44,5 @@
     "textReminder": "Contact completeness reminder\nA CV should make essential contact signals easy to find near the top: name, email, phone, location at a useful level, and usually LinkedIn or portfolio when relevant. Missing contact details are uncommon but costly because they create friction for recruiters.",
     "precheckInstruction": "Check whether the CV includes essential contact details near the top: candidate name, email, phone, and location at a useful level such as city/country or region. LinkedIn or portfolio is optional but useful when relevant. Add a low-severity warning if email, phone, or location appears to be missing or hard to find.",
     "reconstructionInstruction": "Preserve any precheck warning about missing contact details. Recommend placing name, email, phone, useful location, and relevant LinkedIn or portfolio near the top. Do not add contact details that are not present; ask the user to provide them."
-  },
-  "sensitivePersonalDataRules": {
-    "dateOfBirth": {
-      "label": "Date of birth or exact age",
-      "warning": "Date of birth or exact age can create age-bias risk. Keep it only when the target country, sector, or process explicitly requires it."
-    },
-    "gender": {
-      "label": "Gender",
-      "warning": "Gender is usually not needed on a CV and may create bias risk. Remove it unless it is explicitly required for the application."
-    },
-    "citizenship": {
-      "label": "Citizenship or nationality",
-      "warning": "Citizenship or nationality can create bias or privacy risk. Prefer work authorization language only when it matters for the role."
-    },
-    "maritalStatus": {
-      "label": "Marital or family status",
-      "warning": "Marital or family status is normally irrelevant to hiring decisions and should usually be removed from the CV."
-    },
-    "photo": {
-      "label": "Photo reference",
-      "warning": "A photo can create appearance, age, gender, or ethnicity bias risk. Use one only where it is normal and expected for the market."
-    },
-    "fullAddress": {
-      "label": "Full home address",
-      "warning": "A full home address is usually unnecessary. City or country is normally enough unless the employer explicitly asks for more."
-    }
   }
 }

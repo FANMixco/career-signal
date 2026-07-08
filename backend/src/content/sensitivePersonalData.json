@@ -1,0 +1,26 @@
+{
+  "dateOfBirth": {
+    "label": "Date of birth or exact age",
+    "warning": "Date of birth or exact age can create age-bias risk. Keep it only when the target country, sector, or process explicitly requires it."
+  },
+  "gender": {
+    "label": "Gender",
+    "warning": "Gender is usually not needed on a CV and may create bias risk. Remove it unless it is explicitly required for the application."
+  },
+  "citizenship": {
+    "label": "Citizenship or nationality",
+    "warning": "Citizenship or nationality can create bias or privacy risk. Prefer work authorization language only when it matters for the role."
+  },
+  "maritalStatus": {
+    "label": "Marital or family status",
+    "warning": "Marital or family status is normally irrelevant to hiring decisions and should usually be removed from the CV."
+  },
+  "photo": {
+    "label": "Photo reference",
+    "warning": "A photo can create appearance, age, gender, or ethnicity bias risk. Use one only where it is normal and expected for the market."
+  },
+  "fullAddress": {
+    "label": "Full home address",
+    "warning": "A full home address is usually unnecessary. City or country is normally enough unless the employer explicitly asks for more."
+  }
+}
