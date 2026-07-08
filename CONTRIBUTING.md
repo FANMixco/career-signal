@@ -14,4 +14,10 @@ The following changes will not be accepted:
 
 Translations, improvements, bug fixes, and accessibility enhancements are welcome, but they must be submitted in a transparent and reviewable way.
 
+## Content Changes
+
+Career Signal keeps collaboration-friendly text in JSON files. Backend content rules are documented beside the files in `backend/src/content/README.md`. Frontend labels, help text, and translations live in `frontend/content/app.*.json`.
+
+Prefer small pull requests that change one kind of content at a time. For example, submit CV guidance improvements separately from translations or application option changes.
+
 Before making large structural changes, please open an issue first and explain the motivation.

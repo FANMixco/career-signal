@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 
 // Product rules and evaluator constants.
-// Keep behavior here, but keep reviewable CV-quality text in cvRules.json.
+// Keep behavior here, but keep reviewable CV-quality text in content JSON files.
 export const MIN_CV_LENGTH = 300;
 export const MIN_JOB_DESCRIPTION_LENGTH = 120;
 
@@ -11,10 +11,13 @@ type GuidanceBlock = {
   reconstructionInstruction: string;
 };
 
-type CvRulesContent = {
+type AppOptionsContent = {
   targetStyles: string[];
   proceedRecommendations: string[];
   outputLanguageNames: Record<"en" | "es" | "fr" | "de", string>;
+};
+
+type CvGuidanceContent = {
   defaultMetricRecoveryQuestions: string[];
   educationPrivacy: {
     ageWarning: string;
@@ -28,12 +31,19 @@ type CvRulesContent = {
   titleResponsibilityAlignment: GuidanceBlock;
   evidenceBackedLanguage: GuidanceBlock;
   contactCompleteness: GuidanceBlock;
-  sensitivePersonalDataRules: Record<string, { label: string; warning: string }>;
 };
 
-const cvRulesContent = JSON.parse(readFileSync(new URL("../content/cvRules.json", import.meta.url), "utf8")) as CvRulesContent;
+type SensitivePersonalDataContent = Record<string, { label: string; warning: string }>;
 
-export const targetStyles = cvRulesContent.targetStyles as [
+function readJson<T>(path: string) {
+  return JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as T;
+}
+
+const appOptions = readJson<AppOptionsContent>("../content/appOptions.json");
+const cvGuidance = readJson<CvGuidanceContent>("../content/cvGuidance.json");
+const personalDataCopy = readJson<SensitivePersonalDataContent>("../content/sensitivePersonalData.json");
+
+export const targetStyles = appOptions.targetStyles as [
   "Consulting",
   "Strategy",
   "Product",
@@ -49,14 +59,14 @@ export const targetStyles = cvRulesContent.targetStyles as [
 export const experienceSelectionModes = ["lastFive", "all"] as const;
 export const aiProviders = ["gemini", "openai", "mistral", "ollama"] as const;
 export const outputLanguages = ["en", "es", "fr", "de"] as const;
-export const outputLanguageNames = cvRulesContent.outputLanguageNames;
+export const outputLanguageNames = appOptions.outputLanguageNames;
 export const openAiModels = ["gpt-5.5", "gpt-5.4", "gpt-5.4-mini"] as const;
 export const geminiModels = ["models/gemini-3.5-flash", "models/gemini-3.1-flash-lite", "models/gemini-2.5-pro"] as const;
 export const mistralModels = ["mistral-medium-latest", "mistral-large-latest", "mistral-small-latest"] as const;
 export const ollamaModels = ["local-mix", "gemma4", "qwen3.6"] as const;
 export const aiModels = [...openAiModels, ...geminiModels, ...mistralModels, ...ollamaModels] as const;
 
-export const proceedRecommendations = cvRulesContent.proceedRecommendations as ["Proceed", "Improve CV first", "Proceed with caution"];
+export const proceedRecommendations = appOptions.proceedRecommendations as ["Proceed", "Improve CV first", "Proceed with caution"];
 export const proceedRecommendationValues = {
   proceed: proceedRecommendations[0],
   improve: proceedRecommendations[1],
@@ -76,16 +86,14 @@ export const scoreBreakdownMaximums = {
   interviewDefensibility: 10
 } as const;
 
-export const defaultMetricRecoveryQuestions = cvRulesContent.defaultMetricRecoveryQuestions;
-export const educationPrivacy = cvRulesContent.educationPrivacy;
-export const careerProgressionVisibility = cvRulesContent.careerProgressionVisibility;
-export const accomplishmentTenseGuidance = cvRulesContent.accomplishmentTenseGuidance;
-export const cvLengthGuidance = cvRulesContent.cvLengthGuidance;
-export const titleResponsibilityAlignment = cvRulesContent.titleResponsibilityAlignment;
-export const evidenceBackedLanguage = cvRulesContent.evidenceBackedLanguage;
-export const contactCompleteness = cvRulesContent.contactCompleteness;
-
-const personalDataCopy = cvRulesContent.sensitivePersonalDataRules;
+export const defaultMetricRecoveryQuestions = cvGuidance.defaultMetricRecoveryQuestions;
+export const educationPrivacy = cvGuidance.educationPrivacy;
+export const careerProgressionVisibility = cvGuidance.careerProgressionVisibility;
+export const accomplishmentTenseGuidance = cvGuidance.accomplishmentTenseGuidance;
+export const cvLengthGuidance = cvGuidance.cvLengthGuidance;
+export const titleResponsibilityAlignment = cvGuidance.titleResponsibilityAlignment;
+export const evidenceBackedLanguage = cvGuidance.evidenceBackedLanguage;
+export const contactCompleteness = cvGuidance.contactCompleteness;
 
 export const sensitivePersonalDataRules = [
   {

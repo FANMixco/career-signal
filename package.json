@@ -1,12 +1,15 @@
 {
   "name": "career-signal-engine-desktop",
-  "version": "1.0.12",
+  "version": "1.0.15",
   "private": true,
   "description": "Desktop wrapper for Career Signal Engine.",
   "author": "Federico Navarrete",
   "main": "desktop/main.cjs",
   "scripts": {
-    "desktop:prepare": "npm --prefix backend run build",
+    "version:sync": "node scripts/sync-version.cjs",
+    "desktop:setup": "npm install && npm --prefix backend install",
+    "desktop:prepare": "npm run version:sync && npm --prefix backend run build",
+    "desktop:build": "npm run desktop:dist",
     "desktop:dev": "npm run desktop:prepare && electron .",
     "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
     "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
@@ -14,8 +17,8 @@
     "desktop:dist:mac": "npm run desktop:prepare && electron-builder --mac dmg zip --publish=never"
   },
   "devDependencies": {
-    "electron": "^39.8.5",
-    "electron-builder": "^26.0.0"
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3"
   },
   "build": {
     "appId": "com.federiconavarrete.careersignal",
@@ -30,7 +33,11 @@
       "backend/node_modules/**/*",
       "backend/package.json",
       "frontend/**/*",
-      "LICENSE"
+      "!**/*.md",
+      "!LICENSE",
+      "!LICENSE.*",
+      "!COPYING",
+      "!COPYING.*"
     ],
     "win": {
       "icon": "frontend/img/favicons/android-chrome-512x512.png",
