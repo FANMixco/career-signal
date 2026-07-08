@@ -20,7 +20,17 @@ type AppOptionsContent = {
   geminiModels: string[];
   mistralModels: string[];
   ollamaModels: string[];
+  defaultAiProvider: string;
+  defaultOutputLanguage: string;
+  defaultOpenAiModel: string;
+  defaultGeminiModel: string;
+  defaultMistralModel: string;
+  defaultOllamaModel: string;
+  ollamaMixModel: string;
+  ollamaFallbackModels: string[];
   proceedRecommendations: string[];
+  jobFitVerdicts: string[];
+  integrityClassifications: string[];
   outputLanguageNames: Record<"en" | "es" | "fr" | "de", string>;
 };
 
@@ -68,8 +78,18 @@ export const geminiModels = asNonEmptyStringTuple("geminiModels", appOptions.gem
 export const mistralModels = asNonEmptyStringTuple("mistralModels", appOptions.mistralModels);
 export const ollamaModels = asNonEmptyStringTuple("ollamaModels", appOptions.ollamaModels);
 export const aiModels = [...openAiModels, ...geminiModels, ...mistralModels, ...ollamaModels] as const;
+export const defaultAiProvider = appOptions.defaultAiProvider;
+export const defaultOutputLanguage = appOptions.defaultOutputLanguage;
+export const defaultOpenAiModel = appOptions.defaultOpenAiModel;
+export const defaultGeminiModel = appOptions.defaultGeminiModel;
+export const defaultMistralModel = appOptions.defaultMistralModel;
+export const defaultOllamaModel = appOptions.defaultOllamaModel;
+export const ollamaMixModel = appOptions.ollamaMixModel;
+export const ollamaFallbackModels = asNonEmptyStringTuple("ollamaFallbackModels", appOptions.ollamaFallbackModels);
 
 export const proceedRecommendations = asNonEmptyStringTuple("proceedRecommendations", appOptions.proceedRecommendations);
+export const jobFitVerdicts = asNonEmptyStringTuple("jobFitVerdicts", appOptions.jobFitVerdicts);
+export const integrityClassifications = asNonEmptyStringTuple("integrityClassifications", appOptions.integrityClassifications);
 export const proceedRecommendationValues = {
   proceed: proceedRecommendations[0],
   improve: proceedRecommendations[1],

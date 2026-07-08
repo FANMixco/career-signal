@@ -3,7 +3,7 @@
 // with large strict schemas. The precheck and reconstruction plan are therefore
 // requested in smaller sections, with deterministic fallbacks where possible.
 import { z } from "zod";
-import { outputLanguageNames } from "../../rules/cvRules.js";
+import { integrityClassifications, jobFitVerdicts, outputLanguageNames } from "../../rules/cvRules.js";
 import { analysisSchema, precheckSchema, type AnalysisResult } from "../../schemas/aiSchemas.js";
 import { parseJsonWithSchema } from "./jsonUtils.js";
 import { buildLocalPrecheckBaseline, buildLocalPrecheckFallbackSections, compactForLocalModel } from "./localCvEvidence.js";
@@ -36,7 +36,7 @@ const ollamaPositioningSectionSchema = z.object({
 const ollamaEvidenceSectionSchema = z.object({
   jobFitAssessment: fitAssessmentSchema.catch({
     score: 0,
-    verdict: "Weak match",
+    verdict: jobFitVerdicts[3],
     explanation: "Local model did not provide a valid profile match assessment.",
     strongestReasons: [],
     mainRisks: [],
@@ -330,7 +330,7 @@ function fallbackOllamaEvidence(input: {
   failureReason: string;
 }): OllamaEvidenceSection {
   const score = typeof input.precheckResult.cvEvidenceScore === "number" ? Math.min(84, Math.max(50, Math.round(input.precheckResult.cvEvidenceScore))) : 50;
-  const verdict = score >= 70 ? "Good match" : "Partial match";
+  const verdict = score >= 70 ? jobFitVerdicts[1] : jobFitVerdicts[2];
 
   return {
     jobFitAssessment: {
@@ -444,7 +444,7 @@ Return this exact JSON shape:
 {
   "jobFitAssessment": {
     "score": 0,
-    "verdict": "Weak match",
+    "verdict": "${jobFitVerdicts[3]}",
     "explanation": "",
     "strongestReasons": [],
     "mainRisks": [],
@@ -496,7 +496,7 @@ Return this exact JSON shape:
       "original": "",
       "rewritten": "",
       "reason": "",
-      "integrityClassification": "Directly supported by CV"
+      "integrityClassification": "${integrityClassifications[0]}"
     }
   ],
   "suggestedCvStructure": [],
@@ -504,7 +504,7 @@ Return this exact JSON shape:
   "integrityAudit": [
     {
       "recommendation": "",
-      "classification": "Needs user confirmation",
+      "classification": "${integrityClassifications[2]}",
       "explanation": ""
     }
   ]
@@ -531,7 +531,7 @@ Use 1 to 2 items per array. Never invent evidence.`,
       integrityAudit: [
         {
           recommendation: "Do not use this as a complete CV reconstruction plan yet.",
-          classification: "Needs user confirmation",
+          classification: integrityClassifications[2],
           explanation: message
         }
       ]

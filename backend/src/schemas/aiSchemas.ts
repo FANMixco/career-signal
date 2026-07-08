@@ -2,7 +2,7 @@
 // Every provider, including local Ollama fallbacks, must eventually satisfy
 // these schemas before the frontend renders scores or reconstruction sections.
 import { z } from "zod";
-import { proceedRecommendations, scoreBreakdownMaximums } from "../rules/cvRules.js";
+import { integrityClassifications, jobFitVerdicts, proceedRecommendations, scoreBreakdownMaximums } from "../rules/cvRules.js";
 
 export const precheckSchema = z.object({
   cvEvidenceScore: z.number().min(0).max(100),
@@ -30,20 +30,13 @@ export const precheckSchema = z.object({
   nextStep: z.string()
 });
 
-const integrityClassifications = [
-  "Directly supported by CV",
-  "Reasonable reframing",
-  "Needs user confirmation",
-  "Not supported and should not be used"
-] as const;
-
 export const analysisSchema = z.object({
   roleDiagnosis: z.string(),
   companySignalInterpretation: z.string(),
   candidatePositioning: z.string(),
   jobFitAssessment: z.object({
     score: z.number().min(0).max(100),
-    verdict: z.enum(["Strong match", "Good match", "Partial match", "Weak match"]),
+    verdict: z.enum(jobFitVerdicts),
     explanation: z.string(),
     strongestReasons: z.array(z.string()),
     mainRisks: z.array(z.string()),

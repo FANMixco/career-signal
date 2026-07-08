@@ -4,6 +4,8 @@
 import { z } from "zod";
 import {
   aiProviders,
+  defaultAiProvider,
+  defaultOutputLanguage,
   educationPrivacy,
   experienceSelectionModes,
   geminiModels,
@@ -66,8 +68,8 @@ export const metadataSchema = z
       .transform((value) => value === true || value === "true"),
     degreeYear: z.coerce.number().int().min(1900).max(new Date().getFullYear()).optional(),
     experienceSelectionMode: experienceSelectionModeSchema,
-    outputLanguage: outputLanguageSchema.optional().default("en"),
-    aiProvider: aiProviderSchema.optional().default("gemini"),
+    outputLanguage: outputLanguageSchema.optional().default(defaultOutputLanguage as OutputLanguage),
+    aiProvider: aiProviderSchema.optional().default(defaultAiProvider as AiProviderKind),
     aiModel: z.string().trim().optional(),
     ollamaBaseUrl: z.string().url("Ollama URL must be a valid URL.").max(200).optional()
   })
@@ -77,7 +79,7 @@ export const metadataSchema = z
 
 export const analyzeCvSchema = z
   .object({
-    aiProvider: aiProviderSchema.optional().default("gemini"),
+    aiProvider: aiProviderSchema.optional().default(defaultAiProvider as AiProviderKind),
     aiModel: z.string().trim().optional(),
     aiApiKey: z.string().optional(),
     openaiApiKey: z.string().optional(),
@@ -88,7 +90,7 @@ export const analyzeCvSchema = z
     companyDescription: z.string().max(2000, "Company description must be 2,000 characters or fewer.").optional().default(""),
     targetStyle: z.enum(targetStyles),
     experienceSelectionMode: experienceSelectionModeSchema,
-    outputLanguage: outputLanguageSchema.optional().default("en"),
+    outputLanguage: outputLanguageSchema.optional().default(defaultOutputLanguage as OutputLanguage),
     precheckResult: z.record(z.unknown()),
     continueDespiteWeakPrecheck: z.boolean().optional().default(false)
   })

@@ -28,6 +28,8 @@
     "fr",
     "de"
   ],
+  "defaultAiProvider": "gemini",
+  "defaultOutputLanguage": "en",
   "openAiModels": [
     "gpt-5.5",
     "gpt-5.4",
@@ -48,10 +50,31 @@
     "gemma4",
     "qwen3.6"
   ],
+  "defaultOpenAiModel": "gpt-5.5",
+  "defaultGeminiModel": "models/gemini-3.5-flash",
+  "defaultMistralModel": "mistral-medium-latest",
+  "defaultOllamaModel": "gemma4",
+  "ollamaMixModel": "local-mix",
+  "ollamaFallbackModels": [
+    "gemma4",
+    "qwen3.6"
+  ],
   "proceedRecommendations": [
     "Proceed",
     "Improve CV first",
     "Proceed with caution"
+  ],
+  "jobFitVerdicts": [
+    "Strong match",
+    "Good match",
+    "Partial match",
+    "Weak match"
+  ],
+  "integrityClassifications": [
+    "Directly supported by CV",
+    "Reasonable reframing",
+    "Needs user confirmation",
+    "Not supported and should not be used"
   ],
   "outputLanguageNames": {
     "en": "English",

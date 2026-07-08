@@ -1,28 +1,37 @@
 // Default model names and fallback ordering.
 // UI selections should map to the same strings where possible; environment
 // variables only act as defaults when a request does not send a model.
+import {
+  defaultGeminiModel,
+  defaultMistralModel,
+  defaultOllamaModel,
+  defaultOpenAiModel,
+  ollamaFallbackModels,
+  ollamaMixModel
+} from "../../rules/cvRules.js";
+
 export function openAiModel(model?: string) {
-  return model || process.env.OPENAI_MODEL || "gpt-5.5";
+  return model || process.env.OPENAI_MODEL || defaultOpenAiModel;
 }
 
 export function geminiModel(model?: string) {
-  return model || process.env.GEMINI_MODEL || "models/gemini-3.5-flash";
+  return model || process.env.GEMINI_MODEL || defaultGeminiModel;
 }
 
 export function mistralModel(model?: string) {
-  return model || process.env.MISTRAL_MODEL || "mistral-medium-latest";
+  return model || process.env.MISTRAL_MODEL || defaultMistralModel;
 }
 
 export function ollamaModel(model?: string) {
-  const selected = model || process.env.OLLAMA_MODEL || "gemma4";
-  return selected === "local-mix" ? "gemma4" : selected;
+  const selected = model || process.env.OLLAMA_MODEL || defaultOllamaModel;
+  return selected === ollamaMixModel ? defaultOllamaModel : selected;
 }
 
 export function ollamaModelCandidates(model?: string) {
-  const rawSelected = (model || process.env.OLLAMA_MODEL || "gemma4").trim();
-  const builtIns = ["gemma4", "qwen3.6"];
+  const rawSelected = (model || process.env.OLLAMA_MODEL || defaultOllamaModel).trim();
+  const builtIns = [...ollamaFallbackModels];
 
-  if (rawSelected === "local-mix") {
+  if (rawSelected === ollamaMixModel) {
     return builtIns;
   }
 

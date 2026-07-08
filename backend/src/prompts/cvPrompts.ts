@@ -9,6 +9,8 @@ import {
   cvLengthGuidance,
   educationPrivacy,
   evidenceBackedLanguage,
+  integrityClassifications,
+  jobFitVerdicts,
   outputLanguageNames,
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
@@ -211,9 +213,9 @@ roleDiagnosis, companySignalInterpretation, candidatePositioning, jobFitAssessme
 
 Rules:
 - jobFitAssessment.score must be 0 to 100.
-- jobFitAssessment.verdict must be "Strong match", "Good match", "Partial match", or "Weak match".
+- jobFitAssessment.verdict must be one of: ${jobFitVerdicts.map((value) => `"${value}"`).join(", ")}.
 - rewrittenCvBullets must contain objects with original, rewritten, reason, and integrityClassification.
-- integrityClassification/classification must be one of: "Directly supported by CV", "Reasonable reframing", "Needs user confirmation", "Not supported and should not be used".
+- integrityClassification/classification must be one of: ${integrityClassifications.map((value) => `"${value}"`).join(", ")}.
 - Keep every text field concise.
 - Use 1 to 2 items maximum in arrays.
 - Provide 1 to 2 rewrittenCvBullets maximum.
