@@ -28,6 +28,10 @@ The app is designed to be used by non-technical people too. You do not need to c
 - It does not store CVs in a database.
 - It does not store API keys.
 
+## Feel free to install it from the Microsoft Store
+
+[![CSE](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/microsoft_micro.png)](https://apps.microsoft.com/detail/9p4nqtp3mj0r?hl=en-US&gl=LU)
+
 ## What You Need Before Starting
 
 You need:
