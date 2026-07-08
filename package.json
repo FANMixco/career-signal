@@ -1,6 +1,6 @@
 {
   "name": "career-signal-engine-desktop",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": true,
   "description": "Desktop wrapper for Career Signal Engine.",
   "author": "Federico Navarrete",

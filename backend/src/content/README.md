@@ -6,7 +6,7 @@ The split is intentional:
 
 - `cvGuidance.json` is the main open knowledge base for CV review. Edit this when improving evidence questions, education privacy guidance, career progression guidance, tense guidance, CV length guidance, title/responsibility alignment, evidence-backed language, or contact completeness guidance.
 - `sensitivePersonalData.json` contains warning labels and user-facing warning copy for personal details that may create privacy or bias risk. The detection patterns stay in `../rules/cvRules.ts` because they are application logic.
-- `appOptions.json` contains backend option values that are part of the app contract, such as target styles, recommendation values, and output language names. Change this only when the app should accept or emit different option values.
+- `appOptions.json` contains backend option values that are part of the app contract, such as target styles, experience selection modes, provider names, model names, recommendation values, and output language names. Change this only when the app should accept or emit different option values.
 - `messages.json` contains backend error messages returned by API routes and services.
 
 ## Editing Rules

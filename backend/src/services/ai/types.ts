@@ -11,6 +11,8 @@ export type Provider =
   | { kind: "ollama"; baseUrl: string };
 
 export type AiProviderKind = Provider["kind"];
+export type ExperienceSelectionMode = "lastFive" | "all";
+export type OutputLanguage = "en" | "es" | "fr" | "de";
 
 export type PrecheckInput = {
   aiProvider?: AiProviderKind;
@@ -21,8 +23,8 @@ export type PrecheckInput = {
   yearsOfExperience: number;
   hasDegree?: boolean;
   degreeYear?: number;
-  experienceSelectionMode: "lastFive" | "all";
-  outputLanguage?: "en" | "es" | "fr" | "de";
+  experienceSelectionMode: ExperienceSelectionMode;
+  outputLanguage?: OutputLanguage;
 };
 
 export type AnalysisInput = {
@@ -35,8 +37,8 @@ export type AnalysisInput = {
   companyName: string;
   companyDescription?: string;
   targetStyle: string;
-  experienceSelectionMode: "lastFive" | "all";
-  outputLanguage?: "en" | "es" | "fr" | "de";
+  experienceSelectionMode: ExperienceSelectionMode;
+  outputLanguage?: OutputLanguage;
   jobDescription: string;
 };
 

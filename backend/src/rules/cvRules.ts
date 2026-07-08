@@ -13,6 +13,13 @@ type GuidanceBlock = {
 
 type AppOptionsContent = {
   targetStyles: string[];
+  experienceSelectionModes: string[];
+  aiProviders: string[];
+  outputLanguages: string[];
+  openAiModels: string[];
+  geminiModels: string[];
+  mistralModels: string[];
+  ollamaModels: string[];
   proceedRecommendations: string[];
   outputLanguageNames: Record<"en" | "es" | "fr" | "de", string>;
 };
@@ -39,34 +46,30 @@ function readJson<T>(path: string) {
   return JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as T;
 }
 
+function asNonEmptyStringTuple(name: string, values: string[]) {
+  if (values.length === 0) {
+    throw new Error(`${name} must contain at least one value.`);
+  }
+
+  return values as [string, ...string[]];
+}
+
 const appOptions = readJson<AppOptionsContent>("../content/appOptions.json");
 const cvGuidance = readJson<CvGuidanceContent>("../content/cvGuidance.json");
 const personalDataCopy = readJson<SensitivePersonalDataContent>("../content/sensitivePersonalData.json");
 
-export const targetStyles = appOptions.targetStyles as [
-  "Consulting",
-  "Strategy",
-  "Product",
-  "Cloud",
-  "Engineering",
-  "Procurement",
-  "Sales",
-  "Leadership",
-  "Training",
-  "Management",
-  "General"
-];
-export const experienceSelectionModes = ["lastFive", "all"] as const;
-export const aiProviders = ["gemini", "openai", "mistral", "ollama"] as const;
-export const outputLanguages = ["en", "es", "fr", "de"] as const;
+export const targetStyles = asNonEmptyStringTuple("targetStyles", appOptions.targetStyles);
+export const experienceSelectionModes = asNonEmptyStringTuple("experienceSelectionModes", appOptions.experienceSelectionModes);
+export const aiProviders = asNonEmptyStringTuple("aiProviders", appOptions.aiProviders);
+export const outputLanguages = asNonEmptyStringTuple("outputLanguages", appOptions.outputLanguages);
 export const outputLanguageNames = appOptions.outputLanguageNames;
-export const openAiModels = ["gpt-5.5", "gpt-5.4", "gpt-5.4-mini"] as const;
-export const geminiModels = ["models/gemini-3.5-flash", "models/gemini-3.1-flash-lite", "models/gemini-2.5-pro"] as const;
-export const mistralModels = ["mistral-medium-latest", "mistral-large-latest", "mistral-small-latest"] as const;
-export const ollamaModels = ["local-mix", "gemma4", "qwen3.6"] as const;
+export const openAiModels = asNonEmptyStringTuple("openAiModels", appOptions.openAiModels);
+export const geminiModels = asNonEmptyStringTuple("geminiModels", appOptions.geminiModels);
+export const mistralModels = asNonEmptyStringTuple("mistralModels", appOptions.mistralModels);
+export const ollamaModels = asNonEmptyStringTuple("ollamaModels", appOptions.ollamaModels);
 export const aiModels = [...openAiModels, ...geminiModels, ...mistralModels, ...ollamaModels] as const;
 
-export const proceedRecommendations = appOptions.proceedRecommendations as ["Proceed", "Improve CV first", "Proceed with caution"];
+export const proceedRecommendations = asNonEmptyStringTuple("proceedRecommendations", appOptions.proceedRecommendations);
 export const proceedRecommendationValues = {
   proceed: proceedRecommendations[0],
   improve: proceedRecommendations[1],

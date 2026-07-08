@@ -1,6 +1,6 @@
 {
   "name": "career-signal-engine-backend",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": true,
   "type": "module",
   "scripts": {

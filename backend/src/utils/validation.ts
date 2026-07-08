@@ -14,10 +14,15 @@ import {
   outputLanguages,
   targetStyles
 } from "../rules/cvRules.js";
+import type { AiProviderKind, ExperienceSelectionMode, OutputLanguage } from "../services/ai/types.js";
 
 export { MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH };
 
 const cloudModelNames = new Set<string>([...geminiModels, ...openAiModels, ...mistralModels]);
+const aiProviderSchema = z.enum(aiProviders) as z.ZodType<AiProviderKind>;
+const experienceSelectionModeSchema = z.enum(experienceSelectionModes) as z.ZodType<ExperienceSelectionMode>;
+const outputLanguageSchema = z.enum(outputLanguages) as z.ZodType<OutputLanguage>;
+
 const ollamaModelNameSchema = z
   .string()
   .trim()
@@ -60,9 +65,9 @@ export const metadataSchema = z
       .optional()
       .transform((value) => value === true || value === "true"),
     degreeYear: z.coerce.number().int().min(1900).max(new Date().getFullYear()).optional(),
-    experienceSelectionMode: z.enum(experienceSelectionModes),
-    outputLanguage: z.enum(outputLanguages).optional().default("en"),
-    aiProvider: z.enum(aiProviders).optional().default("gemini"),
+    experienceSelectionMode: experienceSelectionModeSchema,
+    outputLanguage: outputLanguageSchema.optional().default("en"),
+    aiProvider: aiProviderSchema.optional().default("gemini"),
     aiModel: z.string().trim().optional(),
     ollamaBaseUrl: z.string().url("Ollama URL must be a valid URL.").max(200).optional()
   })
@@ -72,7 +77,7 @@ export const metadataSchema = z
 
 export const analyzeCvSchema = z
   .object({
-    aiProvider: z.enum(aiProviders).optional().default("gemini"),
+    aiProvider: aiProviderSchema.optional().default("gemini"),
     aiModel: z.string().trim().optional(),
     aiApiKey: z.string().optional(),
     openaiApiKey: z.string().optional(),
@@ -82,8 +87,8 @@ export const analyzeCvSchema = z
     companyName: z.string().min(1, "Target company name is required."),
     companyDescription: z.string().max(2000, "Company description must be 2,000 characters or fewer.").optional().default(""),
     targetStyle: z.enum(targetStyles),
-    experienceSelectionMode: z.enum(experienceSelectionModes),
-    outputLanguage: z.enum(outputLanguages).optional().default("en"),
+    experienceSelectionMode: experienceSelectionModeSchema,
+    outputLanguage: outputLanguageSchema.optional().default("en"),
     precheckResult: z.record(z.unknown()),
     continueDespiteWeakPrecheck: z.boolean().optional().default(false)
   })

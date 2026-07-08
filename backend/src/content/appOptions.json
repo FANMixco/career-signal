@@ -12,6 +12,42 @@
     "Management",
     "General"
   ],
+  "experienceSelectionModes": [
+    "lastFive",
+    "all"
+  ],
+  "aiProviders": [
+    "gemini",
+    "openai",
+    "mistral",
+    "ollama"
+  ],
+  "outputLanguages": [
+    "en",
+    "es",
+    "fr",
+    "de"
+  ],
+  "openAiModels": [
+    "gpt-5.5",
+    "gpt-5.4",
+    "gpt-5.4-mini"
+  ],
+  "geminiModels": [
+    "models/gemini-3.5-flash",
+    "models/gemini-3.1-flash-lite",
+    "models/gemini-2.5-pro"
+  ],
+  "mistralModels": [
+    "mistral-medium-latest",
+    "mistral-large-latest",
+    "mistral-small-latest"
+  ],
+  "ollamaModels": [
+    "local-mix",
+    "gemma4",
+    "qwen3.6"
+  ],
   "proceedRecommendations": [
     "Proceed",
     "Improve CV first",
