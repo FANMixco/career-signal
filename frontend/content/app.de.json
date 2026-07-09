@@ -218,6 +218,30 @@
         ]
       },
       {
+        "title": "Profil als Elevator Pitch",
+        "items": [
+          "Nutze das Profil, um zu erklären, was du für die Rolle mitbringst, bevor Recruiter, Hiring Manager oder Screening-Modell die Details lesen.",
+          "Halte es kurz, konkret und evidenzbasiert: Zielrolle, stärkster Fachbereich, relevanter Umfang und ein oder zwei herausragende Ergebnisse.",
+          "Wenn Mehrsprachigkeit ein nützliches Marktsignal ist, erwähne sie natürlich im Profil mit dem geschäftlichen Kontext, den sie unterstützt.",
+          "Vermeide generische Aussagen wie ergebnisorientiert oder leidenschaftlich, außer das Profil beweist sie sofort durch Umfang, Ergebnisse oder seltene Stärken."
+        ],
+        "examples": [
+          [
+            "example strong",
+            "Cloud-Transformation-Engineer mit fließendem Englisch, Französisch und Deutsch; reduzierte AWS-Verschwendung in Testumgebungen um 40 % und half europäischen Stakeholdern, Migration, Automatisierung und Kostengovernance abzustimmen."
+          ]
+        ]
+      },
+      {
+        "title": "Sprachen und Marktsignal",
+        "items": [
+          "Liste Sprachen klar und ehrlich auf, mit praktischen Niveaus wie Englisch - fließend, Französisch - beruflich oder Deutsch - konversationssicher.",
+          "Wenn Mehrsprachigkeit für Rolle, Markt, Kunden oder Region relevant ist, erwähne sie im Profil oder in der Einleitung, statt sie am Ende zu verstecken.",
+          "Gehe nicht davon aus, dass eine Sprachkombination überall normal ist. Zum Beispiel sendet ein Engineer, der auf Englisch, Französisch und Deutsch arbeiten kann, in vielen europäischen Märkten ein seltenes grenzüberschreitendes Signal.",
+          "Priorisiere Sprachen, die zur Zielrolle, zum Unternehmen, Land, Kundenstamm oder Stakeholder-Umfeld passen."
+        ]
+      },
+      {
         "title": "Zeitform und Timing",
         "items": [
           "Nutze Vergangenheitsform für abgeschlossene Arbeit, besonders in früheren Rollen.",

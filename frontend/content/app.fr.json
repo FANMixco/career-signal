@@ -218,6 +218,30 @@
         ]
       },
       {
+        "title": "Résumé sous forme d'argumentaire éclair",
+        "items": [
+          "Utilisez le résumé pour expliquer ce que vous apportez au poste avant que le recruteur, le manager ou le modèle de présélection lise les détails.",
+          "Gardez-le court, concret et fondé sur des preuves : poste cible, domaine le plus fort, échelle pertinente et un ou deux résultats marquants.",
+          "Si le multilinguisme est un signal de marché utile, intégrez-le naturellement dans le résumé avec le contexte business qu’il soutient.",
+          "Évitez les affirmations génériques comme orienté résultats ou passionné, sauf si le résumé les prouve immédiatement par le périmètre, les résultats ou des forces rares."
+        ],
+        "examples": [
+          [
+            "example strong",
+            "Ingénieur en transformation cloud à l’aise en anglais, français et allemand ; a réduit le gaspillage AWS de 40 % dans des environnements de test et aidé des parties prenantes européennes à aligner migration, automatisation et gouvernance des coûts."
+          ]
+        ]
+      },
+      {
+        "title": "Langues et signal de marché",
+        "items": [
+          "Listez les langues clairement et honnêtement, avec des niveaux pratiques comme Anglais - courant, Français - professionnel ou Allemand - conversationnel.",
+          "Si le multilinguisme est pertinent pour le rôle, le marché, les clients ou la région, mentionnez-le dans le résumé ou l’introduction au lieu de le cacher à la fin.",
+          "Ne supposez pas qu’une combinaison linguistique est normale partout. Par exemple, un ingénieur capable de travailler en anglais, français et allemand envoie un signal transfrontalier rare sur de nombreux marchés européens.",
+          "Priorisez les langues qui soutiennent le poste cible, l’entreprise, le pays, la base client ou l’environnement des parties prenantes."
+        ]
+      },
+      {
         "title": "Temps et chronologie",
         "items": [
           "Utilisez le passé pour le travail terminé, surtout dans les postes précédents.",

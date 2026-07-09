@@ -500,6 +500,30 @@
         ]
       },
       {
+        "title": "Summary as an elevator pitch",
+        "items": [
+          "Use the summary to explain what you bring to the role before the recruiter, hiring manager, or screening model reads the details.",
+          "Keep it short, concrete, and evidence-led: target role, strongest domain, relevant scale, and one or two standout outcomes.",
+          "If multilingual ability is a useful market signal, include it naturally in the summary with the business context it supports.",
+          "Avoid generic claims such as results-driven or passionate unless the summary immediately proves them with scope, results, or rare strengths."
+        ],
+        "examples": [
+          [
+            "example strong",
+            "Cloud transformation engineer fluent in English, French, and German; reduced AWS waste by 40% in test environments and helped European stakeholders align migration, automation, and cost-governance decisions."
+          ]
+        ]
+      },
+      {
+        "title": "Languages and market signal",
+        "items": [
+          "List languages clearly and truthfully, using practical levels such as English - fluent, French - professional, or German - conversational.",
+          "If multilingual ability is relevant to the role, market, clients, or region, mention it in the summary or intro instead of hiding it at the end.",
+          "Do not assume a language mix is ordinary everywhere. For example, an engineer who can work in English, French, and German has a rare cross-border signal in many European markets.",
+          "Prioritize languages that support the target role, company, country, client base, or stakeholder environment."
+        ]
+      },
+      {
         "title": "Tense and timing",
         "items": [
           "Use past tense for completed work, especially in previous roles.",

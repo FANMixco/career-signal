@@ -12,6 +12,9 @@ release/
 # Local/private packaging files
 electron-builder.store.cjs
 scripts/build-store-app.ps1
+scripts/build-sideload-app.ps1
+scripts/create-sideload-cert.ps1
+scripts/trust-sideload-cert-machine.ps1
 store-package.local.ps1
 build/appx/
 frontend/img/store-logos/

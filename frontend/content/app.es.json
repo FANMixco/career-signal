@@ -218,6 +218,30 @@
         ]
       },
       {
+        "title": "Resumen como discurso elevator",
+        "items": [
+          "Usa el resumen para explicar qué aportas al puesto antes de que el recruiter, manager o modelo de screening lea los detalles.",
+          "Hazlo corto, concreto y basado en evidencia: puesto objetivo, dominio más fuerte, escala relevante y uno o dos resultados destacados.",
+          "Si ser multilingüe es una señal de mercado útil, inclúyelo de forma natural en el resumen con el contexto de negocio que apoya.",
+          "Evita frases genéricas como orientado a resultados o apasionado salvo que el resumen las pruebe de inmediato con alcance, resultados o fortalezas poco comunes."
+        ],
+        "examples": [
+          [
+            "example strong",
+            "Ingeniero de transformación cloud con fluidez de trabajo en inglés, francés y alemán; redujo desperdicio de AWS en un 40% en entornos de prueba y ayudó a stakeholders europeos a alinear decisiones de migración, automatización y gobernanza de costes."
+          ]
+        ]
+      },
+      {
+        "title": "Idiomas y señal de mercado",
+        "items": [
+          "Enumera los idiomas de forma clara y honesta, usando niveles prácticos como Inglés - fluido, Francés - profesional o Alemán - conversacional.",
+          "Si ser multilingüe es relevante para el rol, mercado, clientes o región, menciónalo en el resumen o introducción en vez de esconderlo al final.",
+          "No asumas que una combinación de idiomas es normal en todas partes. Por ejemplo, un ingeniero que puede trabajar en inglés, francés y alemán tiene una señal transfronteriza poco común en muchos mercados europeos.",
+          "Prioriza los idiomas que apoyan el puesto objetivo, la empresa, el país, la base de clientes o el entorno de stakeholders."
+        ]
+      },
+      {
         "title": "Tiempos verbales y cronología",
         "items": [
           "Usa pasado para trabajo completado, especialmente en roles anteriores.",
