@@ -17,13 +17,17 @@ type AppOptionsContent = {
   aiProviders: string[];
   outputLanguages: string[];
   openAiModels: string[];
+  openRouterModels: string[];
   geminiModels: string[];
+  deepSeekModels: string[];
   mistralModels: string[];
   ollamaModels: string[];
   defaultAiProvider: string;
   defaultOutputLanguage: string;
   defaultOpenAiModel: string;
+  defaultOpenRouterModel: string;
   defaultGeminiModel: string;
+  defaultDeepSeekModel: string;
   defaultMistralModel: string;
   defaultOllamaModel: string;
   ollamaMixModel: string;
@@ -64,9 +68,9 @@ function asNonEmptyStringTuple(name: string, values: string[]) {
   return values as [string, ...string[]];
 }
 
-const appOptions = readJson<AppOptionsContent>("../content/appOptions.json");
-const cvGuidance = readJson<CvGuidanceContent>("../content/cvGuidance.json");
-const personalDataCopy = readJson<SensitivePersonalDataContent>("../content/sensitivePersonalData.json");
+const appOptions = readJson<AppOptionsContent>("../content/config/appOptions.json");
+const cvGuidance = readJson<CvGuidanceContent>("../content/guidance/cvGuidance.json");
+const personalDataCopy = readJson<SensitivePersonalDataContent>("../content/guidance/sensitivePersonalData.json");
 
 export const targetStyles = asNonEmptyStringTuple("targetStyles", appOptions.targetStyles);
 export const experienceSelectionModes = asNonEmptyStringTuple("experienceSelectionModes", appOptions.experienceSelectionModes);
@@ -74,14 +78,18 @@ export const aiProviders = asNonEmptyStringTuple("aiProviders", appOptions.aiPro
 export const outputLanguages = asNonEmptyStringTuple("outputLanguages", appOptions.outputLanguages);
 export const outputLanguageNames = appOptions.outputLanguageNames;
 export const openAiModels = asNonEmptyStringTuple("openAiModels", appOptions.openAiModels);
+export const openRouterModels = asNonEmptyStringTuple("openRouterModels", appOptions.openRouterModels);
 export const geminiModels = asNonEmptyStringTuple("geminiModels", appOptions.geminiModels);
+export const deepSeekModels = asNonEmptyStringTuple("deepSeekModels", appOptions.deepSeekModels);
 export const mistralModels = asNonEmptyStringTuple("mistralModels", appOptions.mistralModels);
 export const ollamaModels = asNonEmptyStringTuple("ollamaModels", appOptions.ollamaModels);
-export const aiModels = [...openAiModels, ...geminiModels, ...mistralModels, ...ollamaModels] as const;
+export const aiModels = [...openAiModels, ...openRouterModels, ...geminiModels, ...deepSeekModels, ...mistralModels, ...ollamaModels] as const;
 export const defaultAiProvider = appOptions.defaultAiProvider;
 export const defaultOutputLanguage = appOptions.defaultOutputLanguage;
 export const defaultOpenAiModel = appOptions.defaultOpenAiModel;
+export const defaultOpenRouterModel = appOptions.defaultOpenRouterModel;
 export const defaultGeminiModel = appOptions.defaultGeminiModel;
+export const defaultDeepSeekModel = appOptions.defaultDeepSeekModel;
 export const defaultMistralModel = appOptions.defaultMistralModel;
 export const defaultOllamaModel = appOptions.defaultOllamaModel;
 export const ollamaMixModel = appOptions.ollamaMixModel;

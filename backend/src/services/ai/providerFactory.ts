@@ -3,13 +3,35 @@
 // needs a local base URL because the model runs on the user's computer.
 import { GoogleGenAI } from "@google/genai";
 import OpenAI from "openai";
-import type { AiProviderKind, Provider } from "./types.js";
+import { defaultAiProvider } from "../../rules/cvRules.js";
+import { errorMessage } from "../../utils/messages.js";
+import type { AiProviderKind, OutputLanguage, Provider } from "./types.js";
 
 function normalizeOllamaBaseUrl(baseUrl?: string) {
   return (baseUrl?.trim() || process.env.OLLAMA_BASE_URL?.trim() || "http://localhost:11434").replace(/\/+$/, "");
 }
 
-export function createModelProvider(providerKind: AiProviderKind = "gemini", apiKey?: string, ollamaBaseUrl?: string): Provider {
+export function createModelProvider(providerKind: AiProviderKind = defaultAiProvider as AiProviderKind, apiKey?: string, ollamaBaseUrl?: string, outputLanguage?: OutputLanguage): Provider {
+  if (providerKind === "openrouter") {
+    const openRouterKey = apiKey?.trim() || process.env.OPENROUTER_API_KEY?.trim();
+
+    if (openRouterKey) {
+      return {
+        kind: "openrouter",
+        client: new OpenAI({
+          apiKey: openRouterKey,
+          baseURL: "https://openrouter.ai/api/v1",
+          defaultHeaders: {
+            "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "https://github.com/FANMixco/career-signal",
+            "X-OpenRouter-Title": process.env.OPENROUTER_APP_TITLE || "Career Signal Engine"
+          }
+        })
+      };
+    }
+
+    throw new Error(errorMessage("openRouterApiKeyRequired", outputLanguage));
+  }
+
   if (providerKind === "openai") {
     const openAiKey = apiKey?.trim() || process.env.OPENAI_API_KEY?.trim();
 
@@ -17,7 +39,23 @@ export function createModelProvider(providerKind: AiProviderKind = "gemini", api
       return { kind: "openai", client: new OpenAI({ apiKey: openAiKey }) };
     }
 
-    throw new Error("An OpenAI API key is required. Paste an OpenAI key or configure OPENAI_API_KEY in the backend .env file.");
+    throw new Error(errorMessage("openAiApiKeyRequired", outputLanguage));
+  }
+
+  if (providerKind === "deepseek") {
+    const deepSeekKey = apiKey?.trim() || process.env.DEEPSEEK_API_KEY?.trim();
+
+    if (deepSeekKey) {
+      return {
+        kind: "deepseek",
+        client: new OpenAI({
+          apiKey: deepSeekKey,
+          baseURL: "https://api.deepseek.com"
+        })
+      };
+    }
+
+    throw new Error(errorMessage("deepSeekApiKeyRequired", outputLanguage));
   }
 
   if (providerKind === "mistral") {
@@ -27,7 +65,7 @@ export function createModelProvider(providerKind: AiProviderKind = "gemini", api
       return { kind: "mistral", apiKey: mistralKey };
     }
 
-    throw new Error("A Mistral API key is required. Paste a Mistral key or configure MISTRAL_API_KEY in the backend .env file.");
+    throw new Error(errorMessage("mistralApiKeyRequired", outputLanguage));
   }
 
   if (providerKind === "ollama") {
@@ -40,5 +78,5 @@ export function createModelProvider(providerKind: AiProviderKind = "gemini", api
     return { kind: "gemini", client: new GoogleGenAI({ apiKey: geminiKey }) };
   }
 
-  throw new Error("A Gemini API key is required. Paste a Gemini key or configure GEMINI_API_KEY in the backend .env file.");
+  throw new Error(errorMessage("geminiApiKeyRequired", outputLanguage));
 }

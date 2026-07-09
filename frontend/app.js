@@ -607,6 +607,18 @@ function updateApiKeyCopy() {
   }
 }
 
+function clearApiKeyInput() {
+  els.openaiApiKey.value = "";
+}
+
+function shouldShowPaidModelSuggestion() {
+  return ["openrouter", "ollama"].includes(els.aiProvider.value);
+}
+
+function paidModelSuggestionHtml() {
+  return shouldShowPaidModelSuggestion() ? `<p class="model-suggestion precheck-suggestion">${escapeHtml(config.feedback.paidModelSuggestion)}</p>` : "";
+}
+
 async function runPrecheck() {
   if (state.precheckInFlight) return;
 
@@ -722,9 +734,11 @@ async function runPrecheck() {
 function renderPrecheck(data) {
   const precheck = data.precheck;
   const blocks = config.precheckSections.map(([title, key, type]) => [localizedTitle(title), formatPrecheckValue(precheck, key, type)]);
+  const score = Math.max(0, Math.min(100, Math.round(Number(precheck.cvEvidenceScore) || 0)));
   show(els.precheckPanel);
   els.precheckResult.innerHTML = `
-    <div class="score">${precheck.cvEvidenceScore}<span>/ 100</span></div>
+    <div class="score ${scoreLevelClass(score)}">${score}<span>/ 100</span></div>
+    ${paidModelSuggestionHtml()}
     <div class="result-grid">${blocks.map(([title, value]) => renderResultBlock(title, value)).join("")}</div>
     ${data.agePrivacyWarning?.show ? `<p class="warning">${escapeHtml(data.agePrivacyWarning.message)}</p>` : ""}
     ${renderPersonalDataWarnings(data.personalDataWarnings)}
@@ -874,7 +888,8 @@ function renderAnalysis(analysis, options = {}) {
 
   els.analysisResult.innerHTML = `<div class="result-grid">${blocks
     .map(([title, value]) => renderResultBlock(title, value))
-    .join("")}</div>`;
+    .join("")}</div>
+    <p class="model-suggestion">${escapeHtml(config.feedback.paidModelSuggestion)}</p>`;
   if (options.scroll !== false) {
     els.outputPanel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -920,7 +935,7 @@ function renderJobFitAssessment(assessment) {
   return `
     <div class="fit-assessment">
       <div class="fit-score">
-        <span class="score compact">${score}<span>/ 100</span></span>
+        <span class="score compact ${scoreLevelClass(score)}">${score}<span>/ 100</span></span>
         <strong>${escapeHtml(verdict)}</strong>
       </div>
       <p>${escapeHtml(assessment.explanation || "")}</p>
@@ -935,6 +950,12 @@ function renderJobFitAssessment(assessment) {
 
 function displayRecommendation(recommendation) {
   return config.recommendationLabels?.[recommendation] || recommendation || "";
+}
+
+function scoreLevelClass(score) {
+  if (score >= 75) return "score-strong";
+  if (score >= 50) return "score-caution";
+  return "score-weak";
 }
 
 function downloadTxt() {
@@ -973,10 +994,14 @@ function setBusy(isBusy) {
 });
 
 els.aiProvider.addEventListener("change", () => {
+  clearApiKeyInput();
   populateAiModels();
   updateApiKeyCopy();
 });
-els.aiModel.addEventListener("change", updateApiKeyCopy);
+els.aiModel.addEventListener("change", () => {
+  clearApiKeyInput();
+  updateApiKeyCopy();
+});
 els.outputLanguage.addEventListener("change", () => {
   localStorage.setItem(languageStorageKey, els.outputLanguage.value);
   refreshLanguage();

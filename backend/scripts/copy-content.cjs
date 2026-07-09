@@ -6,10 +6,14 @@ const distContentDir = path.join(__dirname, "..", "dist", "content");
 fs.rmSync(distContentDir, { recursive: true, force: true });
 
 const files = [
-  ["src/content/appOptions.json", "dist/content/appOptions.json"],
-  ["src/content/cvGuidance.json", "dist/content/cvGuidance.json"],
-  ["src/content/messages.json", "dist/content/messages.json"],
-  ["src/content/sensitivePersonalData.json", "dist/content/sensitivePersonalData.json"],
+  ["src/content/config/appOptions.json", "dist/content/config/appOptions.json"],
+  ["src/content/ai/cloudModelService.json", "dist/content/ai/cloudModelService.json"],
+  ["src/content/guidance/cvGuidance.json", "dist/content/guidance/cvGuidance.json"],
+  ["src/content/guidance/sensitivePersonalData.json", "dist/content/guidance/sensitivePersonalData.json"],
+  ["src/content/messages/messages.en.json", "dist/content/messages/messages.en.json"],
+  ["src/content/messages/messages.es.json", "dist/content/messages/messages.es.json"],
+  ["src/content/messages/messages.fr.json", "dist/content/messages/messages.fr.json"],
+  ["src/content/messages/messages.de.json", "dist/content/messages/messages.de.json"],
 ];
 
 for (const [source, target] of files) {

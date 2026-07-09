@@ -17,9 +17,11 @@
     "all"
   ],
   "aiProviders": [
-    "gemini",
+    "openrouter",
     "openai",
+    "gemini",
     "mistral",
+    "deepseek",
     "ollama"
   ],
   "outputLanguages": [
@@ -28,17 +30,26 @@
     "fr",
     "de"
   ],
-  "defaultAiProvider": "gemini",
+  "defaultAiProvider": "openrouter",
   "defaultOutputLanguage": "en",
   "openAiModels": [
     "gpt-5.5",
     "gpt-5.4",
     "gpt-5.4-mini"
   ],
+  "openRouterModels": [
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "openai/gpt-oss-20b:free",
+    "qwen/qwen3-coder:free"
+  ],
   "geminiModels": [
     "models/gemini-3.5-flash",
     "models/gemini-3.1-flash-lite",
     "models/gemini-2.5-pro"
+  ],
+  "deepSeekModels": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro"
   ],
   "mistralModels": [
     "mistral-medium-latest",
@@ -51,7 +62,9 @@
     "qwen3.6"
   ],
   "defaultOpenAiModel": "gpt-5.5",
+  "defaultOpenRouterModel": "meta-llama/llama-3.3-70b-instruct:free",
   "defaultGeminiModel": "models/gemini-3.5-flash",
+  "defaultDeepSeekModel": "deepseek-v4-flash",
   "defaultMistralModel": "mistral-medium-latest",
   "defaultOllamaModel": "gemma4",
   "ollamaMixModel": "local-mix",

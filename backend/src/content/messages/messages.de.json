@@ -1,0 +1,31 @@
+{
+  "errors": {
+    "pdfOnly": "Es werden nur PDF-Dateien unterstuetzt.",
+    "studyAnswerRequired": "Die Antwort zu Studium oder Ausbildung ist erforderlich, wenn die Erfahrung mehr als fuenf Jahre betraegt.",
+    "studyYearRequired": "Das Abschlussjahr ist erforderlich, wenn du Studien angibst und mehr als fuenf Jahre Erfahrung hast.",
+    "completeCvRequired": "Bitte stelle einen vollstaendigen CV oder einen LinkedIn-PDF-Export bereit.",
+    "couldNotRunPrecheck": "Die CV-Vorpruefung konnte nicht ausgefuehrt werden.",
+    "couldNotUploadCv": "Der CV konnte nicht hochgeladen werden.",
+    "pdfTooLarge": "Die maximale PDF-Groesse betraegt 5 MB.",
+    "weakPrecheckBlocked": "Die CV-Qualitaetspruefung empfiehlt, den CV zuerst zu verbessern. Fuege konkrete Ergebnisse und numerische Nachweise hinzu, bevor du ihn anpasst, oder waehle ausdruecklich Trotzdem fortfahren.",
+    "couldNotGeneratePlan": "Der Rekonstruktionsplan konnte nicht generiert werden.",
+    "couldNotExtractPdf": "Aus diesem PDF konnte kein Text extrahiert werden. Bitte fuege den CV-Text manuell ein.",
+    "selectedAiModelUnavailable": "Das gewaehlte KI-Modell ist fuer diesen Anbieter nicht verfuegbar.",
+    "openRouterApiKeyRequired": "Ein OpenRouter-API-Schluessel ist erforderlich. Fuege einen OpenRouter-Schluessel ein oder konfiguriere OPENROUTER_API_KEY in der .env-Datei des Backends.",
+    "openAiApiKeyRequired": "Ein OpenAI-API-Schluessel ist erforderlich. Fuege einen OpenAI-Schluessel ein oder konfiguriere OPENAI_API_KEY in der .env-Datei des Backends.",
+    "deepSeekApiKeyRequired": "Ein DeepSeek-API-Schluessel ist erforderlich. Fuege einen DeepSeek-Schluessel ein oder konfiguriere DEEPSEEK_API_KEY in der .env-Datei des Backends.",
+    "mistralApiKeyRequired": "Ein Mistral-API-Schluessel ist erforderlich. Fuege einen Mistral-Schluessel ein oder konfiguriere MISTRAL_API_KEY in der .env-Datei des Backends.",
+    "geminiApiKeyRequired": "Ein Gemini-API-Schluessel ist erforderlich. Fuege einen Gemini-Schluessel ein oder konfiguriere GEMINI_API_KEY in der .env-Datei des Backends.",
+    "ollamaModelNameRequired": "Der Name des Ollama-Modells ist erforderlich.",
+    "ollamaModelNameTooLong": "Der Name des Ollama-Modells darf hoechstens 120 Zeichen haben.",
+    "ollamaModelNameInvalid": "Der Name des Ollama-Modells darf nur Buchstaben, Zahlen, Punkte, Bindestriche, Unterstriche, Doppelpunkte und Schraegstriche enthalten.",
+    "ollamaUrlInvalid": "Die Ollama-URL muss gueltig sein.",
+    "jobDescriptionRequired": "Bitte stelle die vollstaendige Stellenbeschreibung bereit.",
+    "targetCompanyRequired": "Der Name des Zielunternehmens ist erforderlich.",
+    "companyDescriptionTooLong": "Die Unternehmensbeschreibung darf hoechstens 2.000 Zeichen haben.",
+    "structuredOutputMissing": "Das Modell hat keine gueltige strukturierte Ausgabe zurueckgegeben.",
+    "openRouterRateLimited": "Der Upstream-Anbieter von OpenRouter ist fuer dieses Modell rate-limitiert oder voruebergehend ueberlastet. Probiere ein anderes kostenloses Modell, warte kurz oder nutze fuer diesen CV einen Cloud- oder kostenpflichtigen Anbieter.",
+    "emptyTextOutput": "{provider} hat keine Textausgabe zurueckgegeben.",
+    "requestFailed": "Die Anfrage an {provider} ist fehlgeschlagen ({status}): {details}"
+  }
+}

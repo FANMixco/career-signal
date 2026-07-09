@@ -140,6 +140,7 @@
     "analysisLoading": "Génération d'un nouveau plan. Le plan précédent a été effacé.",
     "analysisComplete": "Plan de reconstruction prêt. Relisez le résultat avant de l'utiliser.",
     "analysisPartial": "Reconstruction locale partielle prête. Certaines sections Ollama n'ont pas terminé.",
+    "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d'utiliser le plan final.",
     "precheckStale": "Le CV ou le profil a changé. Relancez le précontrôle.",
     "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment."
   },
@@ -321,7 +322,7 @@
             "items": [
               "Ajoutez vos années d’expérience et indiquez si les études sont listées dans le CV.",
               "Téléversez un CV PDF, un export LinkedIn PDF ou collez le texte du CV.",
-              "Choisissez Gemini, OpenAI, Mistral ou Ollama (offline, expérimental), puis un modèle.",
+              "Choisissez OpenRouter (modèles gratuits), OpenAI, Gemini, Mistral, DeepSeek ou Ollama (offline, expérimental), puis un modèle.",
               "Pour les fournisseurs cloud, ajoutez une clé si elle n’est pas déjà configurée.",
               "Pour Ollama, installez Ollama localement, téléchargez le modèle choisi et gardez Ollama en cours d’exécution.",
               "Lancez d’abord le précontrôle des preuves du CV.",
@@ -411,7 +412,9 @@
             "title": "Ce qui quitte votre machine",
             "items": [
               "Si vous lancez une vérification IA, le texte du CV et les détails du poste sont envoyés au fournisseur IA choisi.",
+              "Avec OpenRouter, la requête part vers OpenRouter avec le modèle gratuit sélectionné.",
               "Avec Gemini, la requête part vers Google avec le modèle Gemini sélectionné.",
+              "Avec DeepSeek, la requête part vers DeepSeek avec le modèle DeepSeek sélectionné.",
               "Avec OpenAI, la requête part vers OpenAI avec le modèle OpenAI sélectionné.",
               "Avec Mistral, la requête part vers Mistral avec le modèle Mistral sélectionné.",
               "Avec Ollama (offline, expérimental), le backend envoie la requête à votre URL Ollama locale plutôt qu’à un fournisseur cloud.",
@@ -441,6 +444,10 @@
           {
             "title": "À propos du créateur",
             "text": "Career Signal a été créé par Federico Navarrete, technologue, auteur, speaker et contributeur open source basé au Luxembourg."
+          },
+          {
+            "title": "Pourquoi fournir une clé API",
+            "text": "Career Signal est open source et n'utilise pas de compte IA partagé pour tous les utilisateurs. Votre propre clé garde l'usage sur votre compte, vous permet de contrôler les coûts et les limites, et évite que l'app stocke un secret central. La clé est envoyée seulement au backend utilisé pour cette requête."
           },
           {
             "title": "Pourquoi ce projet existe",
@@ -518,20 +525,30 @@
     "General": "General"
   },
   "apiKeys": {
-    "gemini": {
-      "label": "Cle API Gemini",
-      "placeholder": "Optionnel si GEMINI_API_KEY est configuree",
-      "keyLinkText": "Obtenir une cle API Gemini"
+    "openrouter": {
+      "label": "Cle API OpenRouter",
+      "placeholder": "Optionnel si OPENROUTER_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API OpenRouter"
     },
     "openai": {
       "label": "Cle API OpenAI",
       "placeholder": "Optionnel si OPENAI_API_KEY est configuree",
       "keyLinkText": "Obtenir une cle API OpenAI"
     },
+    "gemini": {
+      "label": "Cle API Gemini",
+      "placeholder": "Optionnel si GEMINI_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Gemini"
+    },
     "mistral": {
       "label": "Cle API Mistral",
       "placeholder": "Optionnel si MISTRAL_API_KEY est configuree",
       "keyLinkText": "Obtenir une cle API Mistral"
+    },
+    "deepseek": {
+      "label": "Cle API DeepSeek",
+      "placeholder": "Optionnel si DEEPSEEK_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API DeepSeek"
     },
     "ollama": {
       "label": "Configuration locale Ollama",
