@@ -306,6 +306,12 @@ Or run it with a Mistral key:
 docker run --rm -p 3001:3001 -e MISTRAL_API_KEY=your_mistral_key_here fanmixco/career-signal:latest
 ```
 
+Or run it with a DeepSeek key:
+
+```bash
+docker run --rm -p 3001:3001 -e DEEPSEEK_API_KEY=your_deepseek_key_here fanmixco/career-signal:latest
+```
+
 Or run it with Ollama on your host computer:
 
 ```bash
