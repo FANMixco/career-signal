@@ -1,6 +1,6 @@
 # Career Signal Engine
 
-| Windows | Apple | Docker | Docker Backend |
+| Windows | macOS | Docker | Docker Backend |
 |:-------:|:-----:|:------:|:---------------:|
 | [![Build Windows Desktop Release](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml) | [![Build Experimental macOS Desktop App](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml) | [![Publish Docker Image](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish.yml) | [![Publish Docker Image Backend](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish-be.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish-be.yml) |
 
