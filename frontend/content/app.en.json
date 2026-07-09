@@ -24,7 +24,7 @@
     "cvText": "Paste CV text manually",
     "aiProvider": "AI provider",
     "aiModel": "AI model",
-    "ollamaCustomModel": "Custom Ollama model",
+    "ollamaCustomModel": "Custom model",
     "aiApiKey": "API key",
     "ollamaBaseUrl": "Ollama URL",
     "targetCompany": "Target company name",
@@ -35,7 +35,7 @@
   },
   "placeholders": {
     "cvText": "Paste complete CV text here",
-    "ollamaCustomModel": "Type an installed model, for example llama3.2:3b, qwen3:14b, or mistral-small",
+    "ollamaCustomModel": "Type a model ID for the selected provider, for example gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest, or llama3.2:3b",
     "companyDescription": "Add useful context if the company is not well-known: what it does, industry, size, product, market, values, or business model",
     "jobDescription": "Paste the full job description"
   },
@@ -148,10 +148,11 @@
         ],
         [
           "__custom__",
-          "Custom Ollama model"
+          "Custom model..."
         ]
       ]
     },
+    "customAiModelLabel": "Custom model...",
     "studiesListed": [
       [
         "",
@@ -322,7 +323,8 @@
     "invalidPdf": "Only PDF uploads are supported. Choose a CV PDF, LinkedIn PDF export, or paste CV text instead.",
     "pdfTooLarge": "The PDF is larger than 5MB. Paste the CV text manually or upload a smaller PDF.",
     "acknowledgeStudyWarning": "Acknowledge the study-year privacy warning before continuing.",
-    "missingOllamaCustomModel": "Type the Ollama model name you installed, or choose Gemma 4 or Qwen 3.6.",
+    "missingOllamaCustomModel": "Type a custom model ID or choose one of the listed models.",
+    "missingCustomAiModel": "Type a custom model ID or choose one of the listed models.",
     "runPrecheckFirst": "Run the CV Evidence Precheck before generating the reconstruction plan.",
     "precheckComplete": "Precheck complete. Review the score and choose the next action below.",
     "precheckPassedWithWarnings": "The precheck passed, but there are still warnings or suggestions worth reviewing before tailoring.",

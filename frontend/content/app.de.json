@@ -19,7 +19,7 @@
     "cvText": "CV-Text manuell einfügen",
     "aiProvider": "KI-Anbieter",
     "aiModel": "KI-Modell",
-    "ollamaCustomModel": "Eigenes Ollama-Modell",
+    "ollamaCustomModel": "Eigenes Modell",
     "aiApiKey": "API-Schlüssel",
     "ollamaBaseUrl": "Ollama-URL",
     "targetCompany": "Zielunternehmen",
@@ -30,7 +30,7 @@
   },
   "placeholders": {
     "cvText": "Vollständigen CV-Text hier einfügen",
-    "ollamaCustomModel": "Installiertes Modell eingeben, z. B. llama3.2:3b, qwen3:14b oder mistral-small",
+    "ollamaCustomModel": "Gib eine Modell-ID fuer den gewaehlten Anbieter ein, z. B. gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest oder llama3.2:3b",
     "companyDescription": "Nützlichen Kontext ergänzen, wenn das Unternehmen wenig bekannt ist: Tätigkeit, Branche, Größe, Produkt, Markt oder Geschäftsmodell",
     "jobDescription": "Vollständige Stellenbeschreibung einfügen"
   },
@@ -76,7 +76,8 @@
         "de",
         "Deutsch"
       ]
-    ]
+    ],
+    "customAiModelLabel": "Eigenes Modell..."
   },
   "buttons": {
     "settingsLabel": "Backend konfigurieren",
@@ -133,7 +134,8 @@
     "invalidPdf": "Es werden nur PDF-Dateien unterstützt.",
     "pdfTooLarge": "Die PDF-Datei ist größer als 5 MB.",
     "acknowledgeStudyWarning": "Bestätige die Datenschutzwarnung zum Abschlussjahr.",
-    "missingOllamaCustomModel": "Gib das installierte Ollama-Modell ein oder wähle Gemma 4 oder Qwen 3.6.",
+    "missingOllamaCustomModel": "Gib eine eigene Modell-ID ein oder waehle eines der Modelle aus der Liste.",
+    "missingCustomAiModel": "Gib eine eigene Modell-ID ein oder waehle eines der Modelle aus der Liste.",
     "runPrecheckFirst": "Starte zuerst die CV-Nachweisprüfung.",
     "precheckComplete": "Prüfung abgeschlossen. Prüfe den Score und wähle die nächste Aktion.",
     "precheckPassedWithWarnings": "Die Prüfung ist bestanden, aber einige Warnungen sollten vor der Anpassung geprüft werden.",

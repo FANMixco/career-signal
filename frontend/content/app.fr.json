@@ -19,7 +19,7 @@
     "cvText": "Coller le texte du CV",
     "aiProvider": "Fournisseur IA",
     "aiModel": "Modèle IA",
-    "ollamaCustomModel": "Modèle Ollama personnalisé",
+    "ollamaCustomModel": "Modèle personnalisé",
     "aiApiKey": "Clé API",
     "ollamaBaseUrl": "URL Ollama",
     "targetCompany": "Nom de l'entreprise cible",
@@ -30,7 +30,7 @@
   },
   "placeholders": {
     "cvText": "Collez ici le texte complet du CV",
-    "ollamaCustomModel": "Tapez un modèle installé, par exemple llama3.2:3b, qwen3:14b ou mistral-small",
+    "ollamaCustomModel": "Saisissez un ID de modèle pour le fournisseur sélectionné, par exemple gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest ou llama3.2:3b",
     "companyDescription": "Ajoutez du contexte utile si l'entreprise est peu connue : activité, secteur, taille, produit, marché ou modèle économique",
     "jobDescription": "Collez la description complète du poste"
   },
@@ -76,7 +76,8 @@
         "de",
         "Allemand"
       ]
-    ]
+    ],
+    "customAiModelLabel": "Modèle personnalisé..."
   },
   "buttons": {
     "settingsLabel": "Configurer le backend",
@@ -133,7 +134,8 @@
     "invalidPdf": "Seuls les fichiers PDF sont pris en charge.",
     "pdfTooLarge": "Le PDF dépasse 5 Mo.",
     "acknowledgeStudyWarning": "Acceptez l'avertissement sur l'année d'études avant de continuer.",
-    "missingOllamaCustomModel": "Tapez le modèle Ollama installé ou choisissez Gemma 4 ou Qwen 3.6.",
+    "missingOllamaCustomModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
+    "missingCustomAiModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
     "runPrecheckFirst": "Lancez le précontrôle avant de générer le plan.",
     "precheckComplete": "Précontrôle terminé. Vérifiez le score et choisissez l'action suivante.",
     "precheckPassedWithWarnings": "Le précontrôle est passé, mais certaines recommandations méritent d'être revues.",

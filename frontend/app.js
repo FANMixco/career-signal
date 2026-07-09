@@ -567,21 +567,24 @@ function populateStaticSelects() {
 }
 
 function populateAiModels() {
-  els.aiModel.innerHTML = optionList(config.options.aiModels[els.aiProvider.value] || []);
+  const customOption = ["__custom__", config.options.customAiModelLabel || "Custom model..."];
+  const options = config.options.aiModels[els.aiProvider.value] || [];
+  const hasCustomOption = options.some(([value]) => value === customOption[0]);
+  els.aiModel.innerHTML = optionList(hasCustomOption ? options : [...options, customOption]);
 }
 
-function isCustomOllamaModelSelected() {
-  return els.aiProvider.value === "ollama" && els.aiModel.value === "__custom__";
+function isCustomModelSelected() {
+  return els.aiModel.value === "__custom__";
 }
 
 function selectedAiModel() {
-  return isCustomOllamaModelSelected() ? els.ollamaCustomModel.value.trim() : els.aiModel.value;
+  return isCustomModelSelected() ? els.ollamaCustomModel.value.trim() : els.aiModel.value;
 }
 
 function updateApiKeyCopy() {
   const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
   const isOllama = els.aiProvider.value === "ollama";
-  const isCustomOllama = isCustomOllamaModelSelected();
+  const isCustomModel = isCustomModelSelected();
   els.aiApiKeyLabel.textContent = providerCopy.label;
   els.openaiApiKey.setAttribute("placeholder", providerCopy.placeholder);
   els.openaiApiKey.disabled = isOllama;
@@ -590,7 +593,7 @@ function updateApiKeyCopy() {
   els.apiKeyHelpLink.textContent = providerCopy.keyLinkText;
   show(els.ollamaUrlField, isOllama);
   show(els.ollamaGuidance, isOllama);
-  show(els.ollamaCustomModelField, isCustomOllama);
+  show(els.ollamaCustomModelField, isCustomModel);
   els.ollamaGuidance.classList.toggle("warning-note", isOllama);
 
   if (isOllama && !els.ollamaBaseUrl.value.trim()) {
@@ -599,7 +602,7 @@ function updateApiKeyCopy() {
 
   if (isOllama) {
     const command = config.ollama.modelCommands[els.aiModel.value];
-    els.ollamaGuidance.textContent = isCustomOllama
+    els.ollamaGuidance.textContent = isCustomModel
       ? `${config.ollama.guidance} ${config.ollama.customGuidance}`
       : command
         ? `${config.ollama.guidance} ${command}`
@@ -676,9 +679,9 @@ async function runPrecheck() {
     return;
   }
 
-  if (isCustomOllamaModelSelected() && !selectedAiModel()) {
+  if (isCustomModelSelected() && !selectedAiModel()) {
     setStatus("Missing model");
-    setFeedback("error", config.feedback.missingOllamaCustomModel);
+    setFeedback("error", config.feedback.missingCustomAiModel || config.feedback.missingOllamaCustomModel);
     els.ollamaCustomModel.focus();
     return;
   }
@@ -831,9 +834,9 @@ async function runAnalysis() {
     return;
   }
 
-  if (isCustomOllamaModelSelected() && !selectedAiModel()) {
+  if (isCustomModelSelected() && !selectedAiModel()) {
     setStatus("Missing model");
-    setFeedback("error", config.feedback.missingOllamaCustomModel);
+    setFeedback("error", config.feedback.missingCustomAiModel || config.feedback.missingOllamaCustomModel);
     els.ollamaCustomModel.focus();
     return;
   }

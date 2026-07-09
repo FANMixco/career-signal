@@ -19,7 +19,7 @@
     "cvText": "Pegar CV manualmente",
     "aiProvider": "Proveedor de IA",
     "aiModel": "Modelo de IA",
-    "ollamaCustomModel": "Modelo personalizado de Ollama",
+    "ollamaCustomModel": "Modelo personalizado",
     "aiApiKey": "Clave API",
     "ollamaBaseUrl": "URL de Ollama",
     "targetCompany": "Nombre de la empresa objetivo",
@@ -30,7 +30,7 @@
   },
   "placeholders": {
     "cvText": "Pega aquí el texto completo del CV",
-    "ollamaCustomModel": "Escribe un modelo instalado, por ejemplo llama3.2:3b, qwen3:14b o mistral-small",
+    "ollamaCustomModel": "Escribe un ID de modelo para el proveedor seleccionado, por ejemplo gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest o llama3.2:3b",
     "companyDescription": "Añade contexto útil si la empresa no es conocida: qué hace, industria, tamaño, producto, mercado, valores o modelo de negocio",
     "jobDescription": "Pega la descripción completa del puesto"
   },
@@ -76,7 +76,8 @@
         "de",
         "Alemán"
       ]
-    ]
+    ],
+    "customAiModelLabel": "Modelo personalizado..."
   },
   "buttons": {
     "settingsLabel": "Configurar backend",
@@ -133,7 +134,8 @@
     "invalidPdf": "Solo se admiten PDFs. Elige un CV en PDF, una exportación de LinkedIn en PDF o pega el texto del CV.",
     "pdfTooLarge": "El PDF supera 5MB. Pega el texto del CV manualmente o sube un PDF más pequeño.",
     "acknowledgeStudyWarning": "Acepta la advertencia de privacidad sobre el año de estudios antes de continuar.",
-    "missingOllamaCustomModel": "Escribe el modelo de Ollama instalado o elige Gemma 4 o Qwen 3.6.",
+    "missingOllamaCustomModel": "Escribe un ID de modelo personalizado o elige uno de los modelos de la lista.",
+    "missingCustomAiModel": "Escribe un ID de modelo personalizado o elige uno de los modelos de la lista.",
     "runPrecheckFirst": "Ejecuta el precheck de evidencia del CV antes de generar el plan de reconstrucción.",
     "precheckComplete": "Precheck completo. Revisa la puntuación y elige la siguiente acción.",
     "precheckPassedWithWarnings": "El precheck pasó, pero aún hay advertencias o sugerencias que conviene revisar antes de adaptar.",
