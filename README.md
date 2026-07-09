@@ -30,7 +30,7 @@ The app is designed to be used by non-technical people too. You do not need to c
 
 ## Feel free to install it from the Microsoft Store
 
-[![CSE](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/microsoft_micro.png)](https://apps.microsoft.com/detail/9p4nqtp3mj0r?hl=en-US&gl=LU)
+[![CSE](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Get_it_from_Microsoft_Badge.svg/330px-Get_it_from_Microsoft_Badge.svg.png)](https://apps.microsoft.com/detail/9p4nqtp3mj0r?hl=en-US&gl=LU)
 
 ## What You Need Before Starting
 
