@@ -568,7 +568,7 @@ Another app is already using port `3001`.
 Fix:
 
 - Close the other terminal or app that is using the port, or
-- Change `PORT=3001` in `.env` to another port such as `PORT=3002`.
+- Change `PORT=3001` in `.env` to another port, such as `PORT=3002`.
 
 If you change the port, open the matching address in the browser.
 
@@ -578,9 +578,10 @@ The selected provider does not have a key.
 
 Fix:
 
-- If `Gemini` is selected, paste a Gemini key or set `GEMINI_API_KEY` in `.env`.
 - If `OpenAI` is selected, paste an OpenAI key or set `OPENAI_API_KEY` in `.env`.
+- If `Gemini` is selected, paste a Gemini key or set `GEMINI_API_KEY` in `.env`.
 - If `Mistral` is selected, paste a Mistral key or set `MISTRAL_API_KEY` in `.env`.
+- If `DeepSeek` is selected, paste a Gemini key or set `DEEPSEEK_API_KEY` in `.env`.
 
 ### Ollama says the model is missing or cannot be reached
 
