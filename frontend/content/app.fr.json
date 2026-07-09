@@ -321,7 +321,7 @@
             "items": [
               "Ajoutez vos années d’expérience et indiquez si les études sont listées dans le CV.",
               "Téléversez un CV PDF, un export LinkedIn PDF ou collez le texte du CV.",
-              "Choisissez Gemini, OpenAI, Mistral ou Ollama (offline, expérimental), puis un modèle.",
+              "Choisissez OpenRouter (modèles gratuits), Gemini, OpenAI, Mistral ou Ollama (offline, expérimental), puis un modèle.",
               "Pour les fournisseurs cloud, ajoutez une clé si elle n’est pas déjà configurée.",
               "Pour Ollama, installez Ollama localement, téléchargez le modèle choisi et gardez Ollama en cours d’exécution.",
               "Lancez d’abord le précontrôle des preuves du CV.",
@@ -411,6 +411,7 @@
             "title": "Ce qui quitte votre machine",
             "items": [
               "Si vous lancez une vérification IA, le texte du CV et les détails du poste sont envoyés au fournisseur IA choisi.",
+              "Avec OpenRouter, la requête part vers OpenRouter avec le modèle gratuit sélectionné.",
               "Avec Gemini, la requête part vers Google avec le modèle Gemini sélectionné.",
               "Avec OpenAI, la requête part vers OpenAI avec le modèle OpenAI sélectionné.",
               "Avec Mistral, la requête part vers Mistral avec le modèle Mistral sélectionné.",
@@ -518,6 +519,11 @@
     "General": "General"
   },
   "apiKeys": {
+    "openrouter": {
+      "label": "Cle API OpenRouter",
+      "placeholder": "Optionnel si OPENROUTER_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API OpenRouter"
+    },
     "gemini": {
       "label": "Cle API Gemini",
       "placeholder": "Optionnel si GEMINI_API_KEY est configuree",

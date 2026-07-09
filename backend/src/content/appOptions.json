@@ -17,6 +17,7 @@
     "all"
   ],
   "aiProviders": [
+    "openrouter",
     "gemini",
     "openai",
     "mistral",
@@ -28,12 +29,17 @@
     "fr",
     "de"
   ],
-  "defaultAiProvider": "gemini",
+  "defaultAiProvider": "openrouter",
   "defaultOutputLanguage": "en",
   "openAiModels": [
     "gpt-5.5",
     "gpt-5.4",
     "gpt-5.4-mini"
+  ],
+  "openRouterModels": [
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "openai/gpt-oss-20b:free",
+    "qwen/qwen3-coder:free"
   ],
   "geminiModels": [
     "models/gemini-3.5-flash",
@@ -51,6 +57,7 @@
     "qwen3.6"
   ],
   "defaultOpenAiModel": "gpt-5.5",
+  "defaultOpenRouterModel": "meta-llama/llama-3.3-70b-instruct:free",
   "defaultGeminiModel": "models/gemini-3.5-flash",
   "defaultMistralModel": "mistral-medium-latest",
   "defaultOllamaModel": "gemma4",

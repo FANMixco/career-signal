@@ -6,12 +6,17 @@ import {
   defaultMistralModel,
   defaultOllamaModel,
   defaultOpenAiModel,
+  defaultOpenRouterModel,
   ollamaFallbackModels,
   ollamaMixModel
 } from "../../rules/cvRules.js";
 
 export function openAiModel(model?: string) {
   return model || process.env.OPENAI_MODEL || defaultOpenAiModel;
+}
+
+export function openRouterModel(model?: string) {
+  return model || process.env.OPENROUTER_MODEL || defaultOpenRouterModel;
 }
 
 export function geminiModel(model?: string) {

@@ -42,6 +42,10 @@
   "options": {
     "aiProviders": [
       [
+        "openrouter",
+        "OpenRouter (free models)"
+      ],
+      [
         "gemini",
         "Gemini"
       ],
@@ -59,6 +63,20 @@
       ]
     ],
     "aiModels": {
+      "openrouter": [
+        [
+          "meta-llama/llama-3.3-70b-instruct:free",
+          "Llama 3.3 70B Instruct"
+        ],
+        [
+          "openai/gpt-oss-20b:free",
+          "GPT-OSS 20B"
+        ],
+        [
+          "qwen/qwen3-coder:free",
+          "Qwen3 Coder"
+        ]
+      ],
       "gemini": [
         [
           "models/gemini-3.5-flash",
@@ -164,6 +182,12 @@
     ]
   },
   "apiKeys": {
+    "openrouter": {
+      "label": "OpenRouter API key",
+      "placeholder": "Optional if OPENROUTER_API_KEY is configured",
+      "keyUrl": "https://openrouter.ai/settings/keys",
+      "keyLinkText": "Get an OpenRouter API key"
+    },
     "gemini": {
       "label": "Gemini API key",
       "placeholder": "Optional if GEMINI_API_KEY is configured",
@@ -337,7 +361,7 @@
             "items": [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a CV PDF, LinkedIn PDF export, or paste your CV text.",
-              "Choose Gemini, OpenAI, Mistral, or Ollama (offline, experimental), then choose a model.",
+              "Choose OpenRouter (free models), Gemini, OpenAI, Mistral, or Ollama (offline, experimental), then choose a model.",
               "For cloud providers, add a key if it is not already configured.",
               "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",
@@ -427,6 +451,7 @@
             "title": "What leaves your machine",
             "items": [
               "If you run an AI check, the CV text and job details are sent to the AI provider you selected.",
+              "If you use OpenRouter, the request goes to OpenRouter with the selected free model.",
               "If you use Gemini, the request goes to Google with the selected Gemini model.",
               "If you use OpenAI, the request goes to OpenAI with the selected OpenAI model.",
               "If you use Mistral, the request goes to Mistral with the selected Mistral model.",

@@ -1,6 +1,6 @@
-// Deterministic CV evidence checks used as the safety net for local Ollama.
+// Deterministic CV evidence checks used as the safety net for weaker models.
 // These rules do not replace the LLM review; they make sure the app can still
-// return a defensible score and practical warnings when a local model is weak,
+// return a defensible score and practical warnings when a model is weak,
 // too slow, or unable to produce the requested JSON shape.
 import { defaultMetricRecoveryQuestions, detectSensitivePersonalDataWarnings, recommendationForScore } from "../../rules/cvRules.js";
 import type { PrecheckResult } from "../../schemas/aiSchemas.js";
@@ -122,8 +122,8 @@ export function buildLocalPrecheckBaseline(input: {
   };
 }
 
-// Adds richer advice from fast text signals when Ollama cannot finish the
-// reviewer pass. Keep these warnings specific to CV quality, not job tailoring.
+// Adds richer advice from fast text signals when the selected model cannot
+// finish the reviewer pass. Keep these warnings specific to CV quality, not job tailoring.
 export function buildLocalPrecheckFallbackSections(
   input: {
     cvText: string;
@@ -150,7 +150,7 @@ export function buildLocalPrecheckFallbackSections(
 
   const specificWarnings = uniqueStrings([
     ...baseline.specificWarnings,
-    "Local Ollama did not complete the richer reviewer pass quickly, so these warnings are generated from deterministic CV evidence rules.",
+    "The selected model did not complete the richer reviewer pass quickly, so these warnings are generated from deterministic CV evidence rules.",
     ...(baseline.cvEvidenceScore >= 85
       ? ["The CV has strong evidence density, but do not treat the score as approval to send it unchanged; check that the biggest numbers have baselines, scope, and ownership that can survive an interview."]
       : []),

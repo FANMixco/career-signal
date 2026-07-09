@@ -10,6 +10,26 @@ function normalizeOllamaBaseUrl(baseUrl?: string) {
 }
 
 export function createModelProvider(providerKind: AiProviderKind = "gemini", apiKey?: string, ollamaBaseUrl?: string): Provider {
+  if (providerKind === "openrouter") {
+    const openRouterKey = apiKey?.trim() || process.env.OPENROUTER_API_KEY?.trim();
+
+    if (openRouterKey) {
+      return {
+        kind: "openrouter",
+        client: new OpenAI({
+          apiKey: openRouterKey,
+          baseURL: "https://openrouter.ai/api/v1",
+          defaultHeaders: {
+            "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "https://github.com/FANMixco/career-signal",
+            "X-OpenRouter-Title": process.env.OPENROUTER_APP_TITLE || "Career Signal Engine"
+          }
+        })
+      };
+    }
+
+    throw new Error("An OpenRouter API key is required. Paste an OpenRouter key or configure OPENROUTER_API_KEY in the backend .env file.");
+  }
+
   if (providerKind === "openai") {
     const openAiKey = apiKey?.trim() || process.env.OPENAI_API_KEY?.trim();
 

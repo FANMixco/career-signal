@@ -13,6 +13,7 @@ import {
   MIN_JOB_DESCRIPTION_LENGTH,
   mistralModels,
   openAiModels,
+  openRouterModels,
   outputLanguages,
   targetStyles
 } from "../rules/cvRules.js";
@@ -20,7 +21,12 @@ import type { AiProviderKind, ExperienceSelectionMode, OutputLanguage } from "..
 
 export { MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH };
 
-const cloudModelNames = new Set<string>([...geminiModels, ...openAiModels, ...mistralModels]);
+const modelsByProvider = {
+  gemini: new Set<string>(geminiModels),
+  openai: new Set<string>(openAiModels),
+  openrouter: new Set<string>(openRouterModels),
+  mistral: new Set<string>(mistralModels)
+} satisfies Partial<Record<AiProviderKind, Set<string>>>;
 const aiProviderSchema = z.enum(aiProviders) as z.ZodType<AiProviderKind>;
 const experienceSelectionModeSchema = z.enum(experienceSelectionModes) as z.ZodType<ExperienceSelectionMode>;
 const outputLanguageSchema = z.enum(outputLanguages) as z.ZodType<OutputLanguage>;
@@ -32,7 +38,7 @@ const ollamaModelNameSchema = z
   .max(120, "Ollama model name must be 120 characters or fewer.")
   .regex(/^[a-zA-Z0-9][a-zA-Z0-9._:/-]*$/, "Ollama model name can only contain letters, numbers, dots, dashes, underscores, colons, and slashes.");
 
-function validateAiModelForProvider(provider: (typeof aiProviders)[number] | undefined, model: string | undefined, context: z.RefinementCtx) {
+function validateAiModelForProvider(provider: AiProviderKind | undefined, model: string | undefined, context: z.RefinementCtx) {
   if (!model) return;
 
   if (provider === "ollama") {
@@ -50,7 +56,7 @@ function validateAiModelForProvider(provider: (typeof aiProviders)[number] | und
     return;
   }
 
-  if (!cloudModelNames.has(model)) {
+  if (provider && !modelsByProvider[provider]?.has(model)) {
     context.addIssue({
       code: z.ZodIssueCode.custom,
       path: ["aiModel"],
