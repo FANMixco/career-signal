@@ -433,6 +433,41 @@
             ]
           }
         ]
+      },
+      {
+        "id": "about",
+        "label": "Acerca de",
+        "blocks": [
+          {
+            "title": "Sobre el creador",
+            "text": "Career Signal fue creado por Federico Navarrete, tecnólogo, autor, speaker y colaborador open source basado en Luxemburgo."
+          },
+          {
+            "title": "Por qué existe",
+            "text": "El proyecto ayuda a revisar CVs con más criterio antes de adaptarlos a un puesto. Se enfoca en evidencia, claridad, riesgo y relevancia sin sustituir el juicio humano."
+          },
+          {
+            "title": "Saber más",
+            "links": [
+              [
+                "Federico Navarrete",
+                "https://federiconavarrete.com"
+              ],
+              [
+                "Career Signal en GitHub",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "FANMixco en GitHub",
+                "https://github.com/FANMixco"
+              ],
+              [
+                "Canal de YouTube",
+                "https://www.youtube.com/@FedericoNavarrete"
+              ]
+            ]
+          }
+        ]
       }
     ]
   },

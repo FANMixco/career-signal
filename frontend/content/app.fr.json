@@ -255,7 +255,7 @@
         "items": [
           "Récupérez les chiffres lorsqu’ils sont vrais et défendables.",
           "Supprimez ou réduisez les anciens détails qui n’aident pas le poste cible.",
-          "Ne mentionnez vos études et vos diplômes que s’ils sont pertinents ou requis. Évitez d'indiquer vos années d’obtention de diplôme dès lors que vous disposez de plusieurs années d’expérience professionnelle (généralement environ cinq ans), car cela peut inutilement susciter des préjugés liés à l’âge. Les exceptions peuvent s’appliquer aux doctorats ainsi qu’aux diplômes obtenus dans des universités ou grandes écoles internationales très prestigieuses, mais uniquement dans le cas des jeunes diplômés.",
+          "Ne mentionnez vos études et vos diplômes que s’ils sont pertinents ou requis. Évitez d’indiquer vos années d’obtention de diplôme dès lors que vous disposez de plusieurs années d’expérience professionnelle (généralement environ cinq ans), car cela peut inutilement susciter des préjugés liés à l’âge. Les exceptions peuvent s’appliquer aux doctorats ainsi qu’aux diplômes obtenus dans des universités ou grandes écoles internationales très prestigieuses, mais uniquement dans le cas des jeunes diplômés.",
           "Si vous êtes resté longtemps dans une entreprise, montrez la progression réelle : promotions, changements de rôle, élargissement du périmètre, changements d’équipe ou jalons choisis.",
           "N’inventez jamais de métriques, outils, responsabilités, employeurs, dates, certifications ou réussites."
         ]
@@ -429,6 +429,41 @@
               [
                 "Lire la licence GPL-3.0",
                 "https://github.com/FANMixco/career-signal/blob/main/LICENSE"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about",
+        "label": "À propos",
+        "blocks": [
+          {
+            "title": "À propos du créateur",
+            "text": "Career Signal a été créé par Federico Navarrete, technologue, auteur, speaker et contributeur open source basé au Luxembourg."
+          },
+          {
+            "title": "Pourquoi ce projet existe",
+            "text": "Le projet aide les personnes à relire leur CV de façon plus critique avant de l’adapter à un poste. Il se concentre sur les preuves, la clarté, les risques et la pertinence sans remplacer le jugement humain."
+          },
+          {
+            "title": "En savoir plus",
+            "links": [
+              [
+                "Federico Navarrete",
+                "https://federiconavarrete.com"
+              ],
+              [
+                "Career Signal sur GitHub",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "FANMixco sur GitHub",
+                "https://github.com/FANMixco"
+              ],
+              [
+                "Chaîne YouTube",
+                "https://www.youtube.com/@FedericoNavarrete"
               ]
             ]
           }
