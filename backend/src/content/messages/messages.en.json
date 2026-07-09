@@ -1,0 +1,31 @@
+{
+  "errors": {
+    "pdfOnly": "Only PDF files are supported.",
+    "studyAnswerRequired": "Study or education answer is required when experience is greater than five years.",
+    "studyYearRequired": "Study completion year is required when you list studies and have more than five years of experience.",
+    "completeCvRequired": "Please provide a complete CV or LinkedIn PDF export.",
+    "couldNotRunPrecheck": "Could not run CV precheck.",
+    "couldNotUploadCv": "Could not upload CV.",
+    "pdfTooLarge": "Maximum PDF upload size is 5MB.",
+    "weakPrecheckBlocked": "The CV quality precheck recommends improving the CV first. Add concrete outcomes and numerical evidence before tailoring, or explicitly choose Continue anyway.",
+    "couldNotGeneratePlan": "Could not generate reconstruction plan.",
+    "couldNotExtractPdf": "Could not extract text from this PDF. Please paste your CV text manually.",
+    "selectedAiModelUnavailable": "Selected AI model is not available for this provider.",
+    "openRouterApiKeyRequired": "An OpenRouter API key is required. Paste an OpenRouter key or configure OPENROUTER_API_KEY in the backend .env file.",
+    "openAiApiKeyRequired": "An OpenAI API key is required. Paste an OpenAI key or configure OPENAI_API_KEY in the backend .env file.",
+    "deepSeekApiKeyRequired": "A DeepSeek API key is required. Paste a DeepSeek key or configure DEEPSEEK_API_KEY in the backend .env file.",
+    "mistralApiKeyRequired": "A Mistral API key is required. Paste a Mistral key or configure MISTRAL_API_KEY in the backend .env file.",
+    "geminiApiKeyRequired": "A Gemini API key is required. Paste a Gemini key or configure GEMINI_API_KEY in the backend .env file.",
+    "ollamaModelNameRequired": "Ollama model name is required.",
+    "ollamaModelNameTooLong": "Ollama model name must be 120 characters or fewer.",
+    "ollamaModelNameInvalid": "Ollama model name can only contain letters, numbers, dots, dashes, underscores, colons, and slashes.",
+    "ollamaUrlInvalid": "Ollama URL must be a valid URL.",
+    "jobDescriptionRequired": "Please provide the full job description.",
+    "targetCompanyRequired": "Target company name is required.",
+    "companyDescriptionTooLong": "Company description must be 2,000 characters or fewer.",
+    "structuredOutputMissing": "The model did not return valid structured output.",
+    "openRouterRateLimited": "OpenRouter's upstream provider is rate-limited or temporarily overloaded for this model. Try another free model, wait a bit, or use a paid/cloud provider for this CV.",
+    "emptyTextOutput": "{provider} did not return text output.",
+    "requestFailed": "{provider} request failed ({status}): {details}"
+  }
+}

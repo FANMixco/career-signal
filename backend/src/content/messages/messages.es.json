@@ -1,0 +1,31 @@
+{
+  "errors": {
+    "pdfOnly": "Solo se admiten archivos PDF.",
+    "studyAnswerRequired": "La respuesta sobre estudios o educacion es obligatoria cuando la experiencia supera cinco anos.",
+    "studyYearRequired": "El ano de finalizacion de estudios es obligatorio cuando indicas estudios y tienes mas de cinco anos de experiencia.",
+    "completeCvRequired": "Proporciona un CV completo o una exportacion PDF de LinkedIn.",
+    "couldNotRunPrecheck": "No se pudo ejecutar el precheck del CV.",
+    "couldNotUploadCv": "No se pudo subir el CV.",
+    "pdfTooLarge": "El tamano maximo del PDF es 5 MB.",
+    "weakPrecheckBlocked": "El precheck de calidad del CV recomienda mejorar el CV primero. Agrega resultados concretos y evidencia numerica antes de adaptarlo, o elige explicitamente continuar de todas formas.",
+    "couldNotGeneratePlan": "No se pudo generar el plan de reconstruccion.",
+    "couldNotExtractPdf": "No se pudo extraer texto de este PDF. Pega el texto del CV manualmente.",
+    "selectedAiModelUnavailable": "El modelo de IA seleccionado no esta disponible para este proveedor.",
+    "openRouterApiKeyRequired": "Se requiere una clave API de OpenRouter. Pega una clave de OpenRouter o configura OPENROUTER_API_KEY en el archivo .env del backend.",
+    "openAiApiKeyRequired": "Se requiere una clave API de OpenAI. Pega una clave de OpenAI o configura OPENAI_API_KEY en el archivo .env del backend.",
+    "deepSeekApiKeyRequired": "Se requiere una clave API de DeepSeek. Pega una clave de DeepSeek o configura DEEPSEEK_API_KEY en el archivo .env del backend.",
+    "mistralApiKeyRequired": "Se requiere una clave API de Mistral. Pega una clave de Mistral o configura MISTRAL_API_KEY en el archivo .env del backend.",
+    "geminiApiKeyRequired": "Se requiere una clave API de Gemini. Pega una clave de Gemini o configura GEMINI_API_KEY en el archivo .env del backend.",
+    "ollamaModelNameRequired": "El nombre del modelo de Ollama es obligatorio.",
+    "ollamaModelNameTooLong": "El nombre del modelo de Ollama debe tener 120 caracteres o menos.",
+    "ollamaModelNameInvalid": "El nombre del modelo de Ollama solo puede contener letras, numeros, puntos, guiones, guiones bajos, dos puntos y barras.",
+    "ollamaUrlInvalid": "La URL de Ollama debe ser valida.",
+    "jobDescriptionRequired": "Proporciona la descripcion completa del puesto.",
+    "targetCompanyRequired": "El nombre de la empresa objetivo es obligatorio.",
+    "companyDescriptionTooLong": "La descripcion de la empresa debe tener 2.000 caracteres o menos.",
+    "structuredOutputMissing": "El modelo no devolvio una salida estructurada valida.",
+    "openRouterRateLimited": "El proveedor upstream de OpenRouter esta limitado por tasa o temporalmente sobrecargado para este modelo. Prueba otro modelo gratis, espera un poco o usa un proveedor cloud/de pago para este CV.",
+    "emptyTextOutput": "{provider} no devolvio salida de texto.",
+    "requestFailed": "La solicitud a {provider} fallo ({status}): {details}"
+  }
+}

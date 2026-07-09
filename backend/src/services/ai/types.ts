@@ -7,6 +7,7 @@ import type { AnalysisResult } from "../../schemas/aiSchemas.js";
 export type Provider =
   | { kind: "openai"; client: OpenAI }
   | { kind: "openrouter"; client: OpenAI }
+  | { kind: "deepseek"; client: OpenAI }
   | { kind: "gemini"; client: GoogleGenAI }
   | { kind: "mistral"; apiKey: string }
   | { kind: "ollama"; baseUrl: string };

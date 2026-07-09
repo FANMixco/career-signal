@@ -1,0 +1,31 @@
+{
+  "errors": {
+    "pdfOnly": "Seuls les fichiers PDF sont pris en charge.",
+    "studyAnswerRequired": "La reponse sur les etudes ou la formation est obligatoire lorsque l'experience depasse cinq ans.",
+    "studyYearRequired": "L'annee de fin d'etudes est obligatoire lorsque vous indiquez des etudes et avez plus de cinq ans d'experience.",
+    "completeCvRequired": "Fournissez un CV complet ou un export PDF LinkedIn.",
+    "couldNotRunPrecheck": "Impossible d'executer le precontrole du CV.",
+    "couldNotUploadCv": "Impossible de televerser le CV.",
+    "pdfTooLarge": "La taille maximale du PDF est de 5 Mo.",
+    "weakPrecheckBlocked": "Le precontrole de qualite du CV recommande d'ameliorer d'abord le CV. Ajoutez des resultats concrets et des preuves chiffrees avant l'adaptation, ou choisissez explicitement de continuer quand meme.",
+    "couldNotGeneratePlan": "Impossible de generer le plan de reconstruction.",
+    "couldNotExtractPdf": "Impossible d'extraire le texte de ce PDF. Collez le texte du CV manuellement.",
+    "selectedAiModelUnavailable": "Le modele IA selectionne n'est pas disponible pour ce fournisseur.",
+    "openRouterApiKeyRequired": "Une cle API OpenRouter est requise. Collez une cle OpenRouter ou configurez OPENROUTER_API_KEY dans le fichier .env du backend.",
+    "openAiApiKeyRequired": "Une cle API OpenAI est requise. Collez une cle OpenAI ou configurez OPENAI_API_KEY dans le fichier .env du backend.",
+    "deepSeekApiKeyRequired": "Une cle API DeepSeek est requise. Collez une cle DeepSeek ou configurez DEEPSEEK_API_KEY dans le fichier .env du backend.",
+    "mistralApiKeyRequired": "Une cle API Mistral est requise. Collez une cle Mistral ou configurez MISTRAL_API_KEY dans le fichier .env du backend.",
+    "geminiApiKeyRequired": "Une cle API Gemini est requise. Collez une cle Gemini ou configurez GEMINI_API_KEY dans le fichier .env du backend.",
+    "ollamaModelNameRequired": "Le nom du modele Ollama est obligatoire.",
+    "ollamaModelNameTooLong": "Le nom du modele Ollama doit contenir 120 caracteres ou moins.",
+    "ollamaModelNameInvalid": "Le nom du modele Ollama ne peut contenir que des lettres, des chiffres, des points, des tirets, des underscores, deux-points et barres obliques.",
+    "ollamaUrlInvalid": "L'URL Ollama doit etre valide.",
+    "jobDescriptionRequired": "Fournissez la description complete du poste.",
+    "targetCompanyRequired": "Le nom de l'entreprise cible est obligatoire.",
+    "companyDescriptionTooLong": "La description de l'entreprise doit contenir 2 000 caracteres ou moins.",
+    "structuredOutputMissing": "Le modele n'a pas renvoye de sortie structuree valide.",
+    "openRouterRateLimited": "Le fournisseur upstream d'OpenRouter est limite ou temporairement surcharge pour ce modele. Essayez un autre modele gratuit, attendez un peu ou utilisez un fournisseur cloud/payant pour ce CV.",
+    "emptyTextOutput": "{provider} n'a pas renvoye de texte.",
+    "requestFailed": "La requete vers {provider} a echoue ({status}) : {details}"
+  }
+}

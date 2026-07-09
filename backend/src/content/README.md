@@ -4,10 +4,11 @@ This folder contains backend JSON content that should be easy to review, discuss
 
 The split is intentional:
 
-- `cvGuidance.json` is the main open knowledge base for CV review. Edit this when improving evidence questions, education privacy guidance, career progression guidance, tense guidance, CV length guidance, title/responsibility alignment, evidence-backed language, or contact completeness guidance.
-- `sensitivePersonalData.json` contains warning labels and user-facing warning copy for personal details that may create privacy or bias risk. The detection patterns stay in `../rules/cvRules.ts` because they are application logic.
-- `appOptions.json` contains backend option values that are part of the app contract, such as target styles, experience selection modes, provider names, model names, default models, recommendation values, job-fit verdicts, integrity classifications, and output language names. Change this only when the app should accept or emit different option values.
-- `messages.json` contains backend error messages returned by API routes and services.
+- `config/appOptions.json` contains backend option values that are part of the app contract, such as target styles, experience selection modes, provider names, model names, default models, recommendation values, job-fit verdicts, integrity classifications, and output language names. Change this only when the app should accept or emit different option values.
+- `guidance/cvGuidance.json` is the main open knowledge base for CV review. Edit this when improving evidence questions, education privacy guidance, career progression guidance, tense guidance, CV length guidance, title/responsibility alignment, evidence-backed language, or contact completeness guidance.
+- `guidance/sensitivePersonalData.json` contains warning labels and user-facing warning copy for personal details that may create privacy or bias risk. The detection patterns stay in `../rules/cvRules.ts` because they are application logic.
+- `messages/messages.en.json`, `messages/messages.es.json`, `messages/messages.fr.json`, and `messages/messages.de.json` contain backend error messages returned by API routes and services.
+- `ai/cloudModelService.json` contains cloud-model token ceilings, JSON response instructions, and schema hints. Keep these instructions in English for model reliability; translate only user-facing errors in the message files.
 
 ## Editing Rules
 

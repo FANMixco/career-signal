@@ -18,9 +18,10 @@
   ],
   "aiProviders": [
     "openrouter",
-    "gemini",
     "openai",
+    "gemini",
     "mistral",
+    "deepseek",
     "ollama"
   ],
   "outputLanguages": [
@@ -46,6 +47,10 @@
     "models/gemini-3.1-flash-lite",
     "models/gemini-2.5-pro"
   ],
+  "deepSeekModels": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro"
+  ],
   "mistralModels": [
     "mistral-medium-latest",
     "mistral-large-latest",
@@ -59,6 +64,7 @@
   "defaultOpenAiModel": "gpt-5.5",
   "defaultOpenRouterModel": "meta-llama/llama-3.3-70b-instruct:free",
   "defaultGeminiModel": "models/gemini-3.5-flash",
+  "defaultDeepSeekModel": "deepseek-v4-flash",
   "defaultMistralModel": "mistral-medium-latest",
   "defaultOllamaModel": "gemma4",
   "ollamaMixModel": "local-mix",

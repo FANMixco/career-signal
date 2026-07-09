@@ -13,7 +13,7 @@ import { normalizeAnalysisResult, normalizePrecheckResult } from "./ai/resultNor
 import type { AnalysisInput, PrecheckInput } from "./ai/types.js";
 
 export async function runPrecheck(input: PrecheckInput) {
-  const provider = createModelProvider(input.aiProvider, input.apiKey, input.ollamaBaseUrl);
+  const provider = createModelProvider(input.aiProvider, input.apiKey, input.ollamaBaseUrl, input.outputLanguage);
 
   // Local models are handled section by section because they are more likely to
   // time out or drift from the full schema when asked for the whole object.
@@ -44,7 +44,8 @@ export async function runPrecheck(input: PrecheckInput) {
     "cv_quality_precheck",
     precheckSchema,
     precheckPrompt(input),
-    input.aiModel
+    input.aiModel,
+    input.outputLanguage
   );
 
   if (parsed.questionsToRecoverMetrics.length === 0) {
@@ -55,7 +56,7 @@ export async function runPrecheck(input: PrecheckInput) {
 }
 
 export async function runAnalysis(input: AnalysisInput) {
-  const provider = createModelProvider(input.aiProvider, input.apiKey, input.ollamaBaseUrl);
+  const provider = createModelProvider(input.aiProvider, input.apiKey, input.ollamaBaseUrl, input.outputLanguage);
 
   // Stronger cloud providers are expected to support one structured response.
   // Ollama and OpenRouter free models use the sectioned path so partial useful
@@ -73,7 +74,8 @@ export async function runAnalysis(input: AnalysisInput) {
     "cv_reconstruction_plan",
     analysisSchema,
     reconstructionPrompt(input),
-    input.aiModel
+    input.aiModel,
+    input.outputLanguage
   );
 
   return normalizeAnalysisResult(analysis);

@@ -46,16 +46,20 @@
         "OpenRouter (free models)"
       ],
       [
-        "gemini",
-        "Gemini"
-      ],
-      [
         "openai",
         "OpenAI"
       ],
       [
+        "gemini",
+        "Gemini"
+      ],
+      [
         "mistral",
         "Mistral"
+      ],
+      [
+        "deepseek",
+        "DeepSeek"
       ],
       [
         "ollama",
@@ -89,6 +93,16 @@
         [
           "models/gemini-2.5-pro",
           "Gemini 2.5 Pro"
+        ]
+      ],
+      "deepseek": [
+        [
+          "deepseek-v4-flash",
+          "DeepSeek V4 Flash"
+        ],
+        [
+          "deepseek-v4-pro",
+          "DeepSeek V4 Pro"
         ]
       ],
       "openai": [
@@ -188,23 +202,29 @@
       "keyUrl": "https://openrouter.ai/settings/keys",
       "keyLinkText": "Get an OpenRouter API key"
     },
-    "gemini": {
-      "label": "Gemini API key",
-      "placeholder": "Optional if GEMINI_API_KEY is configured",
-      "keyUrl": "https://aistudio.google.com/app/apikey",
-      "keyLinkText": "Get a Gemini API key"
-    },
     "openai": {
       "label": "OpenAI API key",
       "placeholder": "Optional if OPENAI_API_KEY is configured",
       "keyUrl": "https://platform.openai.com/api-keys",
       "keyLinkText": "Get an OpenAI API key"
     },
+    "gemini": {
+      "label": "Gemini API key",
+      "placeholder": "Optional if GEMINI_API_KEY is configured",
+      "keyUrl": "https://aistudio.google.com/app/apikey",
+      "keyLinkText": "Get a Gemini API key"
+    },
     "mistral": {
       "label": "Mistral API key",
       "placeholder": "Optional if MISTRAL_API_KEY is configured",
       "keyUrl": "https://console.mistral.ai/api-keys/",
       "keyLinkText": "Get a Mistral API key"
+    },
+    "deepseek": {
+      "label": "DeepSeek API key",
+      "placeholder": "Optional if DEEPSEEK_API_KEY is configured",
+      "keyUrl": "https://platform.deepseek.com/api_keys",
+      "keyLinkText": "Get a DeepSeek API key"
     },
     "ollama": {
       "label": "Ollama local setup",
@@ -309,6 +329,7 @@
     "analysisLoading": "Generating a new reconstruction plan. The previous plan was cleared to avoid mixing outputs from different target roles.",
     "analysisComplete": "Reconstruction plan ready. Review the output below before using it.",
     "analysisPartial": "Partial local reconstruction ready. Some Ollama sections did not finish, so review the completed output and retry with a cloud provider or smaller local model for a full plan.",
+    "paidModelSuggestion": "For more complete and consistent results, consider rerunning important CVs with a stronger paid model before using the final plan.",
     "precheckStale": "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
     "precheckLoadingText": "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence."
   },
@@ -361,7 +382,7 @@
             "items": [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a CV PDF, LinkedIn PDF export, or paste your CV text.",
-              "Choose OpenRouter (free models), Gemini, OpenAI, Mistral, or Ollama (offline, experimental), then choose a model.",
+              "Choose OpenRouter (free models), OpenAI, Gemini, Mistral, DeepSeek, or Ollama (offline, experimental), then choose a model.",
               "For cloud providers, add a key if it is not already configured.",
               "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",
@@ -453,6 +474,7 @@
               "If you run an AI check, the CV text and job details are sent to the AI provider you selected.",
               "If you use OpenRouter, the request goes to OpenRouter with the selected free model.",
               "If you use Gemini, the request goes to Google with the selected Gemini model.",
+              "If you use DeepSeek, the request goes to DeepSeek with the selected DeepSeek model.",
               "If you use OpenAI, the request goes to OpenAI with the selected OpenAI model.",
               "If you use Mistral, the request goes to Mistral with the selected Mistral model.",
               "If you use Ollama (offline, experimental), the backend sends the request to your configured local Ollama URL instead of a cloud AI provider.",
@@ -482,6 +504,10 @@
           {
             "title": "About the creator",
             "text": "Career Signal was created by Federico Navarrete, a technologist, author, speaker, and open-source contributor based in Luxembourg."
+          },
+          {
+            "title": "Why you provide an API key",
+            "text": "Career Signal is open source and does not run a shared paid AI account for users. Bringing your own provider key keeps usage under your account, lets you control spending and limits, and avoids the app storing a central secret. The key is sent only to the backend you are using for that request."
           },
           {
             "title": "Why this exists",

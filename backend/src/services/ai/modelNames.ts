@@ -2,6 +2,7 @@
 // UI selections should map to the same strings where possible; environment
 // variables only act as defaults when a request does not send a model.
 import {
+  defaultDeepSeekModel,
   defaultGeminiModel,
   defaultMistralModel,
   defaultOllamaModel,
@@ -21,6 +22,10 @@ export function openRouterModel(model?: string) {
 
 export function geminiModel(model?: string) {
   return model || process.env.GEMINI_MODEL || defaultGeminiModel;
+}
+
+export function deepSeekModel(model?: string) {
+  return model || process.env.DEEPSEEK_MODEL || defaultDeepSeekModel;
 }
 
 export function mistralModel(model?: string) {

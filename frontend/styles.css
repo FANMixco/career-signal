@@ -651,6 +651,18 @@ button.is-loading::before {
   color: var(--muted);
 }
 
+.score.score-weak {
+  color: var(--danger);
+}
+
+.score.score-caution {
+  color: #9a6500;
+}
+
+.score.score-strong {
+  color: var(--accent-dark);
+}
+
 .score.compact {
   margin-bottom: 8px;
   font-size: 30px;
@@ -705,6 +717,14 @@ button.is-loading::before {
 
 .result-block h4 {
   margin: 12px 0 6px;
+  font-size: 13px;
+}
+
+.model-suggestion {
+  margin: 16px 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  color: var(--muted);
   font-size: 13px;
 }
 

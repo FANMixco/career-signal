@@ -4,6 +4,7 @@
 import { z } from "zod";
 import {
   aiProviders,
+  deepSeekModels,
   defaultAiProvider,
   defaultOutputLanguage,
   educationPrivacy,
@@ -18,6 +19,7 @@ import {
   targetStyles
 } from "../rules/cvRules.js";
 import type { AiProviderKind, ExperienceSelectionMode, OutputLanguage } from "../services/ai/types.js";
+import { messages } from "./messages.js";
 
 export { MIN_CV_LENGTH, MIN_JOB_DESCRIPTION_LENGTH };
 
@@ -25,6 +27,7 @@ const modelsByProvider = {
   gemini: new Set<string>(geminiModels),
   openai: new Set<string>(openAiModels),
   openrouter: new Set<string>(openRouterModels),
+  deepseek: new Set<string>(deepSeekModels),
   mistral: new Set<string>(mistralModels)
 } satisfies Partial<Record<AiProviderKind, Set<string>>>;
 const aiProviderSchema = z.enum(aiProviders) as z.ZodType<AiProviderKind>;
@@ -34,9 +37,9 @@ const outputLanguageSchema = z.enum(outputLanguages) as z.ZodType<OutputLanguage
 const ollamaModelNameSchema = z
   .string()
   .trim()
-  .min(1, "Ollama model name is required.")
-  .max(120, "Ollama model name must be 120 characters or fewer.")
-  .regex(/^[a-zA-Z0-9][a-zA-Z0-9._:/-]*$/, "Ollama model name can only contain letters, numbers, dots, dashes, underscores, colons, and slashes.");
+  .min(1, messages.errors.ollamaModelNameRequired)
+  .max(120, messages.errors.ollamaModelNameTooLong)
+  .regex(/^[a-zA-Z0-9][a-zA-Z0-9._:/-]*$/, messages.errors.ollamaModelNameInvalid);
 
 function validateAiModelForProvider(provider: AiProviderKind | undefined, model: string | undefined, context: z.RefinementCtx) {
   if (!model) return;
@@ -60,7 +63,7 @@ function validateAiModelForProvider(provider: AiProviderKind | undefined, model:
     context.addIssue({
       code: z.ZodIssueCode.custom,
       path: ["aiModel"],
-      message: "Selected AI model is not available for this provider."
+      message: messages.errors.selectedAiModelUnavailable
     });
   }
 }
@@ -77,7 +80,7 @@ export const metadataSchema = z
     outputLanguage: outputLanguageSchema.optional().default(defaultOutputLanguage as OutputLanguage),
     aiProvider: aiProviderSchema.optional().default(defaultAiProvider as AiProviderKind),
     aiModel: z.string().trim().optional(),
-    ollamaBaseUrl: z.string().url("Ollama URL must be a valid URL.").max(200).optional()
+    ollamaBaseUrl: z.string().url(messages.errors.ollamaUrlInvalid).max(200).optional()
   })
   .superRefine((value, context) => {
     validateAiModelForProvider(value.aiProvider, value.aiModel, context);
@@ -89,11 +92,11 @@ export const analyzeCvSchema = z
     aiModel: z.string().trim().optional(),
     aiApiKey: z.string().optional(),
     openaiApiKey: z.string().optional(),
-    ollamaBaseUrl: z.string().url("Ollama URL must be a valid URL.").max(200).optional(),
-    cvText: z.string().min(MIN_CV_LENGTH, "Please provide a complete CV or LinkedIn PDF export."),
-    jobDescription: z.string().min(MIN_JOB_DESCRIPTION_LENGTH, "Please provide the full job description."),
-    companyName: z.string().min(1, "Target company name is required."),
-    companyDescription: z.string().max(2000, "Company description must be 2,000 characters or fewer.").optional().default(""),
+    ollamaBaseUrl: z.string().url(messages.errors.ollamaUrlInvalid).max(200).optional(),
+    cvText: z.string().min(MIN_CV_LENGTH, messages.errors.completeCvRequired),
+    jobDescription: z.string().min(MIN_JOB_DESCRIPTION_LENGTH, messages.errors.jobDescriptionRequired),
+    companyName: z.string().min(1, messages.errors.targetCompanyRequired),
+    companyDescription: z.string().max(2000, messages.errors.companyDescriptionTooLong).optional().default(""),
     targetStyle: z.enum(targetStyles),
     experienceSelectionMode: experienceSelectionModeSchema,
     outputLanguage: outputLanguageSchema.optional().default(defaultOutputLanguage as OutputLanguage),

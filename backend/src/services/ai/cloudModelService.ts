@@ -2,14 +2,45 @@
 // OpenAI uses the SDK parser, while Gemini and Mistral are asked for JSON and
 // then validated with the same Zod schemas used by the rest of the backend.
 import type { GoogleGenAI, Interactions } from "@google/genai";
+import { readFileSync } from "node:fs";
 import type OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
+import { errorMessage } from "../../utils/messages.js";
 import { extractJson, parseJsonWithSchema } from "./jsonUtils.js";
-import { geminiModel, mistralModel, openAiModel, openRouterModel } from "./modelNames.js";
-import type { Provider } from "./types.js";
+import { deepSeekModel, geminiModel, mistralModel, openAiModel, openRouterModel } from "./modelNames.js";
+import type { OutputLanguage, Provider } from "./types.js";
 
-async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+type CloudModelServiceContent = {
+  maxTokens: Record<string, number>;
+  jsonInstructions: {
+    default: string;
+    strictTopLevel: string;
+  };
+  schemaInstructions: Record<string, string[]>;
+};
+
+const cloudModelServiceContent = JSON.parse(
+  readFileSync(new URL("../../content/ai/cloudModelService.json", import.meta.url), "utf8")
+) as CloudModelServiceContent;
+
+function formatContent(template: string, values: Record<string, string | number>) {
+  return template.replace(/\{(\w+)\}/g, (match, key) => String(values[key] ?? match));
+}
+
+function jsonInstruction(type: keyof CloudModelServiceContent["jsonInstructions"], name: string) {
+  return formatContent(cloudModelServiceContent.jsonInstructions[type], { name });
+}
+
+function schemaInstruction(name: string) {
+  return (cloudModelServiceContent.schemaInstructions[name] || []).join("\n");
+}
+
+function emptyTextOutputError(provider: string, outputLanguage?: OutputLanguage) {
+  return new Error(errorMessage("emptyTextOutput", outputLanguage, { provider }));
+}
+
+async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
   const response = await client.responses.parse({
     model: openAiModel(model),
     input,
@@ -19,97 +50,14 @@ async function createOpenAiJsonResponse<T>(client: OpenAI, name: string, schema:
   });
 
   if (!response.output_parsed) {
-    throw new Error("The model did not return valid structured output.");
+    throw new Error(errorMessage("structuredOutputMissing", outputLanguage));
   }
 
   return response.output_parsed;
 }
 
-function openRouterSchemaInstruction(name: string) {
-  if (name === "cv_quality_precheck") {
-    return `Required JSON shape:
-{
-  "cvEvidenceScore": number,
-  "scoreBreakdown": {
-    "quantifiedResults": number,
-    "accomplishmentClarity": number,
-    "scopeAndScale": number,
-    "responsibilityVersusOutcomeRatio": number,
-    "interviewDefensibility": number
-  },
-  "hasQuantifiedResults": boolean,
-  "hasAccomplishments": boolean,
-  "mostlyJobDescriptions": boolean,
-  "impactClarityScore": number,
-  "quantifiedEvidenceCount": number,
-  "strongBulletCount": number,
-  "weakBulletCount": number,
-  "proceedRecommendation": "Proceed" | "Improve CV first" | "Proceed with caution",
-  "mainProblem": string,
-  "specificWarnings": string[],
-  "missingEvidenceTypes": string[],
-  "examplesOfWeakBullets": string[],
-  "questionsToRecoverMetrics": string[],
-  "interviewRiskQuestions": string[],
-  "nextStep": string
-}
-
-Score limits:
-- cvEvidenceScore and impactClarityScore must be 0 to 100.
-- scoreBreakdown maximums: quantifiedResults 30, accomplishmentClarity 25, scopeAndScale 20, responsibilityVersusOutcomeRatio 15, interviewDefensibility 10.
-- Keep arrays concise, ideally 3 to 5 items.`;
-  }
-
-  if (name === "cv_reconstruction_plan") {
-    return `Required JSON shape:
-{
-  "roleDiagnosis": string,
-  "companySignalInterpretation": string,
-  "candidatePositioning": string,
-  "jobFitAssessment": {
-    "score": number,
-    "verdict": "Strong match" | "Good match" | "Partial match" | "Weak match",
-    "explanation": string,
-    "strongestReasons": string[],
-    "mainRisks": string[],
-    "companyDecisionWarning": string
-  },
-  "strongestMatchingEvidence": string[],
-  "weakOrMissingSignals": string[],
-  "keywordsToInclude": string[],
-  "keywordsToAvoid": string[],
-  "suggestedProfessionalSummary": string,
-  "rewrittenCvBullets": [
-    {
-      "original": string,
-      "rewritten": string,
-      "reason": string,
-      "integrityClassification": "Directly supported by CV" | "Reasonable reframing" | "Needs user confirmation" | "Not supported and should not be used"
-    }
-  ],
-  "suggestedCvStructure": string[],
-  "atsFriendlySkillsSection": string[],
-  "recruiterInterpretation": string,
-  "finalReconstructionPlan": string[],
-  "integrityAudit": [
-    {
-      "recommendation": string,
-      "classification": "Directly supported by CV" | "Reasonable reframing" | "Needs user confirmation" | "Not supported and should not be used",
-      "explanation": string
-    }
-  ],
-  "precheckWarningSummary": string,
-  "downloadableText": string
-}
-
-Keep arrays concise, usually 3 to 6 items. Keep downloadableText under 700 words.`;
-  }
-
-  return "";
-}
-
 function defaultMaxTokens(name: string) {
-  return name === "cv_quality_precheck" ? 4096 : 12000;
+  return cloudModelServiceContent.maxTokens[name] || cloudModelServiceContent.maxTokens.cv_reconstruction_plan;
 }
 
 function boundedMaxTokens(name: string, configuredValue?: string) {
@@ -131,7 +79,7 @@ function cloudModelMaxTokens(name: string) {
   return boundedMaxTokens(name, process.env.CLOUD_MODEL_MAX_TOKENS);
 }
 
-async function createOpenRouterJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+async function createOpenRouterJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
   let response: OpenAI.Chat.Completions.ChatCompletion;
 
   try {
@@ -142,9 +90,9 @@ async function createOpenRouterJsonResponse<T>(client: OpenAI, name: string, sch
           role: "user",
           content: `${input}
 
-${openRouterSchemaInstruction(name)}
+${schemaInstruction(name)}
 
-Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown. Do not add extra top-level keys.`
+${jsonInstruction("strictTopLevel", name)}`
         }
       ],
       response_format: {
@@ -157,7 +105,7 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
     const status = typeof error === "object" && error !== null && "status" in error ? Number((error as { status?: unknown }).status) : 0;
 
     if (status === 429) {
-      throw new Error("OpenRouter's upstream provider is rate-limited or temporarily overloaded for this model. Try another free model, wait a bit, or use a paid/cloud provider for this CV.");
+      throw new Error(errorMessage("openRouterRateLimited", outputLanguage));
     }
 
     throw error;
@@ -166,10 +114,37 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
   const content = response.choices[0]?.message?.content || "";
 
   if (!content.trim()) {
-    throw new Error("OpenRouter did not return text output.");
+    throw emptyTextOutputError("OpenRouter", outputLanguage);
   }
 
   return parseJsonWithSchema(schema, content, name, "OpenRouter");
+}
+
+async function createDeepSeekJsonResponse<T>(client: OpenAI, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
+  const response = await client.chat.completions.create({
+    model: deepSeekModel(model),
+    messages: [
+      {
+        role: "user",
+        content: `${input}
+
+${jsonInstruction("default", name)}`
+      }
+    ],
+    response_format: {
+      type: "json_object"
+    },
+    temperature: 1,
+    max_tokens: cloudModelMaxTokens(name)
+  });
+
+  const content = response.choices[0]?.message?.content || "";
+
+  if (!content.trim()) {
+    throw emptyTextOutputError("DeepSeek", outputLanguage);
+  }
+
+  return parseJsonWithSchema(schema, content, name, "DeepSeek");
 }
 
 const geminiTools: Interactions.Tool[] = [
@@ -178,12 +153,12 @@ const geminiTools: Interactions.Tool[] = [
   }
 ];
 
-async function createGeminiJsonResponse<T>(client: GoogleGenAI, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+async function createGeminiJsonResponse<T>(client: GoogleGenAI, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
   const interaction = await client.interactions.create({
     model: geminiModel(model),
     input: `${input}
 
-Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.`,
+${jsonInstruction("default", name)}`,
     tools: geminiTools,
     generation_config: {
       temperature: 1,
@@ -196,13 +171,13 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
   const outputText = interaction.output_text || "";
 
   if (!outputText.trim()) {
-    throw new Error("Gemini did not return text output.");
+    throw emptyTextOutputError("Gemini", outputLanguage);
   }
 
   return schema.parse(JSON.parse(extractJson(outputText)));
 }
 
-async function createMistralJsonResponse<T>(apiKey: string, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+async function createMistralJsonResponse<T>(apiKey: string, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
   const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -216,7 +191,7 @@ async function createMistralJsonResponse<T>(apiKey: string, name: string, schema
           role: "user",
           content: `${input}
 
-Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.`
+${jsonInstruction("default", name)}`
         }
       ],
       response_format: {
@@ -229,7 +204,7 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`Mistral request failed (${response.status}): ${errorText}`);
+    throw new Error(errorMessage("requestFailed", outputLanguage, { provider: "Mistral", status: response.status, details: errorText }));
   }
 
   const data = (await response.json()) as {
@@ -249,24 +224,28 @@ Return only valid JSON for the ${name} object. Do not wrap the JSON in Markdown.
     : content || "";
 
   if (!outputText.trim()) {
-    throw new Error("Mistral did not return text output.");
+    throw emptyTextOutputError("Mistral", outputLanguage);
   }
 
   return schema.parse(JSON.parse(extractJson(outputText)));
 }
 
-export async function createCloudJsonResponse<T>(provider: Exclude<Provider, { kind: "ollama" }>, name: string, schema: z.ZodType<T>, input: string, model?: string) {
+export async function createCloudJsonResponse<T>(provider: Exclude<Provider, { kind: "ollama" }>, name: string, schema: z.ZodType<T>, input: string, model?: string, outputLanguage?: OutputLanguage) {
   if (provider.kind === "openai") {
-    return createOpenAiJsonResponse(provider.client, name, schema, input, model);
+    return createOpenAiJsonResponse(provider.client, name, schema, input, model, outputLanguage);
   }
 
   if (provider.kind === "openrouter") {
-    return createOpenRouterJsonResponse(provider.client, name, schema, input, model);
+    return createOpenRouterJsonResponse(provider.client, name, schema, input, model, outputLanguage);
+  }
+
+  if (provider.kind === "deepseek") {
+    return createDeepSeekJsonResponse(provider.client, name, schema, input, model, outputLanguage);
   }
 
   if (provider.kind === "mistral") {
-    return createMistralJsonResponse(provider.apiKey, name, schema, input, model);
+    return createMistralJsonResponse(provider.apiKey, name, schema, input, model, outputLanguage);
   }
 
-  return createGeminiJsonResponse(provider.client, name, schema, input, model);
+  return createGeminiJsonResponse(provider.client, name, schema, input, model, outputLanguage);
 }
