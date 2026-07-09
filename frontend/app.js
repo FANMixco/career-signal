@@ -607,6 +607,18 @@ function updateApiKeyCopy() {
   }
 }
 
+function clearApiKeyInput() {
+  els.openaiApiKey.value = "";
+}
+
+function shouldShowPaidModelSuggestion() {
+  return ["openrouter", "ollama"].includes(els.aiProvider.value);
+}
+
+function paidModelSuggestionHtml() {
+  return shouldShowPaidModelSuggestion() ? `<p class="model-suggestion precheck-suggestion">${escapeHtml(config.feedback.paidModelSuggestion)}</p>` : "";
+}
+
 async function runPrecheck() {
   if (state.precheckInFlight) return;
 
@@ -726,6 +738,7 @@ function renderPrecheck(data) {
   show(els.precheckPanel);
   els.precheckResult.innerHTML = `
     <div class="score ${scoreLevelClass(score)}">${score}<span>/ 100</span></div>
+    ${paidModelSuggestionHtml()}
     <div class="result-grid">${blocks.map(([title, value]) => renderResultBlock(title, value)).join("")}</div>
     ${data.agePrivacyWarning?.show ? `<p class="warning">${escapeHtml(data.agePrivacyWarning.message)}</p>` : ""}
     ${renderPersonalDataWarnings(data.personalDataWarnings)}
@@ -981,10 +994,14 @@ function setBusy(isBusy) {
 });
 
 els.aiProvider.addEventListener("change", () => {
+  clearApiKeyInput();
   populateAiModels();
   updateApiKeyCopy();
 });
-els.aiModel.addEventListener("change", updateApiKeyCopy);
+els.aiModel.addEventListener("change", () => {
+  clearApiKeyInput();
+  updateApiKeyCopy();
+});
 els.outputLanguage.addEventListener("change", () => {
   localStorage.setItem(languageStorageKey, els.outputLanguage.value);
   refreshLanguage();
