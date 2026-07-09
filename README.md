@@ -40,9 +40,11 @@ You need:
 - A modern browser such as Chrome, Edge, Firefox, or Safari.
 - Node.js installed on your computer.
 - One AI option:
+  - OpenRouter API key from [OpenRouter API keys](https://openrouter.ai/settings/keys),
+  - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys),
   - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey),
-  - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys), or
-  - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/).
+  - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/),
+  - DeepSeek API key from [DeepSeek Platform API keys](https://platform.deepseek.com/api_keys),
   - Or [Ollama](https://ollama.com/download) installed locally with a supported model such as `gemma4` or `qwen3.6`.
 - A CV, either as:
   - a CV PDF or LinkedIn PDF export, or
@@ -139,7 +141,9 @@ Get a key from the provider you want to use:
 - Gemini: [Google AI Studio API keys](https://aistudio.google.com/app/apikey)
 - OpenAI: [OpenAI Platform API keys](https://platform.openai.com/api-keys)
 - Mistral: [Mistral AI Console API keys](https://console.mistral.ai/api-keys/)
-
+- DeepSeek: [DeepSeek Platform API keys](https://platform.deepseek.com/api_keys)
+- OpenRouter: [OpenRouter API keys](https://openrouter.ai/settings/keys)
+ 
 You may need to sign in, create a project, add billing, or accept the provider's terms before a key works. Keep the key private. Anyone with the key may be able to use your account quota or billing.
 
 #### Paste The Key In The App
@@ -178,6 +182,8 @@ OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=
 GEMINI_MODEL=models/gemini-3.5-flash
+DEEPSEEK_API_KEY=
+DEEPSEEK_MODEL=deepseek-v4-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
 OLLAMA_BASE_URL=http://localhost:11434
@@ -192,6 +198,8 @@ OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5.5
 GEMINI_API_KEY=your_gemini_key_here
 GEMINI_MODEL=models/gemini-3.5-flash
+DEEPSEEK_API_KEY=
+DEEPSEEK_MODEL=deepseek-v4-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
 OLLAMA_BASE_URL=http://localhost:11434
