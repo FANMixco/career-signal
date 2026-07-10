@@ -249,7 +249,8 @@
   },
   "footer": {
     "createdByPrefix": "Creado por",
-    "contributeText": "Sugerir cambios en GitHub"
+    "contributeText": "Sugerir cambios en GitHub",
+    "version": "1.0.25"
   },
   "cvBasics": {
     "title": "Bases de un CV de alto impacto",

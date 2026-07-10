@@ -249,7 +249,8 @@
   },
   "footer": {
     "createdByPrefix": "Créé par",
-    "contributeText": "Suggérer des changements sur GitHub"
+    "contributeText": "Suggérer des changements sur GitHub",
+    "version": "1.0.25"
   },
   "cvBasics": {
     "title": "Bases d'un CV à fort impact",

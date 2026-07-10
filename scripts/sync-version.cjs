@@ -32,6 +32,23 @@ function syncLockfileVersion(relativePath, version) {
   writeJson(relativePath, lockfile);
 }
 
+function syncFrontendContentVersion(version) {
+  const contentDirectory = path.join(repoRoot, "frontend", "content");
+  const contentFiles = fs
+    .readdirSync(contentDirectory)
+    .filter((fileName) => /^app\.[a-z]{2}\.json$/.test(fileName));
+
+  for (const fileName of contentFiles) {
+    const relativePath = path.join("frontend", "content", fileName);
+    const content = readJson(relativePath);
+    content.footer = {
+      ...content.footer,
+      version
+    };
+    writeJson(relativePath, content);
+  }
+}
+
 function parseVersion(version) {
   const match = /^(\d+)\.(\d+)\.(\d+)(?:[-+][0-9A-Za-z-.]+)?$/.exec(version);
 
@@ -69,5 +86,6 @@ syncPackageVersion("package.json", version);
 syncPackageVersion("backend/package.json", version);
 syncLockfileVersion("package-lock.json", version);
 syncLockfileVersion("backend/package-lock.json", version);
+syncFrontendContentVersion(version);
 
 console.log(`Synced project version to ${version}.`);

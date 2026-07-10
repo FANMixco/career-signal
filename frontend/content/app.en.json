@@ -442,7 +442,8 @@
     "creatorUrl": "https://federiconavarrete.com",
     "separator": "/",
     "contributeText": "Suggest changes on GitHub",
-    "contributeUrl": "https://github.com/FANMixco/career-signal"
+    "contributeUrl": "https://github.com/FANMixco/career-signal",
+    "version": "1.0.25"
   },
   "appHelp": {
     "title": "Career Signal guide",

@@ -249,7 +249,8 @@
   },
   "footer": {
     "createdByPrefix": "Erstellt von",
-    "contributeText": "Änderungen auf GitHub vorschlagen"
+    "contributeText": "Änderungen auf GitHub vorschlagen",
+    "version": "1.0.25"
   },
   "cvBasics": {
     "title": "Grundlagen eines starken CV",

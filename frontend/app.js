@@ -363,10 +363,16 @@ function localizedTitle(title) {
 }
 
 function renderFooter() {
+  const version = config.footer.version ? `
+    <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
+    <span>${escapeHtml(`v${config.footer.version}`)}</span>
+  ` : "";
+
   els.siteFooterInner.innerHTML = `
     <span>${escapeHtml(config.footer.createdByPrefix)} <a href="${escapeHtml(config.footer.creatorUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.creatorName)}</a></span>
     <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
     <a href="${escapeHtml(config.footer.contributeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.contributeText)}</a>
+    ${version}
   `;
 }
 
