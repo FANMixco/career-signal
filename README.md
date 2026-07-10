@@ -72,6 +72,10 @@ You can paste a supported AI provider API key into the app while the page is ope
 
 ## Support
 
+If you believe the project is valuable for you, feel free to support it:
+
+[![image](https://raw.githubusercontent.com/FANMixco/Xamarin-SearchBar/master/bmc-rezr5vpd.gif)](https://buymeacoffee.com/fanmixco)
+
 [![Get it from Microsoft](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Get_it_from_Microsoft_Badge.svg/330px-Get_it_from_Microsoft_Badge.svg.png)](https://apps.microsoft.com/detail/9p4nqtp3mj0r?hl=en-US&gl=LU)
 
 ## Contributing
