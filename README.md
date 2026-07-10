@@ -6,7 +6,7 @@
 |:-------:|:-----:|
 | [![Build Windows Desktop Release](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml) | [![Build Experimental macOS Desktop App](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml) |
 
-# Docker Images Status
+## Docker Images Status
 
 | Docker | Docker Backend |
 |:------:|:---------------:|
