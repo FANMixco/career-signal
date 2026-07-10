@@ -35,6 +35,26 @@
     "jobDescription": "Collez la description complète du poste"
   },
   "options": {
+    "aiModels": {
+      "openrouter": [
+        [
+          "meta-llama/llama-3.3-70b-instruct:free",
+          "Llama 3.3 70B Instruct (gratuit)"
+        ],
+        [
+          "openai/gpt-oss-20b:free",
+          "GPT-OSS 20B (gratuit)"
+        ],
+        [
+          "qwen/qwen3-coder:free",
+          "Qwen3 Coder (gratuit)"
+        ],
+        [
+          "tencent/hy3:free",
+          "Tencent Hunyuan HY3 (gratuit)"
+        ]
+      ]
+    },
     "studiesListed": [
       [
         "",
