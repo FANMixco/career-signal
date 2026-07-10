@@ -323,7 +323,7 @@
             "items": [
               "Gib deine Jahre Berufserfahrung an und wähle, ob Studien im CV stehen.",
               "Lade einen CV als PDF, einen LinkedIn-PDF-Export hoch oder füge den CV-Text ein.",
-              "Wähle OpenRouter (kostenlose Modelle), OpenAI, Gemini, Mistral, DeepSeek oder Ollama (offline, experimentell), dann ein Modell.",
+              "Wähle OpenRouter, OpenAI, Gemini, Mistral, DeepSeek oder Ollama (offline, experimentell), dann ein Modell. Die aufgelisteten OpenRouter-Modelle sind kostenlos; eigene OpenRouter-Modell-IDs koennen je nach OpenRouter-Konto kostenpflichtig sein.",
               "Für Cloud-Anbieter füge einen Schlüssel hinzu, falls keiner konfiguriert ist.",
               "Für Ollama installiere Ollama lokal, lade das gewählte Modell herunter und lasse Ollama laufen.",
               "Starte zuerst die CV-Nachweisprüfung.",

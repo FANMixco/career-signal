@@ -324,7 +324,7 @@
             "items": [
               "Ajoutez vos années d’expérience et indiquez si les études sont listées dans le CV.",
               "Téléversez un CV PDF, un export LinkedIn PDF ou collez le texte du CV.",
-              "Choisissez OpenRouter (modèles gratuits), OpenAI, Gemini, Mistral, DeepSeek ou Ollama (offline, expérimental), puis un modèle.",
+              "Choisissez OpenRouter, OpenAI, Gemini, Mistral, DeepSeek ou Ollama (offline, expérimental), puis un modèle. Les modèles OpenRouter listés sont gratuits ; les IDs de modèle OpenRouter personnalisés peuvent être payants selon votre compte OpenRouter.",
               "Pour les fournisseurs cloud, ajoutez une clé si elle n’est pas déjà configurée.",
               "Pour Ollama, installez Ollama localement, téléchargez le modèle choisi et gardez Ollama en cours d’exécution.",
               "Lancez d’abord le précontrôle des preuves du CV.",

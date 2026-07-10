@@ -10,6 +10,8 @@ const state = {
   continueDespiteWeakPrecheck: false,
   lastPrecheckPayload: null,
   lastAnalysis: null,
+  customAiModels: {},
+  currentAiProvider: "",
   downloadableText: "",
   appHelpTab: "use"
 };
@@ -581,14 +583,27 @@ function selectedAiModel() {
   return isCustomModelSelected() ? els.ollamaCustomModel.value.trim() : els.aiModel.value;
 }
 
+function saveCustomModelForProvider(provider) {
+  if (isCustomModelSelected()) {
+    state.customAiModels[provider] = els.ollamaCustomModel.value.trim();
+  }
+}
+
+function restoreCustomModel() {
+  els.ollamaCustomModel.value = state.customAiModels[els.aiProvider.value] || "";
+}
+
 function updateApiKeyCopy() {
   const providerCopy = config.apiKeys[els.aiProvider.value] || config.apiKeys.gemini;
   const isOllama = els.aiProvider.value === "ollama";
   const isCustomModel = isCustomModelSelected();
+  const settingsGrid = els.aiProvider.closest(".ai-settings-grid");
   els.aiApiKeyLabel.textContent = providerCopy.label;
   els.openaiApiKey.setAttribute("placeholder", providerCopy.placeholder);
   els.openaiApiKey.disabled = isOllama;
   els.openaiApiKey.closest(".api-key-field").classList.toggle("hidden", isOllama);
+  settingsGrid?.classList.toggle("custom-model-active", isCustomModel);
+  settingsGrid?.classList.toggle("ollama-active", isOllama);
   els.apiKeyHelpLink.href = providerCopy.keyUrl;
   els.apiKeyHelpLink.textContent = providerCopy.keyLinkText;
   show(els.ollamaUrlField, isOllama);
@@ -997,13 +1012,22 @@ function setBusy(isBusy) {
 });
 
 els.aiProvider.addEventListener("change", () => {
+  saveCustomModelForProvider(state.currentAiProvider || els.aiProvider.value);
   clearApiKeyInput();
   populateAiModels();
+  restoreCustomModel();
   updateApiKeyCopy();
+  state.currentAiProvider = els.aiProvider.value;
 });
 els.aiModel.addEventListener("change", () => {
-  clearApiKeyInput();
+  saveCustomModelForProvider(els.aiProvider.value);
+  restoreCustomModel();
   updateApiKeyCopy();
+});
+els.ollamaCustomModel.addEventListener("input", () => {
+  if (isCustomModelSelected()) {
+    state.customAiModels[els.aiProvider.value] = els.ollamaCustomModel.value.trim();
+  }
 });
 els.outputLanguage.addEventListener("change", () => {
   localStorage.setItem(languageStorageKey, els.outputLanguage.value);
@@ -1073,6 +1097,7 @@ populateStaticSelects();
 els.outputLanguage.value = initialLanguage;
 populateAiModels();
 populateTargetStyles();
+state.currentAiProvider = els.aiProvider.value;
 updateApiKeyCopy();
 updateMetadataVisibility();
 setFeedback("", config.feedback.initial);

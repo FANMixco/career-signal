@@ -43,7 +43,7 @@
     "aiProviders": [
       [
         "openrouter",
-        "OpenRouter (free models)"
+        "OpenRouter"
       ],
       [
         "openai",
@@ -70,15 +70,15 @@
       "openrouter": [
         [
           "meta-llama/llama-3.3-70b-instruct:free",
-          "Llama 3.3 70B Instruct"
+          "Llama 3.3 70B Instruct (free)"
         ],
         [
           "openai/gpt-oss-20b:free",
-          "GPT-OSS 20B"
+          "GPT-OSS 20B (free)"
         ],
         [
           "qwen/qwen3-coder:free",
-          "Qwen3 Coder"
+          "Qwen3 Coder (free)"
         ]
       ],
       "gemini": [
@@ -384,7 +384,7 @@
             "items": [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a CV PDF, LinkedIn PDF export, or paste your CV text.",
-              "Choose OpenRouter (free models), OpenAI, Gemini, Mistral, DeepSeek, or Ollama (offline, experimental), then choose a model.",
+              "Choose OpenRouter, OpenAI, Gemini, Mistral, DeepSeek, or Ollama (offline, experimental), then choose a model. OpenRouter's listed models are free; custom OpenRouter model IDs may be paid depending on your OpenRouter account.",
               "For cloud providers, add a key if it is not already configured.",
               "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",

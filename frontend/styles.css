@@ -195,7 +195,20 @@ h2 {
 }
 
 .ai-settings-grid {
-  grid-template-columns: minmax(170px, 0.75fr) minmax(220px, 0.9fr) minmax(340px, 1.35fr);
+  grid-template-columns: minmax(170px, 0.8fr) minmax(220px, 0.9fr) minmax(260px, 1fr);
+}
+
+.ai-settings-grid.custom-model-active {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ai-settings-grid.custom-model-active #ollamaCustomModelField,
+.ai-settings-grid.custom-model-active .api-key-field {
+  grid-column: auto;
+}
+
+.ai-settings-grid.custom-model-active.ollama-active #ollamaUrlField {
+  grid-column: 2;
 }
 
 label {
@@ -756,6 +769,15 @@ pre {
 
   .topbar {
     gap: 10px;
+  }
+
+  .ai-settings-grid.custom-model-active,
+  .ai-settings-grid.custom-model-active.ollama-active {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-settings-grid.custom-model-active.ollama-active #ollamaUrlField {
+    grid-column: auto;
   }
 
   .topbar-actions {
