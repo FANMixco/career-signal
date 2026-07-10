@@ -36,9 +36,4 @@ Thumbs.db
 .idea/
 
 # Internal planning docs
-docs/
-01_PRODUCT_VISION.md
-02_CODEX_BUILD_BRIEF.md
-03_FUNCTIONAL_REQUIREMENTS.md
-04_AI_PROMPTS.md
-05_API_CONTRACT.md
+private_specs/

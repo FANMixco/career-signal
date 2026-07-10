@@ -35,6 +35,26 @@
     "jobDescription": "Vollständige Stellenbeschreibung einfügen"
   },
   "options": {
+    "aiModels": {
+      "openrouter": [
+        [
+          "meta-llama/llama-3.3-70b-instruct:free",
+          "Llama 3.3 70B Instruct (kostenlos)"
+        ],
+        [
+          "openai/gpt-oss-20b:free",
+          "GPT-OSS 20B (kostenlos)"
+        ],
+        [
+          "qwen/qwen3-coder:free",
+          "Qwen3 Coder (kostenlos)"
+        ],
+        [
+          "tencent/hy3:free",
+          "Tencent Hunyuan HY3 (kostenlos)"
+        ]
+      ]
+    },
     "studiesListed": [
       [
         "",
