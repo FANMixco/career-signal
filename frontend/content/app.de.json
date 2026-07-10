@@ -374,6 +374,14 @@
         ]
       },
       {
+        "title": "Referenzen",
+        "items": [
+          "Füge Referenzen oder Kontaktdaten von Referenzpersonen nicht standardmäßig hinzu.",
+          "Nutze Referenzen auf Anfrage nur, wenn es im Zielland, Sektor oder Bewerbungsformular erwartet wird.",
+          "Schütze die Privatsphäre anderer Personen: Teile Namen, Telefonnummern, E-Mails oder direkte Empfehlungen nur auf Anfrage und wenn die Referenzperson zugestimmt hat."
+        ]
+      },
+      {
         "title": "Kontaktgrundlagen",
         "items": [
           "Setze Name, E-Mail, Telefon und hilfreichen Standort nach oben.",
@@ -407,6 +415,10 @@
               "Wenn der CV genug Nachweise hat, füge Zielunternehmen, optionalen Unternehmenskontext und Stellenbeschreibung hinzu.",
               "Erstelle den Rekonstruktionsplan und prüfe ihn, bevor du etwas verwendest."
             ]
+          },
+          {
+            "title": "Zu Anbieter-Schlüsseln",
+            "text": "Wenn im Backend bereits Anbieter-Schlüssel konfiguriert sind, kannst du das Schlüsselfeld leer lassen. Falls nicht, füge deinen eigenen Anbieter-Schlüssel für diese Anfrage ein. Career Signal speichert den Schlüssel nicht; er wird nur an das genutzte Backend gesendet, damit der gewählte KI-Anbieter die CV-Prüfung verarbeiten kann."
           },
           {
             "title": "Wichtige Gewohnheit",
@@ -524,10 +536,6 @@
             "text": "Career Signal wurde von Federico Navarrete erstellt, einem Technologen, Autor, Speaker und Open-Source-Mitwirkenden mit Sitz in Luxemburg."
           },
           {
-            "title": "Warum du einen API-Schlüssel angibst",
-            "text": "Career Signal ist Open Source und nutzt kein gemeinsames bezahltes KI-Konto für alle Nutzer. Dein eigener Schlüssel hält die Nutzung in deinem Konto, lässt dich Kosten und Limits kontrollieren und vermeidet, dass die App ein zentrales Geheimnis speichert. Der Schlüssel wird nur an das Backend gesendet, das du für diese Anfrage nutzt."
-          },
-          {
             "title": "Warum es dieses Projekt gibt",
             "text": "Das Projekt hilft Menschen, ihren CV kritischer zu prüfen, bevor sie ihn auf eine Rolle zuschneiden. Es konzentriert sich auf Evidenz, Klarheit, Risiko und Relevanz, ohne menschliches Urteil zu ersetzen."
           },
@@ -593,8 +601,20 @@
     "Consulting": "Beratung",
     "Strategy": "Strategie",
     "Product": "Produkt",
-    "Cloud": "Cloud",
+    "IT / Technology": "IT / Technologie",
     "Engineering": "Engineering",
+    "Public / Civil Service": "Öffentlicher Dienst",
+    "Human Resources": "Personalwesen",
+    "Legal": "Recht",
+    "Translation": "Übersetzung",
+    "Healthcare / Medicine": "Gesundheit / Medizin",
+    "Finance / Accounting": "Finanzen / Buchhaltung",
+    "Marketing / Communications": "Marketing / Kommunikation",
+    "Research / Academic": "Forschung / Akademisch",
+    "Operations / Administration": "Betrieb / Verwaltung",
+    "Data / Analytics": "Daten / Analytik",
+    "Security / Risk / Compliance": "Sicherheit / Risiko / Compliance",
+    "Project / Program Management": "Projekt- / Programmmanagement",
     "Procurement": "Einkauf",
     "Sales": "Vertrieb",
     "Leadership": "Fuehrung",

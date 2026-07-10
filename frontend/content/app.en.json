@@ -258,8 +258,20 @@
     "Consulting",
     "Strategy",
     "Product",
-    "Cloud",
+    "IT / Technology",
     "Engineering",
+    "Public / Civil Service",
+    "Human Resources",
+    "Legal",
+    "Translation",
+    "Healthcare / Medicine",
+    "Finance / Accounting",
+    "Marketing / Communications",
+    "Research / Academic",
+    "Operations / Administration",
+    "Data / Analytics",
+    "Security / Risk / Compliance",
+    "Project / Program Management",
     "Procurement",
     "Sales",
     "Leadership",
@@ -458,6 +470,10 @@
             ]
           },
           {
+            "title": "About provider keys",
+            "text": "If the backend already has provider keys configured, you can leave the key field empty. If not, paste your own provider key for that request. Career Signal does not store the key; it is sent only to the backend you are using so the selected AI provider can process the CV check."
+          },
+          {
             "title": "Important habit",
             "text": "Use the output as a review and rewriting assistant. Confirm every title, date, employer, tool, metric, and claim before sending a CV."
           }
@@ -571,10 +587,6 @@
           {
             "title": "About the creator",
             "text": "Career Signal was created by Federico Navarrete, a technologist, author, speaker, and open-source contributor based in Luxembourg."
-          },
-          {
-            "title": "Why you provide an API key",
-            "text": "Career Signal is open source and does not run a shared paid AI account for users. Bringing your own provider key keeps usage under your account, lets you control spending and limits, and avoids the app storing a central secret. The key is sent only to the backend you are using for that request."
           },
           {
             "title": "Why this exists",
@@ -726,6 +738,14 @@
           "Avoid date of birth, exact age, marital status, family status, gender, citizenship, nationality, full home address, or photo references unless they are explicitly required.",
           "Use location only at the useful level for the role, such as city, country, or work authorization when relevant.",
           "These details can create privacy, discrimination, or age-bias risk and usually do not strengthen the evidence of impact."
+        ]
+      },
+      {
+        "title": "References",
+        "items": [
+          "Do not include references or referee contact details by default.",
+          "Use references available upon request only when it is expected in the target country, sector, or application form.",
+          "Protect other people's privacy: share names, phone numbers, emails, or direct recommendations only when requested and when the referee has agreed."
         ]
       },
       {

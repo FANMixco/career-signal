@@ -381,6 +381,14 @@
           "Añade LinkedIn o portfolio cuando ayude a demostrar el perfil.",
           "Que falten datos de contacto es poco común, pero crea fricción innecesaria para reclutadores."
         ]
+      },
+      {
+        "title": "Referencias",
+        "items": [
+          "No incluyas referencias ni datos de contacto de referencias por defecto.",
+          "Usa referencias disponibles bajo solicitud solo cuando sea esperado en el país, sector o formulario de aplicación.",
+          "Protege la privacidad de otras personas: comparte nombres, teléfonos, emails o recomendaciones directas solo cuando te lo pidan y la referencia haya aceptado."
+        ]
       }
     ]
   },
@@ -408,6 +416,10 @@
               "Si el CV tiene suficiente evidencia, añade la empresa objetivo, contexto opcional de la empresa y la descripción del puesto.",
               "Genera el plan de reconstrucción y revísalo antes de usar cualquier cosa."
             ]
+          },
+          {
+            "title": "Sobre las claves de proveedor",
+            "text": "Si el backend ya tiene claves configuradas, puedes dejar el campo de clave vacío. Si no, pega tu propia clave de proveedor para esa solicitud. Career Signal no almacena la clave; se envía solo al backend que estás usando para que el proveedor de IA elegido pueda procesar la revisión del CV."
           },
           {
             "title": "Hábito importante",
@@ -525,10 +537,6 @@
             "text": "Career Signal fue creado por Federico Navarrete, tecnólogo, autor, speaker y colaborador open source basado en Luxemburgo."
           },
           {
-            "title": "Por qué necesitas una clave API",
-            "text": "Career Signal es open source y no usa una cuenta de IA compartida para todos. Usar tu propia clave mantiene el uso en tu cuenta, te permite controlar costes y límites, y evita que la app almacene un secreto central. La clave se envía solo al backend que uses para esa solicitud."
-          },
-          {
             "title": "Por qué existe",
             "text": "El proyecto ayuda a revisar CVs con más criterio antes de adaptarlos a un puesto. Se enfoca en evidencia, claridad, riesgo y relevancia sin sustituir el juicio humano."
           },
@@ -594,8 +602,20 @@
     "Consulting": "Consultoria",
     "Strategy": "Estrategia",
     "Product": "Producto",
-    "Cloud": "Cloud",
+    "IT / Technology": "IT / Tecnología",
     "Engineering": "Ingenieria",
+    "Public / Civil Service": "Administración pública",
+    "Human Resources": "Recursos humanos",
+    "Legal": "Legal",
+    "Translation": "Traducción",
+    "Healthcare / Medicine": "Salud / Medicina",
+    "Finance / Accounting": "Finanzas / Contabilidad",
+    "Marketing / Communications": "Marketing / Comunicaciones",
+    "Research / Academic": "Investigación / Académico",
+    "Operations / Administration": "Operaciones / Administración",
+    "Data / Analytics": "Datos / Analítica",
+    "Security / Risk / Compliance": "Seguridad / Riesgo / Cumplimiento",
+    "Project / Program Management": "Gestión de proyectos / programas",
     "Procurement": "Compras",
     "Sales": "Ventas",
     "Leadership": "Liderazgo",

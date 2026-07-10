@@ -375,6 +375,14 @@
         ]
       },
       {
+        "title": "Références",
+        "items": [
+          "N'ajoutez pas de références ni de coordonnées de référents par défaut.",
+          "Utilisez références disponibles sur demande seulement lorsque c'est attendu dans le pays, le secteur ou le formulaire de candidature.",
+          "Protégez la confidentialité des autres personnes : partagez noms, téléphones, emails ou recommandations directes seulement sur demande et avec l'accord du référent."
+        ]
+      },
+      {
         "title": "Coordonnées essentielles",
         "items": [
           "Placez nom, email, téléphone et localisation utile en haut.",
@@ -408,6 +416,10 @@
               "Si le CV contient assez de preuves, ajoutez l’entreprise cible, un contexte d’entreprise optionnel et la description du poste.",
               "Générez le plan de reconstruction et relisez-le avant d’utiliser quoi que ce soit."
             ]
+          },
+          {
+            "title": "À propos des clés fournisseur",
+            "text": "Si le backend a déjà des clés fournisseur configurées, vous pouvez laisser le champ de clé vide. Sinon, collez votre propre clé fournisseur pour cette requête. Career Signal ne stocke pas la clé ; elle est envoyée seulement au backend utilisé afin que le fournisseur IA choisi puisse traiter la vérification du CV."
           },
           {
             "title": "Habitude importante",
@@ -525,10 +537,6 @@
             "text": "Career Signal a été créé par Federico Navarrete, technologue, auteur, speaker et contributeur open source basé au Luxembourg."
           },
           {
-            "title": "Pourquoi fournir une clé API",
-            "text": "Career Signal est open source et n'utilise pas de compte IA partagé pour tous les utilisateurs. Votre propre clé garde l'usage sur votre compte, vous permet de contrôler les coûts et les limites, et évite que l'app stocke un secret central. La clé est envoyée seulement au backend utilisé pour cette requête."
-          },
-          {
             "title": "Pourquoi ce projet existe",
             "text": "Le projet aide les personnes à relire leur CV de façon plus critique avant de l’adapter à un poste. Il se concentre sur les preuves, la clarté, les risques et la pertinence sans remplacer le jugement humain."
           },
@@ -594,8 +602,20 @@
     "Consulting": "Conseil",
     "Strategy": "Strategie",
     "Product": "Produit",
-    "Cloud": "Cloud",
+    "IT / Technology": "IT / Technologie",
     "Engineering": "Ingenierie",
+    "Public / Civil Service": "Fonction publique",
+    "Human Resources": "Ressources humaines",
+    "Legal": "Juridique",
+    "Translation": "Traduction",
+    "Healthcare / Medicine": "Santé / Médecine",
+    "Finance / Accounting": "Finance / Comptabilité",
+    "Marketing / Communications": "Marketing / Communication",
+    "Research / Academic": "Recherche / Académique",
+    "Operations / Administration": "Opérations / Administration",
+    "Data / Analytics": "Données / Analytique",
+    "Security / Risk / Compliance": "Sécurité / Risque / Conformité",
+    "Project / Program Management": "Gestion de projets / programmes",
     "Procurement": "Achats",
     "Sales": "Ventes",
     "Leadership": "Leadership",
