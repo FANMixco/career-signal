@@ -1,8 +1,17 @@
 # Career Signal Engine
 
-| Windows | macOS | Docker | Docker Backend |
-|:-------:|:-----:|:------:|:---------------:|
-| [![Build Windows Desktop Release](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml) | [![Build Experimental macOS Desktop App](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml) | [![Publish Docker Image](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish.yml) | [![Publish Docker Image Backend](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish-be.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/docker-publish-be.yml) |
+## Apps Status
+
+| Windows | macOS |
+|:-------:|:-----:|
+| [![Build Windows Desktop Release](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml) | [![Build Experimental macOS Desktop App](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml) |
+
+# Docker Images Status
+
+| Docker | Docker Backend |
+|:------:|:---------------:|
+| [![Build Windows Desktop Release](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/desktop-release.yml) | [![Build Experimental macOS Desktop App](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml/badge.svg)](https://github.com/FANMixco/career-signal/actions/workflows/macos-experimental.yml) |
+
 
 Career Signal Engine is a local CV review app. It checks whether a CV has enough real evidence before helping the user create a job-specific reconstruction plan.
 
