@@ -706,6 +706,31 @@ button.is-loading::before {
   margin: 0;
 }
 
+.evidence-recovery-wrap,
+.evidence-recovery {
+  align-self: stretch;
+  width: 100%;
+}
+
+.evidence-recovery {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfaf7;
+  padding: 16px;
+}
+
+.evidence-recovery h3 {
+  margin: 0 0 8px;
+}
+
+.evidence-recovery > p {
+  margin-bottom: 12px;
+}
+
+.recovery-example + .recovery-example {
+  margin-top: 12px;
+}
+
 .decision-action {
   width: auto;
   min-width: min(100%, 260px);

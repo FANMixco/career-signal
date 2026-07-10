@@ -778,6 +778,132 @@ function renderPersonalDataWarnings(warnings) {
   `;
 }
 
+function inferRecoveryContext(cvText) {
+  const lower = cvText.toLowerCase();
+  const context = {
+    role: config.evidenceRecovery.genericRole,
+    subjects: config.evidenceRecovery.genericSubjects,
+    outcomes: config.evidenceRecovery.genericOutcomes
+  };
+
+  if (/\b(?:nurse|nursing|patient|patients|ward|hospital|clinic|care|healthcare|medical)\b/.test(lower)) {
+    return {
+      role: config.evidenceRecovery.contexts.healthcare.role,
+      subjects: config.evidenceRecovery.contexts.healthcare.subjects,
+      outcomes: config.evidenceRecovery.contexts.healthcare.outcomes
+    };
+  }
+
+  if (/\b(?:teacher|teaching|student|students|class|classes|school|training|curriculum|learning)\b/.test(lower)) {
+    return {
+      role: config.evidenceRecovery.contexts.education.role,
+      subjects: config.evidenceRecovery.contexts.education.subjects,
+      outcomes: config.evidenceRecovery.contexts.education.outcomes
+    };
+  }
+
+  if (/\b(?:sales|customer|customers|client|clients|account|accounts|revenue|pipeline)\b/.test(lower)) {
+    return {
+      role: config.evidenceRecovery.contexts.customer.role,
+      subjects: config.evidenceRecovery.contexts.customer.subjects,
+      outcomes: config.evidenceRecovery.contexts.customer.outcomes
+    };
+  }
+
+  if (/\b(?:system|systems|application|applications|software|cloud|data|users|platform|database|automation|engineering)\b/.test(lower)) {
+    return {
+      role: config.evidenceRecovery.contexts.technology.role,
+      subjects: config.evidenceRecovery.contexts.technology.subjects,
+      outcomes: config.evidenceRecovery.contexts.technology.outcomes
+    };
+  }
+
+  if (/\b(?:operation|operations|process|processes|logistics|inventory|service|services|compliance|quality)\b/.test(lower)) {
+    return {
+      role: config.evidenceRecovery.contexts.operations.role,
+      subjects: config.evidenceRecovery.contexts.operations.subjects,
+      outcomes: config.evidenceRecovery.contexts.operations.outcomes
+    };
+  }
+
+  return context;
+}
+
+function candidateRecoveryLines(cvText, precheck) {
+  const fromPrecheck = Array.isArray(precheck?.examplesOfWeakBullets) ? precheck.examplesOfWeakBullets : [];
+  const fromText = cvText
+    .split(/\r?\n/)
+    .map((line) => line.trim().replace(/^(?:[-*]|\u2022)\s*/, ""))
+    .filter((line) => line.length >= 24 && line.length <= 180)
+    .filter((line) => /\b(?:responsible|participated|worked|helped|assisted|handled|managed|supported|provided|prepared|coordinated)\b/i.test(line))
+    .slice(0, 4);
+
+  return [...new Set([...fromPrecheck, ...fromText])].slice(0, 4);
+}
+
+function buildEvidenceRecoveryExamples() {
+  const recovery = config.evidenceRecovery;
+  const context = inferRecoveryContext(state.cvText || "");
+  const weakLines = candidateRecoveryLines(state.cvText || "", state.precheck);
+  const questions = Array.isArray(state.precheck?.questionsToRecoverMetrics) ? state.precheck.questionsToRecoverMetrics.slice(0, 5) : [];
+  const missingEvidence = Array.isArray(state.precheck?.missingEvidenceTypes) ? state.precheck.missingEvidenceTypes.slice(0, 4) : [];
+
+  return {
+    context,
+    weakLines,
+    missingEvidence,
+    questions: questions.length > 0 ? questions : recovery.defaultQuestions
+  };
+}
+
+function renderEvidenceRecoveryExamples() {
+  const recovery = config.evidenceRecovery;
+  const examples = buildEvidenceRecoveryExamples();
+  const subject = examples.context.subjects;
+  const outcome = examples.context.outcomes;
+  const role = examples.context.role;
+  const weakItems =
+    examples.weakLines.length > 0
+      ? examples.weakLines
+          .map(
+            (line) => `
+              <div class="recovery-example">
+                <p class="example">${escapeHtml(recovery.beforePrefix)} ${escapeHtml(line)}</p>
+                <p class="example strong">${escapeHtml(
+                  recovery.afterPattern
+                    .replace("{activity}", line.replace(/[.!?]$/, "").toLowerCase())
+                    .replace("{subjects}", subject)
+                    .replace("{outcomes}", outcome)
+                )}</p>
+              </div>
+            `
+          )
+          .join("")
+      : `<p>${escapeHtml(recovery.noWeakExamples)}</p>`;
+
+  return `
+    <section class="evidence-recovery">
+      <h3>${escapeHtml(recovery.title)}</h3>
+      <p>${escapeHtml(recovery.intro)}</p>
+      <p class="warning">${escapeHtml(recovery.guardrail)}</p>
+      <div class="result-grid">
+        ${renderResultBlock(
+          recovery.summaryTitle,
+          `<p class="example strong">${escapeHtml(
+            recovery.summaryPattern
+              .replace("{role}", role)
+              .replace("{subjects}", subject)
+              .replace("{outcomes}", outcome)
+          )}</p>`
+        )}
+        ${renderResultBlock(recovery.missingEvidenceTitle, list(examples.missingEvidence.length > 0 ? examples.missingEvidence : recovery.defaultMissingEvidence))}
+        ${renderResultBlock(recovery.bulletTitle, weakItems)}
+        ${renderResultBlock(recovery.questionsTitle, list(examples.questions))}
+      </div>
+    </section>
+  `;
+}
+
 function formatPrecheckValue(precheck, key, type) {
   const value = precheck[key];
 
@@ -798,12 +924,17 @@ function formatPrecheckValue(precheck, key, type) {
 
 function renderDecisionGate(recommendation, questions, warnings = []) {
   els.decisionGate.innerHTML = "";
+  const examplesContainer = document.createElement("div");
+  examplesContainer.className = "evidence-recovery-wrap hidden";
+
   const improve = document.createElement("button");
   improve.className = recommendation === baseConfig.recommendations.improve ? "primary" : "secondary";
   improve.classList.add("decision-action");
-  improve.textContent = displayRecommendation(baseConfig.recommendations.improve);
+  improve.textContent = config.buttons.showImprovementExamples;
   improve.addEventListener("click", () => {
-    els.decisionGate.insertAdjacentHTML("beforeend", `<div class="warning">${list(questions)}</div>`);
+    examplesContainer.innerHTML = renderEvidenceRecoveryExamples();
+    show(examplesContainer, true);
+    examplesContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 
   const continueButton = document.createElement("button");
@@ -831,12 +962,12 @@ function renderDecisionGate(recommendation, questions, warnings = []) {
       warningNote.textContent = config.feedback.precheckPassedWithWarnings;
       els.decisionGate.append(warningNote);
     }
-    els.decisionGate.append(continueButton, improve);
+    els.decisionGate.append(continueButton, improve, examplesContainer);
   } else {
     const strongWarning = document.createElement("p");
     strongWarning.className = "warning";
     strongWarning.textContent = config.weakCvWarning;
-    els.decisionGate.append(strongWarning, improve, continueButton);
+    els.decisionGate.append(strongWarning, improve, continueButton, examplesContainer);
   }
 }
 

@@ -114,6 +114,7 @@
     "analyzeLoading": "Génération du plan...",
     "continueAnyway": "Continuer quand même",
     "continueToTailoring": "Continuer vers l'adaptation",
+    "showImprovementExamples": "Voir des exemples d'amélioration",
     "downloadPlan": "Télécharger le plan TXT"
   },
   "backendSettings": {
@@ -176,6 +177,62 @@
     "weakUnlock": "Débloqué parce que vous avez choisi de continuer malgré l'avertissement."
   },
   "weakCvWarning": "Ce CV semble décrire surtout des responsabilités plutôt que des résultats mesurables.",
+  "evidenceRecovery": {
+    "title": "Exemples pour retrouver des preuves",
+    "intro": "Ces éléments servent à retrouver des preuves réelles dans le CV. Ce ne sont pas des formulations finales à copier.",
+    "guardrail": "Ne collez pas ces exemples tels quels. Remplacez chaque idée entre crochets par quelque chose de vrai, défendable et spécifique à votre travail.",
+    "summaryTitle": "Modèle possible de résumé",
+    "missingEvidenceTitle": "Preuves à retrouver en priorité",
+    "bulletTitle": "Modèles pour renforcer les puces",
+    "questionsTitle": "Questions pour rendre cela réel",
+    "beforePrefix": "Au lieu de :",
+    "noWeakExamples": "Aucune ligne faible spécifique n'a été détectée ; utilisez donc le modèle générique ci-dessous.",
+    "genericRole": "Professionnel",
+    "genericSubjects": "personnes, clients, équipes, services, cas, systèmes, documents ou opérations",
+    "genericOutcomes": "qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption",
+    "summaryPattern": "{role} avec une expérience auprès de {subjects}. Contribution à des travaux dont les preuves les plus importantes à retrouver sont {outcomes}, avec des chiffres, délais et périmètres véridiques.",
+    "afterPattern": "Essayez de retrouver : {activity} pour [nombre] {subjects} sur [période/contexte], en aidant à améliorer [résultat spécifique : {outcomes}] de [nombre/résultat si vrai].",
+    "defaultMissingEvidence": [
+      "Volume ou échelle : combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services ont été concernés.",
+      "Période : combien de temps le travail a duré, à quelle fréquence il a eu lieu ou à quelle vitesse quelque chose s'est amélioré.",
+      "Résultat : ce qui a changé en qualité, sécurité, coût, rapidité, satisfaction, fiabilité, conformité, risque, continuité ou adoption.",
+      "Responsabilité : ce que vous avez personnellement livré, influencé, coordonné ou soutenu."
+    ],
+    "defaultQuestions": [
+      "Qu'est-ce qui a changé grâce à ce travail ?",
+      "Qui ou quoi a été concerné ?",
+      "Combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services étaient impliqués ?",
+      "Qu'est-ce qui s'est amélioré après le travail : qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption ?",
+      "Quel chiffre, délai, point de départ ou comparaison pouvez-vous défendre en entretien ?"
+    ],
+    "contexts": {
+      "healthcare": {
+        "role": "Professionnel de santé",
+        "subjects": "patients, gardes, activités de soin, dossiers, familles, équipes, unités ou services",
+        "outcomes": "sécurité des patients, temps de réponse, continuité des soins, qualité documentaire, flux de patients, satisfaction ou réduction des risques"
+      },
+      "education": {
+        "role": "Professionnel de l'éducation ou de la formation",
+        "subjects": "étudiants, apprenants, classes, sessions de formation, programmes, équipes ou dispositifs d'apprentissage",
+        "outcomes": "progression d'apprentissage, participation, complétion, satisfaction, qualité d'évaluation, adoption ou couverture d'accompagnement"
+      },
+      "customer": {
+        "role": "Professionnel commercial ou relation client",
+        "subjects": "clients, comptes, cas, opportunités, régions, produits ou demandes de service",
+        "outcomes": "revenu, rétention, satisfaction, temps de réponse, conversion, qualité du pipeline, réduction des risques ou qualité de service"
+      },
+      "technology": {
+        "role": "Professionnel de la technologie",
+        "subjects": "utilisateurs, systèmes, applications, plateformes, environnements, équipes, processus ou flux de données",
+        "outcomes": "coût, fiabilité, rapidité, adoption, sécurité, automatisation, qualité, réduction des risques ou délai de livraison"
+      },
+      "operations": {
+        "role": "Professionnel des opérations ou services",
+        "subjects": "processus, services, cas, équipes, sites, fournisseurs, documents, stocks ou workflows",
+        "outcomes": "qualité, rapidité, coût, conformité, sécurité, fiabilité, débit, réduction des risques ou continuité de service"
+      }
+    }
+  },
   "personalDataWarnings": {
     "title": "Risques de confidentialité et de biais",
     "intro": "Le CV semble contenir des données personnelles potentiellement inutiles ou risquées."

@@ -114,6 +114,7 @@
     "analyzeLoading": "Plan wird erstellt...",
     "continueAnyway": "Trotzdem fortfahren",
     "continueToTailoring": "Zur Stellenanpassung",
+    "showImprovementExamples": "Verbesserungsbeispiele anzeigen",
     "downloadPlan": "TXT-Plan herunterladen"
   },
   "backendSettings": {
@@ -176,6 +177,62 @@
     "weakUnlock": "Freigeschaltet, weil du trotz Warnung fortfahren möchtest."
   },
   "weakCvWarning": "Dieser CV scheint vor allem Verantwortlichkeiten statt messbarer Ergebnisse zu enthalten.",
+  "evidenceRecovery": {
+    "title": "Beispiele zum Wiederfinden von Nachweisen",
+    "intro": "Diese Hinweise helfen, echte Nachweise aus dem CV zurückzugewinnen. Sie sind keine fertigen Formulierungen zum Kopieren.",
+    "guardrail": "Kopiere diese Beispiele nicht unverändert. Ersetze jede Idee in Klammern durch etwas Wahres, Verteidigbares und Spezifisches aus deiner Arbeit.",
+    "summaryTitle": "Mögliches Profilmuster",
+    "missingEvidenceTitle": "Nachweise, die zuerst ergänzt werden sollten",
+    "bulletTitle": "Muster zur Verbesserung von Stichpunkten",
+    "questionsTitle": "Fragen, um es konkret zu machen",
+    "beforePrefix": "Statt:",
+    "noWeakExamples": "Es wurde keine konkrete schwache Zeile erkannt. Nutze deshalb das generische Muster unten.",
+    "genericRole": "Fachkraft",
+    "genericSubjects": "Menschen, Kunden, Teams, Services, Fälle, Systeme, Dokumente oder Abläufe",
+    "genericOutcomes": "Qualität, Sicherheit, Geschwindigkeit, Kosten, Zufriedenheit, Zuverlässigkeit, Compliance, Risiko, Kontinuität oder Akzeptanz",
+    "summaryPattern": "{role} mit Erfahrung in der Unterstützung von {subjects}. Beteiligung an Arbeit, bei der die wichtigsten nachweisbaren Punkte {outcomes} sind, mit wahrheitsgemäßen Zahlen, Zeiträumen und Umfang.",
+    "afterPattern": "Versuche zu ergänzen: {activity} für [Anzahl] {subjects} über [Zeitraum/Kontext] und dadurch [konkretes Ergebnis: {outcomes}] um [Zahl/Ergebnis, falls wahr] verbessert.",
+    "defaultMissingEvidence": [
+      "Volumen oder Umfang: wie viele Menschen, Fälle, Kunden, Nutzer, Systeme, Dokumente, Schichten oder Services betroffen waren.",
+      "Zeitraum: wie lange die Arbeit dauerte, wie oft sie stattfand oder wie schnell sich etwas verbesserte.",
+      "Ergebnis: was sich bei Qualität, Sicherheit, Kosten, Geschwindigkeit, Zufriedenheit, Zuverlässigkeit, Compliance, Risiko, Kontinuität oder Akzeptanz verändert hat.",
+      "Verantwortung: was du persönlich geliefert, beeinflusst, koordiniert oder unterstützt hast."
+    ],
+    "defaultQuestions": [
+      "Was hat sich durch diese Arbeit verändert?",
+      "Wer oder was war betroffen?",
+      "Wie viele Menschen, Fälle, Kunden, Nutzer, Systeme, Dokumente, Schichten oder Services waren beteiligt?",
+      "Was war nach der Arbeit besser: Qualität, Sicherheit, Geschwindigkeit, Kosten, Zufriedenheit, Zuverlässigkeit, Compliance, Risiko, Kontinuität oder Akzeptanz?",
+      "Welche Zahl, welcher Zeitraum, welche Ausgangslage oder welcher Vergleich ist im Interview verteidigbar?"
+    ],
+    "contexts": {
+      "healthcare": {
+        "role": "Gesundheitsfachkraft",
+        "subjects": "Patienten, Schichten, Pflegetätigkeiten, Akten, Familien, Teams, Stationen oder Services",
+        "outcomes": "Patientensicherheit, Reaktionszeit, Versorgungskontinuität, Dokumentationsqualität, Patientenfluss, Zufriedenheit oder Risikoreduktion"
+      },
+      "education": {
+        "role": "Bildungs- oder Trainingsfachkraft",
+        "subjects": "Studierende, Lernende, Klassen, Trainings, Curricula, Teams oder Lernprogramme",
+        "outcomes": "Lernfortschritt, Teilnahme, Abschlussquote, Zufriedenheit, Bewertungsqualität, Akzeptanz oder Betreuungsabdeckung"
+      },
+      "customer": {
+        "role": "Kunden- oder Vertriebsfachkraft",
+        "subjects": "Kunden, Accounts, Fälle, Chancen, Regionen, Produkte oder Serviceanfragen",
+        "outcomes": "Umsatz, Bindung, Zufriedenheit, Reaktionszeit, Conversion, Pipeline-Qualität, Risikoreduktion oder Servicequalität"
+      },
+      "technology": {
+        "role": "Technologiefachkraft",
+        "subjects": "Nutzer, Systeme, Anwendungen, Plattformen, Umgebungen, Teams, Prozesse oder Datenflüsse",
+        "outcomes": "Kosten, Zuverlässigkeit, Geschwindigkeit, Akzeptanz, Sicherheit, Automatisierung, Qualität, Risikoreduktion oder Lieferzeit"
+      },
+      "operations": {
+        "role": "Operations- oder Servicefachkraft",
+        "subjects": "Prozesse, Services, Fälle, Teams, Standorte, Lieferanten, Dokumente, Bestände oder Workflows",
+        "outcomes": "Qualität, Geschwindigkeit, Kosten, Compliance, Sicherheit, Zuverlässigkeit, Durchsatz, Risikoreduktion oder Servicekontinuität"
+      }
+    }
+  },
   "personalDataWarnings": {
     "title": "Prüfung von Datenschutz- und Bias-Risiken",
     "intro": "Der CV scheint persönliche Daten zu enthalten, die unnötig oder riskant sein können."

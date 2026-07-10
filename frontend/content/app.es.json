@@ -114,6 +114,7 @@
     "analyzeLoading": "Generando plan...",
     "continueAnyway": "Continuar de todas formas",
     "continueToTailoring": "Continuar a adaptación del puesto",
+    "showImprovementExamples": "Ver ejemplos de mejora",
     "downloadPlan": "Descargar plan TXT"
   },
   "backendSettings": {
@@ -176,6 +177,62 @@
     "weakUnlock": "Desbloqueado porque elegiste continuar pese a la advertencia de CV débil."
   },
   "weakCvWarning": "Este CV parece contener sobre todo responsabilidades en vez de resultados medibles. Adaptarlo ahora puede hacerlo verse mejor, pero no resolverá el problema central. Añade resultados concretos y evidencia numérica primero.",
+  "evidenceRecovery": {
+    "title": "Ejemplos para recuperar evidencia",
+    "intro": "Estas son pistas para recuperar evidencia real del CV. No son textos finales para copiar.",
+    "guardrail": "No pegues estos ejemplos tal cual. Sustituye cada idea entre corchetes por algo verdadero, defendible y específico de tu trabajo.",
+    "summaryTitle": "Patrón posible de resumen",
+    "missingEvidenceTitle": "Evidencia a recuperar primero",
+    "bulletTitle": "Patrones para mejorar viñetas",
+    "questionsTitle": "Preguntas para hacerlo real",
+    "beforePrefix": "En vez de:",
+    "noWeakExamples": "No se detectó una línea débil específica, así que usa el patrón genérico de recuperación.",
+    "genericRole": "Profesional",
+    "genericSubjects": "personas, clientes, equipos, servicios, casos, sistemas, documentos u operaciones",
+    "genericOutcomes": "calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción",
+    "summaryPattern": "{role} con experiencia apoyando {subjects}. Contribuyó a trabajos donde la evidencia más importante a recuperar es {outcomes}, usando números, plazos y alcance verdaderos.",
+    "afterPattern": "Intenta recuperar: {activity} para [número] {subjects} durante [plazo/contexto], ayudando a mejorar [resultado específico: {outcomes}] en [número/resultado si es real].",
+    "defaultMissingEvidence": [
+      "Volumen o escala: cuántas personas, casos, clientes, usuarios, sistemas, documentos, turnos o servicios fueron afectados.",
+      "Plazo: cuánto duró el trabajo, con qué frecuencia ocurrió o qué tan rápido mejoró algo.",
+      "Resultado: qué cambió en calidad, seguridad, coste, rapidez, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción.",
+      "Responsabilidad: qué entregaste, influenciaste, coordinaste o apoyaste personalmente."
+    ],
+    "defaultQuestions": [
+      "¿Qué cambió gracias a este trabajo?",
+      "¿Quién o qué fue afectado?",
+      "¿Cuántas personas, casos, clientes, usuarios, sistemas, documentos, turnos o servicios participaron?",
+      "¿Qué mejoró después del trabajo: calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción?",
+      "¿Qué número, plazo, línea base o comparación puedes defender en una entrevista?"
+    ],
+    "contexts": {
+      "healthcare": {
+        "role": "Profesional sanitario",
+        "subjects": "pacientes, turnos, actividades de cuidado, registros, familias, equipos, unidades o servicios",
+        "outcomes": "seguridad del paciente, tiempo de respuesta, continuidad del cuidado, calidad documental, flujo de pacientes, satisfacción o reducción de riesgos"
+      },
+      "education": {
+        "role": "Profesional de educación o formación",
+        "subjects": "estudiantes, participantes, clases, sesiones de formación, currículos, equipos o programas de aprendizaje",
+        "outcomes": "progreso de aprendizaje, participación, finalización, satisfacción, calidad de evaluación, adopción o cobertura de apoyo"
+      },
+      "customer": {
+        "role": "Profesional comercial o de atención al cliente",
+        "subjects": "clientes, cuentas, casos, oportunidades, regiones, productos o solicitudes de servicio",
+        "outcomes": "ingresos, retención, satisfacción, tiempo de respuesta, conversión, calidad del pipeline, reducción de riesgo o calidad del servicio"
+      },
+      "technology": {
+        "role": "Profesional de tecnología",
+        "subjects": "usuarios, sistemas, aplicaciones, plataformas, entornos, equipos, procesos o flujos de datos",
+        "outcomes": "coste, fiabilidad, rapidez, adopción, seguridad, automatización, calidad, reducción de riesgo o tiempo de entrega"
+      },
+      "operations": {
+        "role": "Profesional de operaciones o servicios",
+        "subjects": "procesos, servicios, casos, equipos, sedes, proveedores, documentos, inventarios o flujos de trabajo",
+        "outcomes": "calidad, rapidez, coste, cumplimiento, seguridad, fiabilidad, capacidad, reducción de riesgo o continuidad del servicio"
+      }
+    }
+  },
   "personalDataWarnings": {
     "title": "Revisión de riesgos de privacidad y sesgo",
     "intro": "El CV parece incluir datos personales que pueden ser innecesarios o arriesgados en muchos procesos. Es una advertencia práctica, no una decisión legal."

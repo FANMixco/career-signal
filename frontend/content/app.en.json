@@ -288,6 +288,7 @@
     "analyzeLoading": "Generating plan...",
     "continueAnyway": "Continue anyway",
     "continueToTailoring": "Continue to Job Tailoring",
+    "showImprovementExamples": "Get improvement examples",
     "downloadPlan": "Download TXT plan"
   },
   "backendSettings": {
@@ -353,6 +354,62 @@
     "weakUnlock": "Unlocked because you chose to continue despite the weak CV warning."
   },
   "weakCvWarning": "This CV appears to contain mostly descriptions of responsibilities rather than measurable results. Tailoring it to a job description now may produce a better looking document, but it will not solve the core problem. Add concrete outcomes and numerical evidence first.",
+  "evidenceRecovery": {
+    "title": "Evidence recovery examples",
+    "intro": "These are prompts to help recover truthful evidence from the CV. They are not final CV wording.",
+    "guardrail": "Do not paste these examples as-is. Replace every bracketed idea with something true, defensible, and specific to your work.",
+    "summaryTitle": "Possible summary pattern",
+    "missingEvidenceTitle": "Evidence to recover first",
+    "bulletTitle": "Bullet recovery patterns",
+    "questionsTitle": "Questions to make it real",
+    "beforePrefix": "Instead of:",
+    "noWeakExamples": "No specific weak line was detected, so use the generic recovery pattern below.",
+    "genericRole": "Professional",
+    "genericSubjects": "people, clients, teams, services, cases, systems, documents, or operations",
+    "genericOutcomes": "quality, safety, speed, cost, satisfaction, reliability, compliance, risk, continuity, or adoption",
+    "summaryPattern": "{role} with experience supporting {subjects}. Contributed to work where the strongest evidence to recover is {outcomes}, using truthful numbers, timeframes, and scope.",
+    "afterPattern": "Try recovering: {activity} for [number] {subjects} across [timeframe/context], helping improve [specific {outcomes}] by [number/result if true].",
+    "defaultMissingEvidence": [
+      "Volume or scale: how many people, cases, clients, users, systems, documents, shifts, or services were affected.",
+      "Timeframe: how long the work took, how often it happened, or how quickly something improved.",
+      "Outcome: what changed in quality, safety, cost, speed, satisfaction, reliability, compliance, risk, continuity, or adoption.",
+      "Ownership: what you personally delivered, influenced, coordinated, or supported."
+    ],
+    "defaultQuestions": [
+      "What changed because of this work?",
+      "Who or what was affected?",
+      "How many people, cases, clients, users, systems, documents, shifts, or services were involved?",
+      "What was better after the work: quality, safety, speed, cost, satisfaction, reliability, compliance, risk, continuity, or adoption?",
+      "What number, timeframe, baseline, or comparison can you defend in an interview?"
+    ],
+    "contexts": {
+      "healthcare": {
+        "role": "Healthcare professional",
+        "subjects": "patients, shifts, care activities, records, families, teams, units, or services",
+        "outcomes": "patient safety, response time, continuity of care, documentation quality, patient flow, satisfaction, or risk reduction"
+      },
+      "education": {
+        "role": "Education or training professional",
+        "subjects": "students, learners, classes, training sessions, curricula, teams, or learning programs",
+        "outcomes": "learning progress, participation, completion, satisfaction, assessment quality, adoption, or support coverage"
+      },
+      "customer": {
+        "role": "Customer or commercial professional",
+        "subjects": "customers, clients, accounts, cases, opportunities, regions, products, or service requests",
+        "outcomes": "revenue, retention, satisfaction, response time, conversion, pipeline quality, risk reduction, or service quality"
+      },
+      "technology": {
+        "role": "Technology professional",
+        "subjects": "users, systems, applications, platforms, environments, teams, processes, or data flows",
+        "outcomes": "cost, reliability, speed, adoption, security, automation, quality, risk reduction, or delivery time"
+      },
+      "operations": {
+        "role": "Operations or service professional",
+        "subjects": "processes, services, cases, teams, sites, suppliers, documents, inventories, or workflows",
+        "outcomes": "quality, speed, cost, compliance, safety, reliability, throughput, risk reduction, or service continuity"
+      }
+    }
+  },
   "personalDataWarnings": {
     "title": "Privacy and bias risk review",
     "intro": "The CV appears to include personal details that may be unnecessary or risky in many hiring processes. This is a practical warning, not a legal decision. Keep these details only when the target country, sector, or employer explicitly requires them."
