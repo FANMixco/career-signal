@@ -25,6 +25,7 @@
     "targetCompany": "Nombre de la empresa objetivo",
     "companyDescription": "Descripción de la empresa (opcional)",
     "targetStyle": "Estilo del puesto objetivo",
+    "jobPosition": "Puesto",
     "jobDescription": "Descripción del puesto",
     "ageWarningAcknowledgement": "Entiendo la advertencia y quiero continuar."
   },
@@ -115,7 +116,9 @@
     "continueAnyway": "Continuar de todas formas",
     "continueToTailoring": "Continuar a adaptación del puesto",
     "showImprovementExamples": "Ver ejemplos de mejora",
-    "downloadPlan": "Descargar plan TXT"
+    "downloadPlan": "Descargar plan TXT",
+    "importJson": "Importar sesión",
+    "exportJson": "Exportar sesión"
   },
   "backendSettings": {
     "title": "Configuración del backend",
@@ -163,6 +166,9 @@
     "analysisLoading": "Generando un nuevo plan de reconstrucción. El plan anterior se limpió para evitar mezclar puestos distintos.",
     "analysisComplete": "Plan de reconstrucción listo. Revisa el resultado antes de usarlo.",
     "analysisPartial": "Reconstrucción local parcial lista. Algunas secciones de Ollama no terminaron; revisa lo completado y prueba con un proveedor cloud o un modelo local más pequeño.",
+    "importJsonComplete": "Sesión importada. El texto del CV, el precheck, los datos de adaptación, los consejos de mejora y el plan se restauraron sin llamar al backend.",
+    "importJsonAnalysisReady": "Plan importado listo. Puedes revisarlo abajo sin reprocesar.",
+    "exportJsonComplete": "Sesión exportada. Las claves API y los PDFs no se incluyen; el texto del CV se guarda para reimportarlo.",
     "paidModelSuggestion": "Para resultados más completos y consistentes, considera repetir CVs importantes con un modelo de pago más fuerte antes de usar el plan final.",
     "precheckStale": "El CV o los datos del perfil cambiaron. Ejecuta de nuevo el precheck antes de generar otro plan.",
     "precheckLoadingText": "Ejecutando el precheck de evidencia del CV. Puede tardar un poco mientras el modelo revisa la evidencia."
@@ -250,7 +256,7 @@
   "footer": {
     "createdByPrefix": "Creado por",
     "contributeText": "Sugerir cambios en GitHub",
-    "version": "1.0.27"
+    "version": "1.1.0"
   },
   "cvBasics": {
     "title": "Bases de un CV de alto impacto",
@@ -591,6 +597,7 @@
   "errorMessages": {
     "apiAnalyzeUnreachable": "No se pudo alcanzar la API de reconstrucción.",
     "apiPrecheckUnreachable": "No se pudo alcanzar la API del precheck.",
+    "invalidJsonImport": "Elige una exportación JSON válida de Career Signal.",
     "reconstructionFailed": "No se pudo generar el plan de reconstrucción.",
     "healthCheckFailed": "Falló la revisión de salud.",
     "precheckFailed": "Falló el precheck.",

@@ -15,6 +15,7 @@ scripts/build-store-app.ps1
 scripts/build-sideload-app.ps1
 scripts/create-sideload-cert.ps1
 scripts/trust-sideload-cert-machine.ps1
+scripts/tmp-info.txt
 store-package.local.ps1
 build/appx/
 frontend/img/store-logos/

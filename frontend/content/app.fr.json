@@ -25,6 +25,7 @@
     "targetCompany": "Nom de l'entreprise cible",
     "companyDescription": "Description de l'entreprise (optionnel)",
     "targetStyle": "Style du poste cible",
+    "jobPosition": "Poste",
     "jobDescription": "Description du poste",
     "ageWarningAcknowledgement": "Je comprends l'avertissement et je veux continuer."
   },
@@ -115,7 +116,9 @@
     "continueAnyway": "Continuer quand même",
     "continueToTailoring": "Continuer vers l'adaptation",
     "showImprovementExamples": "Voir des exemples d'amélioration",
-    "downloadPlan": "Télécharger le plan TXT"
+    "downloadPlan": "Télécharger le plan TXT",
+    "importJson": "Importer la session",
+    "exportJson": "Exporter la session"
   },
   "backendSettings": {
     "title": "Paramètres du backend",
@@ -163,6 +166,9 @@
     "analysisLoading": "Génération d'un nouveau plan. Le plan précédent a été effacé.",
     "analysisComplete": "Plan de reconstruction prêt. Relisez le résultat avant de l'utiliser.",
     "analysisPartial": "Reconstruction locale partielle prête. Certaines sections Ollama n'ont pas terminé.",
+    "importJsonComplete": "Session importée. Le texte du CV, le précontrôle, les données d'adaptation, les conseils d'amélioration et le plan ont été restaurés sans appeler le backend.",
+    "importJsonAnalysisReady": "Plan importé prêt. Vous pouvez le relire ci-dessous sans retraitement.",
+    "exportJsonComplete": "Session exportée. Les clés API et les PDF ne sont pas inclus ; le texte du CV est conservé pour réimportation.",
     "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d'utiliser le plan final.",
     "precheckStale": "Le CV ou le profil a changé. Relancez le précontrôle.",
     "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment."
@@ -250,7 +256,7 @@
   "footer": {
     "createdByPrefix": "Créé par",
     "contributeText": "Suggérer des changements sur GitHub",
-    "version": "1.0.27"
+    "version": "1.1.0"
   },
   "cvBasics": {
     "title": "Bases d'un CV à fort impact",
@@ -591,6 +597,7 @@
   "errorMessages": {
     "apiAnalyzeUnreachable": "Impossible de joindre l’API de reconstruction.",
     "apiPrecheckUnreachable": "Impossible de joindre l’API de précontrôle.",
+    "invalidJsonImport": "Choisissez une exportation JSON Career Signal valide.",
     "reconstructionFailed": "Impossible de générer le plan de reconstruction.",
     "healthCheckFailed": "Le contrôle de santé a échoué.",
     "precheckFailed": "Le précontrôle a échoué.",

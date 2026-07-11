@@ -30,6 +30,7 @@
     "targetCompany": "Target company name",
     "companyDescription": "Company description (optional)",
     "targetStyle": "Target role style",
+    "jobPosition": "Job position",
     "jobDescription": "Job description",
     "ageWarningAcknowledgement": "I understand the warning and want to continue."
   },
@@ -325,7 +326,9 @@
     "continueAnyway": "Continue anyway",
     "continueToTailoring": "Continue to Job Tailoring",
     "showImprovementExamples": "Get improvement examples",
-    "downloadPlan": "Download TXT plan"
+    "downloadPlan": "Download TXT plan",
+    "importJson": "Import session",
+    "exportJson": "Export session"
   },
   "backendSettings": {
     "storageKey": "careerSignalBackendUrl",
@@ -376,6 +379,9 @@
     "analysisLoading": "Generating a new reconstruction plan. The previous plan was cleared to avoid mixing outputs from different target roles.",
     "analysisComplete": "Reconstruction plan ready. Review the output below before using it.",
     "analysisPartial": "Partial local reconstruction ready. Some Ollama sections did not finish, so review the completed output and retry with a cloud provider or smaller local model for a full plan.",
+    "importJsonComplete": "Session imported. Stored CV text, precheck output, tailoring inputs, improvement tips, and reconstruction output were restored without calling the backend.",
+    "importJsonAnalysisReady": "Imported reconstruction plan ready. You can review it below without reprocessing.",
+    "exportJsonComplete": "Session exported. API keys and PDF files are not included; the CV text is saved for reimport.",
     "paidModelSuggestion": "For more complete and consistent results, consider rerunning important CVs with a stronger paid model before using the final plan.",
     "precheckStale": "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
     "precheckLoadingText": "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence."
@@ -467,7 +473,7 @@
     "separator": "/",
     "contributeText": "Suggest changes on GitHub",
     "contributeUrl": "https://github.com/FANMixco/career-signal",
-    "version": "1.0.27"
+    "version": "1.1.0"
   },
   "appHelp": {
     "title": "Career Signal guide",
@@ -995,6 +1001,7 @@
   "errorMessages": {
     "apiAnalyzeUnreachable": "Could not reach the reconstruction API.",
     "apiPrecheckUnreachable": "Could not reach the precheck API.",
+    "invalidJsonImport": "Choose a valid Career Signal JSON session export.",
     "reconstructionFailed": "Could not generate the reconstruction plan.",
     "healthCheckFailed": "Health check failed.",
     "precheckFailed": "Precheck failed.",
