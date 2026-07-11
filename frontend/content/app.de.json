@@ -25,6 +25,7 @@
     "targetCompany": "Zielunternehmen",
     "companyDescription": "Unternehmensbeschreibung (optional)",
     "targetStyle": "Stil der Zielrolle",
+    "jobPosition": "Stelle",
     "jobDescription": "Stellenbeschreibung",
     "ageWarningAcknowledgement": "Ich verstehe die Warnung und möchte fortfahren."
   },
@@ -115,7 +116,9 @@
     "continueAnyway": "Trotzdem fortfahren",
     "continueToTailoring": "Zur Stellenanpassung",
     "showImprovementExamples": "Verbesserungsbeispiele anzeigen",
-    "downloadPlan": "TXT-Plan herunterladen"
+    "downloadPlan": "TXT-Plan herunterladen",
+    "importJson": "Sitzung importieren",
+    "exportJson": "Sitzung exportieren"
   },
   "backendSettings": {
     "title": "Backend-Einstellungen",
@@ -163,6 +166,9 @@
     "analysisLoading": "Ein neuer Rekonstruktionsplan wird erstellt. Der vorherige Plan wurde geleert.",
     "analysisComplete": "Rekonstruktionsplan bereit. Prüfe das Ergebnis vor der Nutzung.",
     "analysisPartial": "Teilweises lokales Ergebnis bereit. Einige Ollama-Abschnitte wurden nicht abgeschlossen.",
+    "importJsonComplete": "Sitzung importiert. CV-Text, Prüfung, Anpassungsdaten, Verbesserungstipps und Plan wurden ohne Backend-Aufruf wiederhergestellt.",
+    "importJsonAnalysisReady": "Importierter Plan bereit. Du kannst ihn unten ohne erneute Verarbeitung prüfen.",
+    "exportJsonComplete": "Sitzung exportiert. API-Schlüssel und PDFs sind nicht enthalten; der CV-Text wird für den Reimport gespeichert.",
     "paidModelSuggestion": "Fuer vollstaendigere und konsistentere Ergebnisse solltest du wichtige CVs mit einem staerkeren kostenpflichtigen Modell erneut pruefen, bevor du den finalen Plan nutzt.",
     "precheckStale": "CV oder Profildaten haben sich geändert. Starte die Prüfung erneut.",
     "precheckLoadingText": "CV-Nachweisprüfung läuft. Das kann einen Moment dauern."
@@ -250,7 +256,7 @@
   "footer": {
     "createdByPrefix": "Erstellt von",
     "contributeText": "Änderungen auf GitHub vorschlagen",
-    "version": "1.0.27"
+    "version": "1.1.0"
   },
   "cvBasics": {
     "title": "Grundlagen eines starken CV",
@@ -590,6 +596,7 @@
   "errorMessages": {
     "apiAnalyzeUnreachable": "Die Rekonstruktions-API ist nicht erreichbar.",
     "apiPrecheckUnreachable": "Die Prüfungs-API ist nicht erreichbar.",
+    "invalidJsonImport": "Wähle einen gültigen Career-Signal-JSON-Export.",
     "reconstructionFailed": "Der Rekonstruktionsplan konnte nicht erstellt werden.",
     "healthCheckFailed": "Healthcheck fehlgeschlagen.",
     "precheckFailed": "Prüfung fehlgeschlagen.",
