@@ -536,7 +536,7 @@ button.is-loading::before {
   font-size: 15px;
 }
 
-.help-block p {
+.help-block p, ul {
   color: var(--muted);
 }
 
@@ -572,7 +572,7 @@ button.is-loading::before {
   font-size: 15px;
 }
 
-.basics-block p {
+.basics-block p, ul {
   color: var(--muted);
 }
 
