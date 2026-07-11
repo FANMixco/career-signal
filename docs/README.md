@@ -1,6 +1,6 @@
 # Career Signal Engine Documentation
 
-This folder contains the public project documentation. Internal planning material lives in `private_specs/`, which is intentionally ignored by git.
+This folder contains the project documentation.
 
 ## Start Here
 
