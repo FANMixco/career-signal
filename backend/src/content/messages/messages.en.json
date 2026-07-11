@@ -15,6 +15,7 @@
     "openAiApiKeyRequired": "An OpenAI API key is required. Paste an OpenAI key or configure OPENAI_API_KEY in the backend .env file.",
     "deepSeekApiKeyRequired": "A DeepSeek API key is required. Paste a DeepSeek key or configure DEEPSEEK_API_KEY in the backend .env file.",
     "mistralApiKeyRequired": "A Mistral API key is required. Paste a Mistral key or configure MISTRAL_API_KEY in the backend .env file.",
+    "anthropicApiKeyRequired": "An Anthropic API key is required. Paste an Anthropic key or configure ANTHROPIC_API_KEY in the backend .env file.",
     "geminiApiKeyRequired": "A Gemini API key is required. Paste a Gemini key or configure GEMINI_API_KEY in the backend .env file.",
     "ollamaModelNameRequired": "Ollama model name is required.",
     "ollamaModelNameTooLong": "Ollama model name must be 120 characters or fewer.",

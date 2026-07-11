@@ -10,6 +10,7 @@ export type Provider =
   | { kind: "deepseek"; client: OpenAI }
   | { kind: "gemini"; client: GoogleGenAI }
   | { kind: "mistral"; apiKey: string }
+  | { kind: "anthropic"; apiKey: string }
   | { kind: "ollama"; baseUrl: string };
 
 export type AiProviderKind = Provider["kind"];

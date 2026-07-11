@@ -55,7 +55,18 @@ Fix:
 - If `OpenAI` is selected, paste an OpenAI key or set `OPENAI_API_KEY` in `.env`.
 - If `Gemini` is selected, paste a Gemini key or set `GEMINI_API_KEY` in `.env`.
 - If `Mistral` is selected, paste a Mistral key or set `MISTRAL_API_KEY` in `.env`.
-- If `DeepSeek` is selected, paste a Gemini key or set `DEEPSEEK_API_KEY` in `.env`.
+- If `Claude (experimental)` is selected, paste an Anthropic key or set `ANTHROPIC_API_KEY` in `.env`.
+- If `DeepSeek` is selected, paste a DeepSeek key or set `DEEPSEEK_API_KEY` in `.env`.
+
+### Claude says the response is invalid or incomplete
+
+Claude support is experimental. The backend validates Claude's answer as JSON before showing it in the app.
+
+Fix:
+
+1. Retry the same request once.
+2. Try another Claude model.
+3. If the same CV keeps failing, use Gemini, OpenAI, Mistral, DeepSeek, or OpenRouter for that run.
 
 ### Ollama says the model is missing or cannot be reached
 

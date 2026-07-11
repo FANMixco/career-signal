@@ -35,7 +35,7 @@
   },
   "placeholders": {
     "cvText": "Paste complete CV text here",
-    "ollamaCustomModel": "Type a model ID for the selected provider, for example gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest, or llama3.2:3b",
+    "ollamaCustomModel": "Type a model ID for the selected provider, for example gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest, claude-sonnet-4-6, or llama3.2:3b",
     "companyDescription": "Add useful context if the company is not well-known: what it does, industry, size, product, market, values, or business model",
     "jobDescription": "Paste the full job description"
   },
@@ -56,6 +56,10 @@
       [
         "mistral",
         "Mistral"
+      ],
+      [
+        "anthropic",
+        "Claude (experimental)"
       ],
       [
         "deepseek",
@@ -139,6 +143,20 @@
         [
           "mistral-small-latest",
           "Mistral Small"
+        ]
+      ],
+      "anthropic": [
+        [
+          "claude-sonnet-4-6",
+          "Claude Sonnet 4.6 (experimental)"
+        ],
+        [
+          "claude-haiku-4-5",
+          "Claude Haiku 4.5 (experimental)"
+        ],
+        [
+          "claude-opus-4-8",
+          "Claude Opus 4.8 (experimental)"
         ]
       ],
       "ollama": [
@@ -228,6 +246,12 @@
       "placeholder": "Optional if MISTRAL_API_KEY is configured",
       "keyUrl": "https://console.mistral.ai/api-keys/",
       "keyLinkText": "Get a Mistral API key"
+    },
+    "anthropic": {
+      "label": "Anthropic API key",
+      "placeholder": "Optional if ANTHROPIC_API_KEY is configured",
+      "keyUrl": "https://console.anthropic.com/settings/keys",
+      "keyLinkText": "Get an Anthropic API key"
     },
     "deepseek": {
       "label": "DeepSeek API key",
@@ -443,7 +467,7 @@
     "separator": "/",
     "contributeText": "Suggest changes on GitHub",
     "contributeUrl": "https://github.com/FANMixco/career-signal",
-    "version": "1.0.25"
+    "version": "1.0.26"
   },
   "appHelp": {
     "title": "Career Signal guide",
@@ -462,7 +486,7 @@
             "items": [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a CV PDF, LinkedIn PDF export, or paste your CV text.",
-              "Choose OpenRouter, OpenAI, Gemini, Mistral, DeepSeek, or Ollama (offline, experimental), then choose a model. OpenRouter's listed models are free; custom OpenRouter model IDs may be paid depending on your OpenRouter account.",
+              "Choose OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek, or Ollama (offline, experimental), then choose a model. OpenRouter's listed models are free; custom OpenRouter model IDs may be paid depending on your OpenRouter account.",
               "For cloud providers, add a key if it is not already configured.",
               "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",
@@ -561,6 +585,7 @@
               "If you use DeepSeek, the request goes to DeepSeek with the selected DeepSeek model.",
               "If you use OpenAI, the request goes to OpenAI with the selected OpenAI model.",
               "If you use Mistral, the request goes to Mistral with the selected Mistral model.",
+              "If you use Claude (experimental), the request goes to Anthropic with the selected Claude model.",
               "If you use Ollama (offline, experimental), the backend sends the request to your configured local Ollama URL instead of a cloud AI provider.",
               "The Buy Me a Coffee button is an external support widget and may load assets from Buy Me a Coffee or its CDN."
             ]

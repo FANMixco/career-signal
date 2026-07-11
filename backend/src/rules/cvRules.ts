@@ -21,6 +21,7 @@ type AppOptionsContent = {
   geminiModels: string[];
   deepSeekModels: string[];
   mistralModels: string[];
+  anthropicModels: string[];
   ollamaModels: string[];
   defaultAiProvider: string;
   defaultOutputLanguage: string;
@@ -29,6 +30,7 @@ type AppOptionsContent = {
   defaultGeminiModel: string;
   defaultDeepSeekModel: string;
   defaultMistralModel: string;
+  defaultAnthropicModel: string;
   defaultOllamaModel: string;
   ollamaMixModel: string;
   ollamaFallbackModels: string[];
@@ -82,8 +84,9 @@ export const openRouterModels = asNonEmptyStringTuple("openRouterModels", appOpt
 export const geminiModels = asNonEmptyStringTuple("geminiModels", appOptions.geminiModels);
 export const deepSeekModels = asNonEmptyStringTuple("deepSeekModels", appOptions.deepSeekModels);
 export const mistralModels = asNonEmptyStringTuple("mistralModels", appOptions.mistralModels);
+export const anthropicModels = asNonEmptyStringTuple("anthropicModels", appOptions.anthropicModels);
 export const ollamaModels = asNonEmptyStringTuple("ollamaModels", appOptions.ollamaModels);
-export const aiModels = [...openAiModels, ...openRouterModels, ...geminiModels, ...deepSeekModels, ...mistralModels, ...ollamaModels] as const;
+export const aiModels = [...openAiModels, ...openRouterModels, ...geminiModels, ...deepSeekModels, ...mistralModels, ...anthropicModels, ...ollamaModels] as const;
 export const defaultAiProvider = appOptions.defaultAiProvider;
 export const defaultOutputLanguage = appOptions.defaultOutputLanguage;
 export const defaultOpenAiModel = appOptions.defaultOpenAiModel;
@@ -91,6 +94,7 @@ export const defaultOpenRouterModel = appOptions.defaultOpenRouterModel;
 export const defaultGeminiModel = appOptions.defaultGeminiModel;
 export const defaultDeepSeekModel = appOptions.defaultDeepSeekModel;
 export const defaultMistralModel = appOptions.defaultMistralModel;
+export const defaultAnthropicModel = appOptions.defaultAnthropicModel;
 export const defaultOllamaModel = appOptions.defaultOllamaModel;
 export const ollamaMixModel = appOptions.ollamaMixModel;
 export const ollamaFallbackModels = asNonEmptyStringTuple("ollamaFallbackModels", appOptions.ollamaFallbackModels);

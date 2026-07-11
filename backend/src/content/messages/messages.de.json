@@ -15,6 +15,7 @@
     "openAiApiKeyRequired": "Ein OpenAI-API-Schluessel ist erforderlich. Fuege einen OpenAI-Schluessel ein oder konfiguriere OPENAI_API_KEY in der .env-Datei des Backends.",
     "deepSeekApiKeyRequired": "Ein DeepSeek-API-Schluessel ist erforderlich. Fuege einen DeepSeek-Schluessel ein oder konfiguriere DEEPSEEK_API_KEY in der .env-Datei des Backends.",
     "mistralApiKeyRequired": "Ein Mistral-API-Schluessel ist erforderlich. Fuege einen Mistral-Schluessel ein oder konfiguriere MISTRAL_API_KEY in der .env-Datei des Backends.",
+    "anthropicApiKeyRequired": "Ein Anthropic-API-Schluessel ist erforderlich. Fuege einen Anthropic-Schluessel ein oder konfiguriere ANTHROPIC_API_KEY in der .env-Datei des Backends.",
     "geminiApiKeyRequired": "Ein Gemini-API-Schluessel ist erforderlich. Fuege einen Gemini-Schluessel ein oder konfiguriere GEMINI_API_KEY in der .env-Datei des Backends.",
     "ollamaModelNameRequired": "Der Name des Ollama-Modells ist erforderlich.",
     "ollamaModelNameTooLong": "Der Name des Ollama-Modells darf hoechstens 120 Zeichen haben.",

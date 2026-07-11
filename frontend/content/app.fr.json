@@ -250,7 +250,7 @@
   "footer": {
     "createdByPrefix": "Créé par",
     "contributeText": "Suggérer des changements sur GitHub",
-    "version": "1.0.25"
+    "version": "1.0.26"
   },
   "cvBasics": {
     "title": "Bases d'un CV à fort impact",
@@ -410,7 +410,7 @@
             "items": [
               "Ajoutez vos années d’expérience et indiquez si les études sont listées dans le CV.",
               "Téléversez un CV PDF, un export LinkedIn PDF ou collez le texte du CV.",
-              "Choisissez OpenRouter, OpenAI, Gemini, Mistral, DeepSeek ou Ollama (offline, expérimental), puis un modèle. Les modèles OpenRouter listés sont gratuits ; les IDs de modèle OpenRouter personnalisés peuvent être payants selon votre compte OpenRouter.",
+              "Choisissez OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek ou Ollama (offline, expérimental), puis un modèle. Les modèles OpenRouter listés sont gratuits ; les IDs de modèle OpenRouter personnalisés peuvent être payants selon votre compte OpenRouter.",
               "Pour les fournisseurs cloud, ajoutez une clé si elle n’est pas déjà configurée.",
               "Pour Ollama, installez Ollama localement, téléchargez le modèle choisi et gardez Ollama en cours d’exécution.",
               "Lancez d’abord le précontrôle des preuves du CV.",
@@ -509,6 +509,7 @@
               "Avec DeepSeek, la requête part vers DeepSeek avec le modèle DeepSeek sélectionné.",
               "Avec OpenAI, la requête part vers OpenAI avec le modèle OpenAI sélectionné.",
               "Avec Mistral, la requête part vers Mistral avec le modèle Mistral sélectionné.",
+              "Avec Claude (experimental), la requete part vers Anthropic avec le modele Claude selectionne.",
               "Avec Ollama (offline, expérimental), le backend envoie la requête à votre URL Ollama locale plutôt qu’à un fournisseur cloud.",
               "Le bouton Buy Me a Coffee est un widget externe de soutien et peut charger des ressources depuis Buy Me a Coffee ou son CDN."
             ]
@@ -644,6 +645,11 @@
       "label": "Cle API Mistral",
       "placeholder": "Optionnel si MISTRAL_API_KEY est configuree",
       "keyLinkText": "Obtenir une cle API Mistral"
+    },
+    "anthropic": {
+      "label": "Cle API Anthropic",
+      "placeholder": "Optionnel si ANTHROPIC_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Anthropic"
     },
     "deepseek": {
       "label": "Cle API DeepSeek",

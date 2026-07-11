@@ -250,7 +250,7 @@
   "footer": {
     "createdByPrefix": "Erstellt von",
     "contributeText": "Änderungen auf GitHub vorschlagen",
-    "version": "1.0.25"
+    "version": "1.0.26"
   },
   "cvBasics": {
     "title": "Grundlagen eines starken CV",
@@ -409,7 +409,7 @@
             "items": [
               "Gib deine Jahre Berufserfahrung an und wähle, ob Studien im CV stehen.",
               "Lade einen CV als PDF, einen LinkedIn-PDF-Export hoch oder füge den CV-Text ein.",
-              "Wähle OpenRouter, OpenAI, Gemini, Mistral, DeepSeek oder Ollama (offline, experimentell), dann ein Modell. Die aufgelisteten OpenRouter-Modelle sind kostenlos; eigene OpenRouter-Modell-IDs koennen je nach OpenRouter-Konto kostenpflichtig sein.",
+              "Wähle OpenRouter, OpenAI, Gemini, Mistral, Claude (experimentell), DeepSeek oder Ollama (offline, experimentell), dann ein Modell. Die aufgelisteten OpenRouter-Modelle sind kostenlos; eigene OpenRouter-Modell-IDs koennen je nach OpenRouter-Konto kostenpflichtig sein.",
               "Für Cloud-Anbieter füge einen Schlüssel hinzu, falls keiner konfiguriert ist.",
               "Für Ollama installiere Ollama lokal, lade das gewählte Modell herunter und lasse Ollama laufen.",
               "Starte zuerst die CV-Nachweisprüfung.",
@@ -508,6 +508,7 @@
               "Bei DeepSeek geht die Anfrage an DeepSeek mit dem gewählten DeepSeek-Modell.",
               "Bei OpenAI geht die Anfrage an OpenAI mit dem gewählten OpenAI-Modell.",
               "Bei Mistral geht die Anfrage an Mistral mit dem gewählten Mistral-Modell.",
+              "Bei Claude (experimentell) geht die Anfrage an Anthropic mit dem gewaehlten Claude-Modell.",
               "Bei Ollama (offline, experimentell) sendet das Backend die Anfrage an deine konfigurierte lokale Ollama-URL statt an einen Cloud-Anbieter.",
               "Der Buy-Me-a-Coffee-Button ist ein externes Unterstützungs-Widget und kann Ressourcen von Buy Me a Coffee oder dessen CDN laden."
             ]
@@ -643,6 +644,11 @@
       "label": "Mistral-API-Schluessel",
       "placeholder": "Optional, wenn MISTRAL_API_KEY konfiguriert ist",
       "keyLinkText": "Mistral-API-Schluessel erhalten"
+    },
+    "anthropic": {
+      "label": "Anthropic-API-Schluessel",
+      "placeholder": "Optional, wenn ANTHROPIC_API_KEY konfiguriert ist",
+      "keyLinkText": "Anthropic-API-Schluessel erhalten"
     },
     "deepseek": {
       "label": "DeepSeek-API-Schluessel",
