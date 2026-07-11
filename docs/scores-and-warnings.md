@@ -12,6 +12,19 @@ The profile match score is also from 0 to 100.
 
 This score estimates how well the provided CV evidence matches the company and job description. It is not a hiring decision. Final decisions always belong to the company and may depend on interviews, timing, internal candidates, compensation, location, sponsorship, language requirements, and other factors outside this CV-based review.
 
+## Evidence Recovery Examples
+
+When the precheck result is weak or cautious, the app can show `Get improvement examples`.
+
+This section does not rewrite the CV and does not invent achievements. It gives prompts that help the user recover real evidence from their own experience:
+
+- possible summary patterns
+- missing evidence to look for first
+- bullet recovery patterns
+- questions to find truthful numbers, scale, timeframes, outcomes, and ownership
+
+The examples are intentionally generic. They can apply to many fields, such as healthcare, education, customer service, technology, operations, public service, or management. Replace every bracketed idea with something true and defensible before using it in a CV.
+
 ## Important CV Warnings
 
 The app may highlight issues that do not mean the candidate is weak, but that can make the CV weaker than the real career.

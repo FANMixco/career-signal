@@ -25,6 +25,7 @@ The app is designed for non-technical people too. You do not need to create an a
 - Checks whether the CV has enough concrete evidence: results, scope, numbers, responsibilities, and defensible claims.
 - Gives a CV Evidence Score from **0 to 100**.
 - Warns about weak evidence, unsupported claims, tense problems, hidden career progression, unnecessary studies, age, gender, citizenship, and other personal details that may create risk or distraction.
+- Shows evidence recovery examples when the CV needs clearer proof, without rewriting or inventing claims.
 - Lets the user continue only after the evidence precheck, or after explicitly choosing to continue despite a weak precheck.
 - Uses the target company, optional company description, and job description to create a job-specific reconstruction plan.
 - Gives a profile match score from **0 to 100** for the selected company and role.

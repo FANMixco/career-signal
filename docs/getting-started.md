@@ -138,12 +138,13 @@ Ctrl + C
 6. Click `Run CV Evidence Precheck`.
 7. Wait for the result. The button shows that validation is running.
 8. Review the CV Evidence Score, warnings, and suggested improvements.
-9. If the CV has weak evidence, improve it first or explicitly choose to continue anyway.
-10. Add the target company name.
-11. Optionally add a short company description.
-12. Paste the full job description.
-13. Generate the reconstruction plan.
-14. Review the profile match assessment and the recommended CV structure.
-15. Download the TXT file if you want to keep the plan.
+9. If the CV has weak or cautionary evidence, use `Get improvement examples` to see evidence recovery prompts. These examples help you think of truthful numbers, scale, outcomes, and context. They are not final CV wording.
+10. Improve the CV first, or explicitly choose to continue anyway.
+11. Add the target company name.
+12. Optionally add a short company description.
+13. Paste the full job description.
+14. Generate the reconstruction plan.
+15. Review the profile match assessment and the recommended CV structure.
+16. Download the TXT file if you want to keep the plan.
 
 After the precheck has passed, you can change the target company, company description, role style, or job description and generate another plan. You do not need to run the CV Evidence Precheck again unless you change the CV text, uploaded PDF, years of experience, studies information, or experience selection mode.
