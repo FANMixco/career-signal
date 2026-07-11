@@ -4,6 +4,7 @@
 import {
   defaultDeepSeekModel,
   defaultGeminiModel,
+  defaultAnthropicModel,
   defaultMistralModel,
   defaultOllamaModel,
   defaultOpenAiModel,
@@ -30,6 +31,10 @@ export function deepSeekModel(model?: string) {
 
 export function mistralModel(model?: string) {
   return model || process.env.MISTRAL_MODEL || defaultMistralModel;
+}
+
+export function anthropicModel(model?: string) {
+  return model || process.env.ANTHROPIC_MODEL || defaultAnthropicModel;
 }
 
 export function ollamaModel(model?: string) {

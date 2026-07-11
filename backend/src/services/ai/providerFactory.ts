@@ -68,6 +68,16 @@ export function createModelProvider(providerKind: AiProviderKind = defaultAiProv
     throw new Error(errorMessage("mistralApiKeyRequired", outputLanguage));
   }
 
+  if (providerKind === "anthropic") {
+    const anthropicKey = apiKey?.trim() || process.env.ANTHROPIC_API_KEY?.trim();
+
+    if (anthropicKey) {
+      return { kind: "anthropic", apiKey: anthropicKey };
+    }
+
+    throw new Error(errorMessage("anthropicApiKeyRequired", outputLanguage));
+  }
+
   if (providerKind === "ollama") {
     return { kind: "ollama", baseUrl: normalizeOllamaBaseUrl(ollamaBaseUrl) };
   }

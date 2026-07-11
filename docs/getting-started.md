@@ -12,6 +12,7 @@ You need:
   - OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys),
   - Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey),
   - Mistral API key from [Mistral AI Console](https://console.mistral.ai/api-keys/),
+  - Anthropic API key for Claude from [Anthropic Console API keys](https://console.anthropic.com/settings/keys),
   - DeepSeek API key from [DeepSeek Platform API keys](https://platform.deepseek.com/api_keys),
   - Or [Ollama](https://ollama.com/download) installed locally with a supported model such as `gemma4` or `qwen3.6`.
 - A CV, either as:
@@ -132,7 +133,7 @@ Ctrl + C
 
 1. Fill in the profile details.
 2. Upload a CV PDF, LinkedIn PDF export, or paste CV text.
-3. Choose Gemini, OpenAI, Mistral, or Ollama (offline, experimental).
+3. Choose Gemini, OpenAI, Mistral, Claude (experimental), DeepSeek, OpenRouter, or Ollama (offline, experimental).
 4. Choose the model you want to use.
 5. Paste an API key for cloud providers if you did not configure one in `.env`; for Ollama, confirm the local URL.
 6. Click `Run CV Evidence Precheck`.

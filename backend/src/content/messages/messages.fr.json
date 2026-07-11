@@ -15,6 +15,7 @@
     "openAiApiKeyRequired": "Une cle API OpenAI est requise. Collez une cle OpenAI ou configurez OPENAI_API_KEY dans le fichier .env du backend.",
     "deepSeekApiKeyRequired": "Une cle API DeepSeek est requise. Collez une cle DeepSeek ou configurez DEEPSEEK_API_KEY dans le fichier .env du backend.",
     "mistralApiKeyRequired": "Une cle API Mistral est requise. Collez une cle Mistral ou configurez MISTRAL_API_KEY dans le fichier .env du backend.",
+    "anthropicApiKeyRequired": "Une cle API Anthropic est requise. Collez une cle Anthropic ou configurez ANTHROPIC_API_KEY dans le fichier .env du backend.",
     "geminiApiKeyRequired": "Une cle API Gemini est requise. Collez une cle Gemini ou configurez GEMINI_API_KEY dans le fichier .env du backend.",
     "ollamaModelNameRequired": "Le nom du modele Ollama est obligatoire.",
     "ollamaModelNameTooLong": "Le nom du modele Ollama doit contenir 120 caracteres ou moins.",

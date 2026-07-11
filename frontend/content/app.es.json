@@ -189,20 +189,20 @@
     "noWeakExamples": "No se detectó una línea débil específica, así que usa el patrón genérico de recuperación.",
     "genericRole": "Profesional",
     "genericSubjects": "personas, clientes, equipos, servicios, casos, sistemas, documentos u operaciones",
-    "genericOutcomes": "calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción",
+    "genericOutcomes": "calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento normativo, riesgo, continuidad o adopción",
     "summaryPattern": "{role} con experiencia apoyando {subjects}. Contribuyó a trabajos donde la evidencia más importante a recuperar es {outcomes}, usando números, plazos y alcance verdaderos.",
     "afterPattern": "Intenta recuperar: {activity} para [número] {subjects} durante [plazo/contexto], ayudando a mejorar [resultado específico: {outcomes}] en [número/resultado si es real].",
     "defaultMissingEvidence": [
       "Volumen o escala: cuántas personas, casos, clientes, usuarios, sistemas, documentos, turnos o servicios fueron afectados.",
       "Plazo: cuánto duró el trabajo, con qué frecuencia ocurrió o qué tan rápido mejoró algo.",
-      "Resultado: qué cambió en calidad, seguridad, coste, rapidez, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción.",
+      "Resultado: qué cambió en calidad, seguridad, coste, rapidez, satisfacción, fiabilidad, cumplimiento normativo, riesgo, continuidad o adopción.",
       "Responsabilidad: qué entregaste, influenciaste, coordinaste o apoyaste personalmente."
     ],
     "defaultQuestions": [
       "¿Qué cambió gracias a este trabajo?",
       "¿Quién o qué fue afectado?",
       "¿Cuántas personas, casos, clientes, usuarios, sistemas, documentos, turnos o servicios participaron?",
-      "¿Qué mejoró después del trabajo: calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento, riesgo, continuidad o adopción?",
+      "¿Qué mejoró después del trabajo: calidad, seguridad, rapidez, coste, satisfacción, fiabilidad, cumplimiento normativo, riesgo, continuidad o adopción?",
       "¿Qué número, plazo, línea base o comparación puedes defender en una entrevista?"
     ],
     "contexts": {
@@ -229,7 +229,7 @@
       "operations": {
         "role": "Profesional de operaciones o servicios",
         "subjects": "procesos, servicios, casos, equipos, sedes, proveedores, documentos, inventarios o flujos de trabajo",
-        "outcomes": "calidad, rapidez, coste, cumplimiento, seguridad, fiabilidad, capacidad, reducción de riesgo o continuidad del servicio"
+        "outcomes": "calidad, rapidez, coste, cumplimiento normativo, seguridad, fiabilidad, capacidad, reducción de riesgo o continuidad del servicio"
       }
     }
   },
@@ -250,7 +250,7 @@
   "footer": {
     "createdByPrefix": "Creado por",
     "contributeText": "Sugerir cambios en GitHub",
-    "version": "1.0.25"
+    "version": "1.0.26"
   },
   "cvBasics": {
     "title": "Bases de un CV de alto impacto",
@@ -410,7 +410,7 @@
             "items": [
               "Añade tus años de experiencia y elige si los estudios aparecen en el CV.",
               "Sube un CV en PDF, una exportación de LinkedIn en PDF o pega el texto del CV.",
-              "Elige OpenRouter, OpenAI, Gemini, Mistral, DeepSeek u Ollama (offline, experimental), y luego un modelo. Los modelos listados de OpenRouter son gratis; los IDs personalizados de OpenRouter pueden ser de pago segun tu cuenta de OpenRouter.",
+              "Elige OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek u Ollama (offline, experimental), y luego un modelo. Los modelos listados de OpenRouter son gratis; los IDs personalizados de OpenRouter pueden ser de pago segun tu cuenta de OpenRouter.",
               "Para proveedores cloud, añade una clave si no está configurada.",
               "Para Ollama, instala Ollama localmente, descarga el modelo seleccionado y mantén Ollama en ejecución.",
               "Ejecuta primero el precheck de evidencia del CV.",
@@ -509,6 +509,7 @@
               "Si usas DeepSeek, la solicitud va a DeepSeek con el modelo DeepSeek seleccionado.",
               "Si usas OpenAI, la solicitud va a OpenAI con el modelo OpenAI seleccionado.",
               "Si usas Mistral, la solicitud va a Mistral con el modelo Mistral seleccionado.",
+              "Si usas Claude (experimental), la solicitud va a Anthropic con el modelo Claude seleccionado.",
               "Si usas Ollama (offline, experimental), el backend envía la solicitud a tu URL local de Ollama en vez de a un proveedor cloud.",
               "El botón Buy Me a Coffee es un widget externo de apoyo y puede cargar recursos desde Buy Me a Coffee o su CDN."
             ]
@@ -615,7 +616,7 @@
     "Research / Academic": "Investigación / Académico",
     "Operations / Administration": "Operaciones / Administración",
     "Data / Analytics": "Datos / Analítica",
-    "Security / Risk / Compliance": "Seguridad / Riesgo / Cumplimiento",
+    "Security / Risk / Compliance": "Seguridad / Riesgo / Cumplimiento normativo",
     "Project / Program Management": "Gestión de proyectos / programas",
     "Procurement": "Compras",
     "Sales": "Ventas",
@@ -644,6 +645,11 @@
       "label": "Clave API de Mistral",
       "placeholder": "Opcional si MISTRAL_API_KEY esta configurada",
       "keyLinkText": "Obtener una clave API de Mistral"
+    },
+    "anthropic": {
+      "label": "Clave API de Anthropic",
+      "placeholder": "Opcional si ANTHROPIC_API_KEY esta configurada",
+      "keyLinkText": "Obtener una clave API de Anthropic"
     },
     "deepseek": {
       "label": "Clave API de DeepSeek",

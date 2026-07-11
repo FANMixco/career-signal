@@ -32,6 +32,12 @@ Or run it with a Mistral key:
 docker run --rm -p 3001:3001 -e MISTRAL_API_KEY=your_mistral_key_here fanmixco/career-signal:latest
 ```
 
+Or run it with an Anthropic key for Claude (experimental):
+
+```bash
+docker run --rm -p 3001:3001 -e ANTHROPIC_API_KEY=your_anthropic_key_here fanmixco/career-signal:latest
+```
+
 Or run it with a DeepSeek key:
 
 ```bash

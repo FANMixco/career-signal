@@ -6,7 +6,7 @@
 
 - Backend: Node.js, Express, TypeScript
 - Frontend: static HTML, CSS, JavaScript
-- AI providers: Gemini, OpenAI, Mistral, or Ollama
+- AI providers: OpenRouter, OpenAI, Gemini, Mistral, Claude / Anthropic (experimental), DeepSeek, or Ollama
 - PDF extraction: `pdf-parse`
 - Validation: Zod
 
@@ -16,6 +16,8 @@
 - `backend/src/rules/cvRules.ts` contains scoring bands, allowed options, score breakdown limits, detector patterns, and typed exports loaded from the content JSON files.
 - `backend/src/prompts/cvPrompts.ts` contains the AI instructions for the precheck and reconstruction plan.
 - `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
+- `backend/src/services/ai/cloudModelService.ts` dispatches cloud AI requests to provider-specific adapters in `backend/src/services/ai/cloudProviders/`.
+- `backend/src/services/ai/cloudProviders/cloudProviderUtils.ts` contains shared cloud-provider JSON instructions, schema instructions, token limits, and empty-output errors.
 - `frontend/content/app.*.json` contains visible frontend copy, labels, warnings, language-specific translations, target styles, and result-section ordering.
 - `frontend/config.js` loads frontend content and contains API URL behavior.
 - `frontend/index.html` keeps the static document structure, SEO metadata, favicons, manifest links, and document title.

@@ -33,6 +33,7 @@
     "openai",
     "gemini",
     "mistral",
+    "anthropic",
     "deepseek",
     "ollama"
   ],
@@ -70,6 +71,11 @@
     "mistral-large-latest",
     "mistral-small-latest"
   ],
+  "anthropicModels": [
+    "claude-sonnet-4-6",
+    "claude-haiku-4-5",
+    "claude-opus-4-8"
+  ],
   "ollamaModels": [
     "local-mix",
     "gemma4",
@@ -80,6 +86,7 @@
   "defaultGeminiModel": "models/gemini-3.5-flash",
   "defaultDeepSeekModel": "deepseek-v4-flash",
   "defaultMistralModel": "mistral-medium-latest",
+  "defaultAnthropicModel": "claude-sonnet-4-6",
   "defaultOllamaModel": "gemma4",
   "ollamaMixModel": "local-mix",
   "ollamaFallbackModels": [

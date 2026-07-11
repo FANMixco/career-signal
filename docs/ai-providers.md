@@ -4,13 +4,14 @@
 
 You can use a cloud AI provider with an API key, or Ollama locally without an API key.
 
-### Option A: Use Gemini, OpenAI, Or Mistral
+### Option A: Use Gemini, OpenAI, Mistral, Claude, DeepSeek, Or OpenRouter
 
 Get a key from the provider you want to use:
 
 - Gemini: [Google AI Studio API keys](https://aistudio.google.com/app/apikey)
 - OpenAI: [OpenAI Platform API keys](https://platform.openai.com/api-keys)
 - Mistral: [Mistral AI Console API keys](https://console.mistral.ai/api-keys/)
+- Claude (experimental): [Anthropic Console API keys](https://console.anthropic.com/settings/keys)
 - DeepSeek: [DeepSeek Platform API keys](https://platform.deepseek.com/api_keys)
 - OpenRouter: [OpenRouter API keys](https://openrouter.ai/settings/keys)
  
@@ -22,7 +23,7 @@ This is the simplest option for testing.
 
 1. Start the app.
 2. Open it in your browser.
-3. Choose `Gemini`, `OpenAI`, or `Mistral`.
+3. Choose `Gemini`, `OpenAI`, `Mistral`, `Claude (experimental)`, `DeepSeek`, or `OpenRouter`.
 4. Choose one of the visible models for that provider.
 5. Use the key link beside the field if you do not have a key yet.
 6. Paste the matching API key in the API key field.
@@ -56,6 +57,8 @@ DEEPSEEK_API_KEY=
 DEEPSEEK_MODEL=deepseek-v4-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
+ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-sonnet-4-6
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=gemma4
 PORT=3001
@@ -72,12 +75,16 @@ DEEPSEEK_API_KEY=
 DEEPSEEK_MODEL=deepseek-v4-flash
 MISTRAL_API_KEY=
 MISTRAL_MODEL=mistral-medium-latest
+ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-sonnet-4-6
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=gemma4
 PORT=3001
 ```
 
 The app also shows model choices directly in the UI. The `.env` model values are only defaults for requests that do not send a selected model.
+
+Claude support is marked experimental. The backend asks Claude for JSON and then validates the response against the same schemas used by other providers. If Claude returns malformed JSON, an incomplete response, or an unexpected provider error, retry once, try another Claude model, or switch to another cloud provider for that CV.
 
 Important: never share or commit the `.env` file. It contains private keys. The project is configured to ignore `.env`, but you should still treat it as secret.
 
