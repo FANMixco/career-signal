@@ -117,6 +117,7 @@
     "continueToTailoring": "Zur Stellenanpassung",
     "showImprovementExamples": "Verbesserungsbeispiele anzeigen",
     "downloadPlan": "TXT-Plan herunterladen",
+    "newSession": "Neu",
     "importJson": "Sitzung importieren",
     "exportJson": "Sitzung exportieren",
     "loadDemoProfile": "Demo-Profil laden"
@@ -259,7 +260,7 @@
   "footer": {
     "createdByPrefix": "Erstellt von",
     "contributeText": "Änderungen auf GitHub vorschlagen",
-    "version": "1.1.1"
+    "version": "1.1.2"
   },
   "cvBasics": {
     "title": "Grundlagen eines starken CV",

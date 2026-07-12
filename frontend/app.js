@@ -57,6 +57,7 @@ const els = {
   outputLanguage: document.querySelector("#outputLanguage"),
   cvPdf: document.querySelector("#cvPdf"),
   cvText: document.querySelector("#cvText"),
+  newSessionButton: document.querySelector("#newSessionButton"),
   importJsonFile: document.querySelector("#importJsonFile"),
   importJsonButton: document.querySelector("#importJsonButton"),
   exportJsonButton: document.querySelector("#exportJsonButton"),
@@ -1415,6 +1416,7 @@ els.shareButton.addEventListener("click", shareApp);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
+els.newSessionButton.addEventListener("click", () => window.location.reload());
 els.exportJsonButton.addEventListener("click", downloadJson);
 els.importJsonButton.addEventListener("click", () => els.importJsonFile.click());
 els.importJsonFile.addEventListener("change", importJsonFile);

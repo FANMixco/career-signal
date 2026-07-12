@@ -117,6 +117,7 @@
     "continueToTailoring": "Continuar a adaptación del puesto",
     "showImprovementExamples": "Ver ejemplos de mejora",
     "downloadPlan": "Descargar plan TXT",
+    "newSession": "Nuevo",
     "importJson": "Importar sesión",
     "exportJson": "Exportar sesión",
     "loadDemoProfile": "Cargar perfil de demostración"
@@ -259,7 +260,7 @@
   "footer": {
     "createdByPrefix": "Creado por",
     "contributeText": "Sugerir cambios en GitHub",
-    "version": "1.1.1"
+    "version": "1.1.2"
   },
   "cvBasics": {
     "title": "Bases de un CV de alto impacto",
