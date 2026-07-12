@@ -207,6 +207,10 @@ h2 {
   filter: invert(25%) sepia(24%) saturate(1012%) hue-rotate(127deg) brightness(89%) contrast(89%);
 }
 
+#loadDemoProfileButton {
+  margin-left: auto;
+}
+
 .ai-settings-grid {
   grid-template-columns: minmax(170px, 0.8fr) minmax(220px, 0.9fr) minmax(260px, 1fr);
 }
@@ -826,6 +830,10 @@ pre {
 
   .preview-warning {
     grid-template-columns: 1fr;
+  }
+
+  #loadDemoProfileButton {
+    margin-left: 0;
   }
 
   .site-footer-inner {

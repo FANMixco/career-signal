@@ -102,10 +102,6 @@ function isGitHubPagesPreview() {
   return window.location.hostname === "fanmixco.github.io" && window.location.pathname.startsWith("/career-signal/frontend");
 }
 
-function isLocalhostPage() {
-  return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
-}
-
 function storedBackendUrl() {
   return localStorage.getItem(backendStorageKey) || "";
 }
@@ -336,7 +332,6 @@ function applyConfiguredText() {
   renderCvBasics();
   renderBackendSettings();
   show(els.previewWarning, isGitHubPagesPreview());
-  refreshDemoProfileVisibility();
 }
 
 function show(element, visible = true) {
@@ -555,14 +550,6 @@ function demoProfileUrls() {
   }
 
   return [...candidates];
-}
-
-function shouldShowDemoProfileButton() {
-  return isGitHubPagesPreview() || isLocalhostPage();
-}
-
-function refreshDemoProfileVisibility() {
-  show(els.loadDemoProfileButton, shouldShowDemoProfileButton());
 }
 
 async function loadDemoProfile() {
