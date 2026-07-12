@@ -1,0 +1,491 @@
+{
+  "schema": "career-signal-session",
+  "schemaVersion": 1,
+  "exportedAt": "2026-07-12T08:28:27.967Z",
+  "appVersion": "1.1.0",
+  "inputs": {
+    "profile": {
+      "yearsOfExperience": "10",
+      "hasDegree": "false",
+      "degreeYear": "",
+      "ageWarningAcknowledged": false,
+      "experienceSelectionMode": "lastFive",
+      "outputLanguage": "en"
+    },
+    "cvText": "Page 1 of 4\nFederico\nNavarrete\nIT Strategist & Cloud Architect\n10+ years of experience leading digital\ntransformation, enterprise architecture, and AI-\ndriven modernization across multinational\norganizations. Proven record delivering cloud\nmigrations, enterprise governance, and\nmodernization initiatives, from reverse\nengineering 30-year legacy systems to reducing\nAWS waste by 40% and contributing to\nsovereign cloud migration initiatives. Trusted\nadvisor to senior leadership, combining strategic\nthinking with hands-on execution to deliver\nmeasurable business outcomes.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Scotland\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/feder\nico-navarrete\nSOFT AND TRANSFERABLE SKILLS\nLeadership IT Consultancy Executive Stakeholder Communication Project Management Cultural Intelligence\nNegotiation Stakeholder management IT/AI Strategy Innovation Management Design Thinking\nMentoring Training Team building Digital Transformation Problem-solving Storytelling AI Adoption\nWORK EXPERIENCE\nIT Strategy Consultant, Product Owner and Cloud Architect\nEuropean Commission/Publications Office of the European Union (OP)\n06/2024 - Present,  Hybrid/Luxembourg\nLed Amazon Q assisted modernization of a 30 year legacy Perl system, reverse engineering undocumented business logic\nfrom screenshots and web traces, evaluating commercial and open source alternatives, and architecting the target platform.\nDelivered a PoC in one week after nine years of stalled efforts, avoiding ~€2M in redevelopment costs.\nRepresented the Publications Office at international conferences and universities, including the European Parliament's first\nFinOps Conference, Warsaw IT Days, and Don Bosco University (El Salvador).\nArchitected the “Obsolescence Clock” platform, defining lifecycle governance for 70+ enterprise systems across four maturity\nstages and guiding its adoption as a mission-critical capability.\nLed the OP sovereign database cloud migration, delivering a successful PoC from Oracle RDS on AWS to PostgreSQL on Clever\nCloud while defining the roadmap for legacy file transfer modernization.\nLaunched the first cloud cost-optimization program, reducing AWS waste by 40% across test environments and co-designing\nan AI driven analytics solution to forecast future savings opportunities.\nServed on the institutional architecture and strategy board, evaluating major IT initiatives and ensuring alignment with\nenterprise architecture and long term digital strategy.\nSounding Board Member\nPublications Office of the European Union\n10/2024 - Present,  Luxembourg\nAdvised the Director-General as a strategic sounding board member, shaping initiatives to modernize institutional processes\nand workforce capabilities.\nAdvised senior leadership on emerging technologies, including a strategic proposal to evaluate DNA-based archival storage\n(Biomemory) for the long term preservation of the Official Journal.\nAuthored the institutional robotic process automation (RPA) strategy, defining the target technology landscape, governance\nmodel, and implementation roadmap.\nDesigned a workforce reskilling strategy to support digital transformation through capability building, ownership, and\norganizational resilience.\nEvaluated institutional business plans and operational priorities, advising on long term digital transformation initiatives.\nAchievements/Tasks\nAchievements/Tasks\nPage 2 of 4\nWORK EXPERIENCE\nIT Delivery Manager, Software Architect and AWS Consultant (via Inetum)\nEricsson\n12/2020 - 05/2024,  Remote/Madrid, Spain\nStrategized and led the re-engineering of 9 on-premise apps to 80 micro-services using AWS cloud-native services and Docker. It\ncut monthly costs from $10k to $6k and reduced the associated carbon footprint. All GDPR-compliant. I also orchestrated the\nsplit of the main AWS account into 15, implementing a new logic for Continuous Deployment using CodePipeline.\nBecame the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new\nteams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using\ncloud-native services to maximize cost savings and reduce the associated carbon footprint.\nWon and led the development of a $100k AWS project (for supervising global prices), transforming SAP HANA-powered Excels\ninto a cloud data lake. It implemented the first production app co-created with ChatGPT using Python, PowerBI and SQL Server.\nLed 3 teams located in India. One 6-person team for 9 apps support and development (AWS, Docker, Java, and Databases), one 2-\nperson for a data lake service, and one 2-person for RPAs in Blue Prism. All are managed with the help of Kanban and Jira.\nDeveloped several AWS Lambda scripts using Python and AWS EventBridge to schedule application shutdowns and startups,\nreducing monthly costs from ≈€1.5k to ≈€300 and minimizing the associated carbon footprint. Additionally, I eliminated Docker\nDesktop licenses in the Spanish branch by creating a WSL 2-powered script.\nWorked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any\nchange request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.\nFreelancer, Cloud Architect and Author\nSupernova IC\n01/2009 - Present,  Remote/Estonia\nWon 1st place twice, leading two remote multicultural and multidisciplinary teams in co-creating innovative tech MVPs for Urban\nMobility Citythons 2021, Eindhoven, and Hamburg editions organized by EIT Urban Mobility and sponsored by the European\nUnion. Our MVPs focused on 'Keeping a City Green' and 'Virtual Twin Cities' for democratizing urban planning.\nPublished the first Salvadoran folklore books in English, Timeless Stories of El Salvador. Presented the series internationally\nthrough the Cervantes Institutes and the Salvadoran Embassies in India, Austria, Germany, Spain, Türkiye, and Morocco, including\nthe SIEL in Rabat.\nPublished 20+ apps and libraries across NuGet, Microsoft Store, Google Play, and Amazon, reaching 60k+ downloads, including\nthe #1 ranked Toastmasters Timer app on Google Play Store globally.\nPitched award-winning business ideas to organizations, including representatives from the EC in Brussels, Microsoft, Cisco, NASA,\nthe EU, the City Hall of Eindhoven, and the UN. Won the Samsung Top Developer Award (Social, 2021).\nTechnology Analyst and Consultant\nInfosys Poland\n07/2018 - 02/2021,  Remote/Lodz, Poland\nDesigned the architecture (IaaS) and led the migration of 10 RPAs in AA, 10 .NET Apps, 6 DBs, and 3 macros from on-premises to\nAzure during Covid-19. The multicultural Scrum Team (8) collaborated remotely with members from Costa Rica, Turkey, and\nPoland. Also, this process enabled Home Office to multiple teams.\nRebuilt 2 bots. One for master data and another for reporting, while collaborating with a 4-person team managed by Kanban. This\nrecovered the trust of one engagement in RPA and saved 2 FTEs. As a result, a new RPA was won that saved 2 FTEs more.\nDesigned and implemented a new plan for building RPAs that has minimized the errors by 25%.\nWinner of the TSG Strategy Internalization Contest and the 7th Oxford Debate: Is the future of BPO/BPM bright or doomed?\nSELECTED VOLUNTEER EXPERIENCE\nPresident\nThe Leader Ship Toastmasters\n07/2023 - 06/2024,  Remote/Lodz, Poland\nRestored communication among all 3 local clubs in Lodz.\nStrategized and began collaboration and negotiations\nwith Rotary Clubs in Lodz to expand our alliance.\nStarted negotiations with the local International Speech\nConference's Organizers to collaborate and revive the\nEnglish-speaking club of Lodz.\nArea Director\nToastmasters International, District 108\n07/2018 - 06/2019,  Lodz-Warsaw, Poland\nChosen as the second-best Area Director in the District\n108, 2018-2019.\nOrganized multicultural conference with a 6-person\nteam. 50+ attendees and international speakers.\nCreated a 4-hour workshop for 20 young entrepreneurs\non Elevator Pitching, sponsored by Lodz City Hall.\nAchievements/Tasks\nAchievements/Tasks\nAchievements/Tasks\nTasks/Achievements Tasks/Achievements\nPage 3 of 4\nTECHNICAL SKILLS\nDevelopment &\nAI Tools\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nCloud &\nEnterprise\nPlatforms\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nLanguages &\nTechnologies\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nFrameworks &\nLibraries\n.NET 8+, MAUI, OpenAI API, Gemini\nAPI, Google Maps API, TensorFlow\nJS, Bootstrap 5, Leaflet\nPractices Enterprise Architecture, Digital\nTransformation, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, AI-Assisted Development\nEuropean\nCommission\nServices\nEU Login, eTranslation, GPT@EC\nVersioning Git (GitHub, Azure DevOps and\nBitBucket), SVN, TFS\nSELECTED TECHNOLOGY PROJECTS\nCareer Signal Engine (06/2026 - Present)\nAn AI-powered open source platform for optimizing CVs\nthrough personalized career signaling and job-specific\nrecommendations.\nToastmasters Timer (01/2018 - Present)\n60k+ downloads across Google Play, Amazon, Microsoft Store,\nand Huawei AppGallery. #1 ranked Toastmasters Timer app\non Google Play.\nLet's Stop Diabetes (11/2015 - Present)\nTop 5 finalist in the Microsoft Imagine Cup Poland (World\nCitizenship, 2016). 1,200+ downloads on Microsoft Store.\nGravity Now! (03/2014 - Present)\nSelected among NASA Space Apps Challenge's Top 5 Most\nInspiring Projects (2014). 1,000+ downloads across Google\nPlay and Microsoft Store.\nSELECTED PUBLICATIONS\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - ongoing\nIndependent\nThe first Salvadoran folklore series published in English,\nSpanish, and French. Presented internationally through\nthe Cervantes Institutes and the Salvadoran and Spanish\nEmbassies and Consulates across Europe, Asia, Australia,\nAfrica, and the Americas, including the International Book\nFair (SIEL) in Rabat during UNESCO's World Book Capital\nyear.\nLinkedIn\nWhy I believe Leverage is More Important than\nEver\n12/01/2026\nExplores how individuals can build leverage through\nparallel skills, feedback loops, and early exposure in a world\nof shorter careers, AI disruption, and weaker institutional\nsafety nets.\nLinkedIn\nWhy I Always Think in Systems and Incentives: My\nTwo Cents\n01/12/2025\nA reflection on how systems thinking, incentives, and\npattern recognition shaped my approach to technology,\nleadership, and innovation.\nLinkedIn\nTwo Brains, One Vision: How ChatGPT helped me\nLevel Up My Toastmasters Timer\n06/10/2025\nHow collaborative GenAI accelerated the evolution of the\nmost downloaded Toastmasters Timer application.\nLinkedIn\nAre Low Code Platforms the Next Big Thing in IT?\n07/01/2020\nAn introduction to the LCDP and their impact in the current\nera.\nLinkedIn\nThe Four Faces of Automation in the Industry 4.0\n24/01/2020\nSecond Edition of this article about the different kinds of\nautomations: Tactical, Point Solutions, RPAs and Cognitive.\nSELECTED INTERNATIONAL SPEAKING ENGAGEMENTS\nBook Presentation (05/2026)\nSalon International de l'Edition et du Livre\nOfficial participation in Morocco's international book fair,\nlaunching Timeless Stories of El Salvador: Spanish Mirrors.\nConference Speaker (04/2026)\nWarszawskie Dni Informatyki\nDelivered a session on enterprise AI development using\nAmazon Q and advanced AI-assisted software engineering.\nPage 4 of 4\nSELECTED INTERNATIONAL SPEAKING ENGAGEMENTS\nConference Speaker (02/2025)\nEuropean Parliament, FinOps Foundation and European Commission\nHow to create Smart Contracts for FinOps in the Public Sector.\nConference Speaker (11/2023)\nInstituto Cervantes in New Delhi\nPresented the first Hindi translation of Timeless Stories of El\nSalvador for Children.\nInvited Speaker (10/2023)\nInstituto Cervantes in Istanbul\nFeatured speaker at Türkiye's first Ibero-American Literature\nMeeting.\nConference Speaker (07/2020)\nIEEE and Don Bosco University\nTalk about automation in IT processes and the Future Post\nCovid-19.\nSELECTED HONORS AND AWARDS\nHonorary Award for Best AI Solutions PM with\nDrupal Canvas (01/2026)\nEuropean Commission\nSamsung Top Developer Award Social 2021\n (07/2021)\nSamsung\n1st Place Citythons 2021, Eindhoven and Hamburg\nEditions (06/2021)\nEIT Urban Mobility (Co-funded by the European Union)\nDiversity in Leadership Hackathon Winner (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Present)\nToastmasters International\nPresident's Distinguished Area (10/2019)\nToastmasters International\nWinner of the 7th Oxford Debate: Is the future of\nBPO/BPM bright or doomed? (04/2019)\nInfosys Poland\nWinner of TSG Strategy Internalization Contest\n (07/2020)\nInfosys\n1st place of the Faculty of Electrical, Electronic,\nComputer and Control Engineering and the\nInternational Faculty of Engineering (12/2016)\nLodz University of Technology\n1st place in the Cisco Switch Up Challenge \"The\nInternet of Everything\" (03/2016)\nCisco Systems\nSELECTED CERTIFICATES\nClaude Code in Action by Anthropic\n (06/2026 - Present)\nMcKinsey.org Forward Program (07/2025 - Present)\nFinOps Essentials for Cloud Deployments\n (01/2025 - Present)\nBusiness for All 2024, Harvard Business Publishing\n (09/2024 - Present)\nMachine Learning for Business Professionals\n (08/2019 - Present)\nMachine Learning with Javascript, Udemy\n (04/2020 - Present)\nBecome a Project Manager, LinkedIn\n (01/2020 - Present)\nScrum Foundations Professional Certificate,\nCertiProf (01/2020)\nLANGUAGES\nEnglish\nFull Professional Proficiency\nSpanish\nNative or Bilingual Proficiency\nFrench\nLimited Working Proficiency",
+    "pastedCvText": "",
+    "aiSettings": {
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "selectedModelOption": "gpt-5.4-mini",
+      "customModels": {},
+      "ollamaBaseUrl": ""
+    },
+    "tailoring": {
+      "companyName": "Bain & Company",
+      "companyDescription": "",
+      "jobPosition": "Expert Manager, Software Engineering  (Full Stack)",
+      "jobDescription": "WHAT MAKES US A GREAT PLACE TO WORK\n\nWe are proud to be consistently recognized as one of the world’s best places to work. We are currently the top ranked consulting firm on Glassdoor’s Best Places to Work list and have earned the #1 overall spot a record seven times. Extraordinary teams are at the heart of our business strategy, but these don’t happen by chance. They require intentional focus on bringing together a broad set of backgrounds, cultures, experiences, perspectives, and skills in a supportive and inclusive work environment. We hire people with exceptional talent and create an environment in which every individual can thrive professionally and personally.\n\n \n\nWHO YOU’LL WORK WITH\n\nYou’ll join our Engineering experts within the AI, Insights & Solutions team. This team is part of Bain’s digital capabilities practice, which includes experts in analytics, engineering, product management, and design. In this multidisciplinary environment, you'll leverage deep technical expertise with business acumen to help clients tackle their most transformative challenges. You’ll work on integrated teams alongside our general consultants and clients to develop data-driven strategies and innovative solutions. Together, we create human-centric solutions that harness the power of data and artificial intelligence to drive competitive advantage for our clients. Our collaborative and supportive work environment fosters creativity and continuous learning, enabling us to consistently deliver exceptional results.\n\n \n\nWHAT YOU’LL DO\n As an Expert Manager, Software Engineering, you will lead the development and building of software applications that address complex business and technology problems in various industries. You will guide a diverse engineering team through the entire engineering life cycle. Your responsibilities will include designing, developing, optimizing, and deploying cutting-edge software engineering solutions and infrastructure at the production scale required by the world’s largest companies, with a strong focus on ensuring technical delivery supports business strategy, operating model evolution, and sustainable value creation.\n\nShape & scope client solutions. Work with Bain consulting teams and product owners to translate business problems into prioritized backlogs and technical roadmaps for cross-functional engineering squads\nTranslate technical capabilities into client-ready product and transformation outcomes by shaping product direction, operating model implications, and change management approaches that support adoption and measurable business impact\nOwn full-stack design & build. Lead the architecture, development and documentation of AI applications, including coding and integrating third-party services or frameworks that accelerate delivery and long-term maintainability\nEstablish AI-native software engineering best practices. Define and enforce standards around component libraries/design systems, automated testing, linting, CI/CD, accessibility and performance optimization\nDevelop reusable libraries & accelerators. Create and curate shared code assets that reduce time-to-value across multiple client projects and internal initiatives.\nLead the full delivery lifecycle. Set quality gates, supervise code reviews, ensure robust unit/integration test coverage, manage release planning, and oversee post-deployment monitoring and incident resolution\nPartner on UI/UX excellence. Collaborate with designers to ship inclusive, responsive interfaces\nMentor & grow engineers. Provide day-to-day technical coaching for senior and mid-level engineers through pair programming, architecture sessions and constructive feedback\nUpskill client engineering teams. Coach client developers on modern tooling and DevOps/cloud-native practices, ensuring sustainable ownership after Bain’s engagement\nAdvance AI-native technology adoption. Champion containerization, infrastructure-as-code, automated observability and secure-by-design principles to improve scalability, reliability and security\nContribute to communities of practice. Share lessons learned and emerging technology trends through internal forums, brown-bag sessions and knowledge assets\nSupport talent acquisition & onboarding. Participate in interviewing, technical assessments and mentoring of new hires to build a high-caliber engineering cohort\nTravel is required. This position requires regional travel away from your home office/primary working location. Travel frequency and destinations will vary based on project needs\n \n\nABOUT YOU\n\nTechnical Skills & Knowledge\n\nDegree in Computer Science, Engineering, or a related technical field\n6+ years of end-to-end experience designing, building and maintaining production-grade full-stack applications\nExperience working directly with business stakeholders to translate strategic objectives into solution, platform products or roadmaps\n4+ years building server-side services using FastAPI, Node.js/Express, Flask, Django, .NET Core or Java Spring Boot or similar technologies, including the design of APIs\n3+ years of architecting and operating micro-service ecosystems, emphasizing service discovery, observability, CI/CD automation and blue-/green or canary deployments\nExpert knowledge of Python, JavaScript and/or other programming languages\nExperience with cloud-native delivery on AWS, Azure or GCP, knowledge of managed services, serverless patterns and infrastructure-as-code such as Terraform, CloudFormation or Bicep\nProficient with containerization and orchestration, Docker, Kubernetes and related tooling (Helm, Argo CD)\nExperience with database architecture across relational (PostgreSQL, MySQL, SQL Server) and NoSQL/document stores (MongoDB, DynamoDB, Redis), with solid SQL skills\nSolid computer science fundamentals, data structures, algorithms, object-oriented and functional paradigms, automated testing, performance profiling\nExcellence in software architecture design, including modular, distributed, and cloud-native systems, scalability, resiliency, maintainability, and observability\nExperience with data security, OAuth 2.0/OIDC, JWT, SSO/cloud IAM, encryption in transit, at rest, and awareness of data protection regulations.\nIdeally, experience with modern AI/ML development, working with LLM APIs, prompt engineering, RAG pipelines, agentic SDKs and AI safety\nIdeally, hands-on experience with modern web technologies such as React, Angular, Vue.js, TypeScript, HTML5 and CSS3\nProven leader and mentor with ability to lead engineering squads, set coding standards, perform rigorous code reviews and up skill junior engineers.\nAgile delivery mindset, practical experience with Scrum or Kanban, story-point estimation, backlog grooming and the use of Git-based workflows, Jira and automated CI/CD pipelines.\nFluency in English. Minimum business fluent Spanish for Iberia\n \n\nInterpersonal Skills\n\nStrong interpersonal and communication skills, including the ability to explain and discuss technicalities of solutions, algorithms and techniques with colleagues and clients from other disciplines\nCuriosity, proactivity and critical thinking\nAbility to collaborate with people at all levels and with multi-office/region teams \nAbility to work independently and juggle priorities to thrive in a fast paced and ambiguous environment, while also collaborating as part of a team in complex situations\nVector referral EMEA\n\nVector referrals EMEA",
+      "targetStyle": "Management",
+      "unlocked": true,
+      "continueDespiteWeakPrecheck": false
+    }
+  },
+  "outputs": {
+    "precheck": {
+      "cvEvidenceScore": 89,
+      "scoreBreakdown": {
+        "quantifiedResults": 18,
+        "accomplishmentClarity": 18,
+        "scopeAndScale": 18,
+        "responsibilityVersusOutcomeRatio": 14,
+        "interviewDefensibility": 10
+      },
+      "hasQuantifiedResults": true,
+      "hasAccomplishments": true,
+      "mostlyJobDescriptions": false,
+      "impactClarityScore": 17,
+      "quantifiedEvidenceCount": 18,
+      "strongBulletCount": 20,
+      "weakBulletCount": 8,
+      "proceedRecommendation": "Proceed",
+      "mainProblem": "Strong evidence overall, but some bullets mix responsibilities with outcomes, a few claims lack precise baseline/context, and the CV is long enough that the best proof can get diluted by extensive publications, speaking, and project lists.",
+      "specificWarnings": [
+        "Some long-tenure sections may hide internal progression or scope changes. The Ericsson and Publications Office tenures show multiple responsibilities and likely role evolution, so splitting promotions, internal role changes, or phase-based scope would improve readability if accurate.",
+        "A few completed achievements are phrased in ongoing or generic wording, which can blur chronology. Example patterns include 'I analyze', 'I am', or present-tense task phrasing under past roles; keep past roles firmly in past tense and current-role completed outcomes clearly dated.",
+        "The CV is very long and dense. It includes substantial publications, speaking engagements, certificates, and project lists, which may dilute the strongest career evidence for tailoring. Consider trimming lower-signal items when targeting roles.",
+        "Some bullets combine responsibilities and achievements in the same sentence, making the outcome harder to isolate. This is not fatal, but it lowers scannability and interview defensibility.",
+        "A few claims are impressive but not fully anchored with comparison baselines, timeframes, or business context. For example, cost reductions and saved FTEs are strong, but some would be stronger with a before/after scope or decision impact.",
+        "The summary contains strong narrative claims such as 'trusted advisor' and 'proven record' that are mostly supported, but the phrasing is broad enough that a reader may want nearby proof for every major claim.",
+        "The candidate appears to have all essential contact details present near the top, so no contact warning is needed."
+      ],
+      "missingEvidenceTypes": [
+        "More explicit business baselines for some cost savings",
+        "Clearer before/after context for some automation and migration outcomes",
+        "More visible scope for leadership impact beyond team counts",
+        "Role progression breakdown for long tenures",
+        "Tighter chronology on completed versus ongoing accomplishments"
+      ],
+      "examplesOfWeakBullets": [
+        "Worked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any change request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.",
+        "Became the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new teams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using cloud-native services to maximize cost savings and reduce the associated carbon footprint.",
+        "Advised the Director-General as a strategic sounding board member, shaping initiatives to modernize institutional processes and workforce capabilities.",
+        "Evaluated institutional business plans and operational priorities, advising on long term digital transformation initiatives.",
+        "Organized multicultural conference with a 6-person team. 50+ attendees and international speakers."
+      ],
+      "questionsToRecoverMetrics": [
+        "What was the total annual AWS spend before the 40% waste reduction, and what was the absolute euro savings after the change?",
+        "For the 9 on-prem apps migrated to 80 microservices, how many users, countries, teams, or business processes were affected?",
+        "What was the timeline of the one-week PoC versus the prior nine years of stalled efforts, and who approved or adopted the result?",
+        "How many enterprise systems does the 70+ governance platform cover in production today, and what changed operationally after adoption?",
+        "For the sovereign cloud migration PoC, what business risk, compliance need, or cost reduction was the target outcome?",
+        "How many teams or stakeholders did you influence at Ericsson and Publications Office, and what decisions changed because of your input?",
+        "For the $100k AWS project, what business KPI improved besides the technical modernization?",
+        "For the FTE savings in Infosys, what activities were removed, how recurring were the savings, and what was the annualized impact?",
+        "For the 2M redevelopment cost avoidance, was this an estimated vendor quote, internal budget, or forecast, and who validated it?",
+        "What specific leadership scope did you have over the 3 India-based teams: line management, technical lead, or delivery coordination?"
+      ],
+      "interviewRiskQuestions": [
+        "Can you walk me through the exact business case for the 40% AWS waste reduction and how you measured it?",
+        "What was your direct role in the one-week PoC after nine years of stalled efforts, and what made your approach succeed?",
+        "How did you validate that the redevelopment cost would have been about €2M?",
+        "What internal role changes or promotions happened during your long Ericsson and Publications Office tenures?",
+        "Which achievements in the CV are ongoing work, and which are completed projects?",
+        "If I asked for one example of your leadership influence that changed a senior decision, which would you choose and why?"
+      ],
+      "nextStep": "Proceed with tailoring, but tighten the strongest bullets, separate role progression where real, and add missing baselines or decision outcomes before submitting to competitive roles.",
+      "personalDataWarnings": []
+    },
+    "precheckPayload": {
+      "cvText": "Page 1 of 4\nFederico\nNavarrete\nIT Strategist & Cloud Architect\n10+ years of experience leading digital\ntransformation, enterprise architecture, and AI-\ndriven modernization across multinational\norganizations. Proven record delivering cloud\nmigrations, enterprise governance, and\nmodernization initiatives, from reverse\nengineering 30-year legacy systems to reducing\nAWS waste by 40% and contributing to\nsovereign cloud migration initiatives. Trusted\nadvisor to senior leadership, combining strategic\nthinking with hands-on execution to deliver\nmeasurable business outcomes.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Scotland\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/feder\nico-navarrete\nSOFT AND TRANSFERABLE SKILLS\nLeadership IT Consultancy Executive Stakeholder Communication Project Management Cultural Intelligence\nNegotiation Stakeholder management IT/AI Strategy Innovation Management Design Thinking\nMentoring Training Team building Digital Transformation Problem-solving Storytelling AI Adoption\nWORK EXPERIENCE\nIT Strategy Consultant, Product Owner and Cloud Architect\nEuropean Commission/Publications Office of the European Union (OP)\n06/2024 - Present,  Hybrid/Luxembourg\nLed Amazon Q assisted modernization of a 30 year legacy Perl system, reverse engineering undocumented business logic\nfrom screenshots and web traces, evaluating commercial and open source alternatives, and architecting the target platform.\nDelivered a PoC in one week after nine years of stalled efforts, avoiding ~€2M in redevelopment costs.\nRepresented the Publications Office at international conferences and universities, including the European Parliament's first\nFinOps Conference, Warsaw IT Days, and Don Bosco University (El Salvador).\nArchitected the “Obsolescence Clock” platform, defining lifecycle governance for 70+ enterprise systems across four maturity\nstages and guiding its adoption as a mission-critical capability.\nLed the OP sovereign database cloud migration, delivering a successful PoC from Oracle RDS on AWS to PostgreSQL on Clever\nCloud while defining the roadmap for legacy file transfer modernization.\nLaunched the first cloud cost-optimization program, reducing AWS waste by 40% across test environments and co-designing\nan AI driven analytics solution to forecast future savings opportunities.\nServed on the institutional architecture and strategy board, evaluating major IT initiatives and ensuring alignment with\nenterprise architecture and long term digital strategy.\nSounding Board Member\nPublications Office of the European Union\n10/2024 - Present,  Luxembourg\nAdvised the Director-General as a strategic sounding board member, shaping initiatives to modernize institutional processes\nand workforce capabilities.\nAdvised senior leadership on emerging technologies, including a strategic proposal to evaluate DNA-based archival storage\n(Biomemory) for the long term preservation of the Official Journal.\nAuthored the institutional robotic process automation (RPA) strategy, defining the target technology landscape, governance\nmodel, and implementation roadmap.\nDesigned a workforce reskilling strategy to support digital transformation through capability building, ownership, and\norganizational resilience.\nEvaluated institutional business plans and operational priorities, advising on long term digital transformation initiatives.\nAchievements/Tasks\nAchievements/Tasks\nPage 2 of 4\nWORK EXPERIENCE\nIT Delivery Manager, Software Architect and AWS Consultant (via Inetum)\nEricsson\n12/2020 - 05/2024,  Remote/Madrid, Spain\nStrategized and led the re-engineering of 9 on-premise apps to 80 micro-services using AWS cloud-native services and Docker. It\ncut monthly costs from $10k to $6k and reduced the associated carbon footprint. All GDPR-compliant. I also orchestrated the\nsplit of the main AWS account into 15, implementing a new logic for Continuous Deployment using CodePipeline.\nBecame the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new\nteams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using\ncloud-native services to maximize cost savings and reduce the associated carbon footprint.\nWon and led the development of a $100k AWS project (for supervising global prices), transforming SAP HANA-powered Excels\ninto a cloud data lake. It implemented the first production app co-created with ChatGPT using Python, PowerBI and SQL Server.\nLed 3 teams located in India. One 6-person team for 9 apps support and development (AWS, Docker, Java, and Databases), one 2-\nperson for a data lake service, and one 2-person for RPAs in Blue Prism. All are managed with the help of Kanban and Jira.\nDeveloped several AWS Lambda scripts using Python and AWS EventBridge to schedule application shutdowns and startups,\nreducing monthly costs from ≈€1.5k to ≈€300 and minimizing the associated carbon footprint. Additionally, I eliminated Docker\nDesktop licenses in the Spanish branch by creating a WSL 2-powered script.\nWorked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any\nchange request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.\nFreelancer, Cloud Architect and Author\nSupernova IC\n01/2009 - Present,  Remote/Estonia\nWon 1st place twice, leading two remote multicultural and multidisciplinary teams in co-creating innovative tech MVPs for Urban\nMobility Citythons 2021, Eindhoven, and Hamburg editions organized by EIT Urban Mobility and sponsored by the European\nUnion. Our MVPs focused on 'Keeping a City Green' and 'Virtual Twin Cities' for democratizing urban planning.\nPublished the first Salvadoran folklore books in English, Timeless Stories of El Salvador. Presented the series internationally\nthrough the Cervantes Institutes and the Salvadoran Embassies in India, Austria, Germany, Spain, Türkiye, and Morocco, including\nthe SIEL in Rabat.\nPublished 20+ apps and libraries across NuGet, Microsoft Store, Google Play, and Amazon, reaching 60k+ downloads, including\nthe #1 ranked Toastmasters Timer app on Google Play Store globally.\nPitched award-winning business ideas to organizations, including representatives from the EC in Brussels, Microsoft, Cisco, NASA,\nthe EU, the City Hall of Eindhoven, and the UN. Won the Samsung Top Developer Award (Social, 2021).\nTechnology Analyst and Consultant\nInfosys Poland\n07/2018 - 02/2021,  Remote/Lodz, Poland\nDesigned the architecture (IaaS) and led the migration of 10 RPAs in AA, 10 .NET Apps, 6 DBs, and 3 macros from on-premises to\nAzure during Covid-19. The multicultural Scrum Team (8) collaborated remotely with members from Costa Rica, Turkey, and\nPoland. Also, this process enabled Home Office to multiple teams.\nRebuilt 2 bots. One for master data and another for reporting, while collaborating with a 4-person team managed by Kanban. This\nrecovered the trust of one engagement in RPA and saved 2 FTEs. As a result, a new RPA was won that saved 2 FTEs more.\nDesigned and implemented a new plan for building RPAs that has minimized the errors by 25%.\nWinner of the TSG Strategy Internalization Contest and the 7th Oxford Debate: Is the future of BPO/BPM bright or doomed?\nSELECTED VOLUNTEER EXPERIENCE\nPresident\nThe Leader Ship Toastmasters\n07/2023 - 06/2024,  Remote/Lodz, Poland\nRestored communication among all 3 local clubs in Lodz.\nStrategized and began collaboration and negotiations\nwith Rotary Clubs in Lodz to expand our alliance.\nStarted negotiations with the local International Speech\nConference's Organizers to collaborate and revive the\nEnglish-speaking club of Lodz.\nArea Director\nToastmasters International, District 108\n07/2018 - 06/2019,  Lodz-Warsaw, Poland\nChosen as the second-best Area Director in the District\n108, 2018-2019.\nOrganized multicultural conference with a 6-person\nteam. 50+ attendees and international speakers.\nCreated a 4-hour workshop for 20 young entrepreneurs\non Elevator Pitching, sponsored by Lodz City Hall.\nAchievements/Tasks\nAchievements/Tasks\nAchievements/Tasks\nTasks/Achievements Tasks/Achievements\nPage 3 of 4\nTECHNICAL SKILLS\nDevelopment &\nAI Tools\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nCloud &\nEnterprise\nPlatforms\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nLanguages &\nTechnologies\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nFrameworks &\nLibraries\n.NET 8+, MAUI, OpenAI API, Gemini\nAPI, Google Maps API, TensorFlow\nJS, Bootstrap 5, Leaflet\nPractices Enterprise Architecture, Digital\nTransformation, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, AI-Assisted Development\nEuropean\nCommission\nServices\nEU Login, eTranslation, GPT@EC\nVersioning Git (GitHub, Azure DevOps and\nBitBucket), SVN, TFS\nSELECTED TECHNOLOGY PROJECTS\nCareer Signal Engine (06/2026 - Present)\nAn AI-powered open source platform for optimizing CVs\nthrough personalized career signaling and job-specific\nrecommendations.\nToastmasters Timer (01/2018 - Present)\n60k+ downloads across Google Play, Amazon, Microsoft Store,\nand Huawei AppGallery. #1 ranked Toastmasters Timer app\non Google Play.\nLet's Stop Diabetes (11/2015 - Present)\nTop 5 finalist in the Microsoft Imagine Cup Poland (World\nCitizenship, 2016). 1,200+ downloads on Microsoft Store.\nGravity Now! (03/2014 - Present)\nSelected among NASA Space Apps Challenge's Top 5 Most\nInspiring Projects (2014). 1,000+ downloads across Google\nPlay and Microsoft Store.\nSELECTED PUBLICATIONS\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - ongoing\nIndependent\nThe first Salvadoran folklore series published in English,\nSpanish, and French. Presented internationally through\nthe Cervantes Institutes and the Salvadoran and Spanish\nEmbassies and Consulates across Europe, Asia, Australia,\nAfrica, and the Americas, including the International Book\nFair (SIEL) in Rabat during UNESCO's World Book Capital\nyear.\nLinkedIn\nWhy I believe Leverage is More Important than\nEver\n12/01/2026\nExplores how individuals can build leverage through\nparallel skills, feedback loops, and early exposure in a world\nof shorter careers, AI disruption, and weaker institutional\nsafety nets.\nLinkedIn\nWhy I Always Think in Systems and Incentives: My\nTwo Cents\n01/12/2025\nA reflection on how systems thinking, incentives, and\npattern recognition shaped my approach to technology,\nleadership, and innovation.\nLinkedIn\nTwo Brains, One Vision: How ChatGPT helped me\nLevel Up My Toastmasters Timer\n06/10/2025\nHow collaborative GenAI accelerated the evolution of the\nmost downloaded Toastmasters Timer application.\nLinkedIn\nAre Low Code Platforms the Next Big Thing in IT?\n07/01/2020\nAn introduction to the LCDP and their impact in the current\nera.\nLinkedIn\nThe Four Faces of Automation in the Industry 4.0\n24/01/2020\nSecond Edition of this article about the different kinds of\nautomations: Tactical, Point Solutions, RPAs and Cognitive.\nSELECTED INTERNATIONAL SPEAKING ENGAGEMENTS\nBook Presentation (05/2026)\nSalon International de l'Edition et du Livre\nOfficial participation in Morocco's international book fair,\nlaunching Timeless Stories of El Salvador: Spanish Mirrors.\nConference Speaker (04/2026)\nWarszawskie Dni Informatyki\nDelivered a session on enterprise AI development using\nAmazon Q and advanced AI-assisted software engineering.\nPage 4 of 4\nSELECTED INTERNATIONAL SPEAKING ENGAGEMENTS\nConference Speaker (02/2025)\nEuropean Parliament, FinOps Foundation and European Commission\nHow to create Smart Contracts for FinOps in the Public Sector.\nConference Speaker (11/2023)\nInstituto Cervantes in New Delhi\nPresented the first Hindi translation of Timeless Stories of El\nSalvador for Children.\nInvited Speaker (10/2023)\nInstituto Cervantes in Istanbul\nFeatured speaker at Türkiye's first Ibero-American Literature\nMeeting.\nConference Speaker (07/2020)\nIEEE and Don Bosco University\nTalk about automation in IT processes and the Future Post\nCovid-19.\nSELECTED HONORS AND AWARDS\nHonorary Award for Best AI Solutions PM with\nDrupal Canvas (01/2026)\nEuropean Commission\nSamsung Top Developer Award Social 2021\n (07/2021)\nSamsung\n1st Place Citythons 2021, Eindhoven and Hamburg\nEditions (06/2021)\nEIT Urban Mobility (Co-funded by the European Union)\nDiversity in Leadership Hackathon Winner (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Present)\nToastmasters International\nPresident's Distinguished Area (10/2019)\nToastmasters International\nWinner of the 7th Oxford Debate: Is the future of\nBPO/BPM bright or doomed? (04/2019)\nInfosys Poland\nWinner of TSG Strategy Internalization Contest\n (07/2020)\nInfosys\n1st place of the Faculty of Electrical, Electronic,\nComputer and Control Engineering and the\nInternational Faculty of Engineering (12/2016)\nLodz University of Technology\n1st place in the Cisco Switch Up Challenge \"The\nInternet of Everything\" (03/2016)\nCisco Systems\nSELECTED CERTIFICATES\nClaude Code in Action by Anthropic\n (06/2026 - Present)\nMcKinsey.org Forward Program (07/2025 - Present)\nFinOps Essentials for Cloud Deployments\n (01/2025 - Present)\nBusiness for All 2024, Harvard Business Publishing\n (09/2024 - Present)\nMachine Learning for Business Professionals\n (08/2019 - Present)\nMachine Learning with Javascript, Udemy\n (04/2020 - Present)\nBecome a Project Manager, LinkedIn\n (01/2020 - Present)\nScrum Foundations Professional Certificate,\nCertiProf (01/2020)\nLANGUAGES\nEnglish\nFull Professional Proficiency\nSpanish\nNative or Bilingual Proficiency\nFrench\nLimited Working Proficiency",
+      "cvTextPreview": "Page 1 of 4\nFederico\nNavarrete\nIT Strategist & Cloud Architect\n10+ years of experience leading digital\ntransformation, enterprise architecture, and AI-\ndriven modernization across multinational\norganizations. Proven record delivering cloud\nmigrations, enterprise governance, and\nmodernization initiatives, from reverse\nengineering 30-year legacy systems to reducing\nAWS waste by 40% and contributing to\nsovereign cloud migration initiatives. Trusted\nadvisor to senior leadership, combining strategic\nthinking with hands-on execution to deliver\nmeasurable business outcomes.\nfederico.navarrete@outlook",
+      "agePrivacyWarning": {
+        "show": false,
+        "message": ""
+      },
+      "personalDataWarnings": [],
+      "precheck": {
+        "cvEvidenceScore": 89,
+        "scoreBreakdown": {
+          "quantifiedResults": 18,
+          "accomplishmentClarity": 18,
+          "scopeAndScale": 18,
+          "responsibilityVersusOutcomeRatio": 14,
+          "interviewDefensibility": 10
+        },
+        "hasQuantifiedResults": true,
+        "hasAccomplishments": true,
+        "mostlyJobDescriptions": false,
+        "impactClarityScore": 17,
+        "quantifiedEvidenceCount": 18,
+        "strongBulletCount": 20,
+        "weakBulletCount": 8,
+        "proceedRecommendation": "Proceed",
+        "mainProblem": "Strong evidence overall, but some bullets mix responsibilities with outcomes, a few claims lack precise baseline/context, and the CV is long enough that the best proof can get diluted by extensive publications, speaking, and project lists.",
+        "specificWarnings": [
+          "Some long-tenure sections may hide internal progression or scope changes. The Ericsson and Publications Office tenures show multiple responsibilities and likely role evolution, so splitting promotions, internal role changes, or phase-based scope would improve readability if accurate.",
+          "A few completed achievements are phrased in ongoing or generic wording, which can blur chronology. Example patterns include 'I analyze', 'I am', or present-tense task phrasing under past roles; keep past roles firmly in past tense and current-role completed outcomes clearly dated.",
+          "The CV is very long and dense. It includes substantial publications, speaking engagements, certificates, and project lists, which may dilute the strongest career evidence for tailoring. Consider trimming lower-signal items when targeting roles.",
+          "Some bullets combine responsibilities and achievements in the same sentence, making the outcome harder to isolate. This is not fatal, but it lowers scannability and interview defensibility.",
+          "A few claims are impressive but not fully anchored with comparison baselines, timeframes, or business context. For example, cost reductions and saved FTEs are strong, but some would be stronger with a before/after scope or decision impact.",
+          "The summary contains strong narrative claims such as 'trusted advisor' and 'proven record' that are mostly supported, but the phrasing is broad enough that a reader may want nearby proof for every major claim.",
+          "The candidate appears to have all essential contact details present near the top, so no contact warning is needed."
+        ],
+        "missingEvidenceTypes": [
+          "More explicit business baselines for some cost savings",
+          "Clearer before/after context for some automation and migration outcomes",
+          "More visible scope for leadership impact beyond team counts",
+          "Role progression breakdown for long tenures",
+          "Tighter chronology on completed versus ongoing accomplishments"
+        ],
+        "examplesOfWeakBullets": [
+          "Worked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any change request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.",
+          "Became the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new teams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using cloud-native services to maximize cost savings and reduce the associated carbon footprint.",
+          "Advised the Director-General as a strategic sounding board member, shaping initiatives to modernize institutional processes and workforce capabilities.",
+          "Evaluated institutional business plans and operational priorities, advising on long term digital transformation initiatives.",
+          "Organized multicultural conference with a 6-person team. 50+ attendees and international speakers."
+        ],
+        "questionsToRecoverMetrics": [
+          "What was the total annual AWS spend before the 40% waste reduction, and what was the absolute euro savings after the change?",
+          "For the 9 on-prem apps migrated to 80 microservices, how many users, countries, teams, or business processes were affected?",
+          "What was the timeline of the one-week PoC versus the prior nine years of stalled efforts, and who approved or adopted the result?",
+          "How many enterprise systems does the 70+ governance platform cover in production today, and what changed operationally after adoption?",
+          "For the sovereign cloud migration PoC, what business risk, compliance need, or cost reduction was the target outcome?",
+          "How many teams or stakeholders did you influence at Ericsson and Publications Office, and what decisions changed because of your input?",
+          "For the $100k AWS project, what business KPI improved besides the technical modernization?",
+          "For the FTE savings in Infosys, what activities were removed, how recurring were the savings, and what was the annualized impact?",
+          "For the 2M redevelopment cost avoidance, was this an estimated vendor quote, internal budget, or forecast, and who validated it?",
+          "What specific leadership scope did you have over the 3 India-based teams: line management, technical lead, or delivery coordination?"
+        ],
+        "interviewRiskQuestions": [
+          "Can you walk me through the exact business case for the 40% AWS waste reduction and how you measured it?",
+          "What was your direct role in the one-week PoC after nine years of stalled efforts, and what made your approach succeed?",
+          "How did you validate that the redevelopment cost would have been about €2M?",
+          "What internal role changes or promotions happened during your long Ericsson and Publications Office tenures?",
+          "Which achievements in the CV are ongoing work, and which are completed projects?",
+          "If I asked for one example of your leadership influence that changed a senior decision, which would you choose and why?"
+        ],
+        "nextStep": "Proceed with tailoring, but tighten the strongest bullets, separate role progression where real, and add missing baselines or decision outcomes before submitting to competitive roles."
+      },
+      "recommendedNextAction": "Proceed"
+    },
+    "precheckSignature": "{\"yearsOfExperience\":\"10\",\"hasDegree\":\"false\",\"degreeYear\":\"\",\"experienceSelectionMode\":\"lastFive\",\"outputLanguage\":\"en\",\"cvText\":\"\",\"cvPdf\":\"My Resume - Consultant - Extended.pdf:178281:1782994379000\"}",
+    "evidenceRecoveryTips": {
+      "context": {
+        "role": "Education or training professional",
+        "subjects": "students, learners, classes, training sessions, curricula, teams, or learning programs",
+        "outcomes": "learning progress, participation, completion, satisfaction, assessment quality, adoption, or support coverage"
+      },
+      "weakLines": [
+        "Worked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any change request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.",
+        "Became the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new teams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using cloud-native services to maximize cost savings and reduce the associated carbon footprint.",
+        "Advised the Director-General as a strategic sounding board member, shaping initiatives to modernize institutional processes and workforce capabilities.",
+        "Evaluated institutional business plans and operational priorities, advising on long term digital transformation initiatives."
+      ],
+      "missingEvidence": [
+        "More explicit business baselines for some cost savings",
+        "Clearer before/after context for some automation and migration outcomes",
+        "More visible scope for leadership impact beyond team counts",
+        "Role progression breakdown for long tenures"
+      ],
+      "questions": [
+        "What was the total annual AWS spend before the 40% waste reduction, and what was the absolute euro savings after the change?",
+        "For the 9 on-prem apps migrated to 80 microservices, how many users, countries, teams, or business processes were affected?",
+        "What was the timeline of the one-week PoC versus the prior nine years of stalled efforts, and who approved or adopted the result?",
+        "How many enterprise systems does the 70+ governance platform cover in production today, and what changed operationally after adoption?",
+        "For the sovereign cloud migration PoC, what business risk, compliance need, or cost reduction was the target outcome?"
+      ]
+    },
+    "analysis": {
+      "roleDiagnosis": "Senior IT strategy / cloud architecture / engineering delivery profile with strong consulting-adjacent, stakeholder-facing leadership. The CV already shows relevant depth for a management-level engineering role: cloud migrations, enterprise architecture, AI-assisted modernization, team coordination, governance, and measurable cost/value outcomes. For Bain’s Expert Manager, Software Engineering role, the strongest fit is on cloud-native architecture, delivery leadership, AI-enabled modernization, and business stakeholder translation. The main gap is that the CV does not yet foreground software engineering management signals in the exact language Bain uses: full-stack product delivery, engineering quality systems, code review/test governance, reusable accelerators, client coaching, and explicit operating-model/change-management framing.",
+      "companySignalInterpretation": "Bain is signaling a hands-on engineering leadership role inside a consulting environment, where technical credibility must be paired with client-facing problem solving, backlog/roadmap shaping, team coaching, and delivery of production-grade software at scale. The job is less about pure architecture or infrastructure and more about translating business problems into engineering solutions that create measurable client outcomes. The mention of AI-native engineering, reusable libraries, CI/CD, observability, secure-by-design, and coaching indicates a need for a candidate who can both build and lead squads, and who can explain technical decisions in business terms. The referral context and consulting setting imply that evidence of executive communication, cross-functional influence, and adapting to ambiguous client environments will matter heavily.",
+      "candidatePositioning": "Position the candidate as a bilingual, client-facing cloud and AI modernization leader who bridges strategy and hands-on engineering delivery. The CV should emphasize: leading cloud-native modernization programs; designing and governing enterprise platforms; translating business needs into roadmaps and technical decisions; mentoring teams; automating delivery and reducing cost/waste; and deploying AI-assisted engineering methods. De-emphasize broad personal branding, publication volume, and tangential achievements unless they reinforce leadership, communication, or engineering innovation. The most credible headline is not generic 'IT Strategist' but a consulting-ready framing such as senior software engineering / cloud architecture leader with proven modernization delivery, stakeholder leadership, and AI-assisted build experience.",
+      "jobFitAssessment": {
+        "score": 78,
+        "verdict": "Good match",
+        "explanation": "The CV shows strong alignment with Bain’s need for an engineering leader who can architect cloud-native solutions, work with senior stakeholders, manage teams, and deliver measurable modernization outcomes. Evidence is especially strong on AWS/Azure/cloud migration, microservices, governance, cost optimization, AI-assisted development, and cross-border team leadership. The main risk is that the CV does not yet clearly present the candidate as a software engineering manager in Bain’s exact terms: product roadmaps, quality gates, code review/test discipline, reusable engineering assets, and client coaching are present only partially or implicitly. That makes the profile competitive but not yet fully optimized for this specific role.",
+        "strongestReasons": [
+          "Strong cloud-native architecture and migration experience across AWS and Azure.",
+          "Demonstrated leadership of multi-team delivery, including remote and multicultural teams.",
+          "Clear stakeholder-facing work with senior leadership and institutional boards.",
+          "Evidence of AI-assisted modernization and production use of modern tools.",
+          "Quantified business outcomes such as cost reduction, waste reduction, and avoided redevelopment cost.",
+          "Consulting-style communication and advisory experience fit Bain’s client environment."
+        ],
+        "mainRisks": [
+          "The CV is not yet framed around software engineering management language Bain uses, such as backlog ownership, code quality, release management, observability, and post-deployment operations.",
+          "Some bullets mix responsibilities and outcomes, which can make leadership scope harder to evaluate quickly.",
+          "Several claims would benefit from clearer baselines, business context, or adoption outcomes.",
+          "The CV is long and crowded, which can dilute the most relevant evidence for this role.",
+          "A few items may read as strategy-heavy rather than delivery-heavy unless rewritten with engineering lifecycle specifics."
+        ],
+        "companyDecisionWarning": "The final hiring decision belongs to Bain & Company and can depend on factors outside this analysis, including interview performance, client-fit perception, internal calibration, referral context, market needs, and comparisons with other candidates."
+      },
+      "strongestMatchingEvidence": [
+        "Led Amazon Q assisted modernization of a 30-year legacy Perl system, reverse engineering undocumented logic and delivering a PoC in one week after nine years of stalled efforts.",
+        "Architected the 'Obsolescence Clock' platform, defining lifecycle governance for 70+ enterprise systems and guiding adoption as a mission-critical capability.",
+        "Led the sovereign database cloud migration PoC from Oracle RDS on AWS to PostgreSQL on Clever Cloud.",
+        "Launched the first cloud cost-optimization program, reducing AWS waste by 40% and co-designing AI-driven analytics for future savings.",
+        "Re-engineered 9 on-premises apps into 80 microservices using AWS cloud-native services and Docker, with monthly cost reduction.",
+        "Managed 3 teams in India and worked as the direct link between development teams and 9 stakeholders.",
+        "Designed and implemented migration architectures, RPA solutions, and cloud delivery practices across AWS and Azure.",
+        "Used Python, SQL, Power BI, Azure DevOps, Jira, Docker, and cloud platforms in hands-on delivery.",
+        "Public speaking and institutional advisory work demonstrate strong client-facing communication and executive presence."
+      ],
+      "weakOrMissingSignals": [
+        "Explicit product/backlog ownership language tied to business outcomes.",
+        "Clear evidence of full-stack application development beyond architecture and automation.",
+        "Named use of CI/CD quality gates, code review standards, test coverage, observability, or release/incident management.",
+        "Explicit coaching of engineers, pair programming, or technical mentorship in a delivery setting.",
+        "Reusable internal libraries, accelerators, or engineering assets created for multiple projects.",
+        "Direct evidence of React or modern web UI work, accessibility, and UX collaboration.",
+        "Explicit cloud security/IAM/authentication terminology such as OAuth 2.0, OIDC, JWT, SSO, encryption.",
+        "Infrastructure-as-code tools such as Terraform, CloudFormation, or Bicep are not shown.",
+        "Kubernetes/Helm/Argo CD are not shown.",
+        "Client-engagement language for consulting delivery, operating model change, or adoption management is present but not consistently foregrounded.",
+        "A few long-tenure roles may hide internal progression or increasing scope, but that progression is not fully visible.",
+        "Education is not visible in the supplied text, so if relevant to Bain screening it should be added safely if available; do not invent it."
+      ],
+      "keywordsToInclude": [
+        "Software Engineering Leadership",
+        "Cloud-Native Delivery",
+        "AI-Assisted Development",
+        "Enterprise Architecture",
+        "Microservices",
+        "Production-Scale Delivery",
+        "Technical Roadmaps",
+        "Backlog Prioritization",
+        "Stakeholder Management",
+        "Client-Facing",
+        "Engineering Team Leadership",
+        "CI/CD",
+        "Docker",
+        "AWS",
+        "Azure",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "PostgreSQL",
+        "Observability",
+        "Secure-by-Design",
+        "Reusable Accelerators",
+        "Mentoring",
+        "Code Review",
+        "Release Management",
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Change Management",
+        "Operating Model",
+        "Business Outcomes",
+        "Digital Transformation"
+      ],
+      "keywordsToAvoid": [
+        "Trusted advisor",
+        "visionary",
+        "rockstar",
+        "guru",
+        "passionate",
+        "results-driven",
+        "innovation-focused",
+        "disruptive",
+        "unparalleled",
+        "world-class",
+        "dynamic leader",
+        "hard-working",
+        "self-starter"
+      ],
+      "suggestedProfessionalSummary": "Software engineering and cloud architecture leader with 10+ years of experience delivering AI-assisted modernization, cloud-native migrations, enterprise governance, and stakeholder-facing transformation across multinational environments. Proven record leading multicultural teams, translating business needs into technical roadmaps, and delivering measurable outcomes such as cost reduction, modernization acceleration, and platform governance at scale. Hands-on across AWS, Azure, Docker, Python, SQL, and AI tooling, with a consulting mindset suited to client-facing engineering leadership.",
+      "rewrittenCvBullets": [
+        {
+          "original": "Led Amazon Q assisted modernization of a 30 year legacy Perl system, reverse engineering undocumented business logic from screenshots and web traces, evaluating commercial and open source alternatives, and architecting the target platform. Delivered a PoC in one week after nine years of stalled efforts, avoiding ~€2M in redevelopment costs.",
+          "rewritten": "Led AI-assisted modernization of a 30-year legacy Perl system, reverse-engineering undocumented business logic, evaluating commercial and open-source options, and architecting the target platform. Delivered a proof of concept in one week after nine years of stalled efforts, avoiding an estimated ~€2M in redevelopment costs.",
+          "reason": "This keeps the core achievement while making the delivery and business-value signal easier to scan.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Architected the “Obsolescence Clock” platform, defining lifecycle governance for 70+ enterprise systems across four maturity stages and guiding its adoption as a mission-critical capability.",
+          "rewritten": "Architected the 'Obsolescence Clock' platform to define lifecycle governance for 70+ enterprise systems across four maturity stages, and guided its adoption as a mission-critical capability.",
+          "reason": "Tightens wording and keeps the governance/adoption signal strong.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Led the OP sovereign database cloud migration, delivering a successful PoC from Oracle RDS on AWS to PostgreSQL on Clever Cloud while defining the roadmap for legacy file transfer modernization.",
+          "rewritten": "Led a sovereign database cloud migration proof of concept from Oracle RDS on AWS to PostgreSQL on Clever Cloud, and defined the roadmap for legacy file-transfer modernization.",
+          "reason": "Clarifies the scope and keeps the migration outcome front and center.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Launched the first cloud cost-optimization program, reducing AWS waste by 40% across test environments and co-designing an AI driven analytics solution to forecast future savings opportunities.",
+          "rewritten": "Launched the first cloud cost-optimization program, reducing AWS waste by 40% across test environments and co-designing an AI-driven analytics solution to forecast future savings opportunities.",
+          "reason": "Minor language cleanup; keeps the quantified result intact.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Served on the institutional architecture and strategy board, evaluating major IT initiatives and ensuring alignment with enterprise architecture and long term digital strategy.",
+          "rewritten": "Served on the institutional architecture and strategy board, evaluating major IT initiatives and ensuring alignment with enterprise architecture and long-term digital strategy.",
+          "reason": "Keeps the strategic governance signal while improving readability.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Strategized and led the re-engineering of 9 on-premise apps to 80 micro-services using AWS cloud-native services and Docker. It cut monthly costs from $10k to $6k and reduced the associated carbon footprint. All GDPR-compliant. I also orchestrated the split of the main AWS account into 15, implementing a new logic for Continuous Deployment using CodePipeline.",
+          "rewritten": "Strategized and led the re-engineering of 9 on-premises applications into 80 microservices using AWS cloud-native services and Docker, reducing monthly cost from $10k to $6k and lowering the associated carbon footprint. Also orchestrated the split of the main AWS account into 15 and introduced a new Continuous Deployment flow using CodePipeline.",
+          "reason": "Makes the engineering scope and measurable impact clearer while preserving the original facts.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Became the lead AWS consultant at Ericsson Spain after the successful local app migrations. I began to advise and strategize new teams (3+) in their efforts to successfully migrate and redesign their on-premises solutions to AWS, with a strong focus on using cloud-native services to maximize cost savings and reduce the associated carbon footprint.",
+          "rewritten": "After successful local application migrations, became the lead AWS consultant at Ericsson Spain and advised 3+ teams on migrating and redesigning on-premises solutions to AWS, with a focus on cloud-native services, cost savings, and reduced carbon footprint.",
+          "reason": "Converts a mixed responsibility sentence into a cleaner progression and advisory signal.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Won and led the development of a $100k AWS project (for supervising global prices), transforming SAP HANA-powered Excels into a cloud data lake. It implemented the first production app co-created with ChatGPT using Python, PowerBI and SQL Server.",
+          "rewritten": "Won and led a $100k AWS project to transform SAP HANA-powered Excel workflows into a cloud data lake for supervising global prices, and delivered the first production application co-created with ChatGPT using Python, Power BI, and SQL Server.",
+          "reason": "Improves clarity and emphasizes production delivery.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Led 3 teams located in India. One 6-person team for 9 apps support and development (AWS, Docker, Java, and Databases), one 2-person for a data lake service, and one 2-person for RPAs in Blue Prism. All are managed with the help of Kanban and Jira.",
+          "rewritten": "Led three India-based teams: a 6-person team supporting and developing 9 applications, a 2-person data lake team, and a 2-person RPA team, using Kanban and Jira to manage delivery.",
+          "reason": "This is more concise and easier for recruiters to interpret.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Worked as the direct link between the development teams and 9 stakeholders. I analyze the technical feasibility/impacts of any change request for their apps, including time, budgets, and effort. Also, I calculate the apps' yearly maintenance cost.",
+          "rewritten": "Acted as the direct link between development teams and 9 stakeholders, assessing the technical feasibility and delivery impact of change requests, including time, budget, effort, and annual maintenance cost.",
+          "reason": "Converts present-tense phrasing to a completed-role past tense and improves professionalism.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Designed the architecture (IaaS) and led the migration of 10 RPAs in AA, 10 .NET Apps, 6 DBs, and 3 macros from on-premises to Azure during Covid-19.",
+          "rewritten": "Designed the IaaS architecture and led the migration of 10 RPAs in AA, 10 .NET applications, 6 databases, and 3 macros from on-premises to Azure during COVID-19.",
+          "reason": "Cleaner wording and stronger ATS readability.",
+          "integrityClassification": "Directly supported by CV"
+        },
+        {
+          "original": "Rebuilt 2 bots. One for master data and another for reporting, while collaborating with a 4-person team managed by Kanban. This recovered the trust of one engagement in RPA and saved 2 FTEs. As a result, a new RPA was won that saved 2 FTEs more.",
+          "rewritten": "Rebuilt two bots for master data and reporting with a 4-person team managed through Kanban, restoring confidence in the RPA engagement and saving 2 FTEs; the resulting work also helped win a new RPA engagement that saved an additional 2 FTEs.",
+          "reason": "Clarifies the sequence and outcome without adding new facts.",
+          "integrityClassification": "Directly supported by CV"
+        }
+      ],
+      "suggestedCvStructure": [
+        "Top header with name, title aligned to Bain-relevant positioning, location, email, phone, LinkedIn, and portfolio/GitHub links.",
+        "A 3-4 line professional summary focused on engineering leadership, cloud-native delivery, AI-assisted modernization, and stakeholder impact.",
+        "Core skills section with ATS-friendly keywords grouped by engineering leadership, cloud/cloud-native, AI, delivery, and stakeholder management.",
+        "Selected experience first, ordered by relevance: European Commission/Publications Office, Ericsson, Infosys, then freelance if it adds proof relevant to Bain.",
+        "Under each role, use 4-6 bullets that each lead with action and outcome; separate major responsibilities from measurable results where possible.",
+        "Make completed achievements past tense; keep present tense only for genuinely ongoing roles and responsibilities.",
+        "Surface progression or scope changes inside long tenures if they are true, using subheadings or phase lines without inventing new titles.",
+        "Trim or relocate lower-signal sections such as extensive publications, speaking, and projects so they do not crowd out the most relevant engineering evidence.",
+        "If education is relevant or required, include it only in a privacy-safe way and avoid unnecessary years where possible.",
+        "Keep certificates only if they are directly relevant to engineering, cloud, AI, or consulting credibility."
+      ],
+      "atsFriendlySkillsSection": [
+        "Software Engineering Leadership",
+        "Cloud Architecture",
+        "AI-Assisted Development",
+        "Enterprise Architecture",
+        "Microservices",
+        "AWS",
+        "Azure",
+        "Docker",
+        "Python",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "SQL Server",
+        "PostgreSQL",
+        "Power BI",
+        "CodePipeline",
+        "Jira",
+        "Kanban",
+        "Scrum",
+        "DevOps",
+        "CI/CD",
+        "Cloud Governance",
+        "Cost Optimization",
+        "Stakeholder Management",
+        "Change Management",
+        "Technical Roadmapping",
+        "RPA",
+        "Automation",
+        "Mentoring",
+        "Multicultural Team Leadership"
+      ],
+      "recruiterInterpretation": "A recruiter will likely see a high-potential consulting-technical hybrid: someone who can credibly speak to enterprise transformation, cloud and AI modernization, and leadership across stakeholders and teams. The CV already suggests strong delivery maturity and executive presence. However, without restructuring, a Bain recruiter may still see the profile as more architecture/strategy heavy than hands-on engineering management. The reconstruction should therefore make engineering lifecycle ownership, team coaching, and delivery standards visible earlier and more explicitly.",
+      "finalReconstructionPlan": [
+        "Rewrite the headline to align with expert software engineering / cloud modernization leadership rather than broad IT strategy alone.",
+        "Replace the current summary with an evidence-backed consulting-and-engineering summary that highlights delivery, client/stakeholder work, and AI/cloud expertise.",
+        "Prioritize the most relevant recent roles and compress lower-signal items that do not support Bain’s engineering manager requirements.",
+        "For each key role, separate architecture, delivery, leadership, and measurable outcome into distinct bullets.",
+        "Use ATS keywords naturally in bullets: microservices, CI/CD, observability, product roadmap, backlog, engineering standards, cloud-native delivery, AI-assisted development, stakeholder translation, and change adoption.",
+        "Make role progression or expanding scope visible where true, especially in long tenures.",
+        "Convert mixed-tense and present-tense phrasing in past roles to past tense.",
+        "Keep only the strongest publications, speaking engagements, and awards if they support leadership, consulting credibility, or engineering authority; otherwise reduce them.",
+        "Add any missing but truthful evidence of coaching, code review, quality gates, testing, or release management if the candidate can confirm it; otherwise do not imply them.",
+        "If education is relevant, include it safely and only if it strengthens the application; do not add details that were not provided.",
+        "Ask the user to confirm any uncertain metrics or hidden progression before finalizing the CV.",
+        "Preserve all truthful quantified outcomes because Bain will value business impact, but present them with cleaner business context and baseline wording where possible."
+      ],
+      "integrityAudit": [
+        {
+          "recommendation": "Use the rewritten professional summary.",
+          "classification": "Directly supported by CV",
+          "explanation": "The summary only reframes existing evidence from the CV without adding new claims."
+        },
+        {
+          "recommendation": "Keep the quantified cost reductions, avoided redevelopment cost, and migration outcomes.",
+          "classification": "Directly supported by CV",
+          "explanation": "These outcomes are explicitly stated in the source CV and are highly relevant to the target role."
+        },
+        {
+          "recommendation": "Add explicit mention of code review standards, test coverage, observability, or release management.",
+          "classification": "Needs user confirmation",
+          "explanation": "These may be true, but they are not clearly stated in the supplied CV and should not be added unless the candidate confirms them."
+        },
+        {
+          "recommendation": "State that the candidate created reusable engineering accelerators or shared libraries for multiple projects.",
+          "classification": "Needs user confirmation",
+          "explanation": "The CV suggests technical tooling and projects, but it does not clearly prove reusable internal accelerators used across client work."
+        },
+        {
+          "recommendation": "Add a dedicated Education section with graduation years removed.",
+          "classification": "Needs user confirmation",
+          "explanation": "Education details were not provided in the text, so only add them if the candidate supplies them and if role-relevant."
+        },
+        {
+          "recommendation": "Omit or de-emphasize publications and long project lists that do not support Bain’s engineering manager criteria.",
+          "classification": "Reasonable reframing",
+          "explanation": "This is a structural optimization rather than a factual change; it improves relevance and scannability."
+        },
+        {
+          "recommendation": "Surface internal progression within long tenures where true.",
+          "classification": "Needs user confirmation",
+          "explanation": "The CV hints at scope growth, but internal promotions or title changes must be confirmed before being made visible."
+        },
+        {
+          "recommendation": "Change present-tense phrasing in past roles to past tense.",
+          "classification": "Directly supported by CV",
+          "explanation": "This is a grammatical correction aligned with the timeline shown in the CV."
+        },
+        {
+          "recommendation": "Add a claim that the candidate led AI product strategy end to end.",
+          "classification": "Not supported and should not be used",
+          "explanation": "The CV shows AI-assisted development and advisory work, but not enough to claim end-to-end AI product strategy ownership."
+        }
+      ],
+      "precheckWarningSummary": "Preserve the precheck warnings about long tenure hiding progression, tense consistency, CV length, mixed responsibility/outcome bullets, missing baselines for some metrics, and broad narrative claims that need nearby evidence. Also preserve the note that contact details already appear complete. No additional privacy warning was flagged in the precheck, but any future edits should still avoid unnecessary personal details.",
+      "downloadableText": "Bain-targeted reconstruction brief: Reposition the candidate as a senior software engineering and cloud modernization leader who can lead client-facing technical delivery, shape roadmaps, build AI-enabled solutions, and manage multicultural engineering teams. Keep the strongest evidence: AWS/Azure migrations, microservices, governance platforms, AI-assisted modernization, cost optimization, and stakeholder-facing leadership. Remove verbosity, convert past roles to past tense, and make engineering-management signals explicit. Do not invent education, certifications, tools, metrics, promotions, or technical practices that are not in the source CV. If the candidate can confirm direct experience with code review, testing discipline, observability, release management, or coaching, add it carefully; otherwise leave it out."
+    },
+    "downloadableText": "Contact completeness reminder\nA CV should make essential contact signals easy to find near the top: name, email, phone, location at a useful level, and usually LinkedIn or portfolio when relevant. Missing contact details are uncommon but costly because they create friction for recruiters.\n\nEvidence-backed language reminder\nClaims such as efficient, motivated, strategic, proactive, reliable, fast learner, team player, or strong communicator are weak unless the CV shows evidence nearby. Keep the claim only when bullets prove it through outcomes, examples, scale, decisions, adoption, delivery, or measurable results.\n\nTitle and responsibility alignment reminder\nCheck whether the role title matches the responsibilities and accomplishments shown under it. If a title says project management but the bullets describe product management, strategy, operations, architecture, training, or another discipline, warn that the reader may misunderstand the candidate's real positioning. Recommend clarifying the scope in the role subtitle, summary, or bullets without inventing a new title.\n\nCV length and seniority reminder\nEvaluate length by career stage and relevance. Junior profiles are usually strongest at 1 page, mid-career profiles usually 1 to 2 pages, senior specialists/managers/consultants usually around 2 pages, and executives/academics/researchers/public sector or highly credentialed profiles may need more when the extra detail is relevant. Length is not the problem by itself; hiding evidence or removing proof is the problem.\n\nAchievement tense reminder\nUse past tense for completed work, especially in previous roles. Current roles may use present tense for ongoing responsibilities, but completed achievements inside a current role should still read as completed outcomes. Avoid infinitive or generic activity language when a result has already happened.\n\nCareer progression visibility reminder\nLong tenure at the same company is not a weakness by itself. If the candidate held several internal roles, promotions, scope increases, team changes, or responsibility changes, show that progression clearly. A single title covering many years can make growth look flat or non-existent.\n\nEducation and studies privacy reminder\nReview study years, graduation years, older education details, and irrelevant courses. Keep required or role-relevant credentials, but remove or de-emphasize unnecessary study dates/details when they do not help the target role.\n\nBain-targeted reconstruction brief: Reposition the candidate as a senior software engineering and cloud modernization leader who can lead client-facing technical delivery, shape roadmaps, build AI-enabled solutions, and manage multicultural engineering teams. Keep the strongest evidence: AWS/Azure migrations, microservices, governance platforms, AI-assisted modernization, cost optimization, and stakeholder-facing leadership. Remove verbosity, convert past roles to past tense, and make engineering-management signals explicit. Do not invent education, certifications, tools, metrics, promotions, or technical practices that are not in the source CV. If the candidate can confirm direct experience with code review, testing discipline, observability, release management, or coaching, add it carefully; otherwise leave it out."
+  },
+  "notes": {
+    "apiKeysExcluded": true,
+    "pdfFileExcluded": true,
+    "jobPositionFrontendOnly": true
+  }
+}

@@ -33,9 +33,20 @@ type StartedServer = {
 export function createApp(options: Pick<ServerStartOptions, "frontendPath"> = {}) {
   const app = express();
   const frontendPath = options.frontendPath || process.env.FRONTEND_PATH || path.resolve(__dirname, "../../frontend");
+  const samplePath = path.resolve(__dirname, "../../sample");
 
   app.use(cors());
   app.use(express.json({ limit: "1mb" }));
+  app.use(
+    "/sample",
+    express.static(samplePath, {
+      etag: false,
+      maxAge: 0,
+      setHeaders(res) {
+        res.setHeader("Cache-Control", "no-store");
+      }
+    })
+  );
   app.use(
     express.static(frontendPath, {
       etag: false,

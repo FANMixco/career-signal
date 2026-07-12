@@ -118,7 +118,8 @@
     "showImprovementExamples": "Verbesserungsbeispiele anzeigen",
     "downloadPlan": "TXT-Plan herunterladen",
     "importJson": "Sitzung importieren",
-    "exportJson": "Sitzung exportieren"
+    "exportJson": "Sitzung exportieren",
+    "loadDemoProfile": "Demo-Profil laden"
   },
   "backendSettings": {
     "title": "Backend-Einstellungen",
@@ -169,6 +170,8 @@
     "importJsonComplete": "Sitzung importiert. CV-Text, Prüfung, Anpassungsdaten, Verbesserungstipps und Plan wurden ohne Backend-Aufruf wiederhergestellt.",
     "importJsonAnalysisReady": "Importierter Plan bereit. Du kannst ihn unten ohne erneute Verarbeitung prüfen.",
     "exportJsonComplete": "Sitzung exportiert. API-Schlüssel und PDFs sind nicht enthalten; der CV-Text wird für den Reimport gespeichert.",
+    "demoProfileLoading": "Demo-Profil wird geladen...",
+    "demoProfileComplete": "Demo-Profil geladen. CV-Text, Prüfung, Anpassungsdaten, Verbesserungstipps und Plan wurden ohne Backend-Aufruf wiederhergestellt.",
     "paidModelSuggestion": "Fuer vollstaendigere und konsistentere Ergebnisse solltest du wichtige CVs mit einem staerkeren kostenpflichtigen Modell erneut pruefen, bevor du den finalen Plan nutzt.",
     "precheckStale": "CV oder Profildaten haben sich geändert. Starte die Prüfung erneut.",
     "precheckLoadingText": "CV-Nachweisprüfung läuft. Das kann einen Moment dauern."
@@ -597,6 +600,7 @@
     "apiAnalyzeUnreachable": "Die Rekonstruktions-API ist nicht erreichbar.",
     "apiPrecheckUnreachable": "Die Prüfungs-API ist nicht erreichbar.",
     "invalidJsonImport": "Wähle einen gültigen Career-Signal-JSON-Export.",
+    "demoProfileFailed": "Das Demo-Profil konnte nicht geladen werden. Prüfe, ob die Beispieldatei verfügbar ist.",
     "reconstructionFailed": "Der Rekonstruktionsplan konnte nicht erstellt werden.",
     "healthCheckFailed": "Healthcheck fehlgeschlagen.",
     "precheckFailed": "Prüfung fehlgeschlagen.",
@@ -667,5 +671,31 @@
       "placeholder": "Fuer Ollama wird kein API-Schluessel benoetigt",
       "keyLinkText": "Ollama herunterladen"
     }
+  },
+  "localizedSectionTitles": {
+    "Recommendation": "Empfehlung",
+    "Main problem": "Hauptproblem",
+    "Specific warnings": "Konkrete Warnungen",
+    "Missing evidence types": "Fehlende Nachweisarten",
+    "Weak bullet examples": "Beispiele schwacher Stichpunkte",
+    "Questions to recover metrics": "Fragen zur Wiederherstellung von Kennzahlen",
+    "Role diagnosis": "Rollendiagnose",
+    "Company signal interpretation": "Interpretation der Unternehmenssignale",
+    "Candidate positioning": "Positionierung der Kandidatin oder des Kandidaten",
+    "Profile match assessment": "Bewertung der Profilpassung",
+    "Strongest matching evidence": "Stärkste passende Nachweise",
+    "Weak or missing signals": "Schwache oder fehlende Signale",
+    "Keywords to include": "Einzubeziehende Schlüsselwörter",
+    "Keywords to avoid": "Zu vermeidende Schlüsselwörter",
+    "Suggested professional summary": "Vorgeschlagene berufliche Zusammenfassung",
+    "Rewritten CV bullets": "Überarbeitete CV-Stichpunkte",
+    "Suggested CV structure": "Vorgeschlagene CV-Struktur",
+    "ATS friendly skills section": "ATS-freundlicher Kompetenzbereich",
+    "Recruiter interpretation": "Interpretation durch Recruiter",
+    "Final reconstruction plan": "Finaler Rekonstruktionsplan",
+    "Integrity audit": "Integritätsprüfung",
+    "Precheck warning summary": "Zusammenfassung der Precheck-Warnungen",
+    "Strongest reasons": "Stärkste Gründe",
+    "Main risks": "Hauptrisiken"
   }
 }

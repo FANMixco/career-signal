@@ -1,6 +1,6 @@
 {
   "site": {
-    "subtitle": "D'abord les preuves. Ensuite l'adaptation."
+    "subtitle": "D’abord les preuves. Ensuite l’adaptation."
   },
   "sections": {
     "profile": "1. Profil",
@@ -10,10 +10,10 @@
     "output": "5. Plan de reconstruction"
   },
   "labels": {
-    "yearsOfExperience": "Années d'expérience professionnelle",
+    "yearsOfExperience": "Années d’expérience professionnelle",
     "studiesListed": "Mentionnez-vous des études ou une formation dans votre CV ?",
     "degreeYear": "Année de fin des études",
-    "experienceSelectionMode": "Mode de sélection de l'expérience",
+    "experienceSelectionMode": "Mode de sélection de l’expérience",
     "outputLanguage": "Langue",
     "cvPdf": "Importer un export LinkedIn ou un CV en PDF",
     "cvText": "Coller le texte du CV",
@@ -22,17 +22,17 @@
     "ollamaCustomModel": "Modèle personnalisé",
     "aiApiKey": "Clé API",
     "ollamaBaseUrl": "URL Ollama",
-    "targetCompany": "Nom de l'entreprise cible",
-    "companyDescription": "Description de l'entreprise (optionnel)",
+    "targetCompany": "Nom de l’entreprise cible",
+    "companyDescription": "Description de l’entreprise (optionnel)",
     "targetStyle": "Style du poste cible",
     "jobPosition": "Poste",
     "jobDescription": "Description du poste",
-    "ageWarningAcknowledgement": "Je comprends l'avertissement et je veux continuer."
+    "ageWarningAcknowledgement": "Je comprends l’avertissement et je veux continuer."
   },
   "placeholders": {
     "cvText": "Collez ici le texte complet du CV",
     "ollamaCustomModel": "Saisissez un ID de modèle pour le fournisseur sélectionné, par exemple gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest ou llama3.2:3b",
-    "companyDescription": "Ajoutez du contexte utile si l'entreprise est peu connue : activité, secteur, taille, produit, marché ou modèle économique",
+    "companyDescription": "Ajoutez du contexte utile si l’entreprise est peu connue : activité, secteur, taille, produit, marché ou modèle économique",
     "jobDescription": "Collez la description complète du poste"
   },
   "options": {
@@ -105,7 +105,7 @@
     "shareLabel": "Partager Career Signal Engine",
     "closeSettingsLabel": "Fermer les paramètres du backend",
     "appHelpLabel": "Ouvrir le guide",
-    "cvBasics": "Bases d'un CV à fort impact",
+    "cvBasics": "Bases d’un CV à fort impact",
     "closeModal": "X",
     "closeModalLabel": "Fermer les bases du CV",
     "closeHelpLabel": "Fermer le guide",
@@ -114,11 +114,12 @@
     "analyzeIdle": "Générer le plan de reconstruction du CV",
     "analyzeLoading": "Génération du plan...",
     "continueAnyway": "Continuer quand même",
-    "continueToTailoring": "Continuer vers l'adaptation",
-    "showImprovementExamples": "Voir des exemples d'amélioration",
+    "continueToTailoring": "Continuer vers l’adaptation",
+    "showImprovementExamples": "Voir des exemples d’amélioration",
     "downloadPlan": "Télécharger le plan TXT",
     "importJson": "Importer la session",
-    "exportJson": "Exporter la session"
+    "exportJson": "Exporter la session",
+    "loadDemoProfile": "Charger le profil de démonstration"
   },
   "backendSettings": {
     "title": "Paramètres du backend",
@@ -127,7 +128,7 @@
     "openSettings": "Configurer le backend",
     "trustWarning": "Utilisez seulement un backend que vous contrôlez ou auquel vous faites confiance. Le CV, les offres et les clés API saisies sont envoyés au backend configuré.",
     "urlLabel": "URL du backend",
-    "save": "Enregistrer l'URL",
+    "save": "Enregistrer l’URL",
     "test": "Tester la connexion",
     "reset": "Valeur par défaut",
     "currentPrefix": "Backend actuel :",
@@ -139,7 +140,7 @@
     "httpsRequired": "Cette page est chargée en HTTPS. Utilisez une URL HTTPS ou localhost en développement.",
     "testSuccess": "La connexion au backend fonctionne.",
     "testing": "Test de la connexion au backend...",
-    "testFailed": "Impossible de joindre l'endpoint de santé du backend."
+    "testFailed": "Impossible de joindre l’endpoint de santé du backend."
   },
   "fallbackText": {
     "emptyList": "Aucun élément signalé.",
@@ -148,39 +149,41 @@
   "feedback": {
     "initial": "Ajoutez votre CV, puis lancez le précontrôle avant de générer un plan adapté à un poste.",
     "readyStatus": "Prêt",
-    "cvInputGuidance": "Ajoutez d'abord le CV source. L'application vérifie la présence de preuves avant toute réécriture.",
-    "ageWarning": "L'année d'études peut révéler plus d'informations liées à l'âge que nécessaire.",
+    "cvInputGuidance": "Ajoutez d’abord le CV source. L’application vérifie la présence de preuves avant toute réécriture.",
+    "ageWarning": "L’année d’études peut révéler plus d’informations liées à l’âge que nécessaire.",
     "allExperienceWarning": "Inclure toutes les expériences peut rendre le CV trop long ou révéler des informations anciennes inutiles.",
-    "missingYears": "Saisissez vos années d'expérience avant de lancer le précontrôle.",
+    "missingYears": "Saisissez vos années d’expérience avant de lancer le précontrôle.",
     "missingStudies": "Indiquez si vous mentionnez des études ou une formation dans le CV.",
-    "missingStudyYear": "Saisissez l'année de fin des études, ou sélectionnez Non.",
+    "missingStudyYear": "Saisissez l’année de fin des études, ou sélectionnez Non.",
     "missingCv": "Ajoutez un CV PDF, un export LinkedIn PDF ou collez le texte complet du CV.",
     "invalidPdf": "Seuls les fichiers PDF sont pris en charge.",
     "pdfTooLarge": "Le PDF dépasse 5 Mo.",
-    "acknowledgeStudyWarning": "Acceptez l'avertissement sur l'année d'études avant de continuer.",
+    "acknowledgeStudyWarning": "Acceptez l’avertissement sur l’année d’études avant de continuer.",
     "missingOllamaCustomModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
     "missingCustomAiModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
     "runPrecheckFirst": "Lancez le précontrôle avant de générer le plan.",
-    "precheckComplete": "Précontrôle terminé. Vérifiez le score et choisissez l'action suivante.",
-    "precheckPassedWithWarnings": "Le précontrôle est passé, mais certaines recommandations méritent d'être revues.",
-    "analysisLoading": "Génération d'un nouveau plan. Le plan précédent a été effacé.",
-    "analysisComplete": "Plan de reconstruction prêt. Relisez le résultat avant de l'utiliser.",
-    "analysisPartial": "Reconstruction locale partielle prête. Certaines sections Ollama n'ont pas terminé.",
-    "importJsonComplete": "Session importée. Le texte du CV, le précontrôle, les données d'adaptation, les conseils d'amélioration et le plan ont été restaurés sans appeler le backend.",
+    "precheckComplete": "Précontrôle terminé. Vérifiez le score et choisissez l’action suivante.",
+    "precheckPassedWithWarnings": "Le précontrôle est passé, mais certaines recommandations méritent d’être revues.",
+    "analysisLoading": "Génération d’un nouveau plan. Le plan précédent a été effacé.",
+    "analysisComplete": "Plan de reconstruction prêt. Relisez le résultat avant de l’utiliser.",
+    "analysisPartial": "Reconstruction locale partielle prête. Certaines sections Ollama n’ont pas terminé.",
+    "importJsonComplete": "Session importée. Le texte du CV, le précontrôle, les données d’adaptation, les conseils d’amélioration et le plan ont été restaurés sans appeler le backend.",
     "importJsonAnalysisReady": "Plan importé prêt. Vous pouvez le relire ci-dessous sans retraitement.",
     "exportJsonComplete": "Session exportée. Les clés API et les PDF ne sont pas inclus ; le texte du CV est conservé pour réimportation.",
-    "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d'utiliser le plan final.",
+    "demoProfileLoading": "Chargement du profil de démonstration...",
+    "demoProfileComplete": "profil de démonstration chargé. Le texte du CV, le précontrôle, les données d’adaptation, les conseils d’amélioration et le plan ont été restaurés sans appeler le backend.",
+    "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d’utiliser le plan final.",
     "precheckStale": "Le CV ou le profil a changé. Relancez le précontrôle.",
     "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment."
   },
   "tailoring": {
-    "guidanceLocked": "Vous pouvez ajouter l'entreprise cible et la description du poste. La génération se débloque après le précontrôle.",
-    "guidanceUnlocked": "Utilisez l'entreprise et la description du poste pour générer un plan fondé sur les preuves du CV.",
-    "initialLock": "Lancez d'abord le précontrôle du CV.",
-    "staleLock": "Le CV ou le profil a changé. Relancez le précontrôle avant l'adaptation.",
-    "weakLock": "Le précontrôle recommande d'améliorer le CV d'abord.",
-    "reviewLock": "Relisez le précontrôle puis continuez vers l'adaptation.",
-    "weakUnlock": "Débloqué parce que vous avez choisi de continuer malgré l'avertissement."
+    "guidanceLocked": "Vous pouvez ajouter l’entreprise cible et la description du poste. La génération se débloque après le précontrôle.",
+    "guidanceUnlocked": "Utilisez l’entreprise et la description du poste pour générer un plan fondé sur les preuves du CV.",
+    "initialLock": "Lancez d’abord le précontrôle du CV.",
+    "staleLock": "Le CV ou le profil a changé. Relancez le précontrôle avant l’adaptation.",
+    "weakLock": "Le précontrôle recommande d’améliorer le CV d’abord.",
+    "reviewLock": "Relisez le précontrôle puis continuez vers l’adaptation.",
+    "weakUnlock": "Débloqué parce que vous avez choisi de continuer malgré l’avertissement."
   },
   "weakCvWarning": "Ce CV semble décrire surtout des responsabilités plutôt que des résultats mesurables.",
   "evidenceRecovery": {
@@ -192,7 +195,7 @@
     "bulletTitle": "Modèles pour renforcer les puces",
     "questionsTitle": "Questions pour rendre cela réel",
     "beforePrefix": "Au lieu de :",
-    "noWeakExamples": "Aucune ligne faible spécifique n'a été détectée ; utilisez donc le modèle générique ci-dessous.",
+    "noWeakExamples": "Aucune ligne faible spécifique n’a été détectée ; utilisez donc le modèle générique ci-dessous.",
     "genericRole": "Professionnel",
     "genericSubjects": "personnes, clients, équipes, services, cas, systèmes, documents ou opérations",
     "genericOutcomes": "qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption",
@@ -200,15 +203,15 @@
     "afterPattern": "Essayez de retrouver : {activity} pour [nombre] {subjects} sur [période/contexte], en aidant à améliorer [résultat spécifique : {outcomes}] de [nombre/résultat si vrai].",
     "defaultMissingEvidence": [
       "Volume ou échelle : combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services ont été concernés.",
-      "Période : combien de temps le travail a duré, à quelle fréquence il a eu lieu ou à quelle vitesse quelque chose s'est amélioré.",
+      "Période : combien de temps le travail a duré, à quelle fréquence il a eu lieu ou à quelle vitesse quelque chose s’est amélioré.",
       "Résultat : ce qui a changé en qualité, sécurité, coût, rapidité, satisfaction, fiabilité, conformité, risque, continuité ou adoption.",
       "Responsabilité : ce que vous avez personnellement livré, influencé, coordonné ou soutenu."
     ],
     "defaultQuestions": [
-      "Qu'est-ce qui a changé grâce à ce travail ?",
+      "Qu’est-ce qui a changé grâce à ce travail ?",
       "Qui ou quoi a été concerné ?",
       "Combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services étaient impliqués ?",
-      "Qu'est-ce qui s'est amélioré après le travail : qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption ?",
+      "Qu’est-ce qui s’est amélioré après le travail : qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption ?",
       "Quel chiffre, délai, point de départ ou comparaison pouvez-vous défendre en entretien ?"
     ],
     "contexts": {
@@ -218,9 +221,9 @@
         "outcomes": "sécurité des patients, temps de réponse, continuité des soins, qualité documentaire, flux de patients, satisfaction ou réduction des risques"
       },
       "education": {
-        "role": "Professionnel de l'éducation ou de la formation",
-        "subjects": "étudiants, apprenants, classes, sessions de formation, programmes, équipes ou dispositifs d'apprentissage",
-        "outcomes": "progression d'apprentissage, participation, complétion, satisfaction, qualité d'évaluation, adoption ou couverture d'accompagnement"
+        "role": "Professionnel de l’éducation ou de la formation",
+        "subjects": "étudiants, apprenants, classes, sessions de formation, programmes, équipes ou dispositifs d’apprentissage",
+        "outcomes": "progression d’apprentissage, participation, complétion, satisfaction, qualité d’évaluation, adoption ou couverture d’accompagnement"
       },
       "customer": {
         "role": "Professionnel commercial ou relation client",
@@ -244,7 +247,7 @@
     "intro": "Le CV semble contenir des données personnelles potentiellement inutiles ou risquées."
   },
   "jobFitAssessment": {
-    "scoreLabel": "Score d'adéquation du profil",
+    "scoreLabel": "Score d’adéquation du profil",
     "warningFallback": "Ceci est une estimation fondée sur les preuves, pas une décision de recrutement.",
     "verdictLabels": {
       "Strong match": "Très bonne adéquation",
@@ -259,7 +262,7 @@
     "version": "1.1.0"
   },
   "cvBasics": {
-    "title": "Bases d'un CV à fort impact",
+    "title": "Bases d’un CV à fort impact",
     "subtitle": "Un bon CV rend les preuves faciles à voir.",
     "playlistText": "Voir la playlist sur la rédaction de CV",
     "blocks": [
@@ -305,7 +308,7 @@
         ]
       },
       {
-        "title": "Résumé sous forme d'argumentaire éclair",
+        "title": "Résumé sous forme d’argumentaire éclair",
         "items": [
           "Utilisez le résumé pour présenter vos atouts pour le poste avant que le recruteur, le responsable du recrutement ou le système de présélection ne se penche sur les détails.",
           "Gardez-le court, concret et fondé sur des preuves : poste cible, domaine le plus fort, échelle pertinente et un ou deux résultats marquants.",
@@ -384,9 +387,9 @@
       {
         "title": "Références",
         "items": [
-          "N'ajoutez pas de références ni de coordonnées de référents par défaut.",
-          "Utilisez références disponibles sur demande seulement lorsque c'est attendu dans le pays, le secteur ou le formulaire de candidature.",
-          "Protégez la confidentialité des autres personnes : partagez noms, téléphones, emails ou recommandations directes seulement sur demande et avec l'accord du référent."
+          "N’ajoutez pas de références ni de coordonnées de référents par défaut.",
+          "Utilisez références disponibles sur demande seulement lorsque c’est attendu dans le pays, le secteur ou le formulaire de candidature.",
+          "Protégez la confidentialité des autres personnes : partagez noms, téléphones, emails ou recommandations directes seulement sur demande et avec l’accord du référent."
         ]
       },
       {
@@ -598,6 +601,7 @@
     "apiAnalyzeUnreachable": "Impossible de joindre l’API de reconstruction.",
     "apiPrecheckUnreachable": "Impossible de joindre l’API de précontrôle.",
     "invalidJsonImport": "Choisissez une exportation JSON Career Signal valide.",
+    "demoProfileFailed": "Impossible de charger le profil de démonstration. Vérifiez que le fichier d’exemple est disponible.",
     "reconstructionFailed": "Impossible de générer le plan de reconstruction.",
     "healthCheckFailed": "Le contrôle de santé a échoué.",
     "precheckFailed": "Le précontrôle a échoué.",
@@ -668,5 +672,31 @@
       "placeholder": "Aucune cle API necessaire pour Ollama",
       "keyLinkText": "Telecharger Ollama"
     }
+  },
+  "localizedSectionTitles": {
+    "Recommendation": "Recommandation",
+    "Main problem": "Problème principal",
+    "Specific warnings": "Avertissements spécifiques",
+    "Missing evidence types": "Types de preuves manquants",
+    "Weak bullet examples": "Exemples de puces faibles",
+    "Questions to recover metrics": "Questions pour récupérer des métriques",
+    "Role diagnosis": "Diagnostic du rôle",
+    "Company signal interpretation": "Interprétation des signaux de l’entreprise",
+    "Candidate positioning": "Positionnement du candidat",
+    "Profile match assessment": "Évaluation de l’adéquation du profil",
+    "Strongest matching evidence": "Preuves correspondantes les plus fortes",
+    "Weak or missing signals": "Signaux faibles ou manquants",
+    "Keywords to include": "Mots-clés à inclure",
+    "Keywords to avoid": "Mots-clés à éviter",
+    "Suggested professional summary": "Résumé professionnel suggéré",
+    "Rewritten CV bullets": "Puces de CV réécrites",
+    "Suggested CV structure": "Structure de CV suggérée",
+    "ATS friendly skills section": "Section compétences compatible ATS",
+    "Recruiter interpretation": "Interprétation du recruteur",
+    "Final reconstruction plan": "Plan final de reconstruction",
+    "Integrity audit": "Audit d’intégrité",
+    "Precheck warning summary": "Résumé des avertissements du précontrôle",
+    "Strongest reasons": "Raisons les plus fortes",
+    "Main risks": "Risques principaux"
   }
 }

@@ -60,6 +60,7 @@ const els = {
   importJsonFile: document.querySelector("#importJsonFile"),
   importJsonButton: document.querySelector("#importJsonButton"),
   exportJsonButton: document.querySelector("#exportJsonButton"),
+  loadDemoProfileButton: document.querySelector("#loadDemoProfileButton"),
   importExportFeedback: document.querySelector("#importExportFeedback"),
   aiProvider: document.querySelector("#aiProvider"),
   aiModel: document.querySelector("#aiModel"),
@@ -99,6 +100,10 @@ function apiUrl(path) {
 
 function isGitHubPagesPreview() {
   return window.location.hostname === "fanmixco.github.io" && window.location.pathname.startsWith("/career-signal/frontend");
+}
+
+function isLocalhostPage() {
+  return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
 }
 
 function storedBackendUrl() {
@@ -331,6 +336,7 @@ function applyConfiguredText() {
   renderCvBasics();
   renderBackendSettings();
   show(els.previewWarning, isGitHubPagesPreview());
+  refreshDemoProfileVisibility();
 }
 
 function show(element, visible = true) {
@@ -370,7 +376,7 @@ function optionList(options) {
 }
 
 function localizedTitle(title) {
-  return config.localizedSectionTitles?.[els.outputLanguage.value]?.[title] || title;
+  return config.localizedSectionTitles?.[title] || title;
 }
 
 function renderFooter() {
@@ -537,6 +543,45 @@ function downloadJson() {
   link.click();
   URL.revokeObjectURL(url);
   setImportExportFeedback("success", config.feedback.exportJsonComplete);
+}
+
+function demoProfileUrls() {
+  const samplePath = config.demoProfile?.path || "sample/bain-company-career-signal-session-20260712T082827Z.json";
+  const candidates = new Set([samplePath, `../${samplePath}`, `/${samplePath}`]);
+  const frontendPathIndex = window.location.pathname.indexOf("/frontend");
+
+  if (frontendPathIndex >= 0) {
+    candidates.add(`${window.location.pathname.slice(0, frontendPathIndex)}/${samplePath}`);
+  }
+
+  return [...candidates];
+}
+
+function shouldShowDemoProfileButton() {
+  return isGitHubPagesPreview() || isLocalhostPage();
+}
+
+function refreshDemoProfileVisibility() {
+  show(els.loadDemoProfileButton, shouldShowDemoProfileButton());
+}
+
+async function loadDemoProfile() {
+  setImportExportFeedback("loading", config.feedback.demoProfileLoading);
+
+  for (const url of demoProfileUrls()) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) continue;
+      const bundle = await response.json();
+      applyImportedSession(bundle);
+      setImportExportFeedback("success", config.feedback.demoProfileComplete);
+      return;
+    } catch {
+      // Try the next candidate path.
+    }
+  }
+
+  setImportExportFeedback("error", config.errorMessages.demoProfileFailed);
 }
 
 function applyImportedSession(bundle) {
@@ -1386,6 +1431,7 @@ els.downloadButton.addEventListener("click", downloadTxt);
 els.exportJsonButton.addEventListener("click", downloadJson);
 els.importJsonButton.addEventListener("click", () => els.importJsonFile.click());
 els.importJsonFile.addEventListener("change", importJsonFile);
+els.loadDemoProfileButton.addEventListener("click", loadDemoProfile);
 els.settingsButton.addEventListener("click", () => {
   renderBackendSettings();
   setBackendSettingsFeedback("", "");

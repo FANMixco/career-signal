@@ -309,6 +309,9 @@
     "caution": "Proceed with caution",
     "improve": "Improve CV first"
   },
+  "demoProfile": {
+    "path": "sample/bain-company-career-signal-session-20260712T082827Z.json"
+  },
   "buttons": {
     "settingsLabel": "Configure backend",
     "shareLabel": "Share Career Signal Engine",
@@ -328,7 +331,8 @@
     "showImprovementExamples": "Get improvement examples",
     "downloadPlan": "Download TXT plan",
     "importJson": "Import session",
-    "exportJson": "Export session"
+    "exportJson": "Export session",
+    "loadDemoProfile": "Load Demo Profile"
   },
   "backendSettings": {
     "storageKey": "careerSignalBackendUrl",
@@ -382,6 +386,8 @@
     "importJsonComplete": "Session imported. Stored CV text, precheck output, tailoring inputs, improvement tips, and reconstruction output were restored without calling the backend.",
     "importJsonAnalysisReady": "Imported reconstruction plan ready. You can review it below without reprocessing.",
     "exportJsonComplete": "Session exported. API keys and PDF files are not included; the CV text is saved for reimport.",
+    "demoProfileLoading": "Loading demo profile...",
+    "demoProfileComplete": "Demo profile loaded. Stored CV text, precheck output, tailoring inputs, improvement tips, and reconstruction output were restored without calling the backend.",
     "paidModelSuggestion": "For more complete and consistent results, consider rerunning important CVs with a stronger paid model before using the final plan.",
     "precheckStale": "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
     "precheckLoadingText": "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence."
@@ -492,7 +498,7 @@
             "items": [
               "Add your years of experience and choose whether studies are listed.",
               "Upload a CV PDF, LinkedIn PDF export, or paste your CV text.",
-              "Choose OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek, or Ollama (offline, experimental), then choose a model. OpenRouter's listed models are free; custom OpenRouter model IDs may be paid depending on your OpenRouter account.",
+              "Choose OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek, or Ollama (offline, experimental), then choose a model. OpenRouter’s listed models are free; custom OpenRouter model IDs may be paid depending on your OpenRouter account.",
               "For cloud providers, add a key if it is not already configured.",
               "For Ollama, install Ollama locally, download the selected model, and keep Ollama running.",
               "Run the CV Evidence Precheck first.",
@@ -777,7 +783,7 @@
         "items": [
           "Do not include references or referee contact details by default.",
           "Use references available upon request only when it is expected in the target country, sector, or application form.",
-          "Protect other people's privacy: share names, phone numbers, emails, or direct recommendations only when requested and when the referee has agreed."
+          "Protect other people’s privacy: share names, phone numbers, emails, or direct recommendations only when requested and when the referee has agreed."
         ]
       },
       {
@@ -821,86 +827,6 @@
       "list"
     ]
   ],
-  "localizedSectionTitles": {
-    "es": {
-      "Recommendation": "Recomendación",
-      "Main problem": "Problema principal",
-      "Specific warnings": "Advertencias específicas",
-      "Missing evidence types": "Tipos de evidencia faltantes",
-      "Weak bullet examples": "Ejemplos de viñetas débiles",
-      "Questions to recover metrics": "Preguntas para recuperar métricas",
-      "Role diagnosis": "Diagnóstico del rol",
-      "Company signal interpretation": "Interpretación de señales de la empresa",
-      "Candidate positioning": "Posicionamiento del candidato",
-      "Profile match assessment": "Evaluación de ajuste del perfil",
-      "Strongest matching evidence": "Evidencia coincidente más fuerte",
-      "Weak or missing signals": "Señales débiles o faltantes",
-      "Keywords to include": "Palabras clave para incluir",
-      "Keywords to avoid": "Palabras clave para evitar",
-      "Suggested professional summary": "Resumen profesional sugerido",
-      "Rewritten CV bullets": "Viñetas del CV reescritas",
-      "Suggested CV structure": "Estructura sugerida del CV",
-      "ATS friendly skills section": "Sección de habilidades compatible con ATS",
-      "Recruiter interpretation": "Interpretación del reclutador",
-      "Final reconstruction plan": "Plan final de reconstrucción",
-      "Integrity audit": "Auditoría de integridad",
-      "Precheck warning summary": "Resumen de advertencias del precheck",
-      "Strongest reasons": "Razones más fuertes",
-      "Main risks": "Riesgos principales"
-    },
-    "fr": {
-      "Recommendation": "Recommandation",
-      "Main problem": "Problème principal",
-      "Specific warnings": "Avertissements spécifiques",
-      "Missing evidence types": "Types de preuves manquants",
-      "Weak bullet examples": "Exemples de puces faibles",
-      "Questions to recover metrics": "Questions pour récupérer des métriques",
-      "Role diagnosis": "Diagnostic du rôle",
-      "Company signal interpretation": "Interprétation des signaux de l'entreprise",
-      "Candidate positioning": "Positionnement du candidat",
-      "Profile match assessment": "Évaluation de l'adéquation du profil",
-      "Strongest matching evidence": "Preuves correspondantes les plus fortes",
-      "Weak or missing signals": "Signaux faibles ou manquants",
-      "Keywords to include": "Mots-clés à inclure",
-      "Keywords to avoid": "Mots-clés à éviter",
-      "Suggested professional summary": "Résumé professionnel suggéré",
-      "Rewritten CV bullets": "Puces de CV réécrites",
-      "Suggested CV structure": "Structure de CV suggérée",
-      "ATS friendly skills section": "Section compétences compatible ATS",
-      "Recruiter interpretation": "Interprétation du recruteur",
-      "Final reconstruction plan": "Plan final de reconstruction",
-      "Integrity audit": "Audit d'intégrité",
-      "Precheck warning summary": "Résumé des avertissements du précontrôle",
-      "Strongest reasons": "Raisons les plus fortes",
-      "Main risks": "Risques principaux"
-    },
-    "de": {
-      "Recommendation": "Empfehlung",
-      "Main problem": "Hauptproblem",
-      "Specific warnings": "Konkrete Warnungen",
-      "Missing evidence types": "Fehlende Nachweisarten",
-      "Weak bullet examples": "Beispiele schwacher Stichpunkte",
-      "Questions to recover metrics": "Fragen zur Wiederherstellung von Kennzahlen",
-      "Role diagnosis": "Rollendiagnose",
-      "Company signal interpretation": "Interpretation der Unternehmenssignale",
-      "Candidate positioning": "Positionierung der Kandidatin oder des Kandidaten",
-      "Profile match assessment": "Bewertung der Profilpassung",
-      "Strongest matching evidence": "Stärkste passende Nachweise",
-      "Weak or missing signals": "Schwache oder fehlende Signale",
-      "Keywords to include": "Einzubeziehende Schlüsselwörter",
-      "Keywords to avoid": "Zu vermeidende Schlüsselwörter",
-      "Suggested professional summary": "Vorgeschlagene berufliche Zusammenfassung",
-      "Rewritten CV bullets": "Überarbeitete CV-Stichpunkte",
-      "Suggested CV structure": "Vorgeschlagene CV-Struktur",
-      "ATS friendly skills section": "ATS-freundlicher Kompetenzbereich",
-      "Recruiter interpretation": "Interpretation durch Recruiter",
-      "Final reconstruction plan": "Finaler Rekonstruktionsplan",
-      "Integrity audit": "Integritätsprüfung",
-      "Precheck warning summary": "Zusammenfassung der Precheck-Warnungen",
-      "Strongest reasons": "Stärkste Gründe",
-      "Main risks": "Hauptrisiken"
-    }
-  },
   "analysisSections": [
     [
       "Role diagnosis",
@@ -1002,6 +928,7 @@
     "apiAnalyzeUnreachable": "Could not reach the reconstruction API.",
     "apiPrecheckUnreachable": "Could not reach the precheck API.",
     "invalidJsonImport": "Choose a valid Career Signal JSON session export.",
+    "demoProfileFailed": "Could not load the demo profile. Check that the sample file is available.",
     "reconstructionFailed": "Could not generate the reconstruction plan.",
     "healthCheckFailed": "Health check failed.",
     "precheckFailed": "Precheck failed.",

@@ -118,7 +118,8 @@
     "showImprovementExamples": "Ver ejemplos de mejora",
     "downloadPlan": "Descargar plan TXT",
     "importJson": "Importar sesión",
-    "exportJson": "Exportar sesión"
+    "exportJson": "Exportar sesión",
+    "loadDemoProfile": "Cargar perfil de demostración"
   },
   "backendSettings": {
     "title": "Configuración del backend",
@@ -169,6 +170,8 @@
     "importJsonComplete": "Sesión importada. El texto del CV, el precheck, los datos de adaptación, los consejos de mejora y el plan se restauraron sin llamar al backend.",
     "importJsonAnalysisReady": "Plan importado listo. Puedes revisarlo abajo sin reprocesar.",
     "exportJsonComplete": "Sesión exportada. Las claves API y los PDFs no se incluyen; el texto del CV se guarda para reimportarlo.",
+    "demoProfileLoading": "Cargando perfil demo...",
+    "demoProfileComplete": "Perfil de demostración cargado. El texto del CV, el precheck, los datos de adaptación, los consejos de mejora y el plan se restauraron sin llamar al backend.",
     "paidModelSuggestion": "Para resultados más completos y consistentes, considera repetir CVs importantes con un modelo de pago más fuerte antes de usar el plan final.",
     "precheckStale": "El CV o los datos del perfil cambiaron. Ejecuta de nuevo el precheck antes de generar otro plan.",
     "precheckLoadingText": "Ejecutando el precheck de evidencia del CV. Puede tardar un poco mientras el modelo revisa la evidencia."
@@ -598,6 +601,7 @@
     "apiAnalyzeUnreachable": "No se pudo alcanzar la API de reconstrucción.",
     "apiPrecheckUnreachable": "No se pudo alcanzar la API del precheck.",
     "invalidJsonImport": "Elige una exportación JSON válida de Career Signal.",
+    "demoProfileFailed": "No se pudo cargar el perfil de demostración. Comprueba que el archivo de muestra esté disponible.",
     "reconstructionFailed": "No se pudo generar el plan de reconstrucción.",
     "healthCheckFailed": "Falló la revisión de salud.",
     "precheckFailed": "Falló el precheck.",
@@ -668,5 +672,31 @@
       "placeholder": "No se necesita clave API para Ollama",
       "keyLinkText": "Descargar Ollama"
     }
+  },
+  "localizedSectionTitles": {
+    "Recommendation": "Recomendación",
+    "Main problem": "Problema principal",
+    "Specific warnings": "Advertencias específicas",
+    "Missing evidence types": "Tipos de evidencia faltantes",
+    "Weak bullet examples": "Ejemplos de viñetas débiles",
+    "Questions to recover metrics": "Preguntas para recuperar métricas",
+    "Role diagnosis": "Diagnóstico del rol",
+    "Company signal interpretation": "Interpretación de señales de la empresa",
+    "Candidate positioning": "Posicionamiento del candidato",
+    "Profile match assessment": "Evaluación de ajuste del perfil",
+    "Strongest matching evidence": "Evidencia coincidente más fuerte",
+    "Weak or missing signals": "Señales débiles o faltantes",
+    "Keywords to include": "Palabras clave para incluir",
+    "Keywords to avoid": "Palabras clave para evitar",
+    "Suggested professional summary": "Resumen profesional sugerido",
+    "Rewritten CV bullets": "Viñetas del CV reescritas",
+    "Suggested CV structure": "Estructura sugerida del CV",
+    "ATS friendly skills section": "Sección de habilidades compatible con ATS",
+    "Recruiter interpretation": "Interpretación del reclutador",
+    "Final reconstruction plan": "Plan final de reconstrucción",
+    "Integrity audit": "Auditoría de integridad",
+    "Precheck warning summary": "Resumen de advertencias del precheck",
+    "Strongest reasons": "Razones más fuertes",
+    "Main risks": "Riesgos principales"
   }
 }

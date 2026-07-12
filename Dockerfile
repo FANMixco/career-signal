@@ -30,6 +30,7 @@ COPY --from=production-deps /app/backend/node_modules ./backend/node_modules
 COPY --from=build /app/backend/dist ./backend/dist
 COPY backend/package*.json ./backend/
 COPY frontend ./frontend
+COPY sample ./sample
 
 EXPOSE 3001
 
