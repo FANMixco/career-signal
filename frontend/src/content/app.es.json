@@ -2,6 +2,9 @@
   "site": {
     "subtitle": "Primero evidencia. Después adaptación."
   },
+  "share": {
+    "text": "Descubre Career Signal Engine, un verificador open source de evidencia del CV y asistente para adaptar candidaturas a puestos."
+  },
   "sections": {
     "profile": "1. Perfil",
     "cvInput": "2. Entrada del CV",
@@ -673,6 +676,11 @@
       "placeholder": "No se necesita clave API para Ollama",
       "keyLinkText": "Descargar Ollama"
     }
+  },
+  "ollama": {
+    "guidance": "El modo local de Ollama es experimental. Mantiene las solicitudes en tu ordenador, pero la respuesta puede ser más lenta, más corta o menos útil que con Gemini, OpenAI o Mistral. Por defecto, Career Signal usa una estrategia local mixta con Gemma 4 primero y Qwen 3.6 como alternativa. Puedes elegir un modelo manualmente si lo prefieres.",
+    "analysisGuidance": "Generar un plan completo de reconstrucción con Ollama puede tardar varios minutos y ser menos fiable que con modelos cloud. Para obtener el plan completo más rápido, usa Gemini, OpenAI o Mistral.",
+    "timeoutMessage": "El modelo local de Ollama tardó demasiado en responder esta sección. Inténtalo de nuevo, elige un modelo local más pequeño o usa Gemini, OpenAI o Mistral para obtener un plan de reconstrucción más fiable."
   },
   "localizedSectionTitles": {
     "Recommendation": "Recomendación",
