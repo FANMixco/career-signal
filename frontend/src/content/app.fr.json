@@ -1,0 +1,703 @@
+{
+  "site": {
+    "subtitle": "D’abord les preuves. Ensuite l’adaptation."
+  },
+  "sections": {
+    "profile": "1. Profil",
+    "cvInput": "2. CV",
+    "precheck": "3. Précontrôle des preuves du CV",
+    "tailoring": "4. Adaptation au poste",
+    "output": "5. Plan de reconstruction"
+  },
+  "labels": {
+    "yearsOfExperience": "Années d’expérience professionnelle",
+    "studiesListed": "Mentionnez-vous des études ou une formation dans votre CV ?",
+    "degreeYear": "Année de fin des études",
+    "experienceSelectionMode": "Mode de sélection de l’expérience",
+    "outputLanguage": "Langue",
+    "cvPdf": "Importer un export LinkedIn ou un CV en PDF",
+    "cvText": "Coller le texte du CV",
+    "aiProvider": "Fournisseur IA",
+    "aiModel": "Modèle IA",
+    "ollamaCustomModel": "Modèle personnalisé",
+    "aiApiKey": "Clé API",
+    "ollamaBaseUrl": "URL Ollama",
+    "targetCompany": "Nom de l’entreprise cible",
+    "companyDescription": "Description de l’entreprise (optionnel)",
+    "targetStyle": "Style du poste cible",
+    "jobPosition": "Poste",
+    "jobDescription": "Description du poste",
+    "ageWarningAcknowledgement": "Je comprends l’avertissement et je veux continuer."
+  },
+  "placeholders": {
+    "cvText": "Collez ici le texte complet du CV",
+    "ollamaCustomModel": "Saisissez un ID de modèle pour le fournisseur sélectionné, par exemple gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest ou llama3.2:3b",
+    "companyDescription": "Ajoutez du contexte utile si l’entreprise est peu connue : activité, secteur, taille, produit, marché ou modèle économique",
+    "jobDescription": "Collez la description complète du poste"
+  },
+  "options": {
+    "aiModels": {
+      "openrouter": [
+        [
+          "meta-llama/llama-3.3-70b-instruct:free",
+          "Llama 3.3 70B Instruct (gratuit)"
+        ],
+        [
+          "openai/gpt-oss-20b:free",
+          "GPT-OSS 20B (gratuit)"
+        ],
+        [
+          "qwen/qwen3-coder:free",
+          "Qwen3 Coder (gratuit)"
+        ],
+        [
+          "tencent/hy3:free",
+          "Tencent Hunyuan HY3 (gratuit)"
+        ]
+      ]
+    },
+    "studiesListed": [
+      [
+        "",
+        "Sélectionner"
+      ],
+      [
+        "true",
+        "Oui"
+      ],
+      [
+        "false",
+        "Non"
+      ]
+    ],
+    "experienceSelectionMode": [
+      [
+        "lastFive",
+        "Seulement les cinq dernières expériences"
+      ],
+      [
+        "all",
+        "Toutes les expériences"
+      ]
+    ],
+    "outputLanguages": [
+      [
+        "en",
+        "Anglais"
+      ],
+      [
+        "es",
+        "Espagnol"
+      ],
+      [
+        "fr",
+        "Français"
+      ],
+      [
+        "de",
+        "Allemand"
+      ]
+    ],
+    "customAiModelLabel": "Modèle personnalisé..."
+  },
+  "buttons": {
+    "settingsLabel": "Configurer le backend",
+    "shareLabel": "Partager Career Signal Engine",
+    "closeSettingsLabel": "Fermer les paramètres du backend",
+    "appHelpLabel": "Ouvrir le guide",
+    "cvBasics": "Bases d’un CV à fort impact",
+    "closeModal": "X",
+    "closeModalLabel": "Fermer les bases du CV",
+    "closeHelpLabel": "Fermer le guide",
+    "precheckIdle": "Lancer le précontrôle du CV",
+    "precheckLoading": "Précontrôle en cours...",
+    "analyzeIdle": "Générer le plan de reconstruction du CV",
+    "analyzeLoading": "Génération du plan...",
+    "continueAnyway": "Continuer quand même",
+    "continueToTailoring": "Continuer vers l’adaptation",
+    "showImprovementExamples": "Voir des exemples d’amélioration",
+    "downloadPlan": "Télécharger le plan TXT",
+    "newSession": "Nouveau",
+    "importJson": "Importer la session",
+    "exportJson": "Exporter la session",
+    "loadDemoProfile": "Charger le profil de démonstration"
+  },
+  "backendSettings": {
+    "title": "Paramètres du backend",
+    "subtitle": "Utilisez votre propre backend Career Signal avec ce frontend.",
+    "previewMessage": "Cette version GitHub Pages est seulement un aperçu du frontend. Pour analyser un CV, démarrez Career Signal localement ou déployez votre propre backend et configurez son URL ici.",
+    "openSettings": "Configurer le backend",
+    "trustWarning": "Utilisez seulement un backend que vous contrôlez ou auquel vous faites confiance. Le CV, les offres et les clés API saisies sont envoyés au backend configuré.",
+    "urlLabel": "URL du backend",
+    "save": "Enregistrer l’URL",
+    "test": "Tester la connexion",
+    "reset": "Valeur par défaut",
+    "currentPrefix": "Backend actuel :",
+    "defaultBackend": "Backend par défaut",
+    "saved": "URL du backend enregistrée.",
+    "resetDone": "URL du backend réinitialisée.",
+    "emptyUrl": "Saisissez une URL de backend ou réinitialisez.",
+    "invalidUrl": "Saisissez une URL http:// ou https:// valide.",
+    "httpsRequired": "Cette page est chargée en HTTPS. Utilisez une URL HTTPS ou localhost en développement.",
+    "testSuccess": "La connexion au backend fonctionne.",
+    "testing": "Test de la connexion au backend...",
+    "testFailed": "Impossible de joindre l’endpoint de santé du backend."
+  },
+  "fallbackText": {
+    "emptyList": "Aucun élément signalé.",
+    "noMainProblem": "Aucun problème central signalé."
+  },
+  "feedback": {
+    "initial": "Ajoutez votre CV, puis lancez le précontrôle avant de générer un plan adapté à un poste.",
+    "readyStatus": "Prêt",
+    "cvInputGuidance": "Ajoutez d’abord le CV source. L’application vérifie la présence de preuves avant toute réécriture.",
+    "ageWarning": "L’année d’études peut révéler plus d’informations liées à l’âge que nécessaire.",
+    "allExperienceWarning": "Inclure toutes les expériences peut rendre le CV trop long ou révéler des informations anciennes inutiles.",
+    "missingYears": "Saisissez vos années d’expérience avant de lancer le précontrôle.",
+    "missingStudies": "Indiquez si vous mentionnez des études ou une formation dans le CV.",
+    "missingStudyYear": "Saisissez l’année de fin des études, ou sélectionnez Non.",
+    "missingCv": "Ajoutez un CV PDF, un export LinkedIn PDF ou collez le texte complet du CV.",
+    "invalidPdf": "Seuls les fichiers PDF sont pris en charge.",
+    "pdfTooLarge": "Le PDF dépasse 5 Mo.",
+    "acknowledgeStudyWarning": "Acceptez l’avertissement sur l’année d’études avant de continuer.",
+    "missingOllamaCustomModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
+    "missingCustomAiModel": "Saisissez un ID de modèle personnalisé ou choisissez un des modèles de la liste.",
+    "runPrecheckFirst": "Lancez le précontrôle avant de générer le plan.",
+    "precheckComplete": "Précontrôle terminé. Vérifiez le score et choisissez l’action suivante.",
+    "precheckPassedWithWarnings": "Le précontrôle est passé, mais certaines recommandations méritent d’être revues.",
+    "analysisLoading": "Génération d’un nouveau plan. Le plan précédent a été effacé.",
+    "analysisComplete": "Plan de reconstruction prêt. Relisez le résultat avant de l’utiliser.",
+    "analysisPartial": "Reconstruction locale partielle prête. Certaines sections Ollama n’ont pas terminé.",
+    "importJsonComplete": "Session importée. Le texte du CV, le précontrôle, les données d’adaptation, les conseils d’amélioration et le plan ont été restaurés sans appeler le backend.",
+    "importJsonAnalysisReady": "Plan importé prêt. Vous pouvez le relire ci-dessous sans retraitement.",
+    "exportJsonComplete": "Session exportée. Les clés API et les PDF ne sont pas inclus ; le texte du CV est conservé pour réimportation.",
+    "demoProfileLoading": "Chargement du profil de démonstration...",
+    "demoProfileComplete": "profil de démonstration chargé. Le texte du CV, le précontrôle, les données d’adaptation, les conseils d’amélioration et le plan ont été restaurés sans appeler le backend.",
+    "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d’utiliser le plan final.",
+    "precheckStale": "Le CV ou le profil a changé. Relancez le précontrôle.",
+    "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment."
+  },
+  "tailoring": {
+    "guidanceLocked": "Vous pouvez ajouter l’entreprise cible et la description du poste. La génération se débloque après le précontrôle.",
+    "guidanceUnlocked": "Utilisez l’entreprise et la description du poste pour générer un plan fondé sur les preuves du CV.",
+    "initialLock": "Lancez d’abord le précontrôle du CV.",
+    "staleLock": "Le CV ou le profil a changé. Relancez le précontrôle avant l’adaptation.",
+    "weakLock": "Le précontrôle recommande d’améliorer le CV d’abord.",
+    "reviewLock": "Relisez le précontrôle puis continuez vers l’adaptation.",
+    "weakUnlock": "Débloqué parce que vous avez choisi de continuer malgré l’avertissement."
+  },
+  "weakCvWarning": "Ce CV semble décrire surtout des responsabilités plutôt que des résultats mesurables.",
+  "evidenceRecovery": {
+    "title": "Exemples pour retrouver des preuves",
+    "intro": "Ces éléments servent à retrouver des preuves réelles dans le CV. Ce ne sont pas des formulations finales à copier.",
+    "guardrail": "Ne collez pas ces exemples tels quels. Remplacez chaque idée entre crochets par quelque chose de vrai, défendable et spécifique à votre travail.",
+    "summaryTitle": "Modèle possible de résumé",
+    "missingEvidenceTitle": "Preuves à retrouver en priorité",
+    "bulletTitle": "Modèles pour renforcer les puces",
+    "questionsTitle": "Questions pour rendre cela réel",
+    "beforePrefix": "Au lieu de :",
+    "noWeakExamples": "Aucune ligne faible spécifique n’a été détectée ; utilisez donc le modèle générique ci-dessous.",
+    "genericRole": "Professionnel",
+    "genericSubjects": "personnes, clients, équipes, services, cas, systèmes, documents ou opérations",
+    "genericOutcomes": "qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption",
+    "summaryPattern": "{role} avec une expérience auprès de {subjects}. Contribution à des travaux dont les preuves les plus importantes à retrouver sont {outcomes}, avec des chiffres, délais et périmètres véridiques.",
+    "afterPattern": "Essayez de retrouver : {activity} pour [nombre] {subjects} sur [période/contexte], en aidant à améliorer [résultat spécifique : {outcomes}] de [nombre/résultat si vrai].",
+    "defaultMissingEvidence": [
+      "Volume ou échelle : combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services ont été concernés.",
+      "Période : combien de temps le travail a duré, à quelle fréquence il a eu lieu ou à quelle vitesse quelque chose s’est amélioré.",
+      "Résultat : ce qui a changé en qualité, sécurité, coût, rapidité, satisfaction, fiabilité, conformité, risque, continuité ou adoption.",
+      "Responsabilité : ce que vous avez personnellement livré, influencé, coordonné ou soutenu."
+    ],
+    "defaultQuestions": [
+      "Qu’est-ce qui a changé grâce à ce travail ?",
+      "Qui ou quoi a été concerné ?",
+      "Combien de personnes, cas, clients, utilisateurs, systèmes, documents, équipes ou services étaient impliqués ?",
+      "Qu’est-ce qui s’est amélioré après le travail : qualité, sécurité, rapidité, coût, satisfaction, fiabilité, conformité, risque, continuité ou adoption ?",
+      "Quel chiffre, délai, point de départ ou comparaison pouvez-vous défendre en entretien ?"
+    ],
+    "contexts": {
+      "healthcare": {
+        "role": "Professionnel de santé",
+        "subjects": "patients, gardes, activités de soin, dossiers, familles, équipes, unités ou services",
+        "outcomes": "sécurité des patients, temps de réponse, continuité des soins, qualité documentaire, flux de patients, satisfaction ou réduction des risques"
+      },
+      "education": {
+        "role": "Professionnel de l’éducation ou de la formation",
+        "subjects": "étudiants, apprenants, classes, sessions de formation, programmes, équipes ou dispositifs d’apprentissage",
+        "outcomes": "progression d’apprentissage, participation, complétion, satisfaction, qualité d’évaluation, adoption ou couverture d’accompagnement"
+      },
+      "customer": {
+        "role": "Professionnel commercial ou relation client",
+        "subjects": "clients, comptes, cas, opportunités, régions, produits ou demandes de service",
+        "outcomes": "revenu, rétention, satisfaction, temps de réponse, conversion, qualité du pipeline, réduction des risques ou qualité de service"
+      },
+      "technology": {
+        "role": "Professionnel de la technologie",
+        "subjects": "utilisateurs, systèmes, applications, plateformes, environnements, équipes, processus ou flux de données",
+        "outcomes": "coût, fiabilité, rapidité, adoption, sécurité, automatisation, qualité, réduction des risques ou délai de livraison"
+      },
+      "operations": {
+        "role": "Professionnel des opérations ou services",
+        "subjects": "processus, services, cas, équipes, sites, fournisseurs, documents, stocks ou workflows",
+        "outcomes": "qualité, rapidité, coût, conformité, sécurité, fiabilité, débit, réduction des risques ou continuité de service"
+      }
+    }
+  },
+  "personalDataWarnings": {
+    "title": "Risques de confidentialité et de biais",
+    "intro": "Le CV semble contenir des données personnelles potentiellement inutiles ou risquées."
+  },
+  "jobFitAssessment": {
+    "scoreLabel": "Score d’adéquation du profil",
+    "warningFallback": "Ceci est une estimation fondée sur les preuves, pas une décision de recrutement.",
+    "verdictLabels": {
+      "Strong match": "Très bonne adéquation",
+      "Good match": "Bonne adéquation",
+      "Partial match": "Adéquation partielle",
+      "Weak match": "Faible adéquation"
+    }
+  },
+  "footer": {
+    "createdByPrefix": "Créé par",
+    "contributeText": "Suggérer des changements sur GitHub",
+    "version": "1.1.2"
+  },
+  "cvBasics": {
+    "title": "Bases d’un CV à fort impact",
+    "subtitle": "Un bon CV rend les preuves faciles à voir.",
+    "playlistText": "Voir la playlist sur la rédaction de CV",
+    "blocks": [
+      {
+        "title": "Ce que prouvent les bonnes puces",
+        "items": [
+          "Ce qui a changé grâce à votre travail.",
+          "Qui ou quoi a été affecté : utilisateurs, clients, systèmes, équipes, pays, budgets, risques ou processus.",
+          "L’échelle du travail et pourquoi elle comptait.",
+          "Le résultat : temps gagné, coûts réduits, fiabilité améliorée, adoption accrue, risque réduit, migration livrée ou décisions mieux soutenues."
+        ]
+      },
+      {
+        "title": "Langage d’activité faible",
+        "items": [
+          "Responsable de la formation des équipes.",
+          "Introduction d’un cadre de gouvernance.",
+          "Support aux parties prenantes.",
+          "Mise en œuvre d’améliorations de processus.",
+          "Participation à des projets."
+        ]
+      },
+      {
+        "title": "Modèle de preuve plus fort",
+        "text": "Utilisez action, objet, échelle, objectif et résultat. La puce doit survivre à la question : et alors ?",
+        "examples": [
+          [
+            "example",
+            "Faible : Formation des équipes pendant le COVID."
+          ],
+          [
+            "example strong",
+            "Plus fort : Soutien d’environ 200 à 300 personnes par jour pendant le pic des opérations COVID, en maintenant le flux de patients sous forte pression."
+          ]
+        ]
+      },
+      {
+        "title": "Langage appuyé par des preuves",
+        "items": [
+          "Les affirmations personnelles comme motivé, efficace, stratégique, fiable ou bon communicant doivent être soutenues par des preuves.",
+          "Le problème n’est pas l’adjectif ; le problème est l’absence de preuve à proximité.",
+          "Remplacez l’autodescription non prouvée par des résultats, exemples, échelles, décisions, livraisons, adoption ou résultats mesurables."
+        ]
+      },
+      {
+        "title": "Résumé sous forme d’argumentaire éclair",
+        "items": [
+          "Utilisez le résumé pour présenter vos atouts pour le poste avant que le recruteur, le responsable du recrutement ou le système de présélection ne se penche sur les détails.",
+          "Gardez-le court, concret et fondé sur des preuves : poste cible, domaine le plus fort, échelle pertinente et un ou deux résultats marquants.",
+          "Si le multilinguisme est un signal de marché utile, intégrez-le naturellement dans le résumé avec le contexte business qu’il soutient.",
+          "Évitez les affirmations génériques comme orienté résultats ou passionné, sauf si le résumé les prouve immédiatement par le périmètre, les résultats ou des forces rares."
+        ],
+        "examples": [
+          [
+            "example strong",
+            "Ingénieur en transformation cloud à l’aise en anglais, français et allemand ; a réduit le gaspillage AWS de 40 % dans des environnements de test et aidé des parties prenantes européennes à aligner migration, automatisation et gouvernance des coûts."
+          ]
+        ]
+      },
+      {
+        "title": "Langues et signal de marché",
+        "items": [
+          "Listez les langues clairement et honnêtement, avec des niveaux pratiques comme Anglais - courant, Français - professionnel ou Allemand - conversationnel.",
+          "Si le multilinguisme est pertinent pour le rôle, le marché, les clients ou la région, mentionnez-le dans le résumé ou l’introduction au lieu de le cacher à la fin.",
+          "Ne supposez pas qu’une combinaison linguistique est normale partout. Par exemple, un ingénieur capable de travailler en anglais, français et allemand envoie un signal transfrontalier rare sur de nombreux marchés européens.",
+          "Priorisez les langues qui soutiennent le poste cible, l’entreprise, le pays, la base client ou l’environnement des parties prenantes."
+        ]
+      },
+      {
+        "title": "Temps et chronologie",
+        "items": [
+          "Utilisez le passé pour le travail terminé, surtout dans les postes précédents.",
+          "Utilisez le présent seulement pour les responsabilités ou travaux réellement en cours.",
+          "Dans les postes actuels, les réussites terminées doivent rester formulées comme des résultats achevés.",
+          "Évitez les puces à l’infinitif quand la réalisation a déjà eu lieu."
+        ]
+      },
+      {
+        "title": "Avant l’adaptation",
+        "items": [
+          "Récupérez les chiffres lorsqu’ils sont vrais et défendables.",
+          "Supprimez ou réduisez les anciens détails qui n’aident pas le poste cible.",
+          "Ne mentionnez vos études et vos diplômes que s’ils sont pertinents ou requis. Évitez d’indiquer vos années d’obtention de diplôme dès lors que vous disposez de plusieurs années d’expérience professionnelle (généralement environ cinq ans), car cela peut inutilement susciter des préjugés liés à l’âge. Les exceptions peuvent concerner les doctorats, les diplômes délivrés par des universités (internationales) très prestigieuses ou les diplômes scolaires, uniquement pour les jeunes diplômés.",
+          "Si vous êtes resté longtemps dans une entreprise, montrez la progression réelle : promotions, changements de rôle, élargissement du périmètre, changements d’équipe ou jalons choisis.",
+          "N’inventez jamais de métriques, outils, responsabilités, employeurs, dates, certifications ou réussites."
+        ]
+      },
+      {
+        "title": "Longueur selon le niveau",
+        "items": [
+          "Les CV junior ou début de carrière sont souvent plus forts en 1 page.",
+          "Les CV mid-career font souvent 1 à 2 pages.",
+          "Les spécialistes senior, managers ou consultants ont souvent besoin d’environ 2 pages.",
+          "Les dirigeants, universitaires, chercheurs, profils du secteur public ou experts très diplômés peuvent nécessiter plus si le détail est pertinent.",
+          "La longueur n’est pas mauvaise en soi ; le problème est quand elle cache les meilleures preuves ou retire des preuves nécessaires."
+        ]
+      },
+      {
+        "title": "Longue ancienneté et progression",
+        "items": [
+          "Une longue ancienneté n’est pas un problème en soi, mais un seul titre pendant des années peut donner une impression de stagnation.",
+          "Si vous avez occupé plusieurs postes internes, montrez la séquence réelle au lieu du seul dernier titre.",
+          "Si les titres officiels n’ont pas changé, montrez la progression avec des puces véridiques : équipes plus grandes, budgets plus élevés, régions plus larges, systèmes plus complexes ou travail à plus fort impact."
+        ]
+      },
+      {
+        "title": "Alignement titre-responsabilités",
+        "items": [
+          "Assurez-vous que chaque titre officiel correspond aux responsabilités et réalisations listées dessous.",
+          "Si le titre est Project Manager mais les puces décrivent du product ownership, de l’architecture, de la stratégie, de la formation ou des opérations, clarifiez le périmètre.",
+          "Les rôles hybrides sont acceptables, mais un périmètre inhabituel doit être expliqué par un sous-titre, une ligne de contexte ou une puce claire."
+        ]
+      },
+      {
+        "title": "Données personnelles sensibles",
+        "items": [
+          "Évitez date de naissance, âge exact, état civil, situation familiale, genre, citoyenneté, nationalité, adresse complète ou référence à une photo sauf exigence explicite.",
+          "Utilisez la localisation seulement au niveau utile pour le rôle, par exemple ville, pays ou autorisation de travail si pertinent.",
+          "Ces informations peuvent créer des risques de confidentialité, discrimination ou biais d’âge et renforcent rarement la preuve d’impact."
+        ]
+      },
+      {
+        "title": "Références",
+        "items": [
+          "N’ajoutez pas de références ni de coordonnées de référents par défaut.",
+          "Utilisez références disponibles sur demande seulement lorsque c’est attendu dans le pays, le secteur ou le formulaire de candidature.",
+          "Protégez la confidentialité des autres personnes : partagez noms, téléphones, emails ou recommandations directes seulement sur demande et avec l’accord du référent."
+        ]
+      },
+      {
+        "title": "Coordonnées essentielles",
+        "items": [
+          "Placez nom, email, téléphone et localisation utile en haut.",
+          "Ajoutez LinkedIn ou portfolio lorsque cela aide à prouver le profil.",
+          "Des coordonnées manquantes sont rares, mais créent une friction inutile pour les recruteurs."
+        ]
+      }
+    ]
+  },
+  "appHelp": {
+    "title": "Guide Career Signal",
+    "subtitle": "Aide simple, confidentialité, scores et limites au même endroit.",
+    "tabs": [
+      {
+        "id": "use",
+        "label": "Utilisation",
+        "blocks": [
+          {
+            "title": "En termes simples",
+            "text": "Career Signal vérifie si votre CV contient assez de preuves réelles avant de vous aider à l’adapter à une offre."
+          },
+          {
+            "title": "Flux de base",
+            "items": [
+              "Ajoutez vos années d’expérience et indiquez si les études sont listées dans le CV.",
+              "Téléversez un CV PDF, un export LinkedIn PDF ou collez le texte du CV.",
+              "Choisissez OpenRouter, OpenAI, Gemini, Mistral, Claude (experimental), DeepSeek ou Ollama (offline, expérimental), puis un modèle. Les modèles OpenRouter listés sont gratuits ; les IDs de modèle OpenRouter personnalisés peuvent être payants selon votre compte OpenRouter.",
+              "Pour les fournisseurs cloud, ajoutez une clé si elle n’est pas déjà configurée.",
+              "Pour Ollama, installez Ollama localement, téléchargez le modèle choisi et gardez Ollama en cours d’exécution.",
+              "Lancez d’abord le précontrôle des preuves du CV.",
+              "Si le CV contient assez de preuves, ajoutez l’entreprise cible, un contexte d’entreprise optionnel et la description du poste.",
+              "Générez le plan de reconstruction et relisez-le avant d’utiliser quoi que ce soit."
+            ]
+          },
+          {
+            "title": "À propos des clés fournisseur",
+            "text": "Si le backend a déjà des clés fournisseur configurées, vous pouvez laisser le champ de clé vide. Sinon, collez votre propre clé fournisseur pour cette requête. Career Signal ne stocke pas la clé ; elle est envoyée seulement au backend utilisé afin que le fournisseur IA choisi puisse traiter la vérification du CV."
+          },
+          {
+            "title": "Habitude importante",
+            "text": "Utilisez le résultat comme assistant de revue et de réécriture. Confirmez chaque titre, date, employeur, outil, métrique et affirmation avant d’envoyer un CV."
+          }
+        ]
+      },
+      {
+        "id": "criteria",
+        "label": "Critères",
+        "blocks": [
+          {
+            "title": "Précontrôle des preuves du CV",
+            "text": "Le score de précontrôle va de 0 à 100. Il estime si le CV contient assez de preuves défendables pour être adapté prudemment."
+          },
+          {
+            "title": "Ce qu’il vérifie",
+            "items": [
+              "Des résultats concrets, pas seulement des responsabilités.",
+              "Chiffres, échelle, périmètre, dates, utilisateurs, systèmes, budgets, équipes, risques ou changements mesurables lorsqu’ils sont vrais.",
+              "Des puces qui expliquent ce qui a changé grâce au travail.",
+              "Des avertissements sur les affirmations non prouvées, les données personnelles sensibles, les titres confus, la progression peu claire, les problèmes de temps et les détails d’études inutiles.",
+              "Des questions pour récupérer des métriques manquantes sans rien inventer."
+            ]
+          },
+          {
+            "title": "Évaluation de l’adéquation du profil",
+            "text": "Après le précontrôle, le score d’adéquation au poste va aussi de 0 à 100. Il estime à quel point les preuves du CV correspondent au rôle cible et au contexte de l’entreprise."
+          },
+          {
+            "title": "Ce que signifient les chiffres",
+            "items": [
+              "Un score élevé signifie que les preuves semblent plus fortes, plus claires et plus pertinentes.",
+              "Un score moyen signifie que le CV peut être utilisable mais nécessite clarification, meilleures preuves ou ciblage plus fort.",
+              "Un score faible signifie que l’adaptation peut rendre le CV plus joli sans résoudre le problème de preuves.",
+              "Aucun score ne garantit des entretiens, une embauche ou une décision de recruteur."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "label": "Ce que ça fait",
+        "blocks": [
+          {
+            "title": "Ce que fait l’app",
+            "items": [
+              "Vérifie si un CV contient assez de preuves avant l’adaptation.",
+              "Signale les zones faibles ou risquées avant qu’elles deviennent des affirmations polies mais non prouvées.",
+              "Utilise une entreprise cible et une description de poste pour produire un plan de reconstruction spécifique.",
+              "Aide à identifier les mots-clés, preuves correspondantes, signaux manquants, interprétation recruteur et risques d’intégrité.",
+              "Encourage une rédaction plus sûre en signalant âge, genre, citoyenneté, photo, adresse et autres données personnelles quand elles sont inutiles."
+            ]
+          },
+          {
+            "title": "Ce qu’elle ne fait pas",
+            "items": [
+              "Elle n’invente pas de réussites, métriques, employeurs, dates, outils, certifications ou responsabilités.",
+              "Elle ne postule pas automatiquement aux offres.",
+              "Elle ne garantit pas les entretiens ni l’embauche.",
+              "Elle ne remplace pas le jugement final d’un recruteur, manager ou employeur.",
+              "Elle ne remplace pas votre responsabilité de vérifier le CV final avant envoi."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "label": "Confidentialité",
+        "blocks": [
+          {
+            "title": "Ce que l’app stocke",
+            "items": [
+              "L’app ne stocke pas les CV dans une base de données.",
+              "L’app ne stocke pas les clés API.",
+              "L’app n’ajoute pas d’analytics ou de tracking au flux CV principal.",
+              "Votre clé collée est envoyée seulement au backend local pour cette requête."
+            ]
+          },
+          {
+            "title": "Ce qui quitte votre machine",
+            "items": [
+              "Si vous lancez une vérification IA, le texte du CV et les détails du poste sont envoyés au fournisseur IA choisi.",
+              "Avec OpenRouter, la requête part vers OpenRouter avec le modèle gratuit sélectionné.",
+              "Avec Gemini, la requête part vers Google avec le modèle Gemini sélectionné.",
+              "Avec DeepSeek, la requête part vers DeepSeek avec le modèle DeepSeek sélectionné.",
+              "Avec OpenAI, la requête part vers OpenAI avec le modèle OpenAI sélectionné.",
+              "Avec Mistral, la requête part vers Mistral avec le modèle Mistral sélectionné.",
+              "Avec Claude (experimental), la requete part vers Anthropic avec le modele Claude selectionne.",
+              "Avec Ollama (offline, expérimental), le backend envoie la requête à votre URL Ollama locale plutôt qu’à un fournisseur cloud.",
+              "Le bouton Buy Me a Coffee est un widget externe de soutien et peut charger des ressources depuis Buy Me a Coffee ou son CDN."
+            ]
+          },
+          {
+            "title": "Open source",
+            "text": "Le projet est entièrement open source sous licence GPL-3.0, donc chacun peut l’inspecter, l’exécuter, l’améliorer et proposer des changements.",
+            "links": [
+              [
+                "Voir le code sur GitHub",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "Lire la licence GPL-3.0",
+                "https://github.com/FANMixco/career-signal/blob/main/LICENSE"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about",
+        "label": "À propos",
+        "blocks": [
+          {
+            "title": "À propos du créateur",
+            "text": "Career Signal a été créé par Federico Navarrete, technologue, auteur, speaker et contributeur open source basé au Luxembourg."
+          },
+          {
+            "title": "Pourquoi ce projet existe",
+            "text": "Le projet aide les personnes à relire leur CV de façon plus critique avant de l’adapter à un poste. Il se concentre sur les preuves, la clarté, les risques et la pertinence sans remplacer le jugement humain."
+          },
+          {
+            "title": "En savoir plus",
+            "links": [
+              [
+                "Federico Navarrete",
+                "https://federiconavarrete.com"
+              ],
+              [
+                "Career Signal sur GitHub",
+                "https://github.com/FANMixco/career-signal"
+              ],
+              [
+                "FANMixco sur GitHub",
+                "https://github.com/FANMixco"
+              ],
+              [
+                "Chaîne YouTube",
+                "https://www.youtube.com/@FedericoNavarrete"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "statusMessages": {
+    "ready": "Prêt",
+    "Precheck needed": "Précontrôle nécessaire",
+    "Missing profile": "Profil manquant",
+    "Add CV": "Ajoutez un CV",
+    "Invalid PDF": "PDF invalide",
+    "PDF too large": "PDF trop volumineux",
+    "Acknowledge warning": "Acceptez l’avertissement",
+    "Missing model": "Modèle manquant",
+    "Prechecking": "Contrôle en cours",
+    "Precheck done": "Précontrôle terminé",
+    "Error": "Erreur",
+    "Run precheck first": "Lancez d’abord le précontrôle",
+    "Tailoring": "Adaptation",
+    "Plan ready": "Plan prêt"
+  },
+  "recommendationLabels": {
+    "Proceed": "Continuer",
+    "Proceed with caution": "Continuer avec prudence",
+    "Improve CV first": "Améliorer le CV d’abord"
+  },
+  "errorMessages": {
+    "apiAnalyzeUnreachable": "Impossible de joindre l’API de reconstruction.",
+    "apiPrecheckUnreachable": "Impossible de joindre l’API de précontrôle.",
+    "invalidJsonImport": "Choisissez une exportation JSON Career Signal valide.",
+    "demoProfileFailed": "Impossible de charger le profil de démonstration. Vérifiez que le fichier d’exemple est disponible.",
+    "reconstructionFailed": "Impossible de générer le plan de reconstruction.",
+    "healthCheckFailed": "Le contrôle de santé a échoué.",
+    "precheckFailed": "Le précontrôle a échoué.",
+    "analysisFailed": "L’analyse a échoué."
+  },
+  "buyMeCoffee": {
+    "description": "Soutenez-moi sur Buy Me a Coffee",
+    "message": "Merci d’utiliser Career Signal. Soutenez ce projet avec un café."
+  },
+  "targetStyleLabels": {
+    "Consulting": "Conseil",
+    "Strategy": "Strategie",
+    "Product": "Produit",
+    "IT / Technology": "IT / Technologie",
+    "Engineering": "Ingenierie",
+    "Public / Civil Service": "Fonction publique",
+    "Human Resources": "Ressources humaines",
+    "Legal": "Juridique",
+    "Translation": "Traduction",
+    "Healthcare / Medicine": "Santé / Médecine",
+    "Finance / Accounting": "Finance / Comptabilité",
+    "Marketing / Communications": "Marketing / Communication",
+    "Research / Academic": "Recherche / Académique",
+    "Operations / Administration": "Opérations / Administration",
+    "Data / Analytics": "Données / Analytique",
+    "Security / Risk / Compliance": "Sécurité / Risque / Conformité",
+    "Project / Program Management": "Gestion de projets / programmes",
+    "Procurement": "Achats",
+    "Sales": "Ventes",
+    "Leadership": "Leadership",
+    "Training": "Formation",
+    "Management": "Management",
+    "General": "General"
+  },
+  "apiKeys": {
+    "openrouter": {
+      "label": "Cle API OpenRouter",
+      "placeholder": "Optionnel si OPENROUTER_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API OpenRouter"
+    },
+    "openai": {
+      "label": "Cle API OpenAI",
+      "placeholder": "Optionnel si OPENAI_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API OpenAI"
+    },
+    "gemini": {
+      "label": "Cle API Gemini",
+      "placeholder": "Optionnel si GEMINI_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Gemini"
+    },
+    "mistral": {
+      "label": "Cle API Mistral",
+      "placeholder": "Optionnel si MISTRAL_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Mistral"
+    },
+    "anthropic": {
+      "label": "Cle API Anthropic",
+      "placeholder": "Optionnel si ANTHROPIC_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API Anthropic"
+    },
+    "deepseek": {
+      "label": "Cle API DeepSeek",
+      "placeholder": "Optionnel si DEEPSEEK_API_KEY est configuree",
+      "keyLinkText": "Obtenir une cle API DeepSeek"
+    },
+    "ollama": {
+      "label": "Configuration locale Ollama",
+      "placeholder": "Aucune cle API necessaire pour Ollama",
+      "keyLinkText": "Telecharger Ollama"
+    }
+  },
+  "localizedSectionTitles": {
+    "Recommendation": "Recommandation",
+    "Main problem": "Problème principal",
+    "Specific warnings": "Avertissements spécifiques",
+    "Missing evidence types": "Types de preuves manquants",
+    "Weak bullet examples": "Exemples de puces faibles",
+    "Questions to recover metrics": "Questions pour récupérer des métriques",
+    "Role diagnosis": "Diagnostic du rôle",
+    "Company signal interpretation": "Interprétation des signaux de l’entreprise",
+    "Candidate positioning": "Positionnement du candidat",
+    "Profile match assessment": "Évaluation de l’adéquation du profil",
+    "Strongest matching evidence": "Preuves correspondantes les plus fortes",
+    "Weak or missing signals": "Signaux faibles ou manquants",
+    "Keywords to include": "Mots-clés à inclure",
+    "Keywords to avoid": "Mots-clés à éviter",
+    "Suggested professional summary": "Résumé professionnel suggéré",
+    "Rewritten CV bullets": "Puces de CV réécrites",
+    "Suggested CV structure": "Structure de CV suggérée",
+    "ATS friendly skills section": "Section compétences compatible ATS",
+    "Recruiter interpretation": "Interprétation du recruteur",
+    "Final reconstruction plan": "Plan final de reconstruction",
+    "Integrity audit": "Audit d’intégrité",
+    "Precheck warning summary": "Résumé des avertissements du précontrôle",
+    "Strongest reasons": "Raisons les plus fortes",
+    "Main risks": "Risques principaux"
+  }
+}

@@ -1,6 +1,6 @@
 // Runtime configuration loader.
 // User-facing copy, option labels, modal content, and localization live in
-// content/app.*.json so non-technical contributors can review text without
+// src/content/app.*.json so non-technical contributors can review text without
 // editing event-handler code.
 function resolveApiBaseUrl(location) {
   const separateFrontendPorts = new Set(["5500", "5173", "4173", "8080"]);
@@ -45,15 +45,15 @@ function loadContentJson(path) {
   return JSON.parse(request.responseText);
 }
 
-const baseContent = loadContentJson("content/app.en.json");
+const baseContent = loadContentJson("src/content/app.en.json");
 
 window.CAREER_SIGNAL_CONFIG = {
   apiBaseUrl: resolveApiBaseUrl(window.location),
   pdfMaxBytes: 5 * 1024 * 1024,
   ...baseContent,
   translations: {
-    es: loadContentJson("content/app.es.json"),
-    fr: loadContentJson("content/app.fr.json"),
-    de: loadContentJson("content/app.de.json")
+    es: loadContentJson("src/content/app.es.json"),
+    fr: loadContentJson("src/content/app.fr.json"),
+    de: loadContentJson("src/content/app.de.json")
   }
 };
