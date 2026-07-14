@@ -1,3 +1,5 @@
+// Tailoring analysis flow. It combines the latest valid precheck with target
+// role inputs to request a reconstruction plan from the backend.
 async function runAnalysis() {
   if (state.analysisInFlight) return;
 
@@ -58,6 +60,8 @@ async function runAnalysis() {
   }
 }
 
+// Analysis rendering keeps section order and labels in config so translations
+// can localize headings without changing this code.
 function renderAnalysis(analysis, options = {}) {
   show(els.outputPanel);
   const blocks = config.analysisSections.map(([title, key, type]) => [localizedTitle(title), formatAnalysisValue(analysis, key, type)]);

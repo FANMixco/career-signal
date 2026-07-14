@@ -1,3 +1,5 @@
+// Session import/export and demo loading. Exported sessions are self-contained
+// enough to restore the UI, but deliberately exclude API keys and PDF files.
 function currentFormSnapshot() {
   return {
     profile: {
@@ -86,6 +88,8 @@ function demoProfileUrls() {
   return samplePaths;
 }
 
+// Demo profiles are language-specific when available. English stays as fallback
+// so the button remains useful if a localized sample is missing.
 async function loadDemoProfile() {
   setImportExportFeedback("loading", config.feedback.demoProfileLoading);
 
@@ -105,6 +109,8 @@ async function loadDemoProfile() {
   setImportExportFeedback("error", config.errorMessages.demoProfileFailed);
 }
 
+// Restores inputs and generated outputs without calling the backend. This is
+// used by both manual JSON imports and bundled demo profiles.
 function applyImportedSession(bundle) {
   if (!bundle || typeof bundle !== "object") {
     throw new Error(config.errorMessages.invalidJsonImport);

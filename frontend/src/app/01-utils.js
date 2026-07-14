@@ -1,3 +1,5 @@
+// Cross-cutting helpers for URLs, feedback, localization, and small HTML
+// snippets. Keep business copy in the config JSON files whenever possible.
 function apiUrl(path) {
   return `${API_BASE_URL}${path}`;
 }
@@ -41,6 +43,8 @@ function validateBackendUrl(value) {
   }
 }
 
+// Feedback helpers centralize class names so loading/success/error UI behaves
+// consistently across precheck, tailoring, import/export, and settings flows.
 function setStatus(message) {
   els.status.textContent = config.statusMessages?.[message] || message;
 }
@@ -129,6 +133,8 @@ function mergeConfig(base, override) {
   return output;
 }
 
+// Translation files are overlays on top of English. Refreshing a language
+// rebuilds localized selects, then restores the user's selected values.
 function setActiveLanguage(language) {
   config = mergeConfig(baseConfig, baseConfig.translations?.[language] || {});
 }
@@ -243,6 +249,8 @@ function applyConfiguredText() {
   show(els.previewWarning, isGitHubPagesPreview());
 }
 
+// Render helpers produce app-owned markup. Any string from users, sessions, or
+// backend responses should be escaped before insertion.
 function show(element, visible = true) {
   element.classList.toggle("hidden", !visible);
 }

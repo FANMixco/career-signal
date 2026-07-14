@@ -1,3 +1,5 @@
+// Static UI renderers for footer, help, and CV basics sections. The text comes
+// from localized config; this file owns only the markup structure.
 function renderFooter() {
   const version = config.footer.version ? `
     <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
@@ -53,6 +55,8 @@ function renderAppHelp() {
   els.appHelpBody.innerHTML = renderHelpBlocks(activeTab.blocks);
 }
 
+// CV basics is data-driven so non-code contributors can revise guidance without
+// touching event handlers or layout behavior.
 function renderCvBasics() {
   const blocks = config.cvBasics.blocks
     .map((block) => {

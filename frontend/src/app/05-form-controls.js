@@ -1,3 +1,5 @@
+// Form-control helpers keep dependent selects and provider-specific fields in
+// sync with the current localized config.
 async function shareApp() {
   const shareData = {
     title: config.site.title,
@@ -43,6 +45,8 @@ function setTailoringAccess(isAllowed, message) {
   els.tailoringGuidance.textContent = isAllowed ? config.tailoring.guidanceUnlocked : config.tailoring.guidanceLocked;
 }
 
+// Provider/model selection supports built-in model options plus a custom model
+// entry. Custom text is remembered per provider while the page is open.
 function populateTargetStyles() {
   els.targetStyle.innerHTML = "";
   config.targetStyles.forEach((style) => {

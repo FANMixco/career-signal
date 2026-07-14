@@ -1,3 +1,5 @@
+// CV evidence precheck flow. Validate local form state first, then send the
+// CV/profile payload to the backend for scoring and warnings.
 async function runPrecheck() {
   if (state.precheckInFlight) return;
 
@@ -110,6 +112,8 @@ async function runPrecheck() {
   }
 }
 
+// Render the score, warning sections, privacy review, and decision gate that
+// either unlocks tailoring or shows improvement prompts.
 function renderPrecheck(data) {
   const precheck = data.precheck;
   const blocks = config.precheckSections.map(([title, key, type]) => [localizedTitle(title), formatPrecheckValue(precheck, key, type)]);
@@ -139,6 +143,8 @@ function renderPersonalDataWarnings(warnings) {
   `;
 }
 
+// Evidence recovery examples are local prompts for finding truthful support in
+// the CV. They are not final copy and should not invent metrics.
 function inferRecoveryContext(cvText) {
   const lower = cvText.toLowerCase();
   const context = {

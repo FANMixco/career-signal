@@ -1,6 +1,8 @@
 // Browser controller for the single-page app.
 // This file wires DOM state, validation, API calls, and rendering. Product copy
 // and visible rules should stay in config.js unless the behavior itself changes.
+// Shared mutable app state. Keep this compact so language refresh, imports, and
+// output re-rendering can reuse it without needing a larger state framework.
 const state = {
   cvText: "",
   precheck: null,
@@ -21,6 +23,8 @@ let config = baseConfig;
 const backendStorageKey = baseConfig.backendSettings.storageKey;
 const languageStorageKey = "careerSignalLanguage";
 
+// Static DOM cache. index.html owns the structure; these references keep the
+// controller readable without repeatedly querying the document.
 const els = {
   status: document.querySelector("#status"),
   siteFooterInner: document.querySelector("#siteFooterInner"),

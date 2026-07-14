@@ -1,3 +1,5 @@
+// Final app bootstrap: wire events, apply the initial language, populate static
+// controls, and set the first locked/ready UI state.
 function setBusy(isBusy) {
   els.precheckButton.disabled = state.precheckInFlight;
   els.precheckButton.textContent = state.precheckInFlight ? config.buttons.precheckLoading : config.buttons.precheckIdle;
@@ -7,6 +9,8 @@ function setBusy(isBusy) {
   els.analyzeButton.classList.toggle("is-loading", state.analysisInFlight);
 }
 
+// Source CV/profile changes invalidate the old precheck because tailoring must
+// never rely on stale evidence.
 ["input", "change"].forEach((eventName) => {
   [els.yearsOfExperience, els.hasDegree, els.degreeYear, els.experienceSelectionMode].forEach((element) => {
     element.addEventListener(eventName, () => {
@@ -22,6 +26,8 @@ function setBusy(isBusy) {
   });
 });
 
+// Provider controls are interdependent: switching provider rebuilds model
+// options, clears transient API keys, and restores provider-specific custom text.
 els.aiProvider.addEventListener("change", () => {
   saveCustomModelForProvider(state.currentAiProvider || els.aiProvider.value);
   clearApiKeyInput();

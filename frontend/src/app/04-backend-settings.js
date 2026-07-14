@@ -1,3 +1,5 @@
+// Backend settings support static previews and desktop builds that need to point
+// at a trusted backend without rebuilding the frontend.
 function currentPrecheckSignature() {
   const file = els.cvPdf.files[0];
   const fileSignature = file ? `${file.name}:${file.size}:${file.lastModified}` : "";
@@ -12,6 +14,8 @@ function currentPrecheckSignature() {
   });
 }
 
+// The settings modal writes only the backend base URL. Per-request API keys stay
+// transient and are never stored by this frontend.
 function renderBackendSettings() {
   const current = API_BASE_URL || config.backendSettings.defaultBackend;
   els.backendUrlInput.value = storedBackendUrl();
