@@ -33,7 +33,7 @@ function syncLockfileVersion(relativePath, version) {
 }
 
 function syncFrontendContentVersion(version) {
-  const contentDirectory = path.join(repoRoot, "frontend", "content");
+  const contentDirectory = path.join(repoRoot, "frontend", "src", "content");
   const contentFiles = fs
     .readdirSync(contentDirectory)
     .filter((fileName) => /^app\.[a-z]{2}\.json$/.test(fileName));

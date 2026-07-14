@@ -16,7 +16,7 @@ Translations, improvements, bug fixes, and accessibility enhancements are welcom
 
 ## Content Changes
 
-Career Signal keeps collaboration-friendly text in JSON files. Backend content rules are documented beside the files in `backend/src/content/README.md`. Frontend labels, help text, and translations live in `frontend/content/app.*.json`.
+Career Signal keeps collaboration-friendly text in JSON files. Backend content rules are documented beside the files in `backend/src/content/README.md`. Frontend labels, help text, and translations live in `frontend/src/content/app.*.json`.
 
 Prefer small pull requests that change one kind of content at a time. For example, submit CV guidance improvements separately from translations or application option changes.
 

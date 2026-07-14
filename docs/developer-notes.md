@@ -18,7 +18,7 @@
 - `backend/src/schemas/aiSchemas.ts` contains the structured AI response schemas.
 - `backend/src/services/ai/cloudModelService.ts` dispatches cloud AI requests to provider-specific adapters in `backend/src/services/ai/cloudProviders/`.
 - `backend/src/services/ai/cloudProviders/cloudProviderUtils.ts` contains shared cloud-provider JSON instructions, schema instructions, token limits, and empty-output errors.
-- `frontend/content/app.*.json` contains visible frontend copy, labels, warnings, language-specific translations, target styles, and result-section ordering.
+- `frontend/src/content/app.*.json` contains visible frontend copy, labels, warnings, language-specific translations, target styles, and result-section ordering.
 - `frontend/config.js` loads frontend content and contains API URL behavior.
 - `frontend/index.html` keeps the static document structure, SEO metadata, favicons, manifest links, and document title.
 - `frontend/app.js` should stay focused on browser state, validation flow, API calls, and rendering.
@@ -29,7 +29,7 @@ When changing product rules or user-facing copy, prefer editing the rule, config
 
 The project keeps collaboration-oriented text in JSON files so contributors can improve the knowledge base without editing application logic. The backend content split is documented beside the files in `backend/src/content/README.md`.
 
-- Translate or improve frontend labels and help text in `frontend/content/app.en.json`, `frontend/content/app.es.json`, `frontend/content/app.fr.json`, or `frontend/content/app.de.json`.
+- Translate or improve frontend labels and help text in `frontend/src/content/app.en.json`, `frontend/src/content/app.es.json`, `frontend/src/content/app.fr.json`, or `frontend/src/content/app.de.json`.
 - Keep detection logic, score thresholds, schemas, and validation in TypeScript unless the change is only wording.
 
 ### Scripts

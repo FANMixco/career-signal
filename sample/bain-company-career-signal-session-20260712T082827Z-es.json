@@ -1,0 +1,491 @@
+{
+  "schema": "career-signal-session",
+  "schemaVersion": 1,
+  "exportedAt": "2026-07-12T08:28:27.967Z",
+  "appVersion": "1.1.0",
+  "inputs": {
+    "profile": {
+      "yearsOfExperience": "10",
+      "hasDegree": "false",
+      "degreeYear": "",
+      "ageWarningAcknowledged": false,
+      "experienceSelectionMode": "lastFive",
+      "outputLanguage": "es"
+    },
+    "cvText": "Página 1 de 4\nFederico\nNavarrete\nEstratega de TI y arquitecto de nube\nMás de 10 años de experiencia liderando la\ntransformación digital, la arquitectura empresarial y la\nmodernización impulsada por IA en organizaciones\nmultinacionales. Trayectoria demostrada en migraciones a\nla nube, gobierno empresarial e iniciativas de\nmodernización, desde la ingeniería inversa de sistemas\nheredados de 30 años hasta la reducción del desperdicio\nen AWS en un 40 % y la contribución a iniciativas de\nmigración a nubes soberanas. Asesor de confianza de la\nalta dirección, combinando pensamiento estratégico con\nejecución práctica para generar resultados empresariales\nmedibles.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Escocia\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/feder\nico-navarrete\nCOMPETENCIAS INTERPERSONALES Y TRANSFERIBLES\nLiderazgo Consultoría de TI Comunicación con ejecutivos y partes interesadas Gestión de proyectos Inteligencia cultural\nNegociación Gestión de partes interesadas Estrategia de TI/IA Gestión de la innovación Pensamiento de diseño\nMentoría Formación Desarrollo de equipos Transformación digital Resolución de problemas Narrativa Adopción de IA\nEXPERIENCIA PROFESIONAL\nConsultor de estrategia de TI, propietario de producto y arquitecto de nube\nComisión Europea/Oficina de Publicaciones de la Unión Europea (OP)\n06/2024 - Actualidad, Híbrido/Luxemburgo\nLideré la modernización asistida por Amazon Q de un sistema heredado en Perl de 30 años, realizando ingeniería inversa de lógica empresarial no documentada\na partir de capturas de pantalla y trazas web, evaluando alternativas comerciales y de código abierto, y diseñando la arquitectura de la plataforma objetivo.\nEntregué una prueba de concepto en una semana tras nueve años de esfuerzos estancados, evitando aproximadamente 2 millones de euros en costes de reconstrucción.\nRepresenté a la Oficina de Publicaciones en conferencias internacionales y universidades, incluida la primera\nConferencia FinOps del Parlamento Europeo, Warsaw IT Days y la Universidad Don Bosco (El Salvador).\nDiseñé la arquitectura de la plataforma «Reloj de Obsolescencia», definiendo el gobierno del ciclo de vida de más de 70 sistemas empresariales en cuatro etapas de\nmadurez y orientando su adopción como capacidad crítica para la misión.\nLideré la migración de la base de datos a una nube soberana de la OP, entregando una prueba de concepto exitosa de Oracle RDS en AWS a PostgreSQL en Clever\nCloud, al tiempo que definía la hoja de ruta para modernizar la transferencia de archivos heredada.\nPuse en marcha el primer programa de optimización de costes de nube, reduciendo el desperdicio en AWS en un 40 % en los entornos de prueba y codiseñando\nuna solución analítica impulsada por IA para prever futuras oportunidades de ahorro.\nFormé parte del consejo institucional de arquitectura y estrategia, evaluando importantes iniciativas de TI y garantizando su alineación con\nla arquitectura empresarial y la estrategia digital a largo plazo.\nMiembro del consejo consultivo\nOficina de Publicaciones de la Unión Europea\n10/2024 - Actualidad, Luxemburgo\nAsesoré al director general como miembro estratégico del consejo consultivo, dando forma a iniciativas para modernizar los procesos institucionales\ny las capacidades de la plantilla.\nAsesoré a la alta dirección sobre tecnologías emergentes, incluida una propuesta estratégica para evaluar el almacenamiento de archivos basado en ADN\n(Biomemory) para la conservación a largo plazo del Diario Oficial.\nRedacté la estrategia institucional de automatización robótica de procesos (RPA), definiendo el panorama tecnológico objetivo, el modelo de gobierno\ny la hoja de ruta de implantación.\nDiseñé una estrategia de recualificación de la plantilla para apoyar la transformación digital mediante el desarrollo de capacidades, la apropiación\ny la resiliencia organizativa.\nEvalué los planes de actividad y las prioridades operativas institucionales, asesorando sobre iniciativas de transformación digital a largo plazo.\nLogros/Tareas\nLogros/Tareas\nPágina 2 de 4\nEXPERIENCIA PROFESIONAL\nResponsable de entrega de TI, arquitecto de software y consultor de AWS (a través de Inetum)\nEricsson\n12/2020 - 05/2024, Remoto/Madrid, España\nDefiní la estrategia y lideré la reingeniería de 9 aplicaciones locales para convertirlas en 80 microservicios mediante servicios nativos de AWS y Docker. Esto\nredujo los costes mensuales de 10 000 a 6 000 dólares y disminuyó la huella de carbono asociada. Todo cumplía el RGPD. También coordiné la\ndivisión de la cuenta principal de AWS en 15 cuentas e implanté una nueva lógica de despliegue continuo mediante CodePipeline.\nMe convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos\nequipos (más de 3) para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de\nservicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.\nConseguí y lideré el desarrollo de un proyecto de AWS de 100 000 dólares para supervisar precios globales, transformando hojas de Excel basadas en SAP HANA\nen un lago de datos en la nube. El proyecto implantó la primera aplicación de producción cocreada con ChatGPT mediante Python, Power BI y SQL Server.\nLideré 3 equipos ubicados en la India: un equipo de 6 personas para el soporte y desarrollo de 9 aplicaciones (AWS, Docker, Java y bases de datos), uno de 2\npersonas para un servicio de lago de datos y otro de 2 personas para RPA en Blue Prism. Todos se gestionaron con Kanban y Jira.\nDesarrollé varios scripts de AWS Lambda mediante Python y AWS EventBridge para programar el apagado y encendido de aplicaciones,\nreduciendo los costes mensuales de aproximadamente 1 500 a 300 euros y minimizando la huella de carbono asociada. Además, eliminé las licencias de Docker\nDesktop en la filial española mediante la creación de un script basado en WSL 2.\nActué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analicé la viabilidad técnica y las repercusiones de cada\nsolicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculé el coste anual de mantenimiento de las aplicaciones.\nProfesional independiente, arquitecto de nube y autor\nSupernova IC\n01/2009 - Actualidad, Remoto/Estonia\nObtuve dos primeros puestos liderando dos equipos remotos, multiculturales y multidisciplinares en la cocreación de MVP tecnológicos innovadores para las ediciones de\nUrban Mobility Citythons 2021 de Eindhoven y Hamburgo, organizadas por EIT Urban Mobility y patrocinadas por la Unión\nEuropea. Nuestros MVP se centraron en «Mantener una ciudad verde» y «Ciudades gemelas virtuales» para democratizar la planificación urbana.\nPubliqué los primeros libros de folclore salvadoreño en inglés, Timeless Stories of El Salvador. Presenté la serie internacionalmente\na través de los Institutos Cervantes y las embajadas salvadoreñas en India, Austria, Alemania, España, Türkiye y Marruecos, incluido\nel SIEL de Rabat.\nPubliqué más de 20 aplicaciones y bibliotecas en NuGet, Microsoft Store, Google Play y Amazon, que alcanzaron más de 60 000 descargas, incluida\nToastmasters Timer, la aplicación número 1 mundial en Google Play para ese término.\nPresenté ideas empresariales premiadas ante organizaciones y representantes de la Comisión Europea en Bruselas, Microsoft, Cisco, NASA,\nla UE, el Ayuntamiento de Eindhoven y la ONU. Gané el Samsung Top Developer Award en la categoría social en 2021.\nAnalista tecnológico y consultor\nInfosys Polonia\n07/2018 - 02/2021, Remoto/Łódź, Polonia\nDiseñé la arquitectura IaaS y lideré la migración de 10 RPA en Automation Anywhere, 10 aplicaciones .NET, 6 bases de datos y 3 macros desde instalaciones locales a\nAzure durante la COVID-19. El equipo Scrum multicultural de 8 personas colaboró a distancia con miembros de Costa Rica, Türkiye y\nPolonia. Este proceso también permitió el trabajo desde casa para varios equipos.\nReconstruí 2 bots, uno para datos maestros y otro para informes, colaborando con un equipo de 4 personas gestionado mediante Kanban. Esto\nrecuperó la confianza en un proyecto de RPA y ahorró 2 equivalentes a tiempo completo. Como resultado, se consiguió una nueva RPA que ahorró otros 2 equivalentes a tiempo completo.\nDiseñé e implanté un nuevo plan para crear RPA que redujo los errores en un 25 %.\nGanador del concurso de interiorización de la estrategia de TSG y del séptimo debate Oxford: ¿Tiene el BPO/BPM un futuro prometedor o está condenado?\nEXPERIENCIA DE VOLUNTARIADO SELECCIONADA\nPresidente\nThe Leader Ship Toastmasters\n07/2023 - 06/2024, Remoto/Łódź, Polonia\nRestablecí la comunicación entre los 3 clubes locales de Łódź.\nDefiní la estrategia e inicié la colaboración y las negociaciones\ncon los clubes Rotary de Łódź para ampliar nuestra alianza.\nInicié negociaciones con los organizadores de la conferencia local de oratoria internacional\npara colaborar y reactivar el club anglófono de Łódź.\nDirector de área\nToastmasters International, Distrito 108\n07/2018 - 06/2019, Łódź-Varsovia, Polonia\nElegido segundo mejor director de área del Distrito\n108 en 2018-2019.\nOrganicé una conferencia multicultural con un equipo de 6\npersonas, más de 50 asistentes y ponentes internacionales.\nCreé un taller de 4 horas sobre discursos de presentación para 20 jóvenes emprendedores,\npatrocinado por el Ayuntamiento de Łódź.\nLogros/Tareas\nLogros/Tareas\nLogros/Tareas\nTareas/Logros Tareas/Logros\nPágina 3 de 4\nCOMPETENCIAS TÉCNICAS\nHerramientas de\ndesarrollo e IA\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nPlataformas de\nnube y empresariales\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nLenguajes y\ntecnologías\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nMarcos de trabajo y\nbibliotecas\n.NET 8+, MAUI, API de OpenAI, API de Gemini,\nAPI de Google Maps, TensorFlow\nJS, Bootstrap 5, Leaflet\nPrácticas Arquitectura empresarial, Transformación\ndigital, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, desarrollo asistido por IA\nServicios de la\nComisión\nEuropea\nEU Login, eTranslation, GPT@EC\nControl de versiones Git (GitHub, Azure DevOps y\nBitbucket), SVN, TFS\nPROYECTOS TECNOLÓGICOS SELECCIONADOS\nCareer Signal Engine (06/2026 - Actualidad)\nPlataforma de código abierto impulsada por IA para optimizar CV\nmediante señales profesionales personalizadas y recomendaciones\nespecíficas para cada puesto.\nToastmasters Timer (01/2018 - Actualidad)\nMás de 60 000 descargas en Google Play, Amazon, Microsoft Store\ny Huawei AppGallery. Aplicación Toastmasters Timer número 1\nen Google Play.\nLet's Stop Diabetes (11/2015 - Actualidad)\nFinalista entre los 5 mejores de Microsoft Imagine Cup Polonia\n(Ciudadanía Mundial, 2016). Más de 1 200 descargas en Microsoft Store.\nGravity Now! (03/2014 - Actualidad)\nSeleccionado entre los 5 proyectos más inspiradores de NASA Space Apps Challenge\nen 2014. Más de 1 000 descargas en Google\nPlay y Microsoft Store.\nPUBLICACIONES SELECCIONADAS\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - en curso\nIndependiente\nLa primera serie de folclore salvadoreño publicada en inglés,\nespañol y francés. Presentada internacionalmente a través de\nlos Institutos Cervantes y las embajadas y consulados salvadoreños y españoles\nen Europa, Asia, Australia,\nÁfrica y América, incluida la Feria Internacional del Libro\nSIEL de Rabat durante el año de la Capital Mundial del Libro de la UNESCO.\nLinkedIn\nPor qué creo que el apalancamiento es más importante que\nnunca\n12/01/2026\nExplora cómo las personas pueden construir apalancamiento mediante\ncompetencias paralelas, ciclos de retroalimentación y exposición temprana en un mundo\nde carreras más cortas, disrupción por IA y redes de seguridad institucionales más débiles.\nLinkedIn\nPor qué siempre pienso en sistemas e incentivos: mi\nopinión\n01/12/2025\nReflexión sobre cómo el pensamiento sistémico, los incentivos y\nel reconocimiento de patrones moldearon mi enfoque de la tecnología,\nel liderazgo y la innovación.\nLinkedIn\nDos cerebros, una visión: cómo ChatGPT me ayudó a\nllevar Toastmasters Timer al siguiente nivel\n06/10/2025\nCómo la IA generativa colaborativa aceleró la evolución de\nla aplicación Toastmasters Timer más descargada.\nLinkedIn\n¿Son las plataformas de código bajo la próxima gran tendencia de TI?\n07/01/2020\nIntroducción a las plataformas de desarrollo de código bajo y su impacto en la\nera actual.\nLinkedIn\nLas cuatro caras de la automatización en la Industria 4.0\n24/01/2020\nSegunda edición de este artículo sobre los distintos tipos de\nautomatización: táctica, soluciones puntuales, RPA y cognitiva.\nINTERVENCIONES INTERNACIONALES SELECCIONADAS\nPresentación de libro (05/2026)\nSalon International de l'Edition et du Livre\nParticipación oficial en la feria internacional del libro de Marruecos,\ncon el lanzamiento de Timeless Stories of El Salvador: Spanish Mirrors.\nPonente de conferencia (04/2026)\nWarszawskie Dni Informatyki\nImpartí una sesión sobre desarrollo empresarial con IA mediante\nAmazon Q e ingeniería de software avanzada asistida por IA.\nPágina 4 de 4\nINTERVENCIONES INTERNACIONALES SELECCIONADAS\nPonente de conferencia (02/2025)\nParlamento Europeo, FinOps Foundation y Comisión Europea\nCómo crear contratos inteligentes para FinOps en el sector público.\nPonente de conferencia (11/2023)\nInstituto Cervantes de Nueva Delhi\nPresenté la primera traducción al hindi de Timeless Stories of El\nSalvador for Children.\nPonente invitado (10/2023)\nInstituto Cervantes de Estambul\nPonente destacado en el primer Encuentro de Literatura Iberoamericana de Türkiye.\nPonente de conferencia (07/2020)\nIEEE y Universidad Don Bosco\nCharla sobre automatización de procesos de TI y el futuro posterior\na la COVID-19.\nHONORES Y PREMIOS SELECCIONADOS\nPremio honorífico a las mejores soluciones de IA para gestión de proyectos con\nDrupal Canvas (01/2026)\nComisión Europea\nSamsung Top Developer Award Social 2021\n (07/2021)\nSamsung\nPrimer puesto en Citythons 2021, ediciones de Eindhoven y Hamburgo\n(06/2021)\nEIT Urban Mobility (cofinanciado por la Unión Europea)\nGanador del hackatón Diversity in Leadership (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Actualidad)\nToastmasters International\nÁrea distinguida del presidente (10/2019)\nToastmasters International\nGanador del séptimo debate Oxford: ¿Tiene el futuro del\nBPO/BPM un panorama prometedor o está condenado? (04/2019)\nInfosys Polonia\nGanador del concurso de interiorización de la estrategia de TSG\n(07/2020)\nInfosys\nPrimer puesto de la Facultad de Ingeniería Eléctrica, Electrónica,\nInformática y de Control y de la\nFacultad Internacional de Ingeniería (12/2016)\nUniversidad Tecnológica de Łódź\nPrimer puesto en el Cisco Switch Up Challenge «El\nInternet de Todo» (03/2016)\nCisco Systems\nCERTIFICADOS SELECCIONADOS\nClaude Code in Action de Anthropic\n(06/2026 - Actualidad)\nPrograma Forward de McKinsey.org (07/2025 - Actualidad)\nFundamentos de FinOps para despliegues en la nube\n(01/2025 - Actualidad)\nBusiness for All 2024, Harvard Business Publishing\n(09/2024 - Actualidad)\nAprendizaje automático para profesionales empresariales\n(08/2019 - Actualidad)\nAprendizaje automático con JavaScript, Udemy\n(04/2020 - Actualidad)\nConviértete en gestor de proyectos, LinkedIn\n(01/2020 - Actualidad)\nCertificado profesional de fundamentos de Scrum,\nCertiProf (01/2020)\nIDIOMAS\nInglés\nCompetencia profesional completa\nEspañol\nCompetencia nativa o bilingüe\nFrancés\nCompetencia profesional limitada",
+    "pastedCvText": "",
+    "aiSettings": {
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "selectedModelOption": "gpt-5.4-mini",
+      "customModels": {},
+      "ollamaBaseUrl": ""
+    },
+    "tailoring": {
+      "companyName": "Bain & Company",
+      "companyDescription": "",
+      "jobPosition": "Gerente experto de Ingeniería de Software (desarrollo de extremo a extremo)",
+      "jobDescription": "QUÉ NOS CONVIERTE EN UN GRAN LUGAR PARA TRABAJAR\n\nNos enorgullece recibir de forma constante el reconocimiento de ser uno de los mejores lugares del mundo para trabajar. Actualmente somos la consultora mejor clasificada en la lista de Glassdoor de mejores lugares para trabajar y hemos alcanzado el primer puesto general en siete ocasiones, una cifra récord. Los equipos extraordinarios ocupan el centro de nuestra estrategia empresarial, pero no surgen por casualidad. Requieren una atención deliberada para reunir una amplia variedad de orígenes, culturas, experiencias, perspectivas y competencias en un entorno laboral solidario e inclusivo. Contratamos a personas con un talento excepcional y creamos un entorno en el que cada individuo pueda prosperar profesional y personalmente.\n\nCON QUIÉN TRABAJARÁS\n\nTe incorporarás a nuestros expertos de Ingeniería dentro del equipo de IA, Insights & Solutions. Este equipo forma parte de la práctica de capacidades digitales de Bain, que incluye especialistas en analítica, ingeniería, gestión de productos y diseño. En este entorno multidisciplinar, combinarás profundos conocimientos técnicos con visión empresarial para ayudar a los clientes a abordar sus desafíos más transformadores. Trabajarás en equipos integrados junto con nuestros consultores generalistas y clientes para desarrollar estrategias basadas en datos y soluciones innovadoras. Juntos creamos soluciones centradas en las personas que aprovechan el poder de los datos y la inteligencia artificial para generar ventajas competitivas para nuestros clientes. Nuestro entorno de trabajo colaborativo y solidario fomenta la creatividad y el aprendizaje continuo, lo que nos permite ofrecer resultados excepcionales de forma constante.\n\nQUÉ HARÁS\n\nComo gerente experto de Ingeniería de Software, liderarás el desarrollo y la creación de aplicaciones de software que resuelvan problemas empresariales y tecnológicos complejos en distintos sectores. Guiarás a un equipo de ingeniería diverso durante todo el ciclo de vida de la ingeniería. Tus responsabilidades incluirán diseñar, desarrollar, optimizar y desplegar soluciones e infraestructura de ingeniería de software de vanguardia a la escala de producción que requieren las mayores empresas del mundo, prestando especial atención a garantizar que la entrega técnica respalde la estrategia empresarial, la evolución del modelo operativo y la creación de valor sostenible.\n\nDefinir y dimensionar soluciones para clientes. Trabajar con los equipos de consultoría de Bain y los propietarios de producto para traducir problemas empresariales en listas de trabajo priorizadas y hojas de ruta técnicas para equipos de ingeniería multifuncionales.\nTraducir capacidades técnicas en resultados de producto y transformación preparados para el cliente, definiendo la dirección del producto, las implicaciones para el modelo operativo y los enfoques de gestión del cambio que favorezcan la adopción y un impacto empresarial medible.\nAsumir la responsabilidad del diseño y la construcción de extremo a extremo. Liderar la arquitectura, el desarrollo y la documentación de aplicaciones de IA, incluida la programación y la integración de servicios o marcos de terceros que aceleren la entrega y faciliten el mantenimiento a largo plazo.\nEstablecer buenas prácticas de ingeniería de software nativas de IA. Definir y aplicar estándares para bibliotecas de componentes y sistemas de diseño, pruebas automatizadas, análisis estático, CI/CD, accesibilidad y optimización del rendimiento.\nDesarrollar bibliotecas y aceleradores reutilizables. Crear y mantener activos de código compartidos que reduzcan el tiempo necesario para generar valor en múltiples proyectos de clientes e iniciativas internas.\nLiderar todo el ciclo de entrega. Establecer controles de calidad, supervisar revisiones de código, garantizar una cobertura sólida de pruebas unitarias y de integración, gestionar la planificación de versiones y supervisar la monitorización posterior al despliegue y la resolución de incidentes.\nColaborar para alcanzar la excelencia en UI/UX. Trabajar con diseñadores para entregar interfaces inclusivas y adaptables.\nOrientar y desarrollar a los ingenieros. Proporcionar acompañamiento técnico diario a ingenieros sénior y de nivel intermedio mediante programación en pareja, sesiones de arquitectura y comentarios constructivos.\nMejorar las capacidades de los equipos de ingeniería de los clientes. Formar a los desarrolladores de los clientes en herramientas modernas y prácticas DevOps y nativas de la nube, garantizando que puedan asumir la responsabilidad de manera sostenible tras la intervención de Bain.\nImpulsar la adopción de tecnologías nativas de IA. Promover la contenerización, la infraestructura como código, la observabilidad automatizada y los principios de seguridad desde el diseño para mejorar la escalabilidad, la fiabilidad y la seguridad.\nContribuir a comunidades de práctica. Compartir lecciones aprendidas y tendencias tecnológicas emergentes mediante foros internos, sesiones informales y recursos de conocimiento.\nApoyar la captación e incorporación de talento. Participar en entrevistas, evaluaciones técnicas y mentoría de nuevas contrataciones para crear un grupo de ingeniería de alto nivel.\nSe requiere viajar. Este puesto exige desplazamientos regionales fuera de la oficina de origen o lugar de trabajo principal. La frecuencia y los destinos variarán según las necesidades de cada proyecto.\n\nSOBRE TI\n\nCompetencias y conocimientos técnicos\n\nTitulación en Informática, Ingeniería o un campo técnico relacionado.\nMás de 6 años de experiencia integral diseñando, creando y manteniendo aplicaciones de extremo a extremo aptas para producción.\nExperiencia trabajando directamente con partes interesadas del negocio para traducir objetivos estratégicos en soluciones, productos de plataforma u hojas de ruta.\nMás de 4 años creando servicios del lado del servidor mediante FastAPI, Node.js/Express, Flask, Django, .NET Core, Java Spring Boot o tecnologías similares, incluido el diseño de API.\nMás de 3 años diseñando y operando ecosistemas de microservicios, con énfasis en el descubrimiento de servicios, la observabilidad, la automatización de CI/CD y los despliegues azul/verde o canary.\nConocimientos expertos de Python, JavaScript u otros lenguajes de programación.\nExperiencia en entregas nativas de la nube en AWS, Azure o GCP, conocimiento de servicios gestionados, patrones sin servidor e infraestructura como código mediante herramientas como Terraform, CloudFormation o Bicep.\nDominio de la contenerización y la orquestación, Docker, Kubernetes y herramientas relacionadas como Helm y Argo CD.\nExperiencia con arquitectura de bases de datos relacionales como PostgreSQL, MySQL y SQL Server, así como almacenes NoSQL o documentales como MongoDB, DynamoDB y Redis, con sólidos conocimientos de SQL.\nFundamentos sólidos de informática, estructuras de datos, algoritmos, paradigmas orientados a objetos y funcionales, pruebas automatizadas y análisis del rendimiento.\nExcelencia en el diseño de arquitectura de software, incluidos sistemas modulares, distribuidos y nativos de la nube, escalabilidad, resiliencia, facilidad de mantenimiento y observabilidad.\nExperiencia en seguridad de datos, OAuth 2.0/OIDC, JWT, SSO/IAM de nube, cifrado durante la transmisión y en reposo, y conocimiento de la normativa de protección de datos.\nPreferiblemente, experiencia en desarrollo moderno de IA y aprendizaje automático, trabajo con API de modelos de lenguaje de gran tamaño, ingeniería de instrucciones, canalizaciones RAG, SDK de agentes y seguridad de la IA.\nPreferiblemente, experiencia práctica con tecnologías web modernas como React, Angular, Vue.js, TypeScript, HTML5 y CSS3.\nLiderazgo y mentoría demostrados, con capacidad para dirigir equipos de ingeniería, establecer normas de programación, realizar revisiones de código rigurosas y desarrollar las competencias de ingenieros júnior.\nMentalidad de entrega ágil, experiencia práctica con Scrum o Kanban, estimación mediante puntos de historia, refinamiento de la lista de trabajo y uso de flujos basados en Git, Jira y canalizaciones automatizadas de CI/CD.\nDominio del inglés. Para Iberia, se exige como mínimo un nivel de español profesional fluido.\n\nCompetencias interpersonales\n\nSólidas competencias interpersonales y de comunicación, incluida la capacidad de explicar y debatir los aspectos técnicos de soluciones, algoritmos y técnicas con colegas y clientes de otras disciplinas.\nCuriosidad, proactividad y pensamiento crítico.\nCapacidad para colaborar con personas de todos los niveles y con equipos de distintas oficinas y regiones.\nCapacidad para trabajar de forma independiente y gestionar varias prioridades a fin de prosperar en un entorno dinámico y ambiguo, colaborando al mismo tiempo como parte de un equipo en situaciones complejas.\nRecomendación de Vector para EMEA\n\nRecomendaciones de Vector para EMEA",
+      "targetStyle": "Management",
+      "unlocked": true,
+      "continueDespiteWeakPrecheck": false
+    }
+  },
+  "outputs": {
+    "precheck": {
+      "cvEvidenceScore": 89,
+      "scoreBreakdown": {
+        "quantifiedResults": 18,
+        "accomplishmentClarity": 18,
+        "scopeAndScale": 18,
+        "responsibilityVersusOutcomeRatio": 14,
+        "interviewDefensibility": 10
+      },
+      "hasQuantifiedResults": true,
+      "hasAccomplishments": true,
+      "mostlyJobDescriptions": false,
+      "impactClarityScore": 17,
+      "quantifiedEvidenceCount": 18,
+      "strongBulletCount": 20,
+      "weakBulletCount": 8,
+      "proceedRecommendation": "Continuar",
+      "mainProblem": "En general, las pruebas son sólidas, pero algunos puntos mezclan responsabilidades con resultados, varias afirmaciones carecen de una referencia o contexto precisos y el CV es lo bastante extenso como para que las mejores pruebas queden diluidas entre numerosas publicaciones, intervenciones y listas de proyectos.",
+      "specificWarnings": [
+        "Algunas secciones correspondientes a periodos prolongados pueden ocultar progresión interna o cambios de alcance. Los periodos en Ericsson y la Oficina de Publicaciones muestran múltiples responsabilidades y una probable evolución del puesto, por lo que separar ascensos, cambios internos de función o etapas de alcance mejoraría la legibilidad, siempre que sea exacto.",
+        "Algunos logros ya completados están redactados con expresiones continuas o genéricas, lo que puede desdibujar la cronología. Entre los ejemplos aparecen fórmulas como «analizo», «soy» o tareas en presente dentro de puestos anteriores. Mantén los puestos pasados claramente en pasado y fecha con precisión los resultados ya completados dentro del puesto actual.",
+        "El CV es muy largo y denso. Incluye numerosas publicaciones, intervenciones, certificados y listas de proyectos, que pueden diluir las pruebas profesionales más sólidas al adaptarlo. Considera reducir los elementos de menor relevancia al dirigirte a puestos concretos.",
+        "Algunos puntos combinan responsabilidades y logros en la misma frase, lo que dificulta aislar el resultado. No es un problema decisivo, pero reduce la facilidad de lectura y la capacidad de defender cada afirmación en una entrevista.",
+        "Algunas afirmaciones son impresionantes, pero no están plenamente sustentadas mediante referencias comparativas, plazos o contexto empresarial. Por ejemplo, las reducciones de costes y los equivalentes a tiempo completo ahorrados son sólidos, pero algunos serían más convincentes con un contexto anterior y posterior o con el impacto de la decisión.",
+        "El resumen contiene afirmaciones narrativas fuertes como «asesor de confianza» y «trayectoria demostrada», que están respaldadas en gran medida, pero son lo bastante amplias como para que un lector espere pruebas cercanas de cada afirmación importante.",
+        "El candidato parece incluir todos los datos de contacto esenciales cerca de la parte superior, por lo que no es necesaria ninguna advertencia sobre el contacto."
+      ],
+      "missingEvidenceTypes": [
+        "Referencias empresariales más explícitas para algunos ahorros de costes",
+        "Contexto anterior y posterior más claro para algunos resultados de automatización y migración",
+        "Alcance más visible del impacto del liderazgo, más allá del número de integrantes de los equipos",
+        "Desglose de la progresión profesional durante periodos prolongados",
+        "Cronología más precisa de los logros completados frente a los que siguen en curso"
+      ],
+      "examplesOfWeakBullets": [
+        "Actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analizo la viabilidad técnica y las repercusiones de cualquier solicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculo el coste anual de mantenimiento de las aplicaciones.",
+        "Me convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos equipos, más de 3, para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de servicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.",
+        "Asesoré al director general como miembro estratégico del consejo consultivo, dando forma a iniciativas para modernizar los procesos institucionales y las capacidades de la plantilla.",
+        "Evalué los planes de actividad y las prioridades operativas institucionales, asesorando sobre iniciativas de transformación digital a largo plazo.",
+        "Organicé una conferencia multicultural con un equipo de 6 personas, más de 50 asistentes y ponentes internacionales."
+      ],
+      "questionsToRecoverMetrics": [
+        "¿Cuál era el gasto anual total en AWS antes de reducir el desperdicio en un 40 % y cuál fue el ahorro absoluto en euros después del cambio?",
+        "En las 9 aplicaciones locales migradas a 80 microservicios, ¿cuántos usuarios, países, equipos o procesos empresariales se vieron afectados?",
+        "¿Cuál fue la cronología de la prueba de concepto de una semana frente a los nueve años anteriores de esfuerzos estancados y quién aprobó o adoptó el resultado?",
+        "¿Cuántos sistemas empresariales abarca actualmente en producción la plataforma de gobierno para más de 70 sistemas y qué cambió operativamente tras su adopción?",
+        "En la prueba de concepto de migración a una nube soberana, ¿qué riesgo empresarial, necesidad de cumplimiento o reducción de costes constituía el resultado objetivo?",
+        "¿En cuántos equipos o partes interesadas influiste en Ericsson y en la Oficina de Publicaciones, y qué decisiones cambiaron gracias a tu aportación?",
+        "En el proyecto de AWS de 100 000 dólares, ¿qué indicador empresarial mejoró además de la modernización técnica?",
+        "Respecto al ahorro de equivalentes a tiempo completo en Infosys, ¿qué actividades se eliminaron, con qué frecuencia se repetía el ahorro y cuál fue el impacto anualizado?",
+        "En cuanto a los 2 millones de euros de costes de reconstrucción evitados, ¿se trataba de una oferta estimada de un proveedor, un presupuesto interno o una previsión, y quién lo validó?",
+        "¿Qué alcance concreto de liderazgo ejerciste sobre los 3 equipos ubicados en la India: gestión jerárquica, liderazgo técnico o coordinación de la entrega?"
+      ],
+      "interviewRiskQuestions": [
+        "¿Puedes explicarme el caso empresarial exacto de la reducción del 40 % del desperdicio en AWS y cómo lo mediste?",
+        "¿Cuál fue tu función directa en la prueba de concepto de una semana tras nueve años de esfuerzos estancados y qué hizo que tu enfoque funcionara?",
+        "¿Cómo validaste que el coste de reconstrucción habría sido de aproximadamente 2 millones de euros?",
+        "¿Qué cambios internos de función o ascensos se produjeron durante tus largos periodos en Ericsson y la Oficina de Publicaciones?",
+        "¿Qué logros del CV siguen en curso y cuáles corresponden a proyectos ya completados?",
+        "Si te pidiera un ejemplo de cómo tu influencia como líder modificó una decisión de la alta dirección, ¿cuál elegirías y por qué?"
+      ],
+      "nextStep": "Continúa con la adaptación, pero refuerza los puntos más sólidos, separa la progresión profesional cuando exista realmente y añade las referencias o los resultados de decisiones que faltan antes de presentarte a puestos competitivos.",
+      "personalDataWarnings": []
+    },
+    "precheckPayload": {
+      "cvText": "Página 1 de 4\nFederico\nNavarrete\nEstratega de TI y arquitecto de nube\nMás de 10 años de experiencia liderando la\ntransformación digital, la arquitectura empresarial y la\nmodernización impulsada por IA en organizaciones\nmultinacionales. Trayectoria demostrada en migraciones a\nla nube, gobierno empresarial e iniciativas de\nmodernización, desde la ingeniería inversa de sistemas\nheredados de 30 años hasta la reducción del desperdicio\nen AWS en un 40 % y la contribución a iniciativas de\nmigración a nubes soberanas. Asesor de confianza de la\nalta dirección, combinando pensamiento estratégico con\nejecución práctica para generar resultados empresariales\nmedibles.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Escocia\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/feder\nico-navarrete\nCOMPETENCIAS INTERPERSONALES Y TRANSFERIBLES\nLiderazgo Consultoría de TI Comunicación con ejecutivos y partes interesadas Gestión de proyectos Inteligencia cultural\nNegociación Gestión de partes interesadas Estrategia de TI/IA Gestión de la innovación Pensamiento de diseño\nMentoría Formación Desarrollo de equipos Transformación digital Resolución de problemas Narrativa Adopción de IA\nEXPERIENCIA PROFESIONAL\nConsultor de estrategia de TI, propietario de producto y arquitecto de nube\nComisión Europea/Oficina de Publicaciones de la Unión Europea (OP)\n06/2024 - Actualidad, Híbrido/Luxemburgo\nLideré la modernización asistida por Amazon Q de un sistema heredado en Perl de 30 años, realizando ingeniería inversa de lógica empresarial no documentada\na partir de capturas de pantalla y trazas web, evaluando alternativas comerciales y de código abierto, y diseñando la arquitectura de la plataforma objetivo.\nEntregué una prueba de concepto en una semana tras nueve años de esfuerzos estancados, evitando aproximadamente 2 millones de euros en costes de reconstrucción.\nRepresenté a la Oficina de Publicaciones en conferencias internacionales y universidades, incluida la primera\nConferencia FinOps del Parlamento Europeo, Warsaw IT Days y la Universidad Don Bosco (El Salvador).\nDiseñé la arquitectura de la plataforma «Reloj de Obsolescencia», definiendo el gobierno del ciclo de vida de más de 70 sistemas empresariales en cuatro etapas de\nmadurez y orientando su adopción como capacidad crítica para la misión.\nLideré la migración de la base de datos a una nube soberana de la OP, entregando una prueba de concepto exitosa de Oracle RDS en AWS a PostgreSQL en Clever\nCloud, al tiempo que definía la hoja de ruta para modernizar la transferencia de archivos heredada.\nPuse en marcha el primer programa de optimización de costes de nube, reduciendo el desperdicio en AWS en un 40 % en los entornos de prueba y codiseñando\nuna solución analítica impulsada por IA para prever futuras oportunidades de ahorro.\nFormé parte del consejo institucional de arquitectura y estrategia, evaluando importantes iniciativas de TI y garantizando su alineación con\nla arquitectura empresarial y la estrategia digital a largo plazo.\nMiembro del consejo consultivo\nOficina de Publicaciones de la Unión Europea\n10/2024 - Actualidad, Luxemburgo\nAsesoré al director general como miembro estratégico del consejo consultivo, dando forma a iniciativas para modernizar los procesos institucionales\ny las capacidades de la plantilla.\nAsesoré a la alta dirección sobre tecnologías emergentes, incluida una propuesta estratégica para evaluar el almacenamiento de archivos basado en ADN\n(Biomemory) para la conservación a largo plazo del Diario Oficial.\nRedacté la estrategia institucional de automatización robótica de procesos (RPA), definiendo el panorama tecnológico objetivo, el modelo de gobierno\ny la hoja de ruta de implantación.\nDiseñé una estrategia de recualificación de la plantilla para apoyar la transformación digital mediante el desarrollo de capacidades, la apropiación\ny la resiliencia organizativa.\nEvalué los planes de actividad y las prioridades operativas institucionales, asesorando sobre iniciativas de transformación digital a largo plazo.\nLogros/Tareas\nLogros/Tareas\nPágina 2 de 4\nEXPERIENCIA PROFESIONAL\nResponsable de entrega de TI, arquitecto de software y consultor de AWS (a través de Inetum)\nEricsson\n12/2020 - 05/2024, Remoto/Madrid, España\nDefiní la estrategia y lideré la reingeniería de 9 aplicaciones locales para convertirlas en 80 microservicios mediante servicios nativos de AWS y Docker. Esto\nredujo los costes mensuales de 10 000 a 6 000 dólares y disminuyó la huella de carbono asociada. Todo cumplía el RGPD. También coordiné la\ndivisión de la cuenta principal de AWS en 15 cuentas e implanté una nueva lógica de despliegue continuo mediante CodePipeline.\nMe convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos\nequipos (más de 3) para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de\nservicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.\nConseguí y lideré el desarrollo de un proyecto de AWS de 100 000 dólares para supervisar precios globales, transformando hojas de Excel basadas en SAP HANA\nen un lago de datos en la nube. El proyecto implantó la primera aplicación de producción cocreada con ChatGPT mediante Python, Power BI y SQL Server.\nLideré 3 equipos ubicados en la India: un equipo de 6 personas para el soporte y desarrollo de 9 aplicaciones (AWS, Docker, Java y bases de datos), uno de 2\npersonas para un servicio de lago de datos y otro de 2 personas para RPA en Blue Prism. Todos se gestionaron con Kanban y Jira.\nDesarrollé varios scripts de AWS Lambda mediante Python y AWS EventBridge para programar el apagado y encendido de aplicaciones,\nreduciendo los costes mensuales de aproximadamente 1 500 a 300 euros y minimizando la huella de carbono asociada. Además, eliminé las licencias de Docker\nDesktop en la filial española mediante la creación de un script basado en WSL 2.\nActué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analicé la viabilidad técnica y las repercusiones de cada\nsolicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculé el coste anual de mantenimiento de las aplicaciones.\nProfesional independiente, arquitecto de nube y autor\nSupernova IC\n01/2009 - Actualidad, Remoto/Estonia\nObtuve dos primeros puestos liderando dos equipos remotos, multiculturales y multidisciplinares en la cocreación de MVP tecnológicos innovadores para las ediciones de\nUrban Mobility Citythons 2021 de Eindhoven y Hamburgo, organizadas por EIT Urban Mobility y patrocinadas por la Unión\nEuropea. Nuestros MVP se centraron en «Mantener una ciudad verde» y «Ciudades gemelas virtuales» para democratizar la planificación urbana.\nPubliqué los primeros libros de folclore salvadoreño en inglés, Timeless Stories of El Salvador. Presenté la serie internacionalmente\na través de los Institutos Cervantes y las embajadas salvadoreñas en India, Austria, Alemania, España, Türkiye y Marruecos, incluido\nel SIEL de Rabat.\nPubliqué más de 20 aplicaciones y bibliotecas en NuGet, Microsoft Store, Google Play y Amazon, que alcanzaron más de 60 000 descargas, incluida\nToastmasters Timer, la aplicación número 1 mundial en Google Play para ese término.\nPresenté ideas empresariales premiadas ante organizaciones y representantes de la Comisión Europea en Bruselas, Microsoft, Cisco, NASA,\nla UE, el Ayuntamiento de Eindhoven y la ONU. Gané el Samsung Top Developer Award en la categoría social en 2021.\nAnalista tecnológico y consultor\nInfosys Polonia\n07/2018 - 02/2021, Remoto/Łódź, Polonia\nDiseñé la arquitectura IaaS y lideré la migración de 10 RPA en Automation Anywhere, 10 aplicaciones .NET, 6 bases de datos y 3 macros desde instalaciones locales a\nAzure durante la COVID-19. El equipo Scrum multicultural de 8 personas colaboró a distancia con miembros de Costa Rica, Türkiye y\nPolonia. Este proceso también permitió el trabajo desde casa para varios equipos.\nReconstruí 2 bots, uno para datos maestros y otro para informes, colaborando con un equipo de 4 personas gestionado mediante Kanban. Esto\nrecuperó la confianza en un proyecto de RPA y ahorró 2 equivalentes a tiempo completo. Como resultado, se consiguió una nueva RPA que ahorró otros 2 equivalentes a tiempo completo.\nDiseñé e implanté un nuevo plan para crear RPA que redujo los errores en un 25 %.\nGanador del concurso de interiorización de la estrategia de TSG y del séptimo debate Oxford: ¿Tiene el BPO/BPM un futuro prometedor o está condenado?\nEXPERIENCIA DE VOLUNTARIADO SELECCIONADA\nPresidente\nThe Leader Ship Toastmasters\n07/2023 - 06/2024, Remoto/Łódź, Polonia\nRestablecí la comunicación entre los 3 clubes locales de Łódź.\nDefiní la estrategia e inicié la colaboración y las negociaciones\ncon los clubes Rotary de Łódź para ampliar nuestra alianza.\nInicié negociaciones con los organizadores de la conferencia local de oratoria internacional\npara colaborar y reactivar el club anglófono de Łódź.\nDirector de área\nToastmasters International, Distrito 108\n07/2018 - 06/2019, Łódź-Varsovia, Polonia\nElegido segundo mejor director de área del Distrito\n108 en 2018-2019.\nOrganicé una conferencia multicultural con un equipo de 6\npersonas, más de 50 asistentes y ponentes internacionales.\nCreé un taller de 4 horas sobre discursos de presentación para 20 jóvenes emprendedores,\npatrocinado por el Ayuntamiento de Łódź.\nLogros/Tareas\nLogros/Tareas\nLogros/Tareas\nTareas/Logros Tareas/Logros\nPágina 3 de 4\nCOMPETENCIAS TÉCNICAS\nHerramientas de\ndesarrollo e IA\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nPlataformas de\nnube y empresariales\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nLenguajes y\ntecnologías\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nMarcos de trabajo y\nbibliotecas\n.NET 8+, MAUI, API de OpenAI, API de Gemini,\nAPI de Google Maps, TensorFlow\nJS, Bootstrap 5, Leaflet\nPrácticas Arquitectura empresarial, Transformación\ndigital, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, desarrollo asistido por IA\nServicios de la\nComisión\nEuropea\nEU Login, eTranslation, GPT@EC\nControl de versiones Git (GitHub, Azure DevOps y\nBitbucket), SVN, TFS\nPROYECTOS TECNOLÓGICOS SELECCIONADOS\nCareer Signal Engine (06/2026 - Actualidad)\nPlataforma de código abierto impulsada por IA para optimizar CV\nmediante señales profesionales personalizadas y recomendaciones\nespecíficas para cada puesto.\nToastmasters Timer (01/2018 - Actualidad)\nMás de 60 000 descargas en Google Play, Amazon, Microsoft Store\ny Huawei AppGallery. Aplicación Toastmasters Timer número 1\nen Google Play.\nLet's Stop Diabetes (11/2015 - Actualidad)\nFinalista entre los 5 mejores de Microsoft Imagine Cup Polonia\n(Ciudadanía Mundial, 2016). Más de 1 200 descargas en Microsoft Store.\nGravity Now! (03/2014 - Actualidad)\nSeleccionado entre los 5 proyectos más inspiradores de NASA Space Apps Challenge\nen 2014. Más de 1 000 descargas en Google\nPlay y Microsoft Store.\nPUBLICACIONES SELECCIONADAS\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - en curso\nIndependiente\nLa primera serie de folclore salvadoreño publicada en inglés,\nespañol y francés. Presentada internacionalmente a través de\nlos Institutos Cervantes y las embajadas y consulados salvadoreños y españoles\nen Europa, Asia, Australia,\nÁfrica y América, incluida la Feria Internacional del Libro\nSIEL de Rabat durante el año de la Capital Mundial del Libro de la UNESCO.\nLinkedIn\nPor qué creo que el apalancamiento es más importante que\nnunca\n12/01/2026\nExplora cómo las personas pueden construir apalancamiento mediante\ncompetencias paralelas, ciclos de retroalimentación y exposición temprana en un mundo\nde carreras más cortas, disrupción por IA y redes de seguridad institucionales más débiles.\nLinkedIn\nPor qué siempre pienso en sistemas e incentivos: mi\nopinión\n01/12/2025\nReflexión sobre cómo el pensamiento sistémico, los incentivos y\nel reconocimiento de patrones moldearon mi enfoque de la tecnología,\nel liderazgo y la innovación.\nLinkedIn\nDos cerebros, una visión: cómo ChatGPT me ayudó a\nllevar Toastmasters Timer al siguiente nivel\n06/10/2025\nCómo la IA generativa colaborativa aceleró la evolución de\nla aplicación Toastmasters Timer más descargada.\nLinkedIn\n¿Son las plataformas de código bajo la próxima gran tendencia de TI?\n07/01/2020\nIntroducción a las plataformas de desarrollo de código bajo y su impacto en la\nera actual.\nLinkedIn\nLas cuatro caras de la automatización en la Industria 4.0\n24/01/2020\nSegunda edición de este artículo sobre los distintos tipos de\nautomatización: táctica, soluciones puntuales, RPA y cognitiva.\nINTERVENCIONES INTERNACIONALES SELECCIONADAS\nPresentación de libro (05/2026)\nSalon International de l'Edition et du Livre\nParticipación oficial en la feria internacional del libro de Marruecos,\ncon el lanzamiento de Timeless Stories of El Salvador: Spanish Mirrors.\nPonente de conferencia (04/2026)\nWarszawskie Dni Informatyki\nImpartí una sesión sobre desarrollo empresarial con IA mediante\nAmazon Q e ingeniería de software avanzada asistida por IA.\nPágina 4 de 4\nINTERVENCIONES INTERNACIONALES SELECCIONADAS\nPonente de conferencia (02/2025)\nParlamento Europeo, FinOps Foundation y Comisión Europea\nCómo crear contratos inteligentes para FinOps en el sector público.\nPonente de conferencia (11/2023)\nInstituto Cervantes de Nueva Delhi\nPresenté la primera traducción al hindi de Timeless Stories of El\nSalvador for Children.\nPonente invitado (10/2023)\nInstituto Cervantes de Estambul\nPonente destacado en el primer Encuentro de Literatura Iberoamericana de Türkiye.\nPonente de conferencia (07/2020)\nIEEE y Universidad Don Bosco\nCharla sobre automatización de procesos de TI y el futuro posterior\na la COVID-19.\nHONORES Y PREMIOS SELECCIONADOS\nPremio honorífico a las mejores soluciones de IA para gestión de proyectos con\nDrupal Canvas (01/2026)\nComisión Europea\nSamsung Top Developer Award Social 2021\n (07/2021)\nSamsung\nPrimer puesto en Citythons 2021, ediciones de Eindhoven y Hamburgo\n(06/2021)\nEIT Urban Mobility (cofinanciado por la Unión Europea)\nGanador del hackatón Diversity in Leadership (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Actualidad)\nToastmasters International\nÁrea distinguida del presidente (10/2019)\nToastmasters International\nGanador del séptimo debate Oxford: ¿Tiene el futuro del\nBPO/BPM un panorama prometedor o está condenado? (04/2019)\nInfosys Polonia\nGanador del concurso de interiorización de la estrategia de TSG\n(07/2020)\nInfosys\nPrimer puesto de la Facultad de Ingeniería Eléctrica, Electrónica,\nInformática y de Control y de la\nFacultad Internacional de Ingeniería (12/2016)\nUniversidad Tecnológica de Łódź\nPrimer puesto en el Cisco Switch Up Challenge «El\nInternet de Todo» (03/2016)\nCisco Systems\nCERTIFICADOS SELECCIONADOS\nClaude Code in Action de Anthropic\n(06/2026 - Actualidad)\nPrograma Forward de McKinsey.org (07/2025 - Actualidad)\nFundamentos de FinOps para despliegues en la nube\n(01/2025 - Actualidad)\nBusiness for All 2024, Harvard Business Publishing\n(09/2024 - Actualidad)\nAprendizaje automático para profesionales empresariales\n(08/2019 - Actualidad)\nAprendizaje automático con JavaScript, Udemy\n(04/2020 - Actualidad)\nConviértete en gestor de proyectos, LinkedIn\n(01/2020 - Actualidad)\nCertificado profesional de fundamentos de Scrum,\nCertiProf (01/2020)\nIDIOMAS\nInglés\nCompetencia profesional completa\nEspañol\nCompetencia nativa o bilingüe\nFrancés\nCompetencia profesional limitada",
+      "cvTextPreview": "Página 1 de 4\nFederico\nNavarrete\nEstratega de TI y arquitecto de nube\nMás de 10 años de experiencia liderando la\ntransformación digital, la arquitectura empresarial y la\nmodernización impulsada por IA en organizaciones\nmultinacionales. Trayectoria demostrada en migraciones a\nla nube, gobierno empresarial e iniciativas de\nmodernización, desde la ingeniería inversa de sistemas\nheredados de 30 años hasta la reducción del desperdicio\nen AWS en un 40 % y la contribución a iniciativas de\nmigración a nubes soberanas. Asesor de confianza de la\nalta dirección, combinando pensamiento estratégico con\nejecución práctica para generar resultados empresariales\nmedibles.\nfederico.navarrete@outlook",
+      "agePrivacyWarning": {
+        "show": false,
+        "message": ""
+      },
+      "personalDataWarnings": [],
+      "precheck": {
+        "cvEvidenceScore": 89,
+        "scoreBreakdown": {
+          "quantifiedResults": 18,
+          "accomplishmentClarity": 18,
+          "scopeAndScale": 18,
+          "responsibilityVersusOutcomeRatio": 14,
+          "interviewDefensibility": 10
+        },
+        "hasQuantifiedResults": true,
+        "hasAccomplishments": true,
+        "mostlyJobDescriptions": false,
+        "impactClarityScore": 17,
+        "quantifiedEvidenceCount": 18,
+        "strongBulletCount": 20,
+        "weakBulletCount": 8,
+        "proceedRecommendation": "Continuar",
+        "mainProblem": "En general, las pruebas son sólidas, pero algunos puntos mezclan responsabilidades con resultados, varias afirmaciones carecen de una referencia o contexto precisos y el CV es lo bastante extenso como para que las mejores pruebas queden diluidas entre numerosas publicaciones, intervenciones y listas de proyectos.",
+        "specificWarnings": [
+          "Algunas secciones correspondientes a periodos prolongados pueden ocultar progresión interna o cambios de alcance. Los periodos en Ericsson y la Oficina de Publicaciones muestran múltiples responsabilidades y una probable evolución del puesto, por lo que separar ascensos, cambios internos de función o etapas de alcance mejoraría la legibilidad, siempre que sea exacto.",
+          "Algunos logros ya completados están redactados con expresiones continuas o genéricas, lo que puede desdibujar la cronología. Entre los ejemplos aparecen fórmulas como «analizo», «soy» o tareas en presente dentro de puestos anteriores. Mantén los puestos pasados claramente en pasado y fecha con precisión los resultados ya completados dentro del puesto actual.",
+          "El CV es muy largo y denso. Incluye numerosas publicaciones, intervenciones, certificados y listas de proyectos, que pueden diluir las pruebas profesionales más sólidas al adaptarlo. Considera reducir los elementos de menor relevancia al dirigirte a puestos concretos.",
+          "Algunos puntos combinan responsabilidades y logros en la misma frase, lo que dificulta aislar el resultado. No es un problema decisivo, pero reduce la facilidad de lectura y la capacidad de defender cada afirmación en una entrevista.",
+          "Algunas afirmaciones son impresionantes, pero no están plenamente sustentadas mediante referencias comparativas, plazos o contexto empresarial. Por ejemplo, las reducciones de costes y los equivalentes a tiempo completo ahorrados son sólidos, pero algunos serían más convincentes con un contexto anterior y posterior o con el impacto de la decisión.",
+          "El resumen contiene afirmaciones narrativas fuertes como «asesor de confianza» y «trayectoria demostrada», que están respaldadas en gran medida, pero son lo bastante amplias como para que un lector espere pruebas cercanas de cada afirmación importante.",
+          "El candidato parece incluir todos los datos de contacto esenciales cerca de la parte superior, por lo que no es necesaria ninguna advertencia sobre el contacto."
+        ],
+        "missingEvidenceTypes": [
+          "Referencias empresariales más explícitas para algunos ahorros de costes",
+          "Contexto anterior y posterior más claro para algunos resultados de automatización y migración",
+          "Alcance más visible del impacto del liderazgo, más allá del número de integrantes de los equipos",
+          "Desglose de la progresión profesional durante periodos prolongados",
+          "Cronología más precisa de los logros completados frente a los que siguen en curso"
+        ],
+        "examplesOfWeakBullets": [
+          "Actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analizo la viabilidad técnica y las repercusiones de cualquier solicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculo el coste anual de mantenimiento de las aplicaciones.",
+          "Me convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos equipos, más de 3, para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de servicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.",
+          "Asesoré al director general como miembro estratégico del consejo consultivo, dando forma a iniciativas para modernizar los procesos institucionales y las capacidades de la plantilla.",
+          "Evalué los planes de actividad y las prioridades operativas institucionales, asesorando sobre iniciativas de transformación digital a largo plazo.",
+          "Organicé una conferencia multicultural con un equipo de 6 personas, más de 50 asistentes y ponentes internacionales."
+        ],
+        "questionsToRecoverMetrics": [
+          "¿Cuál era el gasto anual total en AWS antes de reducir el desperdicio en un 40 % y cuál fue el ahorro absoluto en euros después del cambio?",
+          "En las 9 aplicaciones locales migradas a 80 microservicios, ¿cuántos usuarios, países, equipos o procesos empresariales se vieron afectados?",
+          "¿Cuál fue la cronología de la prueba de concepto de una semana frente a los nueve años anteriores de esfuerzos estancados y quién aprobó o adoptó el resultado?",
+          "¿Cuántos sistemas empresariales abarca actualmente en producción la plataforma de gobierno para más de 70 sistemas y qué cambió operativamente tras su adopción?",
+          "En la prueba de concepto de migración a una nube soberana, ¿qué riesgo empresarial, necesidad de cumplimiento o reducción de costes constituía el resultado objetivo?",
+          "¿En cuántos equipos o partes interesadas influiste en Ericsson y en la Oficina de Publicaciones, y qué decisiones cambiaron gracias a tu aportación?",
+          "En el proyecto de AWS de 100 000 dólares, ¿qué indicador empresarial mejoró además de la modernización técnica?",
+          "Respecto al ahorro de equivalentes a tiempo completo en Infosys, ¿qué actividades se eliminaron, con qué frecuencia se repetía el ahorro y cuál fue el impacto anualizado?",
+          "En cuanto a los 2 millones de euros de costes de reconstrucción evitados, ¿se trataba de una oferta estimada de un proveedor, un presupuesto interno o una previsión, y quién lo validó?",
+          "¿Qué alcance concreto de liderazgo ejerciste sobre los 3 equipos ubicados en la India: gestión jerárquica, liderazgo técnico o coordinación de la entrega?"
+        ],
+        "interviewRiskQuestions": [
+          "¿Puedes explicarme el caso empresarial exacto de la reducción del 40 % del desperdicio en AWS y cómo lo mediste?",
+          "¿Cuál fue tu función directa en la prueba de concepto de una semana tras nueve años de esfuerzos estancados y qué hizo que tu enfoque funcionara?",
+          "¿Cómo validaste que el coste de reconstrucción habría sido de aproximadamente 2 millones de euros?",
+          "¿Qué cambios internos de función o ascensos se produjeron durante tus largos periodos en Ericsson y la Oficina de Publicaciones?",
+          "¿Qué logros del CV siguen en curso y cuáles corresponden a proyectos ya completados?",
+          "Si te pidiera un ejemplo de cómo tu influencia como líder modificó una decisión de la alta dirección, ¿cuál elegirías y por qué?"
+        ],
+        "nextStep": "Continúa con la adaptación, pero refuerza los puntos más sólidos, separa la progresión profesional cuando exista realmente y añade las referencias o los resultados de decisiones que faltan antes de presentarte a puestos competitivos."
+      },
+      "recommendedNextAction": "Continuar"
+    },
+    "precheckSignature": "{\"yearsOfExperience\":\"10\",\"hasDegree\":\"false\",\"degreeYear\":\"\",\"experienceSelectionMode\":\"lastFive\",\"outputLanguage\":\"es\",\"cvText\":\"\",\"cvPdf\":\"My Resume - Consultant - Extended.pdf:178281:1782994379000\"}",
+    "evidenceRecoveryTips": {
+      "context": {
+        "role": "Profesional de la educación o la formación",
+        "subjects": "estudiantes, alumnos, clases, sesiones de formación, planes de estudio, equipos o programas de aprendizaje",
+        "outcomes": "progreso del aprendizaje, participación, finalización, satisfacción, calidad de la evaluación, adopción o cobertura del apoyo"
+      },
+      "weakLines": [
+        "Actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analizo la viabilidad técnica y las repercusiones de cualquier solicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculo el coste anual de mantenimiento de las aplicaciones.",
+        "Me convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos equipos, más de 3, para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de servicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.",
+        "Asesoré al director general como miembro estratégico del consejo consultivo, dando forma a iniciativas para modernizar los procesos institucionales y las capacidades de la plantilla.",
+        "Evalué los planes de actividad y las prioridades operativas institucionales, asesorando sobre iniciativas de transformación digital a largo plazo."
+      ],
+      "missingEvidence": [
+        "Referencias empresariales más explícitas para algunos ahorros de costes",
+        "Contexto anterior y posterior más claro para algunos resultados de automatización y migración",
+        "Alcance más visible del impacto del liderazgo, más allá del número de integrantes de los equipos",
+        "Desglose de la progresión profesional durante periodos prolongados"
+      ],
+      "questions": [
+        "¿Cuál era el gasto anual total en AWS antes de reducir el desperdicio en un 40 % y cuál fue el ahorro absoluto en euros después del cambio?",
+        "En las 9 aplicaciones locales migradas a 80 microservicios, ¿cuántos usuarios, países, equipos o procesos empresariales se vieron afectados?",
+        "¿Cuál fue la cronología de la prueba de concepto de una semana frente a los nueve años anteriores de esfuerzos estancados y quién aprobó o adoptó el resultado?",
+        "¿Cuántos sistemas empresariales abarca actualmente en producción la plataforma de gobierno para más de 70 sistemas y qué cambió operativamente tras su adopción?",
+        "En la prueba de concepto de migración a una nube soberana, ¿qué riesgo empresarial, necesidad de cumplimiento o reducción de costes constituía el resultado objetivo?"
+      ]
+    },
+    "analysis": {
+      "roleDiagnosis": "Perfil sénior de estrategia de TI, arquitectura de nube y entrega de ingeniería, con un liderazgo sólido próximo a la consultoría y orientado a las partes interesadas. El CV ya muestra una profundidad pertinente para un puesto de ingeniería de nivel directivo: migraciones a la nube, arquitectura empresarial, modernización asistida por IA, coordinación de equipos, gobierno y resultados medibles en costes y valor. Para el puesto de gerente experto de Ingeniería de Software de Bain, el mejor encaje se encuentra en la arquitectura nativa de la nube, el liderazgo de la entrega, la modernización habilitada por IA y la traducción de necesidades de negocio para las partes interesadas. La principal carencia es que el CV todavía no destaca las señales de gestión de ingeniería de software con el lenguaje exacto que utiliza Bain: entrega de productos de extremo a extremo, sistemas de calidad de ingeniería, gobierno de revisiones de código y pruebas, aceleradores reutilizables, acompañamiento de clientes y una formulación explícita sobre modelo operativo y gestión del cambio.",
+      "companySignalInterpretation": "Bain está señalando un puesto de liderazgo práctico en ingeniería dentro de un entorno de consultoría, donde la credibilidad técnica debe combinarse con la resolución de problemas orientada al cliente, la definición de listas de trabajo y hojas de ruta, la formación de equipos y la entrega de software apto para producción a gran escala. El puesto se centra menos en la arquitectura o la infraestructura puras y más en traducir problemas empresariales en soluciones de ingeniería que generen resultados medibles para los clientes. La mención de ingeniería nativa de IA, bibliotecas reutilizables, CI/CD, observabilidad, seguridad desde el diseño y acompañamiento indica que se necesita una persona capaz tanto de construir como de dirigir equipos, y de explicar decisiones técnicas en términos empresariales. El contexto de recomendación y el entorno de consultoría implican que serán muy importantes las pruebas de comunicación ejecutiva, influencia multifuncional y adaptación a entornos ambiguos de clientes.",
+      "candidatePositioning": "Posiciona al candidato como un líder bilingüe de modernización de nube e IA, orientado al cliente y capaz de conectar la estrategia con la entrega práctica de ingeniería. El CV debe destacar: liderazgo de programas de modernización nativos de la nube; diseño y gobierno de plataformas empresariales; traducción de necesidades empresariales en hojas de ruta y decisiones técnicas; mentoría de equipos; automatización de la entrega y reducción de costes o desperdicio; y aplicación de métodos de ingeniería asistidos por IA. Reduce el protagonismo de la marca personal amplia, el volumen de publicaciones y los logros tangenciales, salvo que refuercen el liderazgo, la comunicación o la innovación de ingeniería. El titular más creíble no es el genérico «estratega de TI», sino una formulación preparada para consultoría, como líder sénior de ingeniería de software y arquitectura de nube con experiencia demostrada en entrega de modernización, liderazgo de partes interesadas y creación asistida por IA.",
+      "jobFitAssessment": {
+        "score": 78,
+        "verdict": "Buen encaje",
+        "explanation": "El CV muestra una sólida alineación con la necesidad de Bain de contar con un líder de ingeniería capaz de diseñar soluciones nativas de la nube, trabajar con partes interesadas de alto nivel, gestionar equipos y obtener resultados medibles de modernización. Las pruebas son especialmente sólidas en AWS, Azure, migración a la nube, microservicios, gobierno, optimización de costes, desarrollo asistido por IA y liderazgo de equipos transfronterizos. El principal riesgo es que el CV todavía no presenta con claridad al candidato como gestor de ingeniería de software en los términos exactos de Bain: hojas de ruta de producto, controles de calidad, disciplina de revisión de código y pruebas, activos de ingeniería reutilizables y acompañamiento de clientes solo aparecen de forma parcial o implícita. Esto hace que el perfil sea competitivo, pero aún no esté plenamente optimizado para este puesto concreto.",
+        "strongestReasons": [
+          "Sólida experiencia en arquitectura y migraciones nativas de la nube en AWS y Azure.",
+          "Liderazgo demostrado en la entrega de varios equipos, incluidos equipos remotos y multiculturales.",
+          "Trabajo claro con partes interesadas, alta dirección y consejos institucionales.",
+          "Pruebas de modernización asistida por IA y uso en producción de herramientas modernas.",
+          "Resultados empresariales cuantificados, como reducción de costes, reducción del desperdicio y costes de reconstrucción evitados.",
+          "La comunicación propia de consultoría y la experiencia de asesoramiento encajan con el entorno de clientes de Bain."
+        ],
+        "mainRisks": [
+          "El CV todavía no está formulado con el lenguaje de gestión de ingeniería de software que utiliza Bain, como responsabilidad sobre la lista de trabajo, calidad del código, gestión de versiones, observabilidad y operaciones posteriores al despliegue.",
+          "Algunos puntos mezclan responsabilidades y resultados, lo que puede dificultar una evaluación rápida del alcance del liderazgo.",
+          "Varias afirmaciones se beneficiarían de referencias más claras, contexto empresarial o resultados de adopción.",
+          "El CV es largo y está muy cargado, lo que puede diluir las pruebas más pertinentes para este puesto.",
+          "Algunos elementos pueden parecer más orientados a la estrategia que a la entrega, salvo que se reescriban con detalles específicos del ciclo de vida de ingeniería."
+        ],
+        "companyDecisionWarning": "La decisión final de contratación corresponde a Bain & Company y puede depender de factores ajenos a este análisis, como el desempeño en las entrevistas, la percepción del encaje con los clientes, la calibración interna, el contexto de la recomendación, las necesidades del mercado y la comparación con otros candidatos."
+      },
+      "strongestMatchingEvidence": [
+        "Lideré la modernización asistida por Amazon Q de un sistema heredado en Perl de 30 años, realizando ingeniería inversa de lógica no documentada y entregando una prueba de concepto en una semana tras nueve años de esfuerzos estancados.",
+        "Diseñé la arquitectura de la plataforma «Reloj de Obsolescencia», definiendo el gobierno del ciclo de vida de más de 70 sistemas empresariales y orientando su adopción como capacidad crítica para la misión.",
+        "Lideré la prueba de concepto de migración de una base de datos a una nube soberana desde Oracle RDS en AWS hasta PostgreSQL en Clever Cloud.",
+        "Puse en marcha el primer programa de optimización de costes de nube, reduciendo el desperdicio en AWS en un 40 % y codiseñando analítica impulsada por IA para futuros ahorros.",
+        "Realicé la reingeniería de 9 aplicaciones locales para convertirlas en 80 microservicios mediante servicios nativos de AWS y Docker, reduciendo los costes mensuales.",
+        "Gestioné 3 equipos en la India y actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas.",
+        "Diseñé e implanté arquitecturas de migración, soluciones RPA y prácticas de entrega en la nube en AWS y Azure.",
+        "Utilicé Python, SQL, Power BI, Azure DevOps, Jira, Docker y plataformas de nube en la entrega práctica.",
+        "Las intervenciones públicas y el asesoramiento institucional demuestran una sólida comunicación orientada al cliente y presencia ejecutiva."
+      ],
+      "weakOrMissingSignals": [
+        "Lenguaje explícito sobre responsabilidad del producto y de la lista de trabajo vinculado a resultados empresariales.",
+        "Pruebas claras de desarrollo de aplicaciones de extremo a extremo más allá de la arquitectura y la automatización.",
+        "Uso explícito de controles de calidad de CI/CD, normas de revisión de código, cobertura de pruebas, observabilidad o gestión de versiones e incidentes.",
+        "Acompañamiento explícito de ingenieros, programación en pareja o mentoría técnica en un entorno de entrega.",
+        "Bibliotecas internas reutilizables, aceleradores o activos de ingeniería creados para varios proyectos.",
+        "Pruebas directas de trabajo con React o interfaces web modernas, accesibilidad y colaboración en experiencia de usuario.",
+        "Terminología explícita de seguridad de nube, IAM y autenticación, como OAuth 2.0, OIDC, JWT, SSO y cifrado.",
+        "No aparecen herramientas de infraestructura como código, como Terraform, CloudFormation o Bicep.",
+        "No aparecen Kubernetes, Helm ni Argo CD.",
+        "El lenguaje de interacción con clientes para la entrega de consultoría, el cambio del modelo operativo o la gestión de la adopción está presente, pero no se destaca de manera constante.",
+        "Algunos puestos de larga duración pueden ocultar progresión interna o un aumento del alcance, pero esa progresión no resulta plenamente visible.",
+        "La formación académica no aparece en el texto proporcionado. Si es pertinente para el proceso de selección de Bain, debe añadirse de forma segura cuando esté disponible, sin inventarla."
+      ],
+      "keywordsToInclude": [
+        "Liderazgo de ingeniería de software",
+        "Entrega nativa de la nube",
+        "Desarrollo asistido por IA",
+        "Arquitectura empresarial",
+        "Microservicios",
+        "Entrega a escala de producción",
+        "Hojas de ruta técnicas",
+        "Priorización de la lista de trabajo",
+        "Gestión de partes interesadas",
+        "Orientación al cliente",
+        "Liderazgo de equipos de ingeniería",
+        "CI/CD",
+        "Docker",
+        "AWS",
+        "Azure",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "PostgreSQL",
+        "Observabilidad",
+        "Seguridad desde el diseño",
+        "Aceleradores reutilizables",
+        "Mentoría",
+        "Revisión de código",
+        "Gestión de versiones",
+        "Ágil",
+        "Scrum",
+        "Kanban",
+        "Gestión del cambio",
+        "Modelo operativo",
+        "Resultados empresariales",
+        "Transformación digital"
+      ],
+      "keywordsToAvoid": [
+        "Asesor de confianza",
+        "visionario",
+        "estrella",
+        "gurú",
+        "apasionado",
+        "orientado a resultados",
+        "centrado en la innovación",
+        "disruptivo",
+        "incomparable",
+        "de categoría mundial",
+        "líder dinámico",
+        "trabajador",
+        "persona con iniciativa"
+      ],
+      "suggestedProfessionalSummary": "Líder de ingeniería de software y arquitectura de nube con más de 10 años de experiencia entregando modernización asistida por IA, migraciones nativas de la nube, gobierno empresarial y transformación orientada a partes interesadas en entornos multinacionales. Trayectoria demostrada liderando equipos multiculturales, traduciendo necesidades empresariales en hojas de ruta técnicas y obteniendo resultados medibles como reducción de costes, aceleración de la modernización y gobierno de plataformas a escala. Experiencia práctica con AWS, Azure, Docker, Python, SQL y herramientas de IA, con una mentalidad de consultoría adecuada para liderar ingeniería orientada al cliente.",
+      "rewrittenCvBullets": [
+        {
+          "original": "Lideré la modernización asistida por Amazon Q de un sistema heredado en Perl de 30 años, realizando ingeniería inversa de lógica empresarial no documentada a partir de capturas de pantalla y trazas web, evaluando alternativas comerciales y de código abierto y diseñando la arquitectura de la plataforma objetivo. Entregué una prueba de concepto en una semana tras nueve años de esfuerzos estancados, evitando aproximadamente 2 millones de euros en costes de reconstrucción.",
+          "rewritten": "Lideré la modernización asistida por IA de un sistema heredado en Perl de 30 años, realizando ingeniería inversa de lógica empresarial no documentada, evaluando opciones comerciales y de código abierto y diseñando la arquitectura de la plataforma objetivo. Entregué una prueba de concepto en una semana tras nueve años de esfuerzos estancados, evitando unos costes estimados de reconstrucción de aproximadamente 2 millones de euros.",
+          "reason": "Mantiene el logro principal y facilita la lectura de la señal de entrega y valor empresarial.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Diseñé la arquitectura de la plataforma «Reloj de Obsolescencia», definiendo el gobierno del ciclo de vida de más de 70 sistemas empresariales en cuatro etapas de madurez y orientando su adopción como capacidad crítica para la misión.",
+          "rewritten": "Diseñé la arquitectura de la plataforma «Reloj de Obsolescencia» para definir el gobierno del ciclo de vida de más de 70 sistemas empresariales en cuatro etapas de madurez, y orienté su adopción como capacidad crítica para la misión.",
+          "reason": "Hace la redacción más concisa y mantiene sólida la señal de gobierno y adopción.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Lideré la migración de la base de datos a una nube soberana de la OP, entregando una prueba de concepto exitosa de Oracle RDS en AWS a PostgreSQL en Clever Cloud, al tiempo que definía la hoja de ruta para modernizar la transferencia de archivos heredada.",
+          "rewritten": "Lideré una prueba de concepto de migración de una base de datos a una nube soberana desde Oracle RDS en AWS hasta PostgreSQL en Clever Cloud y definí la hoja de ruta para modernizar la transferencia de archivos heredada.",
+          "reason": "Aclara el alcance y mantiene el resultado de la migración en primer plano.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Puse en marcha el primer programa de optimización de costes de nube, reduciendo el desperdicio en AWS en un 40 % en los entornos de prueba y codiseñando una solución analítica impulsada por IA para prever futuras oportunidades de ahorro.",
+          "rewritten": "Puse en marcha el primer programa de optimización de costes de nube, reduciendo el desperdicio en AWS en un 40 % en los entornos de prueba y codiseñando una solución analítica impulsada por IA para prever futuras oportunidades de ahorro.",
+          "reason": "Pequeña corrección lingüística que conserva intacto el resultado cuantificado.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Formé parte del consejo institucional de arquitectura y estrategia, evaluando importantes iniciativas de TI y garantizando su alineación con la arquitectura empresarial y la estrategia digital a largo plazo.",
+          "rewritten": "Formé parte del consejo institucional de arquitectura y estrategia, evaluando importantes iniciativas de TI y garantizando su alineación con la arquitectura empresarial y la estrategia digital a largo plazo.",
+          "reason": "Mantiene la señal de gobierno estratégico y mejora la legibilidad.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Definí la estrategia y lideré la reingeniería de 9 aplicaciones locales para convertirlas en 80 microservicios mediante servicios nativos de AWS y Docker. Esto redujo los costes mensuales de 10 000 a 6 000 dólares y disminuyó la huella de carbono asociada. Todo cumplía el RGPD. También coordiné la división de la cuenta principal de AWS en 15 cuentas e implanté una nueva lógica de despliegue continuo mediante CodePipeline.",
+          "rewritten": "Definí la estrategia y lideré la reingeniería de 9 aplicaciones locales para convertirlas en 80 microservicios mediante servicios nativos de AWS y Docker, reduciendo los costes mensuales de 10 000 a 6 000 dólares y disminuyendo la huella de carbono asociada. También coordiné la división de la cuenta principal de AWS en 15 cuentas e introduje un nuevo flujo de despliegue continuo mediante CodePipeline.",
+          "reason": "Aclara el alcance de ingeniería y el impacto medible, conservando los hechos originales.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Me convertí en el principal consultor de AWS en Ericsson España tras el éxito de las migraciones locales de aplicaciones. Comencé a asesorar y definir la estrategia de nuevos equipos, más de 3, para migrar y rediseñar con éxito sus soluciones locales en AWS, con especial atención al uso de servicios nativos de la nube para maximizar el ahorro de costes y reducir la huella de carbono asociada.",
+          "rewritten": "Tras el éxito de las migraciones locales de aplicaciones, me convertí en el principal consultor de AWS en Ericsson España y asesoré a más de 3 equipos sobre la migración y el rediseño de soluciones locales en AWS, con atención a los servicios nativos de la nube, el ahorro de costes y la reducción de la huella de carbono.",
+          "reason": "Convierte una frase que mezcla responsabilidades en una señal más clara de progresión y asesoramiento.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Conseguí y lideré el desarrollo de un proyecto de AWS de 100 000 dólares para supervisar precios globales, transformando hojas de Excel basadas en SAP HANA en un lago de datos en la nube. El proyecto implantó la primera aplicación de producción cocreada con ChatGPT mediante Python, Power BI y SQL Server.",
+          "rewritten": "Conseguí y lideré un proyecto de AWS de 100 000 dólares para transformar flujos de trabajo de Excel basados en SAP HANA en un lago de datos en la nube destinado a supervisar precios globales, y entregué la primera aplicación de producción cocreada con ChatGPT mediante Python, Power BI y SQL Server.",
+          "reason": "Mejora la claridad y destaca la entrega a producción.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Lideré 3 equipos ubicados en la India: un equipo de 6 personas para el soporte y desarrollo de 9 aplicaciones, con AWS, Docker, Java y bases de datos; uno de 2 personas para un servicio de lago de datos; y otro de 2 personas para RPA en Blue Prism. Todos se gestionaron con Kanban y Jira.",
+          "rewritten": "Lideré tres equipos ubicados en la India: un equipo de 6 personas que prestaba soporte y desarrollaba 9 aplicaciones, un equipo de 2 personas para el lago de datos y un equipo de 2 personas para RPA, utilizando Kanban y Jira para gestionar la entrega.",
+          "reason": "Es más conciso y resulta más fácil de interpretar para los responsables de selección.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas. Analizo la viabilidad técnica y las repercusiones de cualquier solicitud de cambio para sus aplicaciones, incluidos el tiempo, el presupuesto y el esfuerzo. También calculo el coste anual de mantenimiento de las aplicaciones.",
+          "rewritten": "Actué como enlace directo entre los equipos de desarrollo y 9 partes interesadas, evaluando la viabilidad técnica y el impacto en la entrega de las solicitudes de cambio, incluidos el tiempo, el presupuesto, el esfuerzo y el coste anual de mantenimiento.",
+          "reason": "Convierte la redacción en presente a pasado para un puesto ya completado y mejora el tono profesional.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Diseñé la arquitectura IaaS y lideré la migración de 10 RPA en Automation Anywhere, 10 aplicaciones .NET, 6 bases de datos y 3 macros desde instalaciones locales a Azure durante la COVID-19.",
+          "rewritten": "Diseñé la arquitectura IaaS y lideré la migración de 10 RPA en Automation Anywhere, 10 aplicaciones .NET, 6 bases de datos y 3 macros desde instalaciones locales a Azure durante la COVID-19.",
+          "reason": "Redacción más limpia y mayor legibilidad para los sistemas ATS.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        },
+        {
+          "original": "Reconstruí 2 bots, uno para datos maestros y otro para informes, colaborando con un equipo de 4 personas gestionado mediante Kanban. Esto recuperó la confianza en un proyecto de RPA y ahorró 2 equivalentes a tiempo completo. Como resultado, se consiguió una nueva RPA que ahorró otros 2 equivalentes a tiempo completo.",
+          "rewritten": "Reconstruí dos bots para datos maestros e informes con un equipo de 4 personas gestionado mediante Kanban, recuperando la confianza en el proyecto de RPA y ahorrando 2 equivalentes a tiempo completo. El trabajo resultante también ayudó a conseguir un nuevo proyecto de RPA que ahorró otros 2 equivalentes a tiempo completo.",
+          "reason": "Aclara la secuencia y el resultado sin añadir hechos nuevos.",
+          "integrityClassification": "Respaldado directamente por el CV"
+        }
+      ],
+      "suggestedCvStructure": [
+        "Encabezado superior con nombre, título alineado con el posicionamiento pertinente para Bain, ubicación, correo electrónico, teléfono, LinkedIn y enlaces al portafolio o GitHub.",
+        "Resumen profesional de 3 o 4 líneas centrado en liderazgo de ingeniería, entrega nativa de la nube, modernización asistida por IA e impacto en partes interesadas.",
+        "Sección de competencias principales con palabras clave compatibles con ATS, agrupadas por liderazgo de ingeniería, nube y tecnologías nativas de la nube, IA, entrega y gestión de partes interesadas.",
+        "Presenta primero la experiencia seleccionada, ordenada por relevancia: Comisión Europea y Oficina de Publicaciones, Ericsson, Infosys y después el trabajo independiente si aporta pruebas pertinentes para Bain.",
+        "En cada puesto, utiliza entre 4 y 6 puntos que comiencen con una acción y un resultado. Separa las responsabilidades principales de los resultados medibles cuando sea posible.",
+        "Redacta en pasado los logros completados. Mantén el presente solo para funciones y responsabilidades que continúan realmente.",
+        "Haz visible la progresión o los cambios de alcance dentro de periodos prolongados cuando sean reales, utilizando subtítulos o líneas por etapas sin inventar cargos nuevos.",
+        "Reduce o reubica las secciones de menor relevancia, como publicaciones extensas, intervenciones y proyectos, para que no desplacen las pruebas de ingeniería más pertinentes.",
+        "Si la formación académica es pertinente o necesaria, inclúyela únicamente de forma respetuosa con la privacidad y evita años innecesarios cuando sea posible.",
+        "Conserva solo los certificados directamente relacionados con ingeniería, nube, IA o credibilidad en consultoría."
+      ],
+      "atsFriendlySkillsSection": [
+        "Liderazgo de ingeniería de software",
+        "Arquitectura de nube",
+        "Desarrollo asistido por IA",
+        "Arquitectura empresarial",
+        "Microservicios",
+        "AWS",
+        "Azure",
+        "Docker",
+        "Python",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "SQL Server",
+        "PostgreSQL",
+        "Power BI",
+        "CodePipeline",
+        "Jira",
+        "Kanban",
+        "Scrum",
+        "DevOps",
+        "CI/CD",
+        "Gobierno de la nube",
+        "Optimización de costes",
+        "Gestión de partes interesadas",
+        "Gestión del cambio",
+        "Definición de hojas de ruta técnicas",
+        "RPA",
+        "Automatización",
+        "Mentoría",
+        "Liderazgo de equipos multiculturales"
+      ],
+      "recruiterInterpretation": "Es probable que un responsable de selección vea un perfil híbrido técnico y de consultoría con gran potencial: alguien capaz de hablar con credibilidad sobre transformación empresarial, modernización de nube e IA y liderazgo entre partes interesadas y equipos. El CV ya sugiere una sólida madurez de entrega y presencia ejecutiva. Sin embargo, sin una reestructuración, un responsable de selección de Bain todavía podría percibir el perfil como más orientado a arquitectura y estrategia que a la gestión práctica de ingeniería. Por tanto, la reconstrucción debe hacer visibles antes y de forma más explícita la responsabilidad sobre el ciclo de vida de ingeniería, la formación de equipos y los estándares de entrega.",
+      "finalReconstructionPlan": [
+        "Reescribe el titular para alinearlo con un liderazgo experto en ingeniería de software y modernización de nube, en lugar de centrarse únicamente en una estrategia de TI amplia.",
+        "Sustituye el resumen actual por uno de consultoría e ingeniería respaldado por pruebas, que destaque la entrega, el trabajo con clientes y partes interesadas y la experiencia en IA y nube.",
+        "Prioriza los puestos recientes más pertinentes y comprime los elementos de menor relevancia que no respalden los requisitos de gerente de ingeniería de Bain.",
+        "En cada puesto clave, separa arquitectura, entrega, liderazgo y resultado medible en puntos distintos.",
+        "Utiliza de forma natural palabras clave de ATS en los puntos: microservicios, CI/CD, observabilidad, hoja de ruta de producto, lista de trabajo, estándares de ingeniería, entrega nativa de la nube, desarrollo asistido por IA, traducción para partes interesadas y adopción del cambio.",
+        "Haz visible la progresión profesional o el aumento del alcance cuando sea real, especialmente en periodos prolongados.",
+        "Convierte al pasado la redacción que mezcla tiempos verbales o utiliza presente en puestos anteriores.",
+        "Conserva únicamente las publicaciones, intervenciones y premios más sólidos cuando respalden el liderazgo, la credibilidad en consultoría o la autoridad de ingeniería. En caso contrario, redúcelos.",
+        "Añade cualquier prueba que falte, siempre que sea verídica, sobre acompañamiento, revisión de código, controles de calidad, pruebas o gestión de versiones si el candidato puede confirmarla. En caso contrario, no la insinúes.",
+        "Si la formación académica es pertinente, inclúyela de forma segura y solo si fortalece la candidatura. No añadas detalles que no se hayan proporcionado.",
+        "Pide al usuario que confirme cualquier métrica incierta o progresión oculta antes de finalizar el CV.",
+        "Conserva todos los resultados cuantificados verídicos porque Bain valorará el impacto empresarial, pero preséntalos con un contexto empresarial más claro y referencias comparativas cuando sea posible."
+      ],
+      "integrityAudit": [
+        {
+          "recommendation": "Utiliza el resumen profesional reescrito.",
+          "classification": "Respaldado directamente por el CV",
+          "explanation": "El resumen solo reformula pruebas existentes del CV sin añadir afirmaciones nuevas."
+        },
+        {
+          "recommendation": "Conserva las reducciones de costes cuantificadas, el coste de reconstrucción evitado y los resultados de las migraciones.",
+          "classification": "Respaldado directamente por el CV",
+          "explanation": "Estos resultados aparecen explícitamente en el CV de origen y son muy pertinentes para el puesto objetivo."
+        },
+        {
+          "recommendation": "Añade una mención explícita de normas de revisión de código, cobertura de pruebas, observabilidad o gestión de versiones.",
+          "classification": "Requiere confirmación del usuario",
+          "explanation": "Estas experiencias podrían ser reales, pero no aparecen claramente en el CV proporcionado y no deben añadirse salvo que el candidato las confirme."
+        },
+        {
+          "recommendation": "Indica que el candidato creó aceleradores de ingeniería reutilizables o bibliotecas compartidas para varios proyectos.",
+          "classification": "Requiere confirmación del usuario",
+          "explanation": "El CV sugiere herramientas y proyectos técnicos, pero no demuestra claramente aceleradores internos reutilizables empleados en distintos trabajos para clientes."
+        },
+        {
+          "recommendation": "Añade una sección específica de formación académica sin años de graduación.",
+          "classification": "Requiere confirmación del usuario",
+          "explanation": "Los datos de formación no se proporcionaron en el texto, por lo que solo deben añadirse si el candidato los aporta y son pertinentes para el puesto."
+        },
+        {
+          "recommendation": "Omite o resta importancia a las publicaciones y listas extensas de proyectos que no respalden los criterios de Bain para un gerente de ingeniería.",
+          "classification": "Reformulación razonable",
+          "explanation": "Es una optimización estructural y no un cambio factual. Mejora la relevancia y la facilidad de lectura."
+        },
+        {
+          "recommendation": "Haz visible la progresión interna durante periodos prolongados cuando sea real.",
+          "classification": "Requiere confirmación del usuario",
+          "explanation": "El CV insinúa un aumento del alcance, pero los ascensos internos o cambios de cargo deben confirmarse antes de mostrarlos."
+        },
+        {
+          "recommendation": "Cambia al pasado la redacción en presente dentro de puestos anteriores.",
+          "classification": "Respaldado directamente por el CV",
+          "explanation": "Es una corrección gramatical coherente con la cronología mostrada en el CV."
+        },
+        {
+          "recommendation": "Añade una afirmación de que el candidato lideró de extremo a extremo la estrategia de productos de IA.",
+          "classification": "No está respaldado y no debe utilizarse",
+          "explanation": "El CV muestra desarrollo asistido por IA y trabajo de asesoramiento, pero no suficiente para afirmar la responsabilidad integral sobre una estrategia de productos de IA."
+        }
+      ],
+      "precheckWarningSummary": "Conserva las advertencias del análisis preliminar sobre periodos prolongados que ocultan progresión, coherencia de los tiempos verbales, extensión del CV, puntos que mezclan responsabilidades y resultados, ausencia de referencias para algunas métricas y afirmaciones narrativas amplias que necesitan pruebas cercanas. Conserva también la nota de que los datos de contacto ya parecen completos. El análisis preliminar no señaló ninguna advertencia adicional de privacidad, pero cualquier modificación futura debe seguir evitando datos personales innecesarios.",
+      "downloadableText": "Resumen de reconstrucción orientado a Bain: reposiciona al candidato como un líder sénior de ingeniería de software y modernización de nube capaz de dirigir entregas técnicas orientadas al cliente, definir hojas de ruta, crear soluciones habilitadas por IA y gestionar equipos de ingeniería multiculturales. Conserva las pruebas más sólidas: migraciones en AWS y Azure, microservicios, plataformas de gobierno, modernización asistida por IA, optimización de costes y liderazgo orientado a partes interesadas. Elimina la verbosidad, convierte los puestos anteriores al pasado y haz explícitas las señales de gestión de ingeniería. No inventes formación, certificados, herramientas, métricas, ascensos ni prácticas técnicas que no aparezcan en el CV de origen. Si el candidato puede confirmar experiencia directa en revisión de código, disciplina de pruebas, observabilidad, gestión de versiones o acompañamiento, añádela con cuidado. En caso contrario, déjala fuera."
+    },
+    "downloadableText": "Recordatorio sobre la integridad de los datos de contacto\nUn CV debe facilitar la localización de los datos de contacto esenciales cerca de la parte superior: nombre, correo electrónico, teléfono, ubicación con un nivel de detalle útil y, normalmente, LinkedIn o un portafolio cuando sean pertinentes. La ausencia de datos de contacto es poco común, pero costosa, porque crea fricción para los responsables de selección.\n\nRecordatorio sobre lenguaje respaldado por pruebas\nAfirmaciones como eficiente, motivado, estratégico, proactivo, fiable, de aprendizaje rápido, buen integrante de equipo o buen comunicador son débiles salvo que el CV muestre pruebas cercanas. Conserva la afirmación únicamente cuando los puntos la demuestren mediante resultados, ejemplos, escala, decisiones, adopción, entrega o resultados medibles.\n\nRecordatorio sobre la alineación entre el cargo y las responsabilidades\nComprueba si el título del puesto coincide con las responsabilidades y los logros mostrados debajo. Si un título menciona gestión de proyectos, pero los puntos describen gestión de producto, estrategia, operaciones, arquitectura, formación u otra disciplina, advierte que el lector podría interpretar incorrectamente el posicionamiento real del candidato. Recomienda aclarar el alcance en el subtítulo del puesto, el resumen o los puntos sin inventar un cargo nuevo.\n\nRecordatorio sobre la extensión del CV y la antigüedad profesional\nEvalúa la extensión según la etapa profesional y la relevancia. Los perfiles júnior suelen ser más sólidos con 1 página; los perfiles de mitad de carrera, con 1 o 2 páginas; los especialistas, gestores o consultores sénior, con alrededor de 2 páginas; y los ejecutivos, académicos, investigadores, perfiles del sector público o profesionales con numerosas credenciales pueden necesitar más cuando el detalle adicional sea pertinente. La extensión no es el problema por sí misma. El problema es ocultar pruebas o eliminar demostraciones.\n\nRecordatorio sobre el tiempo verbal de los logros\nUtiliza el pasado para el trabajo completado, especialmente en puestos anteriores. Los puestos actuales pueden utilizar el presente para responsabilidades en curso, pero los logros completados dentro de un puesto actual deben seguir presentándose como resultados ya alcanzados. Evita infinitivos o lenguaje genérico de actividad cuando el resultado ya se haya producido.\n\nRecordatorio sobre la visibilidad de la progresión profesional\nUn periodo prolongado en la misma empresa no es una debilidad por sí mismo. Si el candidato ocupó varios puestos internos, recibió ascensos, aumentó su alcance, cambió de equipo o modificó sus responsabilidades, muestra claramente esa progresión. Un solo título que abarque muchos años puede hacer que el crecimiento parezca plano o inexistente.\n\nRecordatorio sobre la privacidad de la formación y los estudios\nRevisa los años de estudio, los años de graduación, los datos de formación más antiguos y los cursos irrelevantes. Conserva las credenciales obligatorias o pertinentes para el puesto, pero elimina o resta importancia a fechas y detalles de estudios innecesarios cuando no ayuden al puesto objetivo.\n\nResumen de reconstrucción orientado a Bain: reposiciona al candidato como un líder sénior de ingeniería de software y modernización de nube capaz de dirigir entregas técnicas orientadas al cliente, definir hojas de ruta, crear soluciones habilitadas por IA y gestionar equipos de ingeniería multiculturales. Conserva las pruebas más sólidas: migraciones en AWS y Azure, microservicios, plataformas de gobierno, modernización asistida por IA, optimización de costes y liderazgo orientado a partes interesadas. Elimina la verbosidad, convierte los puestos anteriores al pasado y haz explícitas las señales de gestión de ingeniería. No inventes formación, certificados, herramientas, métricas, ascensos ni prácticas técnicas que no aparezcan en el CV de origen. Si el candidato puede confirmar experiencia directa en revisión de código, disciplina de pruebas, observabilidad, gestión de versiones o acompañamiento, añádela con cuidado. En caso contrario, déjala fuera."
+  },
+  "notes": {
+    "apiKeysExcluded": true,
+    "pdfFileExcluded": true,
+    "jobPositionFrontendOnly": true
+  }
+}

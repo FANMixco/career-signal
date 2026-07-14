@@ -628,13 +628,26 @@ button.is-loading::before {
 
 .site-footer-inner {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  text-align: center;
+}
+
+.footer-disclaimer {
+  margin: 0;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  text-align: center;
 }
 
 .site-footer a {
@@ -838,7 +851,6 @@ pre {
 
   .site-footer-inner {
     align-items: center;
-    flex-direction: row;
   }
 
   .playlist-link {
