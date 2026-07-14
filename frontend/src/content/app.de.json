@@ -263,6 +263,7 @@
   "footer": {
     "createdByPrefix": "Erstellt von",
     "contributeText": "Änderungen auf GitHub vorschlagen",
+    "disclaimer": "Career Signal Engine kann Fehler machen. Prüfe wichtige Informationen.",
     "version": "1.1.2"
   },
   "cvBasics": {

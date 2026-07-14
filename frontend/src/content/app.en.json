@@ -480,6 +480,7 @@
     "separator": "/",
     "contributeText": "Suggest changes on GitHub",
     "contributeUrl": "https://github.com/FANMixco/career-signal",
+    "disclaimer": "Career Signal Engine can make mistakes. Check important info.",
     "version": "1.1.2"
   },
   "appHelp": {

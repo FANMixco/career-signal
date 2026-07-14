@@ -7,10 +7,13 @@ function renderFooter() {
   ` : "";
 
   els.siteFooterInner.innerHTML = `
-    <span>${escapeHtml(config.footer.createdByPrefix)} <a href="${escapeHtml(config.footer.creatorUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.creatorName)}</a></span>
-    <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
-    <a href="${escapeHtml(config.footer.contributeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.contributeText)}</a>
-    ${version}
+    <p class="footer-disclaimer">${escapeHtml(config.footer.disclaimer)}</p>
+    <div class="footer-links">
+      <span>${escapeHtml(config.footer.createdByPrefix)} <a href="${escapeHtml(config.footer.creatorUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.creatorName)}</a></span>
+      <span class="footer-separator" aria-hidden="true">${escapeHtml(config.footer.separator)}</span>
+      <a href="${escapeHtml(config.footer.contributeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.footer.contributeText)}</a>
+      ${version}
+    </div>
   `;
 }
 
