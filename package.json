@@ -9,6 +9,7 @@
     "version:sync": "node scripts/sync-version.cjs",
     "frontend:build": "node scripts/build-frontend.cjs",
     "frontend:i18n:check": "node scripts/validate-frontend-i18n.cjs",
+    "sample:check": "node scripts/validate-samples.cjs",
     "desktop:setup": "npm install && npm --prefix backend install",
     "desktop:prepare": "npm run version:sync && npm run frontend:build && npm --prefix backend run build",
     "desktop:build": "npm run desktop:dist",

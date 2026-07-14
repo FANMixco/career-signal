@@ -41,7 +41,6 @@ els.ollamaCustomModel.addEventListener("input", () => {
   }
 });
 els.outputLanguage.addEventListener("change", () => {
-  localStorage.setItem(languageStorageKey, els.outputLanguage.value);
   refreshLanguage();
   invalidatePrecheckIfSourceChanged();
 });

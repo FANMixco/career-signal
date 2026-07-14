@@ -389,19 +389,19 @@
         ]
       },
       {
-        "title": "Datos básicos de contacto",
-        "items": [
-          "Pon nombre, email, teléfono y ubicación útil al inicio.",
-          "Añade LinkedIn o portfolio cuando ayude a demostrar el perfil.",
-          "Que falten datos de contacto es poco común, pero crea fricción innecesaria para reclutadores."
-        ]
-      },
-      {
         "title": "Referencias",
         "items": [
           "No incluyas referencias ni datos de contacto de referencias por defecto.",
           "Usa referencias disponibles bajo solicitud solo cuando sea esperado en el país, sector o formulario de aplicación.",
           "Protege la privacidad de otras personas: comparte nombres, teléfonos, emails o recomendaciones directas solo cuando te lo pidan y la referencia haya aceptado."
+        ]
+      },
+      {
+        "title": "Datos básicos de contacto",
+        "items": [
+          "Pon nombre, email, teléfono y ubicación útil al inicio.",
+          "Añade LinkedIn o portfolio cuando ayude a demostrar el perfil.",
+          "Que falten datos de contacto es poco común, pero crea fricción innecesaria para reclutadores."
         ]
       }
     ]

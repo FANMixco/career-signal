@@ -1,0 +1,491 @@
+{
+  "schema": "career-signal-session",
+  "schemaVersion": 1,
+  "exportedAt": "2026-07-12T08:28:27.967Z",
+  "appVersion": "1.1.0",
+  "inputs": {
+    "profile": {
+      "yearsOfExperience": "10",
+      "hasDegree": "false",
+      "degreeYear": "",
+      "ageWarningAcknowledged": false,
+      "experienceSelectionMode": "lastFive",
+      "outputLanguage": "de"
+    },
+    "cvText": "Seite 1 von 4\nFederico\nNavarrete\nIT-Stratege & Cloud-Architekt\nMehr als 10 Jahre Erfahrung in der Leitung digitaler Transformation, Unternehmensarchitektur und KI-gestützter Modernisierung in multinationalen Organisationen. Nachweisliche Erfolge bei Cloud-Migrationen, Enterprise Governance und Modernisierungsinitiativen, von der Rückentwicklung 30 Jahre alter Altsysteme bis zur Reduzierung von AWS-Verschwendung um 40 % und der Mitwirkung an Initiativen zur Migration in souveräne Clouds. Berater der Führungsebene, der strategisches Denken mit praxisnaher Umsetzung verbindet, um messbare Geschäftsergebnisse zu erzielen.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Schottland\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/federico-navarrete\nSOZIALE UND ÜBERTRAGBARE KOMPETENZEN\nFührung IT-Beratung Kommunikation mit Führungskräften und Stakeholdern Projektmanagement Kulturelle Intelligenz\nVerhandlung Stakeholder-Management IT-/KI-Strategie Innovationsmanagement Design Thinking\nMentoring Schulung Teambildung Digitale Transformation Problemlösung Storytelling KI-Einführung\nBERUFSERFAHRUNG\nBerater für IT-Strategie, Product Owner und Cloud-Architekt\nEuropäische Kommission/Amt für Veröffentlichungen der Europäischen Union (OP)\n06/2024 - Heute, Hybrid/Luxemburg\nLeitete die durch Amazon Q unterstützte Modernisierung eines 30 Jahre alten Perl-Altsystems, rekonstruierte undokumentierte Geschäftslogik anhand von Screenshots und Webspuren, bewertete kommerzielle sowie Open-Source-Alternativen und entwarf die Zielplattform.\nLieferte nach neun Jahren festgefahrener Bemühungen innerhalb einer Woche einen Machbarkeitsnachweis und vermied dadurch geschätzte Neuentwicklungskosten von rund 2 Mio. €.\nVertrat das Amt für Veröffentlichungen auf internationalen Konferenzen und an Universitäten, darunter die erste FinOps-Konferenz des Europäischen Parlaments, die Warsaw IT Days und die Don Bosco University in El Salvador.\nEntwarf die Plattform „Obsolescence Clock“, definierte die Lebenszyklus-Governance für mehr als 70 Unternehmenssysteme über vier Reifegradstufen hinweg und begleitete ihre Einführung als geschäftskritische Fähigkeit.\nLeitete die Migration der OP-Datenbank in eine souveräne Cloud, lieferte einen erfolgreichen Machbarkeitsnachweis für die Migration von Oracle RDS auf AWS zu PostgreSQL auf Clever Cloud und definierte zugleich die Roadmap zur Modernisierung der Übertragung von Altdaten.\nStartete das erste Programm zur Cloud-Kostenoptimierung, reduzierte die AWS-Verschwendung in Testumgebungen um 40 % und entwickelte gemeinsam eine KI-gestützte Analyselösung zur Prognose künftiger Einsparmöglichkeiten.\nWar Mitglied des institutionellen Architektur- und Strategiegremiums, bewertete bedeutende IT-Initiativen und stellte ihre Ausrichtung an der Unternehmensarchitektur und der langfristigen Digitalstrategie sicher.\nMitglied des Beratungsgremiums\nAmt für Veröffentlichungen der Europäischen Union\n10/2024 - Heute, Luxemburg\nBeriet den Generaldirektor als Mitglied eines strategischen Beratungsgremiums und gestaltete Initiativen zur Modernisierung institutioneller Prozesse und Kompetenzen der Belegschaft mit.\nBeriet die Führungsebene zu neuen Technologien, darunter ein strategischer Vorschlag zur Bewertung DNA-basierter Archivspeicherung von Biomemory für die langfristige Bewahrung des Amtsblatts.\nVerfasste die institutionelle Strategie für robotergestützte Prozessautomatisierung (RPA) und definierte die Zieltechnologielandschaft, das Governance-Modell und die Umsetzungsroadmap.\nEntwarf eine Strategie zur Weiterqualifizierung der Belegschaft, um die digitale Transformation durch Kompetenzaufbau, Verantwortungsübernahme und organisatorische Resilienz zu unterstützen.\nBewertete institutionelle Geschäftspläne und operative Prioritäten und beriet zu langfristigen Initiativen der digitalen Transformation.\nErfolge/Aufgaben\nErfolge/Aufgaben\nSeite 2 von 4\nBERUFSERFAHRUNG\nIT Delivery Manager, Softwarearchitekt und AWS-Berater (über Inetum)\nEricsson\n12/2020 - 05/2024, Remote/Madrid, Spanien\nKonzipierte und leitete die Neuentwicklung von 9 lokalen Anwendungen zu 80 Microservices unter Verwendung cloudnativer AWS-Dienste und Docker. Dadurch sanken die monatlichen Kosten von 10.000 USD auf 6.000 USD und der damit verbundene CO₂-Fußabdruck wurde reduziert. Sämtliche Lösungen waren DSGVO-konform. Außerdem koordinierte ich die Aufteilung des zentralen AWS-Kontos in 15 Konten und führte mit CodePipeline eine neue Logik für Continuous Deployment ein.\nWurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien und beriet mehr als 3 Teams bei der Migration und Neugestaltung ihrer lokalen Lösungen auf AWS, mit besonderem Fokus auf cloudnative Dienste, maximale Kosteneinsparungen und die Verringerung des CO₂-Fußabdrucks.\nGewann und leitete die Entwicklung eines AWS-Projekts im Wert von 100.000 USD zur Überwachung globaler Preise und überführte SAP-HANA-gestützte Excel-Arbeitsmappen in einen Cloud Data Lake. Dabei entstand die erste gemeinsam mit ChatGPT entwickelte Produktionsanwendung unter Verwendung von Python, Power BI und SQL Server.\nLeitete 3 in Indien ansässige Teams: ein sechsköpfiges Team für Support und Entwicklung von 9 Anwendungen mit AWS, Docker, Java und Datenbanken, ein zweiköpfiges Team für einen Data-Lake-Dienst sowie ein zweiköpfiges Team für RPAs mit Blue Prism. Die Auslieferung wurde mit Kanban und Jira gesteuert.\nEntwickelte mehrere AWS-Lambda-Skripte mit Python und AWS EventBridge zur zeitgesteuerten Abschaltung und Inbetriebnahme von Anwendungen, reduzierte die monatlichen Kosten von etwa 1.500 € auf etwa 300 € und verringerte den damit verbundenen CO₂-Fußabdruck. Zusätzlich beseitigte ich den Bedarf an Docker-Desktop-Lizenzen in der spanischen Niederlassung durch ein WSL-2-basiertes Skript.\nFungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern, bewertete die technische Machbarkeit und die Auswirkungen von Änderungsanforderungen hinsichtlich Zeit, Budget und Aufwand und berechnete die jährlichen Wartungskosten der Anwendungen.\nFreiberufler, Cloud-Architekt und Autor\nSupernova IC\n01/2009 - Heute, Remote/Estland\nGewann zweimal den ersten Platz und leitete zwei multikulturelle, multidisziplinäre Remote-Teams bei der gemeinsamen Entwicklung innovativer Technologie-MVPs für die von EIT Urban Mobility organisierten und von der Europäischen Union unterstützten Urban Mobility Citythons 2021 in Eindhoven und Hamburg. Unsere MVPs konzentrierten sich auf „Keeping a City Green“ und „Virtual Twin Cities“ zur Demokratisierung der Stadtplanung.\nVeröffentlichte mit „Timeless Stories of El Salvador“ die ersten salvadorianischen Folklorebücher auf Englisch. Präsentierte die Reihe international über die Instituto-Cervantes-Institute und die salvadorianischen Botschaften in Indien, Österreich, Deutschland, Spanien, Türkiye und Marokko, einschließlich der SIEL in Rabat.\nVeröffentlichte mehr als 20 Anwendungen und Bibliotheken über NuGet, Microsoft Store, Google Play und Amazon, erreichte mehr als 60.000 Downloads und entwickelte unter anderem die weltweit auf Platz 1 geführte Toastmasters-Timer-App bei Google Play.\nPräsentierte preisgekrönte Geschäftsideen vor Organisationen und Vertretern, darunter die Europäische Kommission in Brüssel, Microsoft, Cisco, NASA, die EU, die Stadtverwaltung von Eindhoven und die Vereinten Nationen. Gewann den Samsung Top Developer Award in der Kategorie Social 2021.\nTechnologieanalyst und Berater\nInfosys Polen\n07/2018 - 02/2021, Remote/Łódź, Polen\nEntwarf die IaaS-Architektur und leitete während COVID-19 die Migration von 10 RPAs in Automation Anywhere, 10 .NET-Anwendungen, 6 Datenbanken und 3 Makros von lokalen Systemen zu Azure. Das multikulturelle achtköpfige Scrum-Team arbeitete remote mit Mitgliedern aus Costa Rica, der Türkei und Polen zusammen. Der Prozess ermöglichte zudem mehreren Teams die Arbeit im Homeoffice.\nBaute zwei Bots für Stammdaten und Berichterstattung gemeinsam mit einem vierköpfigen, nach Kanban geführten Team neu auf. Dadurch wurde das Vertrauen in ein RPA-Mandat wiederhergestellt und es wurden 2 Vollzeitäquivalente eingespart. In der Folge wurde ein weiteres RPA-Projekt gewonnen, das zusätzliche 2 Vollzeitäquivalente einsparte.\nEntwarf und implementierte einen neuen Plan zur Entwicklung von RPAs, der die Fehlerquote um 25 % verringerte.\nGewinner des TSG Strategy Internalization Contest und der 7. Oxford-Debatte: Ist die Zukunft von BPO/BPM vielversprechend oder zum Scheitern verurteilt?\nAUSGEWÄHLTE EHRENAMTLICHE ERFAHRUNG\nPräsident\nThe Leader Ship Toastmasters\n07/2023 - 06/2024, Remote/Łódź, Polen\nStellte die Kommunikation zwischen allen 3 lokalen Clubs in Łódź wieder her.\nEntwickelte die Strategie und begann die Zusammenarbeit und Verhandlungen mit Rotary Clubs in Łódź, um unsere Allianz auszubauen.\nNahm Verhandlungen mit den Organisatoren der lokalen International Speech Conference auf, um zusammenzuarbeiten und den englischsprachigen Club von Łódź wiederzubeleben.\nArea Director\nToastmasters International, District 108\n07/2018 - 06/2019, Łódź-Warschau, Polen\nWurde im District 108 für 2018/2019 zum zweitbesten Area Director gewählt.\nOrganisierte mit einem sechsköpfigen Team eine multikulturelle Konferenz mit mehr als 50 Teilnehmenden und internationalen Rednern.\nEntwickelte einen vierstündigen Workshop zum Elevator Pitching für 20 junge Unternehmer, unterstützt von der Stadtverwaltung Łódź.\nErfolge/Aufgaben\nErfolge/Aufgaben\nErfolge/Aufgaben\nAufgaben/Erfolge Aufgaben/Erfolge\nSeite 3 von 4\nTECHNISCHE KOMPETENZEN\nEntwicklung &\nKI-Werkzeuge\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nCloud- &\nUnternehmens-\nplattformen\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nSprachen &\nTechnologien\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nFrameworks &\nBibliotheken\n.NET 8+, MAUI, OpenAI API, Gemini\nAPI, Google Maps API, TensorFlow\nJS, Bootstrap 5, Leaflet\nMethoden Unternehmensarchitektur, Digitale\nTransformation, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, KI-gestützte Entwicklung\nDienste der\nEuropäischen\nKommission\nEU Login, eTranslation, GPT@EC\nVersionsverwaltung Git (GitHub, Azure DevOps und\nBitBucket), SVN, TFS\nAUSGEWÄHLTE TECHNOLOGIEPROJEKTE\nCareer Signal Engine (06/2026 - Heute)\nEine KI-gestützte Open-Source-Plattform zur Optimierung von Lebensläufen durch personalisierte Karrieresignale und stellenspezifische Empfehlungen.\nToastmasters Timer (01/2018 - Heute)\nMehr als 60.000 Downloads über Google Play, Amazon, Microsoft Store und Huawei AppGallery. Toastmasters-Timer-App auf Platz 1 bei Google Play.\nLet's Stop Diabetes (11/2015 - Heute)\nFinalist unter den besten 5 beim Microsoft Imagine Cup Poland in der Kategorie World Citizenship 2016. Mehr als 1.200 Downloads im Microsoft Store.\nGravity Now! (03/2014 - Heute)\nAusgewählt als eines der fünf inspirierendsten Projekte der NASA Space Apps Challenge 2014. Mehr als 1.000 Downloads über Google Play und Microsoft Store.\nAUSGEWÄHLTE VERÖFFENTLICHUNGEN\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - laufend\nUnabhängig\nDie erste salvadorianische Folklorereihe, die auf Englisch, Spanisch und Französisch veröffentlicht wurde. International präsentiert über die Instituto-Cervantes-Institute sowie salvadorianische und spanische Botschaften und Konsulate in Europa, Asien, Australien, Afrika und Amerika, einschließlich der Internationalen Buchmesse SIEL in Rabat im Jahr der UNESCO-Welthauptstadt des Buches.\nLinkedIn\nWarum ich glaube, dass Hebelwirkung wichtiger ist als je zuvor\n12/01/2026\nUntersucht, wie Menschen durch parallele Kompetenzen, Feedbackschleifen und frühe Erfahrung in einer Welt mit kürzeren Karrieren, KI-bedingten Umbrüchen und schwächeren institutionellen Sicherheitsnetzen Hebelwirkung aufbauen können.\nLinkedIn\nWarum ich immer in Systemen und Anreizen denke: Meine Sichtweise\n01/12/2025\nEine Reflexion darüber, wie Systemdenken, Anreize und Mustererkennung meinen Ansatz zu Technologie, Führung und Innovation geprägt haben.\nLinkedIn\nZwei Gehirne, eine Vision: Wie ChatGPT mir half, meinen Toastmasters Timer weiterzuentwickeln\n06/10/2025\nWie kollaborative generative KI die Weiterentwicklung der am häufigsten heruntergeladenen Toastmasters-Timer-Anwendung beschleunigte.\nLinkedIn\nSind Low-Code-Plattformen der nächste große Trend in der IT?\n07/01/2020\nEine Einführung in Low-Code-Entwicklungsplattformen und ihre Auswirkungen in der heutigen Zeit.\nLinkedIn\nDie vier Gesichter der Automatisierung in Industrie 4.0\n24/01/2020\nZweite Ausgabe dieses Artikels über verschiedene Automatisierungsarten: taktische Automatisierung, Punktlösungen, RPAs und kognitive Automatisierung.\nAUSGEWÄHLTE INTERNATIONALE VORTRÄGE\nBuchpräsentation (05/2026)\nSalon International de l'Edition et du Livre\nOffizielle Teilnahme an der internationalen Buchmesse Marokkos zur Vorstellung von „Timeless Stories of El Salvador: Spanish Mirrors“.\nKonferenzredner (04/2026)\nWarszawskie Dni Informatyki\nHielt einen Vortrag über die Entwicklung von Unternehmens-KI mit Amazon Q und fortgeschrittene KI-gestützte Softwareentwicklung.\nSeite 4 von 4\nAUSGEWÄHLTE INTERNATIONALE VORTRÄGE\nKonferenzredner (02/2025)\nEuropäisches Parlament, FinOps Foundation und Europäische Kommission\nWie Smart Contracts für FinOps im öffentlichen Sektor erstellt werden können.\nKonferenzredner (11/2023)\nInstituto Cervantes in Neu-Delhi\nPräsentierte die erste Hindi-Übersetzung von „Timeless Stories of El Salvador for Children“.\nEingeladener Redner (10/2023)\nInstituto Cervantes in Istanbul\nHauptredner beim ersten iberoamerikanischen Literaturtreffen in Türkiye.\nKonferenzredner (07/2020)\nIEEE und Don Bosco University\nVortrag über Automatisierung in IT-Prozessen und die Zukunft nach COVID-19.\nAUSGEWÄHLTE EHRUNGEN UND AUSZEICHNUNGEN\nEhrenpreis für den besten KI-Lösungs-Projektmanager mit Drupal Canvas (01/2026)\nEuropäische Kommission\nSamsung Top Developer Award Social 2021\n(07/2021)\nSamsung\n1. Platz bei den Citythons 2021, Ausgaben Eindhoven und Hamburg (06/2021)\nEIT Urban Mobility, kofinanziert von der Europäischen Union\nGewinner des Hackathons „Diversity in Leadership“ (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Heute)\nToastmasters International\nPresident's Distinguished Area (10/2019)\nToastmasters International\nGewinner der 7. Oxford-Debatte: Ist die Zukunft von BPO/BPM vielversprechend oder zum Scheitern verurteilt? (04/2019)\nInfosys Polen\nGewinner des TSG Strategy Internalization Contest (07/2020)\nInfosys\n1. Platz an der Fakultät für Elektrotechnik, Elektronik, Informatik und Regelungstechnik sowie an der International Faculty of Engineering (12/2016)\nTechnische Universität Łódź\n1. Platz bei der Cisco Switch Up Challenge „The Internet of Everything“ (03/2016)\nCisco Systems\nAUSGEWÄHLTE ZERTIFIKATE\nClaude Code in Action von Anthropic (06/2026 - Heute)\nMcKinsey.org Forward Program (07/2025 - Heute)\nFinOps-Grundlagen für Cloud-Bereitstellungen (01/2025 - Heute)\nBusiness for All 2024, Harvard Business Publishing (09/2024 - Heute)\nMaschinelles Lernen für Geschäftsfachleute (08/2019 - Heute)\nMaschinelles Lernen mit JavaScript, Udemy (04/2020 - Heute)\nProjektmanager werden, LinkedIn (01/2020 - Heute)\nScrum Foundations Professional Certificate, CertiProf (01/2020)\nSPRACHEN\nEnglisch\nVolle berufliche Sprachkompetenz\nSpanisch\nMuttersprache oder zweisprachige Kompetenz\nFranzösisch\nBegrenzte berufliche Sprachkompetenz",
+    "pastedCvText": "",
+    "aiSettings": {
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "selectedModelOption": "gpt-5.4-mini",
+      "customModels": {},
+      "ollamaBaseUrl": ""
+    },
+    "tailoring": {
+      "companyName": "Bain & Company",
+      "companyDescription": "",
+      "jobPosition": "Expertenmanager für Softwareentwicklung (Full Stack)",
+      "jobDescription": "WARUM WIR EIN HERVORRAGENDER ARBEITSPLATZ SIND\n\nWir sind stolz darauf, regelmäßig als einer der besten Arbeitgeber der Welt anerkannt zu werden. Derzeit sind wir das bestplatzierte Beratungsunternehmen auf Glassdoors Liste der besten Arbeitgeber und haben den ersten Gesamtrang bereits siebenmal erreicht. Außergewöhnliche Teams stehen im Mittelpunkt unserer Geschäftsstrategie, entstehen jedoch nicht zufällig. Sie erfordern einen bewussten Fokus darauf, unterschiedliche Hintergründe, Kulturen, Erfahrungen, Perspektiven und Kompetenzen in einem unterstützenden und inklusiven Arbeitsumfeld zusammenzubringen. Wir stellen Menschen mit außergewöhnlichem Talent ein und schaffen ein Umfeld, in dem jede Person beruflich und persönlich erfolgreich sein kann.\n\nMIT WEM SIE ARBEITEN WERDEN\n\nSie werden Teil unserer Engineering-Experten im Team AI, Insights & Solutions. Dieses Team gehört zu Bains Praxis für digitale Fähigkeiten und umfasst Fachleute aus Analytik, Engineering, Produktmanagement und Design. In diesem multidisziplinären Umfeld verbinden Sie tiefgehende technische Expertise mit Geschäftssinn, um Kunden bei ihren tiefgreifendsten Herausforderungen zu unterstützen. Sie arbeiten in integrierten Teams gemeinsam mit unseren Generalisten und Kunden an datenbasierten Strategien und innovativen Lösungen. Zusammen entwickeln wir menschenzentrierte Lösungen, die Daten und künstliche Intelligenz nutzen, um unseren Kunden Wettbewerbsvorteile zu verschaffen. Unser kooperatives und unterstützendes Arbeitsumfeld fördert Kreativität und kontinuierliches Lernen und ermöglicht uns, dauerhaft außergewöhnliche Ergebnisse zu erzielen.\n\nWAS SIE TUN WERDEN\nAls Expert Manager Software Engineering leiten Sie die Entwicklung und den Aufbau von Softwareanwendungen, die komplexe geschäftliche und technologische Probleme in verschiedenen Branchen lösen. Sie führen ein vielfältiges Engineering-Team durch den gesamten Entwicklungslebenszyklus. Zu Ihren Aufgaben gehören Entwurf, Entwicklung, Optimierung und Bereitstellung modernster Softwarelösungen und Infrastruktur in dem Produktionsmaßstab, den die größten Unternehmen der Welt benötigen. Dabei stellen Sie insbesondere sicher, dass die technische Umsetzung die Geschäftsstrategie, die Weiterentwicklung des Betriebsmodells und eine nachhaltige Wertschöpfung unterstützt.\n\nKundenlösungen gestalten und abgrenzen. Arbeiten Sie mit Bain-Beratungsteams und Product Ownern zusammen, um Geschäftsprobleme in priorisierte Backlogs und technische Roadmaps für funktionsübergreifende Engineering-Teams zu überführen.\nTechnische Fähigkeiten in kundenreife Produkt- und Transformationsergebnisse übersetzen, indem Sie Produktrichtung, Auswirkungen auf das Betriebsmodell und Change-Management-Ansätze gestalten, die Einführung und messbare Geschäftswirkung unterstützen.\nVerantwortung für Full-Stack-Entwurf und Entwicklung übernehmen. Leiten Sie Architektur, Entwicklung und Dokumentation von KI-Anwendungen, einschließlich Programmierung und Integration externer Dienste oder Frameworks, die die Auslieferung beschleunigen und die langfristige Wartbarkeit verbessern.\nBest Practices für KI-native Softwareentwicklung etablieren. Definieren und überwachen Sie Standards für Komponentenbibliotheken und Designsysteme, automatisierte Tests, Linting, CI/CD, Barrierefreiheit und Leistungsoptimierung.\nWiederverwendbare Bibliotheken und Beschleuniger entwickeln. Erstellen und pflegen Sie gemeinsam nutzbare Codebausteine, die die Zeit bis zur Wertschöpfung in mehreren Kundenprojekten und internen Initiativen verkürzen.\nDen vollständigen Auslieferungslebenszyklus leiten. Definieren Sie Qualitätskontrollen, beaufsichtigen Sie Code Reviews, stellen Sie eine robuste Abdeckung durch Unit- und Integrationstests sicher, steuern Sie die Release-Planung und überwachen Sie Monitoring sowie Störungsbehebung nach der Bereitstellung.\nExzellenz bei UI und UX gemeinsam vorantreiben. Arbeiten Sie mit Designern zusammen, um inklusive und responsive Benutzeroberflächen bereitzustellen.\nEngineers betreuen und weiterentwickeln. Bieten Sie erfahrenen und fortgeschrittenen Engineers tägliches technisches Coaching durch Pair Programming, Architektursitzungen und konstruktives Feedback.\nEngineering-Teams der Kunden weiterqualifizieren. Schulen Sie Kundenentwickler in modernen Werkzeugen sowie DevOps- und cloudnativen Praktiken und stellen Sie sicher, dass sie nach Abschluss des Bain-Mandats nachhaltig Verantwortung übernehmen können.\nDie Einführung KI-nativer Technologien vorantreiben. Fördern Sie Containerisierung, Infrastructure as Code, automatisierte Observability und Secure-by-Design-Prinzipien, um Skalierbarkeit, Zuverlässigkeit und Sicherheit zu verbessern.\nZu Communities of Practice beitragen. Teilen Sie Erfahrungen und neue Technologietrends in internen Foren, informellen Wissenssitzungen und Wissensressourcen.\nTalentgewinnung und Onboarding unterstützen. Beteiligen Sie sich an Vorstellungsgesprächen, technischen Bewertungen und der Betreuung neuer Mitarbeitender, um eine erstklassige Engineering-Gruppe aufzubauen.\nReisebereitschaft ist erforderlich. Diese Position erfordert regionale Reisen außerhalb Ihres Heimatbüros oder primären Arbeitsorts. Häufigkeit und Ziele richten sich nach den Projektanforderungen.\n\nÜBER SIE\n\nTechnische Fähigkeiten und Kenntnisse\n\nHochschulabschluss in Informatik, Ingenieurwissenschaften oder einem verwandten technischen Fachgebiet.\nMehr als 6 Jahre durchgängige Erfahrung im Entwurf, Aufbau und Betrieb produktionsreifer Full-Stack-Anwendungen.\nErfahrung in der direkten Zusammenarbeit mit geschäftlichen Stakeholdern, um strategische Ziele in Lösungen, Plattformprodukte oder Roadmaps zu überführen.\nMehr als 4 Jahre Erfahrung in der Entwicklung serverseitiger Dienste mit FastAPI, Node.js/Express, Flask, Django, .NET Core, Java Spring Boot oder vergleichbaren Technologien, einschließlich API-Design.\nMehr als 3 Jahre Erfahrung in Architektur und Betrieb von Microservice-Ökosystemen mit Schwerpunkt auf Service Discovery, Observability, CI/CD-Automatisierung sowie Blue-Green- oder Canary-Bereitstellungen.\nExpertenkenntnisse in Python, JavaScript und/oder weiteren Programmiersprachen.\nErfahrung mit cloudnativer Bereitstellung auf AWS, Azure oder GCP, Kenntnisse verwalteter Dienste, serverloser Muster und von Infrastructure as Code wie Terraform, CloudFormation oder Bicep.\nSicherer Umgang mit Containerisierung und Orchestrierung, Docker, Kubernetes und verwandten Werkzeugen wie Helm und Argo CD.\nErfahrung mit Datenbankarchitekturen für relationale Systeme wie PostgreSQL, MySQL und SQL Server sowie NoSQL- und Dokumentenspeicher wie MongoDB, DynamoDB und Redis, verbunden mit soliden SQL-Kenntnissen.\nSolide Grundlagen der Informatik, Datenstrukturen, Algorithmen, objektorientierte und funktionale Paradigmen, automatisierte Tests und Performance-Profiling.\nAusgezeichnete Fähigkeiten im Softwarearchitekturdesign, einschließlich modularer, verteilter und cloudnativer Systeme sowie Skalierbarkeit, Resilienz, Wartbarkeit und Observability.\nErfahrung mit Datensicherheit, OAuth 2.0/OIDC, JWT, SSO und Cloud-IAM, Verschlüsselung während der Übertragung und im Ruhezustand sowie Kenntnis der Datenschutzvorschriften.\nIdealerweise Erfahrung mit moderner KI- und ML-Entwicklung, LLM-APIs, Prompt Engineering, RAG-Pipelines, agentischen SDKs und KI-Sicherheit.\nIdealerweise praktische Erfahrung mit modernen Webtechnologien wie React, Angular, Vue.js, TypeScript, HTML5 und CSS3.\nNachgewiesene Führungskraft und Mentor mit der Fähigkeit, Engineering-Teams zu leiten, Programmierstandards festzulegen, gründliche Code Reviews durchzuführen und weniger erfahrene Engineers weiterzuentwickeln.\nAgile Auslieferungsmentalität, praktische Erfahrung mit Scrum oder Kanban, Story-Point-Schätzung, Backlog Refinement sowie Git-basierten Workflows, Jira und automatisierten CI/CD-Pipelines.\nFließende Englischkenntnisse. Für Iberia mindestens verhandlungssicheres Spanisch.\n\nZwischenmenschliche Fähigkeiten\n\nAusgeprägte zwischenmenschliche und kommunikative Fähigkeiten, einschließlich der Fähigkeit, technische Aspekte von Lösungen, Algorithmen und Methoden gegenüber Kollegen und Kunden aus anderen Fachgebieten zu erklären und zu diskutieren.\nNeugier, Eigeninitiative und kritisches Denken.\nFähigkeit zur Zusammenarbeit mit Menschen auf allen Ebenen sowie mit Teams aus mehreren Büros und Regionen.\nFähigkeit, selbstständig zu arbeiten und Prioritäten auszubalancieren, um in einem schnelllebigen und mehrdeutigen Umfeld erfolgreich zu sein und zugleich in komplexen Situationen als Teil eines Teams zusammenzuarbeiten.\nVector-Empfehlung EMEA\n\nVector-Empfehlungen EMEA",
+      "targetStyle": "Management",
+      "unlocked": true,
+      "continueDespiteWeakPrecheck": false
+    }
+  },
+  "outputs": {
+    "precheck": {
+      "cvEvidenceScore": 89,
+      "scoreBreakdown": {
+        "quantifiedResults": 18,
+        "accomplishmentClarity": 18,
+        "scopeAndScale": 18,
+        "responsibilityVersusOutcomeRatio": 14,
+        "interviewDefensibility": 10
+      },
+      "hasQuantifiedResults": true,
+      "hasAccomplishments": true,
+      "mostlyJobDescriptions": false,
+      "impactClarityScore": 17,
+      "quantifiedEvidenceCount": 18,
+      "strongBulletCount": 20,
+      "weakBulletCount": 8,
+      "proceedRecommendation": "Fortfahren",
+      "mainProblem": "Insgesamt sind die Nachweise stark, doch einige Stichpunkte vermischen Verantwortlichkeiten mit Ergebnissen, einigen Aussagen fehlen präzise Ausgangswerte oder Kontextangaben, und der Lebenslauf ist so lang, dass die überzeugendsten Belege durch umfangreiche Listen von Veröffentlichungen, Vorträgen und Projekten verwässert werden können.",
+      "specificWarnings": [
+        "Einige Abschnitte mit langer Beschäftigungsdauer könnten interne Entwicklung oder Veränderungen des Verantwortungsumfangs verbergen. Die Tätigkeiten bei Ericsson und dem Amt für Veröffentlichungen umfassen mehrere Verantwortungsbereiche und vermutlich eine Rollenentwicklung. Sofern zutreffend, würde die Aufteilung nach Beförderungen, internen Rollenwechseln oder Arbeitsphasen die Lesbarkeit verbessern.",
+        "Einige abgeschlossene Erfolge sind in einer laufenden oder allgemeinen Form formuliert, wodurch die zeitliche Einordnung unklar werden kann. Beispiele sind Formulierungen wie „ich analysiere“, „ich bin“ oder Aufgaben im Präsens unter früheren Stellen. Frühere Tätigkeiten sollten konsequent in der Vergangenheit stehen, und abgeschlossene Ergebnisse der aktuellen Stelle sollten klar datiert werden.",
+        "Der Lebenslauf ist sehr lang und dicht. Er enthält umfangreiche Veröffentlichungen, Vorträge, Zertifikate und Projektlisten, die die stärksten beruflichen Nachweise bei der Anpassung an eine Stelle abschwächen können. Für konkrete Bewerbungen sollten weniger aussagekräftige Elemente gekürzt werden.",
+        "Einige Stichpunkte kombinieren Verantwortlichkeiten und Erfolge im selben Satz, wodurch das Ergebnis schwerer zu erkennen ist. Das ist nicht gravierend, verringert jedoch die schnelle Erfassbarkeit und die Belastbarkeit im Vorstellungsgespräch.",
+        "Einige Aussagen sind beeindruckend, aber nicht vollständig mit Vergleichswerten, Zeiträumen oder geschäftlichem Kontext verankert. Kostensenkungen und eingesparte Vollzeitäquivalente sind starke Nachweise, wären jedoch teilweise noch überzeugender, wenn Ausgangslage, Umfang vor und nach der Maßnahme oder Entscheidungswirkung genannt würden.",
+        "Die Zusammenfassung enthält starke narrative Aussagen wie „vertrauenswürdiger Berater“ und „nachweisliche Erfolge“, die größtenteils belegt sind. Die Formulierungen sind jedoch so breit, dass Leser für jede wesentliche Aussage einen unmittelbar benachbarten Nachweis erwarten könnten.",
+        "Alle wesentlichen Kontaktdaten scheinen im oberen Bereich vorhanden zu sein, daher ist keine Warnung zu den Kontaktdaten erforderlich."
+      ],
+      "missingEvidenceTypes": [
+        "Explizitere geschäftliche Ausgangswerte für einige Kosteneinsparungen",
+        "Klarerer Vorher-Nachher-Kontext für einige Automatisierungs- und Migrationsergebnisse",
+        "Deutlicher sichtbarer Umfang der Führungswirkung über reine Teamgrößen hinaus",
+        "Aufschlüsselung der Rollenentwicklung bei langen Beschäftigungszeiträumen",
+        "Präzisere Chronologie abgeschlossener gegenüber noch laufenden Erfolgen"
+      ],
+      "examplesOfWeakBullets": [
+        "Fungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern. Ich analysiere die technische Machbarkeit und die Auswirkungen jeder Änderungsanforderung für ihre Anwendungen, einschließlich Zeit, Budget und Aufwand. Außerdem berechne ich die jährlichen Wartungskosten der Anwendungen.",
+        "Wurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien. Ich begann, mehr als 3 neue Teams bei der erfolgreichen Migration und Neugestaltung ihrer lokalen Lösungen auf AWS zu beraten und strategisch zu unterstützen, mit besonderem Fokus auf cloudnative Dienste zur Maximierung von Kosteneinsparungen und zur Verringerung des damit verbundenen CO₂-Fußabdrucks.",
+        "Beriet den Generaldirektor als Mitglied eines strategischen Beratungsgremiums und gestaltete Initiativen zur Modernisierung institutioneller Prozesse und Kompetenzen der Belegschaft mit.",
+        "Bewertete institutionelle Geschäftspläne und operative Prioritäten und beriet zu langfristigen Initiativen der digitalen Transformation.",
+        "Organisierte mit einem sechsköpfigen Team eine multikulturelle Konferenz mit mehr als 50 Teilnehmenden und internationalen Rednern."
+      ],
+      "questionsToRecoverMetrics": [
+        "Wie hoch waren die gesamten jährlichen AWS-Ausgaben vor der Verringerung der Verschwendung um 40 %, und wie hoch war danach die absolute Einsparung in Euro?",
+        "Wie viele Nutzer, Länder, Teams oder Geschäftsprozesse waren von der Migration der 9 lokalen Anwendungen zu 80 Microservices betroffen?",
+        "Wie verlief der Zeitplan des einwöchigen Machbarkeitsnachweises im Vergleich zu den vorherigen neun Jahren festgefahrener Bemühungen, und wer genehmigte oder übernahm das Ergebnis?",
+        "Wie viele Unternehmenssysteme deckt die Governance-Plattform für mehr als 70 Systeme heute im Produktivbetrieb ab, und was änderte sich nach ihrer Einführung operativ?",
+        "Welches Geschäftsrisiko, welche Compliance-Anforderung oder welche Kostensenkung war das Ziel des Machbarkeitsnachweises zur Migration in eine souveräne Cloud?",
+        "Wie viele Teams oder Stakeholder haben Sie bei Ericsson und beim Amt für Veröffentlichungen beeinflusst, und welche Entscheidungen änderten sich durch Ihren Beitrag?",
+        "Welcher geschäftliche Leistungsindikator verbesserte sich beim AWS-Projekt im Wert von 100.000 USD zusätzlich zur technischen Modernisierung?",
+        "Welche Tätigkeiten entfielen durch die Einsparung von Vollzeitäquivalenten bei Infosys, wie regelmäßig fielen diese Einsparungen an und wie hoch war ihre annualisierte Wirkung?",
+        "Beruhten die vermiedenen Neuentwicklungskosten von 2 Mio. € auf einem geschätzten Anbieterangebot, einem internen Budget oder einer Prognose, und wer validierte den Betrag?",
+        "Welchen konkreten Führungsumfang hatten Sie gegenüber den 3 in Indien ansässigen Teams: disziplinarische Führung, technische Leitung oder Auslieferungskoordination?"
+      ],
+      "interviewRiskQuestions": [
+        "Können Sie den genauen Business Case für die Verringerung der AWS-Verschwendung um 40 % erläutern und erklären, wie Sie sie gemessen haben?",
+        "Welche direkte Rolle hatten Sie beim einwöchigen Machbarkeitsnachweis nach neun Jahren festgefahrener Bemühungen, und warum war Ihr Ansatz erfolgreich?",
+        "Wie haben Sie validiert, dass die Neuentwicklung etwa 2 Mio. € gekostet hätte?",
+        "Welche internen Rollenwechsel oder Beförderungen fanden während Ihrer langen Beschäftigungszeiten bei Ericsson und dem Amt für Veröffentlichungen statt?",
+        "Welche Erfolge im Lebenslauf sind noch laufende Arbeiten und welche sind abgeschlossene Projekte?",
+        "Welches Beispiel würden Sie wählen, wenn ich Sie nach einem Fall fragte, in dem Ihr Führungseinfluss eine Entscheidung der Leitungsebene verändert hat, und warum?"
+      ],
+      "nextStep": "Fahren Sie mit der Anpassung fort, schärfen Sie jedoch die stärksten Stichpunkte, machen Sie tatsächliche Rollenentwicklungen getrennt sichtbar und ergänzen Sie fehlende Ausgangswerte oder Entscheidungswirkungen, bevor Sie sich auf stark umkämpfte Stellen bewerben.",
+      "personalDataWarnings": []
+    },
+    "precheckPayload": {
+      "cvText": "Seite 1 von 4\nFederico\nNavarrete\nIT-Stratege & Cloud-Architekt\nMehr als 10 Jahre Erfahrung in der Leitung digitaler Transformation, Unternehmensarchitektur und KI-gestützter Modernisierung in multinationalen Organisationen. Nachweisliche Erfolge bei Cloud-Migrationen, Enterprise Governance und Modernisierungsinitiativen, von der Rückentwicklung 30 Jahre alter Altsysteme bis zur Reduzierung von AWS-Verschwendung um 40 % und der Mitwirkung an Initiativen zur Migration in souveräne Clouds. Berater der Führungsebene, der strategisches Denken mit praxisnaher Umsetzung verbindet, um messbare Geschäftsergebnisse zu erzielen.\nfnavarrete@springfield.scot\n+423000100300\nHogwarts, Schottland\nfedericonavarrete.com\nlinkedin.com/in/federiconavarrete\ngithub.com/FANMixco\nstackoverflow.com/users/1928691/federico-navarrete\nSOZIALE UND ÜBERTRAGBARE KOMPETENZEN\nFührung IT-Beratung Kommunikation mit Führungskräften und Stakeholdern Projektmanagement Kulturelle Intelligenz\nVerhandlung Stakeholder-Management IT-/KI-Strategie Innovationsmanagement Design Thinking\nMentoring Schulung Teambildung Digitale Transformation Problemlösung Storytelling KI-Einführung\nBERUFSERFAHRUNG\nBerater für IT-Strategie, Product Owner und Cloud-Architekt\nEuropäische Kommission/Amt für Veröffentlichungen der Europäischen Union (OP)\n06/2024 - Heute, Hybrid/Luxemburg\nLeitete die durch Amazon Q unterstützte Modernisierung eines 30 Jahre alten Perl-Altsystems, rekonstruierte undokumentierte Geschäftslogik anhand von Screenshots und Webspuren, bewertete kommerzielle sowie Open-Source-Alternativen und entwarf die Zielplattform.\nLieferte nach neun Jahren festgefahrener Bemühungen innerhalb einer Woche einen Machbarkeitsnachweis und vermied dadurch geschätzte Neuentwicklungskosten von rund 2 Mio. €.\nVertrat das Amt für Veröffentlichungen auf internationalen Konferenzen und an Universitäten, darunter die erste FinOps-Konferenz des Europäischen Parlaments, die Warsaw IT Days und die Don Bosco University in El Salvador.\nEntwarf die Plattform „Obsolescence Clock“, definierte die Lebenszyklus-Governance für mehr als 70 Unternehmenssysteme über vier Reifegradstufen hinweg und begleitete ihre Einführung als geschäftskritische Fähigkeit.\nLeitete die Migration der OP-Datenbank in eine souveräne Cloud, lieferte einen erfolgreichen Machbarkeitsnachweis für die Migration von Oracle RDS auf AWS zu PostgreSQL auf Clever Cloud und definierte zugleich die Roadmap zur Modernisierung der Übertragung von Altdaten.\nStartete das erste Programm zur Cloud-Kostenoptimierung, reduzierte die AWS-Verschwendung in Testumgebungen um 40 % und entwickelte gemeinsam eine KI-gestützte Analyselösung zur Prognose künftiger Einsparmöglichkeiten.\nWar Mitglied des institutionellen Architektur- und Strategiegremiums, bewertete bedeutende IT-Initiativen und stellte ihre Ausrichtung an der Unternehmensarchitektur und der langfristigen Digitalstrategie sicher.\nMitglied des Beratungsgremiums\nAmt für Veröffentlichungen der Europäischen Union\n10/2024 - Heute, Luxemburg\nBeriet den Generaldirektor als Mitglied eines strategischen Beratungsgremiums und gestaltete Initiativen zur Modernisierung institutioneller Prozesse und Kompetenzen der Belegschaft mit.\nBeriet die Führungsebene zu neuen Technologien, darunter ein strategischer Vorschlag zur Bewertung DNA-basierter Archivspeicherung von Biomemory für die langfristige Bewahrung des Amtsblatts.\nVerfasste die institutionelle Strategie für robotergestützte Prozessautomatisierung (RPA) und definierte die Zieltechnologielandschaft, das Governance-Modell und die Umsetzungsroadmap.\nEntwarf eine Strategie zur Weiterqualifizierung der Belegschaft, um die digitale Transformation durch Kompetenzaufbau, Verantwortungsübernahme und organisatorische Resilienz zu unterstützen.\nBewertete institutionelle Geschäftspläne und operative Prioritäten und beriet zu langfristigen Initiativen der digitalen Transformation.\nErfolge/Aufgaben\nErfolge/Aufgaben\nSeite 2 von 4\nBERUFSERFAHRUNG\nIT Delivery Manager, Softwarearchitekt und AWS-Berater (über Inetum)\nEricsson\n12/2020 - 05/2024, Remote/Madrid, Spanien\nKonzipierte und leitete die Neuentwicklung von 9 lokalen Anwendungen zu 80 Microservices unter Verwendung cloudnativer AWS-Dienste und Docker. Dadurch sanken die monatlichen Kosten von 10.000 USD auf 6.000 USD und der damit verbundene CO₂-Fußabdruck wurde reduziert. Sämtliche Lösungen waren DSGVO-konform. Außerdem koordinierte ich die Aufteilung des zentralen AWS-Kontos in 15 Konten und führte mit CodePipeline eine neue Logik für Continuous Deployment ein.\nWurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien und beriet mehr als 3 Teams bei der Migration und Neugestaltung ihrer lokalen Lösungen auf AWS, mit besonderem Fokus auf cloudnative Dienste, maximale Kosteneinsparungen und die Verringerung des CO₂-Fußabdrucks.\nGewann und leitete die Entwicklung eines AWS-Projekts im Wert von 100.000 USD zur Überwachung globaler Preise und überführte SAP-HANA-gestützte Excel-Arbeitsmappen in einen Cloud Data Lake. Dabei entstand die erste gemeinsam mit ChatGPT entwickelte Produktionsanwendung unter Verwendung von Python, Power BI und SQL Server.\nLeitete 3 in Indien ansässige Teams: ein sechsköpfiges Team für Support und Entwicklung von 9 Anwendungen mit AWS, Docker, Java und Datenbanken, ein zweiköpfiges Team für einen Data-Lake-Dienst sowie ein zweiköpfiges Team für RPAs mit Blue Prism. Die Auslieferung wurde mit Kanban und Jira gesteuert.\nEntwickelte mehrere AWS-Lambda-Skripte mit Python und AWS EventBridge zur zeitgesteuerten Abschaltung und Inbetriebnahme von Anwendungen, reduzierte die monatlichen Kosten von etwa 1.500 € auf etwa 300 € und verringerte den damit verbundenen CO₂-Fußabdruck. Zusätzlich beseitigte ich den Bedarf an Docker-Desktop-Lizenzen in der spanischen Niederlassung durch ein WSL-2-basiertes Skript.\nFungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern, bewertete die technische Machbarkeit und die Auswirkungen von Änderungsanforderungen hinsichtlich Zeit, Budget und Aufwand und berechnete die jährlichen Wartungskosten der Anwendungen.\nFreiberufler, Cloud-Architekt und Autor\nSupernova IC\n01/2009 - Heute, Remote/Estland\nGewann zweimal den ersten Platz und leitete zwei multikulturelle, multidisziplinäre Remote-Teams bei der gemeinsamen Entwicklung innovativer Technologie-MVPs für die von EIT Urban Mobility organisierten und von der Europäischen Union unterstützten Urban Mobility Citythons 2021 in Eindhoven und Hamburg. Unsere MVPs konzentrierten sich auf „Keeping a City Green“ und „Virtual Twin Cities“ zur Demokratisierung der Stadtplanung.\nVeröffentlichte mit „Timeless Stories of El Salvador“ die ersten salvadorianischen Folklorebücher auf Englisch. Präsentierte die Reihe international über die Instituto-Cervantes-Institute und die salvadorianischen Botschaften in Indien, Österreich, Deutschland, Spanien, Türkiye und Marokko, einschließlich der SIEL in Rabat.\nVeröffentlichte mehr als 20 Anwendungen und Bibliotheken über NuGet, Microsoft Store, Google Play und Amazon, erreichte mehr als 60.000 Downloads und entwickelte unter anderem die weltweit auf Platz 1 geführte Toastmasters-Timer-App bei Google Play.\nPräsentierte preisgekrönte Geschäftsideen vor Organisationen und Vertretern, darunter die Europäische Kommission in Brüssel, Microsoft, Cisco, NASA, die EU, die Stadtverwaltung von Eindhoven und die Vereinten Nationen. Gewann den Samsung Top Developer Award in der Kategorie Social 2021.\nTechnologieanalyst und Berater\nInfosys Polen\n07/2018 - 02/2021, Remote/Łódź, Polen\nEntwarf die IaaS-Architektur und leitete während COVID-19 die Migration von 10 RPAs in Automation Anywhere, 10 .NET-Anwendungen, 6 Datenbanken und 3 Makros von lokalen Systemen zu Azure. Das multikulturelle achtköpfige Scrum-Team arbeitete remote mit Mitgliedern aus Costa Rica, der Türkei und Polen zusammen. Der Prozess ermöglichte zudem mehreren Teams die Arbeit im Homeoffice.\nBaute zwei Bots für Stammdaten und Berichterstattung gemeinsam mit einem vierköpfigen, nach Kanban geführten Team neu auf. Dadurch wurde das Vertrauen in ein RPA-Mandat wiederhergestellt und es wurden 2 Vollzeitäquivalente eingespart. In der Folge wurde ein weiteres RPA-Projekt gewonnen, das zusätzliche 2 Vollzeitäquivalente einsparte.\nEntwarf und implementierte einen neuen Plan zur Entwicklung von RPAs, der die Fehlerquote um 25 % verringerte.\nGewinner des TSG Strategy Internalization Contest und der 7. Oxford-Debatte: Ist die Zukunft von BPO/BPM vielversprechend oder zum Scheitern verurteilt?\nAUSGEWÄHLTE EHRENAMTLICHE ERFAHRUNG\nPräsident\nThe Leader Ship Toastmasters\n07/2023 - 06/2024, Remote/Łódź, Polen\nStellte die Kommunikation zwischen allen 3 lokalen Clubs in Łódź wieder her.\nEntwickelte die Strategie und begann die Zusammenarbeit und Verhandlungen mit Rotary Clubs in Łódź, um unsere Allianz auszubauen.\nNahm Verhandlungen mit den Organisatoren der lokalen International Speech Conference auf, um zusammenzuarbeiten und den englischsprachigen Club von Łódź wiederzubeleben.\nArea Director\nToastmasters International, District 108\n07/2018 - 06/2019, Łódź-Warschau, Polen\nWurde im District 108 für 2018/2019 zum zweitbesten Area Director gewählt.\nOrganisierte mit einem sechsköpfigen Team eine multikulturelle Konferenz mit mehr als 50 Teilnehmenden und internationalen Rednern.\nEntwickelte einen vierstündigen Workshop zum Elevator Pitching für 20 junge Unternehmer, unterstützt von der Stadtverwaltung Łódź.\nErfolge/Aufgaben\nErfolge/Aufgaben\nErfolge/Aufgaben\nAufgaben/Erfolge Aufgaben/Erfolge\nSeite 3 von 4\nTECHNISCHE KOMPETENZEN\nEntwicklung &\nKI-Werkzeuge\nClaude Code, Codex, Visual Studio,\nVS Code, Amazon Q, Management\nStudio, Android Studio, UiPath\nStudio, Azure DevOps, Draw.io,\nOpenProject, Kiro\nCloud- &\nUnternehmens-\nplattformen\nAWS (ECS, Fargate, Lambda, S3, RDS,\nCodeArtifact), Azure, Docker, Power\nPlatform, ChatGPT, Google Cloud\nAutoML, Clever Cloud, OVH, Google\nAnalytics, Jira\nSprachen &\nTechnologien\nC#, Python, TypeScript/JavaScript,\n.NET, Angular, Java, SQL Server,\nOracle, HTML5/CSS3, Entity\nFramework, LINQ, WPF, ASP.NET\nMVC, Android SDK\nFrameworks &\nBibliotheken\n.NET 8+, MAUI, OpenAI API, Gemini\nAPI, Google Maps API, TensorFlow\nJS, Bootstrap 5, Leaflet\nMethoden Unternehmensarchitektur, Digitale\nTransformation, Agile, Scrum,\nDevOps, ATDD, Kanban, Material\nDesign, KI-gestützte Entwicklung\nDienste der\nEuropäischen\nKommission\nEU Login, eTranslation, GPT@EC\nVersionsverwaltung Git (GitHub, Azure DevOps und\nBitBucket), SVN, TFS\nAUSGEWÄHLTE TECHNOLOGIEPROJEKTE\nCareer Signal Engine (06/2026 - Heute)\nEine KI-gestützte Open-Source-Plattform zur Optimierung von Lebensläufen durch personalisierte Karrieresignale und stellenspezifische Empfehlungen.\nToastmasters Timer (01/2018 - Heute)\nMehr als 60.000 Downloads über Google Play, Amazon, Microsoft Store und Huawei AppGallery. Toastmasters-Timer-App auf Platz 1 bei Google Play.\nLet's Stop Diabetes (11/2015 - Heute)\nFinalist unter den besten 5 beim Microsoft Imagine Cup Poland in der Kategorie World Citizenship 2016. Mehr als 1.200 Downloads im Microsoft Store.\nGravity Now! (03/2014 - Heute)\nAusgewählt als eines der fünf inspirierendsten Projekte der NASA Space Apps Challenge 2014. Mehr als 1.000 Downloads über Google Play und Microsoft Store.\nAUSGEWÄHLTE VERÖFFENTLICHUNGEN\nAmazon\nTimeless Stories of El Salvador\n16/11/2020 - laufend\nUnabhängig\nDie erste salvadorianische Folklorereihe, die auf Englisch, Spanisch und Französisch veröffentlicht wurde. International präsentiert über die Instituto-Cervantes-Institute sowie salvadorianische und spanische Botschaften und Konsulate in Europa, Asien, Australien, Afrika und Amerika, einschließlich der Internationalen Buchmesse SIEL in Rabat im Jahr der UNESCO-Welthauptstadt des Buches.\nLinkedIn\nWarum ich glaube, dass Hebelwirkung wichtiger ist als je zuvor\n12/01/2026\nUntersucht, wie Menschen durch parallele Kompetenzen, Feedbackschleifen und frühe Erfahrung in einer Welt mit kürzeren Karrieren, KI-bedingten Umbrüchen und schwächeren institutionellen Sicherheitsnetzen Hebelwirkung aufbauen können.\nLinkedIn\nWarum ich immer in Systemen und Anreizen denke: Meine Sichtweise\n01/12/2025\nEine Reflexion darüber, wie Systemdenken, Anreize und Mustererkennung meinen Ansatz zu Technologie, Führung und Innovation geprägt haben.\nLinkedIn\nZwei Gehirne, eine Vision: Wie ChatGPT mir half, meinen Toastmasters Timer weiterzuentwickeln\n06/10/2025\nWie kollaborative generative KI die Weiterentwicklung der am häufigsten heruntergeladenen Toastmasters-Timer-Anwendung beschleunigte.\nLinkedIn\nSind Low-Code-Plattformen der nächste große Trend in der IT?\n07/01/2020\nEine Einführung in Low-Code-Entwicklungsplattformen und ihre Auswirkungen in der heutigen Zeit.\nLinkedIn\nDie vier Gesichter der Automatisierung in Industrie 4.0\n24/01/2020\nZweite Ausgabe dieses Artikels über verschiedene Automatisierungsarten: taktische Automatisierung, Punktlösungen, RPAs und kognitive Automatisierung.\nAUSGEWÄHLTE INTERNATIONALE VORTRÄGE\nBuchpräsentation (05/2026)\nSalon International de l'Edition et du Livre\nOffizielle Teilnahme an der internationalen Buchmesse Marokkos zur Vorstellung von „Timeless Stories of El Salvador: Spanish Mirrors“.\nKonferenzredner (04/2026)\nWarszawskie Dni Informatyki\nHielt einen Vortrag über die Entwicklung von Unternehmens-KI mit Amazon Q und fortgeschrittene KI-gestützte Softwareentwicklung.\nSeite 4 von 4\nAUSGEWÄHLTE INTERNATIONALE VORTRÄGE\nKonferenzredner (02/2025)\nEuropäisches Parlament, FinOps Foundation und Europäische Kommission\nWie Smart Contracts für FinOps im öffentlichen Sektor erstellt werden können.\nKonferenzredner (11/2023)\nInstituto Cervantes in Neu-Delhi\nPräsentierte die erste Hindi-Übersetzung von „Timeless Stories of El Salvador for Children“.\nEingeladener Redner (10/2023)\nInstituto Cervantes in Istanbul\nHauptredner beim ersten iberoamerikanischen Literaturtreffen in Türkiye.\nKonferenzredner (07/2020)\nIEEE und Don Bosco University\nVortrag über Automatisierung in IT-Prozessen und die Zukunft nach COVID-19.\nAUSGEWÄHLTE EHRUNGEN UND AUSZEICHNUNGEN\nEhrenpreis für den besten KI-Lösungs-Projektmanager mit Drupal Canvas (01/2026)\nEuropäische Kommission\nSamsung Top Developer Award Social 2021\n(07/2021)\nSamsung\n1. Platz bei den Citythons 2021, Ausgaben Eindhoven und Hamburg (06/2021)\nEIT Urban Mobility, kofinanziert von der Europäischen Union\nGewinner des Hackathons „Diversity in Leadership“ (10/2020)\nChappuis Halder & Co.\nDistinguished Toastmaster (06/2020 - Heute)\nToastmasters International\nPresident's Distinguished Area (10/2019)\nToastmasters International\nGewinner der 7. Oxford-Debatte: Ist die Zukunft von BPO/BPM vielversprechend oder zum Scheitern verurteilt? (04/2019)\nInfosys Polen\nGewinner des TSG Strategy Internalization Contest (07/2020)\nInfosys\n1. Platz an der Fakultät für Elektrotechnik, Elektronik, Informatik und Regelungstechnik sowie an der International Faculty of Engineering (12/2016)\nTechnische Universität Łódź\n1. Platz bei der Cisco Switch Up Challenge „The Internet of Everything“ (03/2016)\nCisco Systems\nAUSGEWÄHLTE ZERTIFIKATE\nClaude Code in Action von Anthropic (06/2026 - Heute)\nMcKinsey.org Forward Program (07/2025 - Heute)\nFinOps-Grundlagen für Cloud-Bereitstellungen (01/2025 - Heute)\nBusiness for All 2024, Harvard Business Publishing (09/2024 - Heute)\nMaschinelles Lernen für Geschäftsfachleute (08/2019 - Heute)\nMaschinelles Lernen mit JavaScript, Udemy (04/2020 - Heute)\nProjektmanager werden, LinkedIn (01/2020 - Heute)\nScrum Foundations Professional Certificate, CertiProf (01/2020)\nSPRACHEN\nEnglisch\nVolle berufliche Sprachkompetenz\nSpanisch\nMuttersprache oder zweisprachige Kompetenz\nFranzösisch\nBegrenzte berufliche Sprachkompetenz",
+      "cvTextPreview": "Seite 1 von 4\nFederico\nNavarrete\nIT-Stratege & Cloud-Architekt\nMehr als 10 Jahre Erfahrung in der Leitung digitaler Transformation, Unternehmensarchitektur und KI-gestützter Modernisierung in multinationalen Organisationen. Nachweisliche Erfolge bei Cloud-Migrationen, Enterprise Governance und Modernisierungsinitiativen, von der Rückentwicklung 30 Jahre alter Altsysteme bis zur Reduzierung von AWS-Verschwendung um 40 % und der Mitwirkung an Initiativen zur Migration in souveräne Clouds. Berater der Führungsebene, der strategisches Denken mit praxisnaher Umsetzung verbindet, um messbare Geschäf",
+      "agePrivacyWarning": {
+        "show": false,
+        "message": ""
+      },
+      "personalDataWarnings": [],
+      "precheck": {
+        "cvEvidenceScore": 89,
+        "scoreBreakdown": {
+          "quantifiedResults": 18,
+          "accomplishmentClarity": 18,
+          "scopeAndScale": 18,
+          "responsibilityVersusOutcomeRatio": 14,
+          "interviewDefensibility": 10
+        },
+        "hasQuantifiedResults": true,
+        "hasAccomplishments": true,
+        "mostlyJobDescriptions": false,
+        "impactClarityScore": 17,
+        "quantifiedEvidenceCount": 18,
+        "strongBulletCount": 20,
+        "weakBulletCount": 8,
+        "proceedRecommendation": "Fortfahren",
+        "mainProblem": "Insgesamt sind die Nachweise stark, doch einige Stichpunkte vermischen Verantwortlichkeiten mit Ergebnissen, einigen Aussagen fehlen präzise Ausgangswerte oder Kontextangaben, und der Lebenslauf ist so lang, dass die überzeugendsten Belege durch umfangreiche Listen von Veröffentlichungen, Vorträgen und Projekten verwässert werden können.",
+        "specificWarnings": [
+          "Einige Abschnitte mit langer Beschäftigungsdauer könnten interne Entwicklung oder Veränderungen des Verantwortungsumfangs verbergen. Die Tätigkeiten bei Ericsson und dem Amt für Veröffentlichungen umfassen mehrere Verantwortungsbereiche und vermutlich eine Rollenentwicklung. Sofern zutreffend, würde die Aufteilung nach Beförderungen, internen Rollenwechseln oder Arbeitsphasen die Lesbarkeit verbessern.",
+          "Einige abgeschlossene Erfolge sind in einer laufenden oder allgemeinen Form formuliert, wodurch die zeitliche Einordnung unklar werden kann. Beispiele sind Formulierungen wie „ich analysiere“, „ich bin“ oder Aufgaben im Präsens unter früheren Stellen. Frühere Tätigkeiten sollten konsequent in der Vergangenheit stehen, und abgeschlossene Ergebnisse der aktuellen Stelle sollten klar datiert werden.",
+          "Der Lebenslauf ist sehr lang und dicht. Er enthält umfangreiche Veröffentlichungen, Vorträge, Zertifikate und Projektlisten, die die stärksten beruflichen Nachweise bei der Anpassung an eine Stelle abschwächen können. Für konkrete Bewerbungen sollten weniger aussagekräftige Elemente gekürzt werden.",
+          "Einige Stichpunkte kombinieren Verantwortlichkeiten und Erfolge im selben Satz, wodurch das Ergebnis schwerer zu erkennen ist. Das ist nicht gravierend, verringert jedoch die schnelle Erfassbarkeit und die Belastbarkeit im Vorstellungsgespräch.",
+          "Einige Aussagen sind beeindruckend, aber nicht vollständig mit Vergleichswerten, Zeiträumen oder geschäftlichem Kontext verankert. Kostensenkungen und eingesparte Vollzeitäquivalente sind starke Nachweise, wären jedoch teilweise noch überzeugender, wenn Ausgangslage, Umfang vor und nach der Maßnahme oder Entscheidungswirkung genannt würden.",
+          "Die Zusammenfassung enthält starke narrative Aussagen wie „vertrauenswürdiger Berater“ und „nachweisliche Erfolge“, die größtenteils belegt sind. Die Formulierungen sind jedoch so breit, dass Leser für jede wesentliche Aussage einen unmittelbar benachbarten Nachweis erwarten könnten.",
+          "Alle wesentlichen Kontaktdaten scheinen im oberen Bereich vorhanden zu sein, daher ist keine Warnung zu den Kontaktdaten erforderlich."
+        ],
+        "missingEvidenceTypes": [
+          "Explizitere geschäftliche Ausgangswerte für einige Kosteneinsparungen",
+          "Klarerer Vorher-Nachher-Kontext für einige Automatisierungs- und Migrationsergebnisse",
+          "Deutlicher sichtbarer Umfang der Führungswirkung über reine Teamgrößen hinaus",
+          "Aufschlüsselung der Rollenentwicklung bei langen Beschäftigungszeiträumen",
+          "Präzisere Chronologie abgeschlossener gegenüber noch laufenden Erfolgen"
+        ],
+        "examplesOfWeakBullets": [
+          "Fungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern. Ich analysiere die technische Machbarkeit und die Auswirkungen jeder Änderungsanforderung für ihre Anwendungen, einschließlich Zeit, Budget und Aufwand. Außerdem berechne ich die jährlichen Wartungskosten der Anwendungen.",
+          "Wurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien. Ich begann, mehr als 3 neue Teams bei der erfolgreichen Migration und Neugestaltung ihrer lokalen Lösungen auf AWS zu beraten und strategisch zu unterstützen, mit besonderem Fokus auf cloudnative Dienste zur Maximierung von Kosteneinsparungen und zur Verringerung des damit verbundenen CO₂-Fußabdrucks.",
+          "Beriet den Generaldirektor als Mitglied eines strategischen Beratungsgremiums und gestaltete Initiativen zur Modernisierung institutioneller Prozesse und Kompetenzen der Belegschaft mit.",
+          "Bewertete institutionelle Geschäftspläne und operative Prioritäten und beriet zu langfristigen Initiativen der digitalen Transformation.",
+          "Organisierte mit einem sechsköpfigen Team eine multikulturelle Konferenz mit mehr als 50 Teilnehmenden und internationalen Rednern."
+        ],
+        "questionsToRecoverMetrics": [
+          "Wie hoch waren die gesamten jährlichen AWS-Ausgaben vor der Verringerung der Verschwendung um 40 %, und wie hoch war danach die absolute Einsparung in Euro?",
+          "Wie viele Nutzer, Länder, Teams oder Geschäftsprozesse waren von der Migration der 9 lokalen Anwendungen zu 80 Microservices betroffen?",
+          "Wie verlief der Zeitplan des einwöchigen Machbarkeitsnachweises im Vergleich zu den vorherigen neun Jahren festgefahrener Bemühungen, und wer genehmigte oder übernahm das Ergebnis?",
+          "Wie viele Unternehmenssysteme deckt die Governance-Plattform für mehr als 70 Systeme heute im Produktivbetrieb ab, und was änderte sich nach ihrer Einführung operativ?",
+          "Welches Geschäftsrisiko, welche Compliance-Anforderung oder welche Kostensenkung war das Ziel des Machbarkeitsnachweises zur Migration in eine souveräne Cloud?",
+          "Wie viele Teams oder Stakeholder haben Sie bei Ericsson und beim Amt für Veröffentlichungen beeinflusst, und welche Entscheidungen änderten sich durch Ihren Beitrag?",
+          "Welcher geschäftliche Leistungsindikator verbesserte sich beim AWS-Projekt im Wert von 100.000 USD zusätzlich zur technischen Modernisierung?",
+          "Welche Tätigkeiten entfielen durch die Einsparung von Vollzeitäquivalenten bei Infosys, wie regelmäßig fielen diese Einsparungen an und wie hoch war ihre annualisierte Wirkung?",
+          "Beruhten die vermiedenen Neuentwicklungskosten von 2 Mio. € auf einem geschätzten Anbieterangebot, einem internen Budget oder einer Prognose, und wer validierte den Betrag?",
+          "Welchen konkreten Führungsumfang hatten Sie gegenüber den 3 in Indien ansässigen Teams: disziplinarische Führung, technische Leitung oder Auslieferungskoordination?"
+        ],
+        "interviewRiskQuestions": [
+          "Können Sie den genauen Business Case für die Verringerung der AWS-Verschwendung um 40 % erläutern und erklären, wie Sie sie gemessen haben?",
+          "Welche direkte Rolle hatten Sie beim einwöchigen Machbarkeitsnachweis nach neun Jahren festgefahrener Bemühungen, und warum war Ihr Ansatz erfolgreich?",
+          "Wie haben Sie validiert, dass die Neuentwicklung etwa 2 Mio. € gekostet hätte?",
+          "Welche internen Rollenwechsel oder Beförderungen fanden während Ihrer langen Beschäftigungszeiten bei Ericsson und dem Amt für Veröffentlichungen statt?",
+          "Welche Erfolge im Lebenslauf sind noch laufende Arbeiten und welche sind abgeschlossene Projekte?",
+          "Welches Beispiel würden Sie wählen, wenn ich Sie nach einem Fall fragte, in dem Ihr Führungseinfluss eine Entscheidung der Leitungsebene verändert hat, und warum?"
+        ],
+        "nextStep": "Fahren Sie mit der Anpassung fort, schärfen Sie jedoch die stärksten Stichpunkte, machen Sie tatsächliche Rollenentwicklungen getrennt sichtbar und ergänzen Sie fehlende Ausgangswerte oder Entscheidungswirkungen, bevor Sie sich auf stark umkämpfte Stellen bewerben."
+      },
+      "recommendedNextAction": "Fortfahren"
+    },
+    "precheckSignature": "{\"yearsOfExperience\":\"10\",\"hasDegree\":\"false\",\"degreeYear\":\"\",\"experienceSelectionMode\":\"lastFive\",\"outputLanguage\":\"de\",\"cvText\":\"\",\"cvPdf\":\"My Resume - Consultant - Extended.pdf:178281:1782994379000\"}",
+    "evidenceRecoveryTips": {
+      "context": {
+        "role": "Fachkraft für Bildung oder Schulung",
+        "subjects": "Studierende, Lernende, Kurse, Schulungseinheiten, Lehrpläne, Teams oder Lernprogramme",
+        "outcomes": "Lernfortschritt, Teilnahme, Abschluss, Zufriedenheit, Bewertungsqualität, Einführung oder Unterstützungsabdeckung"
+      },
+      "weakLines": [
+        "Fungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern. Ich analysiere die technische Machbarkeit und die Auswirkungen jeder Änderungsanforderung für ihre Anwendungen, einschließlich Zeit, Budget und Aufwand. Außerdem berechne ich die jährlichen Wartungskosten der Anwendungen.",
+        "Wurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien. Ich begann, mehr als 3 neue Teams bei der erfolgreichen Migration und Neugestaltung ihrer lokalen Lösungen auf AWS zu beraten und strategisch zu unterstützen, mit besonderem Fokus auf cloudnative Dienste zur Maximierung von Kosteneinsparungen und zur Verringerung des damit verbundenen CO₂-Fußabdrucks.",
+        "Beriet den Generaldirektor als Mitglied eines strategischen Beratungsgremiums und gestaltete Initiativen zur Modernisierung institutioneller Prozesse und Kompetenzen der Belegschaft mit.",
+        "Bewertete institutionelle Geschäftspläne und operative Prioritäten und beriet zu langfristigen Initiativen der digitalen Transformation."
+      ],
+      "missingEvidence": [
+        "Explizitere geschäftliche Ausgangswerte für einige Kosteneinsparungen",
+        "Klarerer Vorher-Nachher-Kontext für einige Automatisierungs- und Migrationsergebnisse",
+        "Deutlicher sichtbarer Umfang der Führungswirkung über reine Teamgrößen hinaus",
+        "Aufschlüsselung der Rollenentwicklung bei langen Beschäftigungszeiträumen"
+      ],
+      "questions": [
+        "Wie hoch waren die gesamten jährlichen AWS-Ausgaben vor der Verringerung der Verschwendung um 40 %, und wie hoch war danach die absolute Einsparung in Euro?",
+        "Wie viele Nutzer, Länder, Teams oder Geschäftsprozesse waren von der Migration der 9 lokalen Anwendungen zu 80 Microservices betroffen?",
+        "Wie verlief der Zeitplan des einwöchigen Machbarkeitsnachweises im Vergleich zu den vorherigen neun Jahren festgefahrener Bemühungen, und wer genehmigte oder übernahm das Ergebnis?",
+        "Wie viele Unternehmenssysteme deckt die Governance-Plattform für mehr als 70 Systeme heute im Produktivbetrieb ab, und was änderte sich nach ihrer Einführung operativ?",
+        "Welches Geschäftsrisiko, welche Compliance-Anforderung oder welche Kostensenkung war das Ziel des Machbarkeitsnachweises zur Migration in eine souveräne Cloud?"
+      ]
+    },
+    "analysis": {
+      "roleDiagnosis": "Seniorprofil für IT-Strategie, Cloud-Architektur und Engineering-Auslieferung mit ausgeprägter beratungsnaher und stakeholderorientierter Führung. Der Lebenslauf zeigt bereits die erforderliche Tiefe für eine Engineering-Führungsrolle: Cloud-Migrationen, Unternehmensarchitektur, KI-gestützte Modernisierung, Teamkoordination, Governance sowie messbare Kosten- und Wertbeiträge. Für Bains Position Expert Manager Software Engineering liegt die stärkste Übereinstimmung bei cloudnativer Architektur, Auslieferungsführung, KI-gestützter Modernisierung und der Übersetzung geschäftlicher Anforderungen für Stakeholder. Die wichtigste Lücke besteht darin, dass der Lebenslauf Führungsmerkmale im Software Engineering noch nicht mit Bains genauer Begrifflichkeit in den Vordergrund stellt: Full-Stack-Produktauslieferung, Qualitätssysteme im Engineering, Governance für Code Reviews und Tests, wiederverwendbare Beschleuniger, Coaching von Kunden sowie eine ausdrückliche Einordnung in Betriebsmodell und Change Management.",
+      "companySignalInterpretation": "Bain signalisiert eine praxisnahe Engineering-Führungsrolle in einem Beratungsumfeld, in dem technische Glaubwürdigkeit mit kundenorientierter Problemlösung, der Gestaltung von Backlogs und Roadmaps, Teamcoaching und der Bereitstellung produktionsreifer Software in großem Maßstab verbunden werden muss. Die Stelle dreht sich weniger um reine Architektur oder Infrastruktur als darum, Geschäftsprobleme in Engineering-Lösungen zu übersetzen, die messbare Kundenergebnisse schaffen. Die Erwähnung von KI-nativem Engineering, wiederverwendbaren Bibliotheken, CI/CD, Observability, Secure by Design und Coaching zeigt den Bedarf an einer Person, die sowohl entwickeln als auch Teams führen und technische Entscheidungen in geschäftlichen Begriffen erklären kann. Der Empfehlungskontext und das Beratungsumfeld deuten darauf hin, dass Belege für Kommunikation mit Führungskräften, funktionsübergreifenden Einfluss und Anpassungsfähigkeit in mehrdeutigen Kundensituationen besonders wichtig sein werden.",
+      "candidatePositioning": "Positionieren Sie den Kandidaten als zweisprachige, kundenorientierte Führungskraft für Cloud- und KI-Modernisierung, die Strategie mit praxisnaher Engineering-Auslieferung verbindet. Der Lebenslauf sollte besonders hervorheben: Leitung cloudnativer Modernisierungsprogramme, Entwurf und Governance von Unternehmensplattformen, Übersetzung geschäftlicher Bedürfnisse in Roadmaps und technische Entscheidungen, Mentoring von Teams, Automatisierung der Auslieferung und Verringerung von Kosten oder Verschwendung sowie Einsatz KI-gestützter Engineering-Methoden. Umfangreiches Personal Branding, die Zahl der Veröffentlichungen und weniger relevante Erfolge sollten zurückgenommen werden, sofern sie nicht Führung, Kommunikation oder Engineering-Innovation stärken. Die glaubwürdigste Überschrift ist nicht ein allgemeines „IT-Stratege“, sondern eine beratungsgeeignete Positionierung wie „Senior-Führungskraft für Software Engineering und Cloud-Architektur“ mit nachgewiesener Modernisierungsauslieferung, Stakeholder-Führung und Erfahrung in KI-gestützter Entwicklung.",
+      "jobFitAssessment": {
+        "score": 78,
+        "verdict": "Gute Übereinstimmung",
+        "explanation": "Der Lebenslauf passt stark zu Bains Bedarf an einer Engineering-Führungskraft, die cloudnative Lösungen entwerfen, mit Führungskräften und Stakeholdern arbeiten, Teams leiten und messbare Modernisierungsergebnisse liefern kann. Besonders überzeugend sind die Nachweise zu AWS- und Azure-Migrationen, Microservices, Governance, Kostenoptimierung, KI-gestützter Entwicklung und grenzüberschreitender Teamführung. Das Hauptrisiko besteht darin, dass der Lebenslauf den Kandidaten noch nicht eindeutig mit Bains Begriffen als Software-Engineering-Manager darstellt: Produkt-Roadmaps, Qualitätskontrollen, Disziplin bei Code Reviews und Tests, wiederverwendbare Engineering-Artefakte und Kunden-Coaching sind nur teilweise oder indirekt sichtbar. Dadurch ist das Profil wettbewerbsfähig, aber noch nicht vollständig für diese konkrete Position optimiert.",
+        "strongestReasons": [
+          "Starke Erfahrung mit cloudnativer Architektur und Migrationen auf AWS und Azure.",
+          "Nachgewiesene Führung bei der Auslieferung über mehrere Teams hinweg, einschließlich Remote- und multikultureller Teams.",
+          "Deutlich sichtbare stakeholderorientierte Arbeit mit Führungskräften und institutionellen Gremien.",
+          "Nachweise für KI-gestützte Modernisierung und den produktiven Einsatz moderner Werkzeuge.",
+          "Quantifizierte Geschäftsergebnisse wie Kostensenkungen, Verringerung von Verschwendung und vermiedene Neuentwicklungskosten.",
+          "Beratungsorientierte Kommunikation und Beratungserfahrung passen zu Bains Kundenumfeld."
+        ],
+        "mainRisks": [
+          "Der Lebenslauf ist noch nicht in der von Bain verwendeten Sprache des Software-Engineering-Managements formuliert, etwa Verantwortung für Backlogs, Codequalität, Release Management, Observability und Betrieb nach der Bereitstellung.",
+          "Einige Stichpunkte vermischen Verantwortlichkeiten und Ergebnisse, wodurch der Führungsumfang schwieriger schnell zu bewerten ist.",
+          "Mehrere Aussagen würden von klareren Ausgangswerten, geschäftlichem Kontext oder Ergebnissen der Einführung profitieren.",
+          "Der Lebenslauf ist lang und überladen, wodurch die relevantesten Nachweise für diese Stelle verwässert werden können.",
+          "Einige Elemente könnten eher strategielastig als auslieferungsorientiert wirken, sofern sie nicht mit konkreten Angaben zum Engineering-Lebenszyklus neu formuliert werden."
+        ],
+        "companyDecisionWarning": "Die endgültige Einstellungsentscheidung liegt bei Bain & Company und kann von Faktoren außerhalb dieser Analyse abhängen, darunter die Leistung im Vorstellungsgespräch, die wahrgenommene Kundenpassung, interne Kalibrierung, der Empfehlungskontext, Marktbedarf und der Vergleich mit anderen Kandidaten."
+      },
+      "strongestMatchingEvidence": [
+        "Leitete die durch Amazon Q unterstützte Modernisierung eines 30 Jahre alten Perl-Altsystems, rekonstruierte undokumentierte Logik und lieferte nach neun Jahren festgefahrener Bemühungen innerhalb einer Woche einen Machbarkeitsnachweis.",
+        "Entwarf die Plattform „Obsolescence Clock“, definierte die Lebenszyklus-Governance für mehr als 70 Unternehmenssysteme und begleitete ihre Einführung als geschäftskritische Fähigkeit.",
+        "Leitete den Machbarkeitsnachweis für die Migration einer souveränen Datenbank von Oracle RDS auf AWS zu PostgreSQL auf Clever Cloud.",
+        "Startete das erste Programm zur Cloud-Kostenoptimierung, reduzierte AWS-Verschwendung um 40 % und entwickelte gemeinsam KI-gestützte Analysen für künftige Einsparungen.",
+        "Überführte 9 lokale Anwendungen in 80 Microservices unter Verwendung cloudnativer AWS-Dienste und Docker und senkte dabei die monatlichen Kosten.",
+        "Leitete 3 Teams in Indien und fungierte als direkte Schnittstelle zwischen Entwicklungsteams und 9 Stakeholdern.",
+        "Entwarf und implementierte Migrationsarchitekturen, RPA-Lösungen und Cloud-Auslieferungspraktiken auf AWS und Azure.",
+        "Setzte Python, SQL, Power BI, Azure DevOps, Jira, Docker und Cloud-Plattformen praktisch in der Auslieferung ein.",
+        "Öffentliche Vorträge und institutionelle Beratung belegen ausgeprägte kundenorientierte Kommunikation und Präsenz gegenüber Führungskräften."
+      ],
+      "weakOrMissingSignals": [
+        "Explizite Formulierungen zur Verantwortung für Produkt und Backlog, verknüpft mit Geschäftsergebnissen.",
+        "Klare Nachweise für Full-Stack-Anwendungsentwicklung über Architektur und Automatisierung hinaus.",
+        "Namentlich genannte Nutzung von CI/CD-Qualitätskontrollen, Code-Review-Standards, Testabdeckung, Observability oder Release- und Incident-Management.",
+        "Explizites Coaching von Engineers, Pair Programming oder technische Betreuung in einem Auslieferungsumfeld.",
+        "Wiederverwendbare interne Bibliotheken, Beschleuniger oder Engineering-Artefakte, die für mehrere Projekte erstellt wurden.",
+        "Direkte Nachweise für React oder moderne Web-UI-Arbeit, Barrierefreiheit und Zusammenarbeit im Bereich UX.",
+        "Explizite Begriffe zu Cloud-Sicherheit, IAM und Authentifizierung wie OAuth 2.0, OIDC, JWT, SSO und Verschlüsselung.",
+        "Infrastructure-as-Code-Werkzeuge wie Terraform, CloudFormation oder Bicep sind nicht aufgeführt.",
+        "Kubernetes, Helm und Argo CD sind nicht aufgeführt.",
+        "Sprache zur Kundenarbeit bei Beratungsauslieferung, Veränderung des Betriebsmodells oder Einführungsmanagement ist vorhanden, wird aber nicht konsequent in den Vordergrund gestellt.",
+        "Einige langjährige Tätigkeiten könnten interne Entwicklung oder einen wachsenden Verantwortungsumfang verbergen, doch diese Entwicklung ist nicht vollständig sichtbar.",
+        "Die Ausbildung ist im bereitgestellten Text nicht sichtbar. Falls sie für Bains Vorauswahl relevant ist, sollte sie sicher ergänzt werden, sofern Angaben vorhanden sind; nichts erfinden."
+      ],
+      "keywordsToInclude": [
+        "Führung im Software Engineering",
+        "Cloudnative Auslieferung",
+        "KI-gestützte Entwicklung",
+        "Unternehmensarchitektur",
+        "Microservices",
+        "Auslieferung im Produktionsmaßstab",
+        "Technische Roadmaps",
+        "Backlog-Priorisierung",
+        "Stakeholder-Management",
+        "Kundenorientierung",
+        "Führung von Engineering-Teams",
+        "CI/CD",
+        "Docker",
+        "AWS",
+        "Azure",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "PostgreSQL",
+        "Beobachtbarkeit",
+        "Sicherheit durch Gestaltung",
+        "Wiederverwendbare Beschleuniger",
+        "Fachliche Betreuung",
+        "Codeprüfung",
+        "Freigabemanagement",
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Veränderungsmanagement",
+        "Betriebsmodell",
+        "Geschäftsergebnisse",
+        "Digitale Transformation"
+      ],
+      "keywordsToAvoid": [
+        "Vertrauenswürdiger Berater",
+        "Visionär",
+        "Rockstar",
+        "Guru",
+        "Leidenschaftlich",
+        "Ergebnisorientiert",
+        "Innovationsorientiert",
+        "Disruptiv",
+        "Beispiellos",
+        "Weltklasse",
+        "Dynamische Führungskraft",
+        "Fleißig",
+        "Selbststarter"
+      ],
+      "suggestedProfessionalSummary": "Führungskraft für Software Engineering und Cloud-Architektur mit mehr als 10 Jahren Erfahrung in KI-gestützter Modernisierung, cloudnativen Migrationen, Enterprise Governance und stakeholderorientierter Transformation in multinationalen Umgebungen. Nachgewiesene Erfolge bei der Führung multikultureller Teams, der Übersetzung geschäftlicher Bedürfnisse in technische Roadmaps und der Erzielung messbarer Ergebnisse wie Kostensenkungen, beschleunigter Modernisierung und Plattform-Governance in großem Maßstab. Praktische Erfahrung mit AWS, Azure, Docker, Python, SQL und KI-Werkzeugen sowie eine Beratungsmentalität, die zu kundenorientierter Engineering-Führung passt.",
+      "rewrittenCvBullets": [
+        {
+          "original": "Leitete die durch Amazon Q unterstützte Modernisierung eines 30 Jahre alten Perl-Altsystems, rekonstruierte undokumentierte Geschäftslogik anhand von Screenshots und Webspuren, bewertete kommerzielle sowie Open-Source-Alternativen und entwarf die Zielplattform. Lieferte nach neun Jahren festgefahrener Bemühungen innerhalb einer Woche einen Machbarkeitsnachweis und vermied dadurch Neuentwicklungskosten von rund 2 Mio. €.",
+          "rewritten": "Leitete die KI-gestützte Modernisierung eines 30 Jahre alten Perl-Altsystems, rekonstruierte undokumentierte Geschäftslogik, bewertete kommerzielle sowie Open-Source-Optionen und entwarf die Zielplattform. Lieferte nach neun Jahren festgefahrener Bemühungen innerhalb einer Woche einen Machbarkeitsnachweis und vermied dadurch geschätzte Neuentwicklungskosten von rund 2 Mio. €.",
+          "reason": "Bewahrt den zentralen Erfolg und macht zugleich Auslieferung und Geschäftswert schneller erfassbar.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Entwarf die Plattform „Obsolescence Clock“, definierte die Lebenszyklus-Governance für mehr als 70 Unternehmenssysteme über vier Reifegradstufen hinweg und begleitete ihre Einführung als geschäftskritische Fähigkeit.",
+          "rewritten": "Entwarf die Plattform „Obsolescence Clock“ zur Definition der Lebenszyklus-Governance für mehr als 70 Unternehmenssysteme über vier Reifegradstufen hinweg und begleitete ihre Einführung als geschäftskritische Fähigkeit.",
+          "reason": "Strafft die Formulierung und bewahrt das starke Signal zu Governance und Einführung.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Leitete die Migration der OP-Datenbank in eine souveräne Cloud, lieferte einen erfolgreichen Machbarkeitsnachweis für die Migration von Oracle RDS auf AWS zu PostgreSQL auf Clever Cloud und definierte zugleich die Roadmap zur Modernisierung der Übertragung von Altdaten.",
+          "rewritten": "Leitete einen Machbarkeitsnachweis zur Migration einer souveränen Datenbank von Oracle RDS auf AWS zu PostgreSQL auf Clever Cloud und definierte die Roadmap zur Modernisierung der Übertragung von Altdaten.",
+          "reason": "Verdeutlicht den Umfang und stellt das Migrationsergebnis in den Vordergrund.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Startete das erste Programm zur Cloud-Kostenoptimierung, reduzierte die AWS-Verschwendung in Testumgebungen um 40 % und entwickelte gemeinsam eine KI-gestützte Analyselösung zur Prognose künftiger Einsparmöglichkeiten.",
+          "rewritten": "Startete das erste Programm zur Cloud-Kostenoptimierung, reduzierte die AWS-Verschwendung in Testumgebungen um 40 % und entwickelte gemeinsam eine KI-gestützte Analyselösung zur Prognose künftiger Einsparmöglichkeiten.",
+          "reason": "Kleine sprachliche Bereinigung; das quantifizierte Ergebnis bleibt unverändert.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "War Mitglied des institutionellen Architektur- und Strategiegremiums, bewertete bedeutende IT-Initiativen und stellte ihre Ausrichtung an der Unternehmensarchitektur und der langfristigen Digitalstrategie sicher.",
+          "rewritten": "War Mitglied des institutionellen Architektur- und Strategiegremiums, bewertete bedeutende IT-Initiativen und stellte ihre Ausrichtung an der Unternehmensarchitektur und der langfristigen Digitalstrategie sicher.",
+          "reason": "Bewahrt das Signal strategischer Governance und verbessert zugleich die Lesbarkeit.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Konzipierte und leitete die Neuentwicklung von 9 lokalen Anwendungen zu 80 Microservices unter Verwendung cloudnativer AWS-Dienste und Docker. Dadurch sanken die monatlichen Kosten von 10.000 USD auf 6.000 USD und der damit verbundene CO₂-Fußabdruck wurde reduziert. Sämtliche Lösungen waren DSGVO-konform. Außerdem koordinierte ich die Aufteilung des zentralen AWS-Kontos in 15 Konten und führte mit CodePipeline eine neue Logik für Continuous Deployment ein.",
+          "rewritten": "Konzipierte und leitete die Neuentwicklung von 9 lokalen Anwendungen zu 80 Microservices unter Verwendung cloudnativer AWS-Dienste und Docker, senkte die monatlichen Kosten von 10.000 USD auf 6.000 USD und verringerte den damit verbundenen CO₂-Fußabdruck. Koordinierte außerdem die Aufteilung des zentralen AWS-Kontos in 15 Konten und führte mit CodePipeline einen neuen Continuous-Deployment-Ablauf ein.",
+          "reason": "Macht den Engineering-Umfang und die messbare Wirkung klarer, ohne die ursprünglichen Fakten zu verändern.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Wurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien. Ich begann, mehr als 3 neue Teams bei der erfolgreichen Migration und Neugestaltung ihrer lokalen Lösungen auf AWS zu beraten und strategisch zu unterstützen, mit besonderem Fokus auf cloudnative Dienste zur Maximierung von Kosteneinsparungen und zur Verringerung des damit verbundenen CO₂-Fußabdrucks.",
+          "rewritten": "Wurde nach erfolgreichen lokalen Anwendungsmigrationen zum führenden AWS-Berater von Ericsson Spanien und beriet mehr als 3 Teams bei der Migration und Neugestaltung lokaler Lösungen auf AWS, mit Schwerpunkt auf cloudnativen Diensten, Kosteneinsparungen und einem geringeren CO₂-Fußabdruck.",
+          "reason": "Überführt einen gemischten Verantwortlichkeitssatz in ein klareres Signal für Entwicklung und Beratung.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Gewann und leitete die Entwicklung eines AWS-Projekts im Wert von 100.000 USD zur Überwachung globaler Preise und überführte SAP-HANA-gestützte Excel-Arbeitsmappen in einen Cloud Data Lake. Dabei entstand die erste gemeinsam mit ChatGPT entwickelte Produktionsanwendung unter Verwendung von Python, Power BI und SQL Server.",
+          "rewritten": "Gewann und leitete ein AWS-Projekt im Wert von 100.000 USD, um SAP-HANA-gestützte Excel-Arbeitsabläufe für die Überwachung globaler Preise in einen Cloud Data Lake zu überführen, und lieferte die erste gemeinsam mit ChatGPT entwickelte Produktionsanwendung mit Python, Power BI und SQL Server.",
+          "reason": "Verbessert die Klarheit und hebt die produktive Auslieferung hervor.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Leitete 3 in Indien ansässige Teams: ein sechsköpfiges Team für Support und Entwicklung von 9 Anwendungen mit AWS, Docker, Java und Datenbanken, ein zweiköpfiges Team für einen Data-Lake-Dienst sowie ein zweiköpfiges Team für RPAs mit Blue Prism. Die Auslieferung wurde mit Kanban und Jira gesteuert.",
+          "rewritten": "Leitete drei in Indien ansässige Teams: ein sechsköpfiges Team für Support und Entwicklung von 9 Anwendungen, ein zweiköpfiges Data-Lake-Team und ein zweiköpfiges RPA-Team; Kanban und Jira dienten zur Steuerung der Auslieferung.",
+          "reason": "Ist prägnanter und für Recruiter leichter zu erfassen.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Fungierte als direkte Schnittstelle zwischen den Entwicklungsteams und 9 Stakeholdern. Ich analysiere die technische Machbarkeit und die Auswirkungen jeder Änderungsanforderung für ihre Anwendungen, einschließlich Zeit, Budget und Aufwand. Außerdem berechne ich die jährlichen Wartungskosten der Anwendungen.",
+          "rewritten": "Fungierte als direkte Schnittstelle zwischen Entwicklungsteams und 9 Stakeholdern und bewertete die technische Machbarkeit sowie die Auswirkungen von Änderungsanforderungen auf Auslieferung, Zeit, Budget, Aufwand und jährliche Wartungskosten.",
+          "reason": "Überführt Präsensformulierungen in einer früheren Rolle in die Vergangenheit und verbessert die Professionalität.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Entwarf die Architektur (IaaS) und leitete während COVID-19 die Migration von 10 RPAs in Automation Anywhere, 10 .NET-Anwendungen, 6 Datenbanken und 3 Makros von lokalen Systemen zu Azure.",
+          "rewritten": "Entwarf die IaaS-Architektur und leitete während COVID-19 die Migration von 10 RPAs in Automation Anywhere, 10 .NET-Anwendungen, 6 Datenbanken und 3 Makros von lokalen Systemen zu Azure.",
+          "reason": "Klarere Formulierung und bessere Lesbarkeit für ATS-Systeme.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        },
+        {
+          "original": "Baute zwei Bots für Stammdaten und Berichterstattung gemeinsam mit einem vierköpfigen, nach Kanban geführten Team neu auf. Dadurch wurde das Vertrauen in ein RPA-Mandat wiederhergestellt und es wurden 2 Vollzeitäquivalente eingespart. In der Folge wurde ein weiteres RPA-Projekt gewonnen, das zusätzliche 2 Vollzeitäquivalente einsparte.",
+          "rewritten": "Baute mit einem vierköpfigen, nach Kanban geführten Team zwei Bots für Stammdaten und Berichterstattung neu auf, stellte das Vertrauen in das RPA-Mandat wieder her und sparte 2 Vollzeitäquivalente ein; die daraus resultierende Arbeit trug außerdem zum Gewinn eines weiteren RPA-Mandats bei, das zusätzliche 2 Vollzeitäquivalente einsparte.",
+          "reason": "Verdeutlicht Abfolge und Ergebnis, ohne neue Fakten hinzuzufügen.",
+          "integrityClassification": "Direkt durch den Lebenslauf belegt"
+        }
+      ],
+      "suggestedCvStructure": [
+        "Kopfbereich mit Name, einer auf die Bain-Positionierung abgestimmten Berufsbezeichnung, Standort, E-Mail-Adresse, Telefonnummer, LinkedIn sowie Portfolio- und GitHub-Links.",
+        "Eine drei- bis vierzeilige berufliche Zusammenfassung mit Schwerpunkt auf Engineering-Führung, cloudnativer Auslieferung, KI-gestützter Modernisierung und Wirkung auf Stakeholder.",
+        "Abschnitt zu Kernkompetenzen mit ATS-freundlichen Schlüsselbegriffen, gruppiert nach Engineering-Führung, Cloud und cloudnativen Technologien, KI, Auslieferung und Stakeholder-Management.",
+        "Zuerst ausgewählte Berufserfahrung, nach Relevanz geordnet: Europäische Kommission beziehungsweise Amt für Veröffentlichungen, Ericsson, Infosys und danach die freiberufliche Tätigkeit, sofern sie für Bain relevante Belege liefert.",
+        "Unter jeder Position vier bis sechs Stichpunkte verwenden, die jeweils mit Handlung und Ergebnis beginnen; wesentliche Verantwortlichkeiten nach Möglichkeit von messbaren Ergebnissen trennen.",
+        "Abgeschlossene Erfolge in der Vergangenheit formulieren; Präsens nur für tatsächlich laufende Rollen und Verantwortlichkeiten verwenden.",
+        "Entwicklung oder Veränderungen des Verantwortungsumfangs innerhalb langer Beschäftigungszeiträume sichtbar machen, sofern sie zutreffen, und dafür Zwischenüberschriften oder Phasenzeilen nutzen, ohne neue Titel zu erfinden.",
+        "Abschnitte mit geringerer Signalwirkung wie umfangreiche Veröffentlichungen, Vorträge und Projekte kürzen oder verlagern, damit sie die relevantesten Engineering-Nachweise nicht verdrängen.",
+        "Falls Ausbildung relevant oder erforderlich ist, sie nur datenschutzfreundlich aufnehmen und unnötige Jahresangaben nach Möglichkeit vermeiden.",
+        "Nur Zertifikate behalten, die unmittelbar für Engineering, Cloud, KI oder Glaubwürdigkeit in der Beratung relevant sind."
+      ],
+      "atsFriendlySkillsSection": [
+        "Führung im Software Engineering",
+        "Cloud-Architektur",
+        "KI-gestützte Entwicklung",
+        "Unternehmensarchitektur",
+        "Microservices",
+        "AWS",
+        "Azure",
+        "Docker",
+        "Python",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "SQL Server",
+        "PostgreSQL",
+        "Power BI",
+        "CodePipeline",
+        "Jira",
+        "Kanban",
+        "Scrum",
+        "DevOps",
+        "CI/CD",
+        "Cloud-Governance",
+        "Kostenoptimierung",
+        "Stakeholder-Management",
+        "Veränderungsmanagement",
+        "Technische Roadmap-Entwicklung",
+        "RPA",
+        "Automatisierung",
+        "Fachliche Betreuung",
+        "Führung multikultureller Teams"
+      ],
+      "recruiterInterpretation": "Ein Recruiter wird wahrscheinlich ein vielversprechendes Hybridprofil aus Beratung und Technik erkennen: eine Person, die glaubwürdig über Unternehmenstransformation, Cloud- und KI-Modernisierung sowie Führung über Stakeholder und Teams hinweg sprechen kann. Der Lebenslauf deutet bereits auf hohe Reife in der Auslieferung und Präsenz gegenüber Führungskräften hin. Ohne Umstrukturierung könnte ein Bain-Recruiter das Profil jedoch weiterhin stärker als Architektur- und Strategieprofil denn als praxisnahes Engineering-Management wahrnehmen. Die Neugestaltung sollte daher Verantwortung für den Engineering-Lebenszyklus, Teamcoaching und Auslieferungsstandards früher und deutlicher sichtbar machen.",
+      "finalReconstructionPlan": [
+        "Die Überschrift so umformulieren, dass sie auf erfahrene Führung im Software Engineering und in der Cloud-Modernisierung ausgerichtet ist, statt ausschließlich auf eine breite IT-Strategie.",
+        "Die aktuelle Zusammenfassung durch eine beleggestützte Beratungs- und Engineering-Zusammenfassung ersetzen, die Auslieferung, Arbeit mit Kunden und Stakeholdern sowie KI- und Cloud-Expertise hervorhebt.",
+        "Die relevantesten aktuellen Rollen priorisieren und Elemente mit geringerer Signalwirkung verdichten, wenn sie Bains Anforderungen an einen Engineering-Manager nicht unterstützen.",
+        "Für jede Schlüsselrolle Architektur, Auslieferung, Führung und messbares Ergebnis in getrennten Stichpunkten darstellen.",
+        "ATS-Schlüsselbegriffe natürlich in Stichpunkten verwenden: Microservices, CI/CD, Observability, Produkt-Roadmap, Backlog, Engineering-Standards, cloudnative Auslieferung, KI-gestützte Entwicklung, Übersetzung von Stakeholder-Anforderungen und Veränderungseinführung.",
+        "Tatsächliche Rollenentwicklung oder einen wachsenden Verantwortungsumfang sichtbar machen, insbesondere bei langen Beschäftigungszeiträumen.",
+        "Gemischte Zeitformen und Präsensformulierungen in früheren Positionen in die Vergangenheit übertragen.",
+        "Nur die stärksten Veröffentlichungen, Vorträge und Auszeichnungen behalten, wenn sie Führung, Beratungsglaubwürdigkeit oder Engineering-Autorität stützen; andernfalls kürzen.",
+        "Fehlende, aber zutreffende Nachweise zu Coaching, Code Reviews, Qualitätskontrollen, Tests oder Release Management ergänzen, wenn der Kandidat sie bestätigen kann; andernfalls nicht andeuten.",
+        "Ausbildung, sofern relevant, datenschutzfreundlich und nur dann aufnehmen, wenn sie die Bewerbung stärkt; keine nicht bereitgestellten Angaben ergänzen.",
+        "Den Nutzer bitten, unsichere Kennzahlen oder nicht sichtbare Rollenentwicklungen vor der Fertigstellung des Lebenslaufs zu bestätigen.",
+        "Alle wahrheitsgemäßen quantifizierten Ergebnisse bewahren, da Bain Geschäftswirkung schätzen wird, sie jedoch nach Möglichkeit mit klarerem Geschäftskontext und besseren Ausgangswerten darstellen."
+      ],
+      "integrityAudit": [
+        {
+          "recommendation": "Die neu formulierte berufliche Zusammenfassung verwenden.",
+          "classification": "Direkt durch den Lebenslauf belegt",
+          "explanation": "Die Zusammenfassung ordnet lediglich vorhandene Nachweise aus dem Lebenslauf neu ein, ohne neue Aussagen hinzuzufügen."
+        },
+        {
+          "recommendation": "Die quantifizierten Kostensenkungen, vermiedenen Neuentwicklungskosten und Migrationsergebnisse beibehalten.",
+          "classification": "Direkt durch den Lebenslauf belegt",
+          "explanation": "Diese Ergebnisse werden im Ausgangslebenslauf ausdrücklich genannt und sind für die Zielposition sehr relevant."
+        },
+        {
+          "recommendation": "Code-Review-Standards, Testabdeckung, Observability oder Release Management ausdrücklich erwähnen.",
+          "classification": "Bestätigung durch den Nutzer erforderlich",
+          "explanation": "Diese Erfahrungen könnten vorhanden sein, werden im bereitgestellten Lebenslauf jedoch nicht klar genannt und sollten nur nach Bestätigung durch den Kandidaten ergänzt werden."
+        },
+        {
+          "recommendation": "Angeben, dass der Kandidat wiederverwendbare Engineering-Beschleuniger oder gemeinsam genutzte Bibliotheken für mehrere Projekte erstellt hat.",
+          "classification": "Bestätigung durch den Nutzer erforderlich",
+          "explanation": "Der Lebenslauf deutet technische Werkzeuge und Projekte an, belegt jedoch nicht eindeutig wiederverwendbare interne Beschleuniger, die über mehrere Kundenprojekte hinweg eingesetzt wurden."
+        },
+        {
+          "recommendation": "Einen eigenen Ausbildungsabschnitt ohne Abschlussjahre hinzufügen.",
+          "classification": "Bestätigung durch den Nutzer erforderlich",
+          "explanation": "Im Text wurden keine Ausbildungsangaben bereitgestellt. Sie sollten nur ergänzt werden, wenn der Kandidat sie liefert und sie für die Rolle relevant sind."
+        },
+        {
+          "recommendation": "Veröffentlichungen und lange Projektlisten weglassen oder weniger betonen, wenn sie Bains Kriterien für Engineering-Manager nicht unterstützen.",
+          "classification": "Angemessene Neurahmung",
+          "explanation": "Dies ist eine strukturelle Optimierung und keine faktische Änderung; sie verbessert Relevanz und schnelle Erfassbarkeit."
+        },
+        {
+          "recommendation": "Interne Entwicklung innerhalb langer Beschäftigungszeiträume sichtbar machen, sofern sie tatsächlich stattgefunden hat.",
+          "classification": "Bestätigung durch den Nutzer erforderlich",
+          "explanation": "Der Lebenslauf deutet einen wachsenden Verantwortungsumfang an, doch interne Beförderungen oder Titeländerungen müssen vor ihrer Darstellung bestätigt werden."
+        },
+        {
+          "recommendation": "Präsensformulierungen in früheren Positionen in die Vergangenheit setzen.",
+          "classification": "Direkt durch den Lebenslauf belegt",
+          "explanation": "Dies ist eine grammatische Korrektur, die der im Lebenslauf dargestellten Chronologie entspricht."
+        },
+        {
+          "recommendation": "Die Aussage ergänzen, dass der Kandidat die KI-Produktstrategie durchgängig von Anfang bis Ende geleitet hat.",
+          "classification": "Nicht belegt und nicht zu verwenden",
+          "explanation": "Der Lebenslauf zeigt KI-gestützte Entwicklung und Beratung, reicht jedoch nicht aus, um die durchgängige Verantwortung für eine KI-Produktstrategie zu behaupten."
+        }
+      ],
+      "precheckWarningSummary": "Die Warnungen der Vorprüfung beibehalten: lange Beschäftigungszeiträume können Entwicklung verbergen, Zeitformen müssen konsistent sein, der Lebenslauf ist lang, einige Stichpunkte vermischen Verantwortung und Ergebnis, manchen Kennzahlen fehlen Ausgangswerte und breite narrative Aussagen benötigen unmittelbare Belege. Ebenfalls beibehalten, dass die Kontaktdaten bereits vollständig erscheinen. In der Vorprüfung wurde keine zusätzliche Datenschutzwarnung festgestellt, dennoch sollten künftige Änderungen unnötige persönliche Angaben vermeiden.",
+      "downloadableText": "Auf Bain ausgerichtete Neugestaltung: Positionieren Sie den Kandidaten als erfahrene Führungskraft für Software Engineering und Cloud-Modernisierung, die kundenorientierte technische Auslieferung leiten, Roadmaps gestalten, KI-gestützte Lösungen entwickeln und multikulturelle Engineering-Teams führen kann. Behalten Sie die stärksten Nachweise bei: AWS- und Azure-Migrationen, Microservices, Governance-Plattformen, KI-gestützte Modernisierung, Kostenoptimierung und stakeholderorientierte Führung. Entfernen Sie unnötige Ausführlichkeit, setzen Sie frühere Rollen in die Vergangenheit und machen Sie Signale des Engineering-Managements ausdrücklich sichtbar. Erfinden Sie keine Ausbildung, Zertifikate, Werkzeuge, Kennzahlen, Beförderungen oder technischen Praktiken, die nicht im Ausgangslebenslauf stehen. Falls der Kandidat direkte Erfahrung mit Code Reviews, Testdisziplin, Observability, Release Management oder Coaching bestätigen kann, ergänzen Sie diese sorgfältig; andernfalls lassen Sie sie weg."
+    },
+    "downloadableText": "Erinnerung zur Vollständigkeit der Kontaktdaten\nEin Lebenslauf sollte die wesentlichen Kontaktdaten im oberen Bereich leicht auffindbar machen: Name, E-Mail-Adresse, Telefonnummer, einen sinnvoll genauen Standort und in der Regel LinkedIn oder ein Portfolio, sofern relevant. Fehlende Kontaktdaten sind selten, aber folgenreich, weil sie Recruitern unnötige Hürden bereiten.\n\nErinnerung an beleggestützte Sprache\nAussagen wie effizient, motiviert, strategisch, proaktiv, zuverlässig, schnelle Auffassungsgabe, teamorientiert oder kommunikationsstark sind schwach, wenn der Lebenslauf nicht unmittelbar daneben Belege zeigt. Behalten Sie eine solche Aussage nur, wenn Stichpunkte sie durch Ergebnisse, Beispiele, Größenordnung, Entscheidungen, Einführung, Auslieferung oder messbare Resultate nachweisen.\n\nErinnerung zur Übereinstimmung von Titel und Verantwortung\nPrüfen Sie, ob die Rollenbezeichnung zu den darunter dargestellten Verantwortlichkeiten und Erfolgen passt. Wenn ein Titel Projektmanagement nennt, die Stichpunkte jedoch Produktmanagement, Strategie, Betrieb, Architektur, Schulung oder eine andere Disziplin beschreiben, sollte darauf hingewiesen werden, dass Leser die tatsächliche Positionierung missverstehen könnten. Empfehlen Sie, den Umfang in einem Rollenuntertitel, in der Zusammenfassung oder in den Stichpunkten zu verdeutlichen, ohne einen neuen Titel zu erfinden.\n\nErinnerung zu Lebenslauflänge und Seniorität\nBewerten Sie die Länge anhand der Karrierestufe und Relevanz. Juniorprofile sind meist mit einer Seite am stärksten, Profile in der mittleren Karrierephase normalerweise mit ein bis zwei Seiten, erfahrene Spezialisten, Manager und Berater meist mit ungefähr zwei Seiten. Führungskräfte, Akademiker, Forscher, Beschäftigte im öffentlichen Sektor oder Profile mit besonders vielen relevanten Qualifikationen können mehr Platz benötigen. Die Länge ist nicht an sich das Problem; problematisch ist, wenn Nachweise verborgen oder Belege entfernt werden.\n\nErinnerung an die Zeitform von Erfolgen\nVerwenden Sie für abgeschlossene Arbeiten die Vergangenheit, insbesondere in früheren Positionen. In aktuellen Rollen kann das Präsens für laufende Verantwortlichkeiten verwendet werden, abgeschlossene Erfolge innerhalb einer aktuellen Rolle sollten jedoch weiterhin als abgeschlossene Ergebnisse formuliert sein. Vermeiden Sie Infinitivkonstruktionen oder allgemeine Tätigkeitsbeschreibungen, wenn ein Ergebnis bereits erreicht wurde.\n\nErinnerung zur Sichtbarkeit der Karriereentwicklung\nEine lange Beschäftigungsdauer im selben Unternehmen ist an sich keine Schwäche. Wenn der Kandidat mehrere interne Rollen, Beförderungen, Erweiterungen des Verantwortungsumfangs, Teamwechsel oder Veränderungen der Verantwortung hatte, sollte diese Entwicklung klar sichtbar sein. Ein einziger Titel über viele Jahre kann Wachstum flach oder nicht vorhanden erscheinen lassen.\n\nErinnerung zum Datenschutz bei Ausbildung und Studium\nPrüfen Sie Studienjahre, Abschlussjahre, ältere Ausbildungsangaben und irrelevante Kurse. Behalten Sie erforderliche oder für die Rolle relevante Qualifikationen, entfernen oder reduzieren Sie jedoch unnötige Studienzeitpunkte und Details, wenn sie der Zielposition nicht helfen.\n\nAuf Bain ausgerichtete Neugestaltung: Positionieren Sie den Kandidaten als erfahrene Führungskraft für Software Engineering und Cloud-Modernisierung, die kundenorientierte technische Auslieferung leiten, Roadmaps gestalten, KI-gestützte Lösungen entwickeln und multikulturelle Engineering-Teams führen kann. Behalten Sie die stärksten Nachweise bei: AWS- und Azure-Migrationen, Microservices, Governance-Plattformen, KI-gestützte Modernisierung, Kostenoptimierung und stakeholderorientierte Führung. Entfernen Sie unnötige Ausführlichkeit, setzen Sie frühere Rollen in die Vergangenheit und machen Sie Signale des Engineering-Managements ausdrücklich sichtbar. Erfinden Sie keine Ausbildung, Zertifikate, Werkzeuge, Kennzahlen, Beförderungen oder technischen Praktiken, die nicht im Ausgangslebenslauf stehen. Falls der Kandidat direkte Erfahrung mit Code Reviews, Testdisziplin, Observability, Release Management oder Coaching bestätigen kann, ergänzen Sie diese sorgfältig; andernfalls lassen Sie sie weg."
+  },
+  "notes": {
+    "apiKeysExcluded": true,
+    "pdfFileExcluded": true,
+    "jobPositionFrontendOnly": true
+  }
+}

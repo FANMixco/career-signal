@@ -151,8 +151,12 @@ function preferredLanguage() {
   return detected || normalizeLanguage(browserLanguages[0]) || "en";
 }
 
+function persistLanguage(language) {
+  localStorage.setItem(languageStorageKey, normalizeLanguage(language));
+}
+
 function refreshLanguage() {
-  const selectedLanguage = els.outputLanguage.value || "en";
+  const selectedLanguage = normalizeLanguage(els.outputLanguage.value || "en");
   const values = {
     aiProvider: els.aiProvider.value,
     aiModel: els.aiModel.value,
@@ -161,6 +165,7 @@ function refreshLanguage() {
     targetStyle: els.targetStyle.value
   };
 
+  persistLanguage(selectedLanguage);
   setActiveLanguage(selectedLanguage);
   applyConfiguredText();
   populateStaticSelects();

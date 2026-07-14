@@ -73,14 +73,17 @@ function downloadJson() {
 
 function demoProfileUrls() {
   const samplePath = config.demoProfile?.path || "sample/bain-company-career-signal-session-20260712T082827Z.json";
+  const selectedLanguage = normalizeLanguage(els.outputLanguage.value);
+  const localizedSamplePath = selectedLanguage === "en" ? samplePath : samplePath.replace(/\.json$/, `-${selectedLanguage}.json`);
+  const samplePaths = localizedSamplePath === samplePath ? [samplePath] : [localizedSamplePath, samplePath];
   const frontendPathIndex = window.location.pathname.indexOf("/frontend");
 
   if (frontendPathIndex >= 0) {
     const appRoot = window.location.pathname.slice(0, frontendPathIndex).replace(/\/$/, "");
-    return [`${appRoot}/${samplePath}`];
+    return samplePaths.map((path) => `${appRoot}/${path}`);
   }
 
-  return [samplePath];
+  return samplePaths;
 }
 
 async function loadDemoProfile() {
@@ -115,7 +118,7 @@ function applyImportedSession(bundle) {
   const language = normalizeLanguage(profile.outputLanguage || inputs.outputLanguage || els.outputLanguage.value);
 
   setActiveLanguage(language);
-  localStorage.setItem(languageStorageKey, language);
+  persistLanguage(language);
   applyConfiguredText();
   populateStaticSelects();
   els.outputLanguage.value = language;
