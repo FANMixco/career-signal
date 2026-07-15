@@ -77,6 +77,11 @@ export type OllamaEvidenceSection = {
   jobFitAssessment: AnalysisResult["jobFitAssessment"];
   strongestMatchingEvidence: string[];
   weakOrMissingSignals: string[];
+  requirementCoverage: AnalysisResult["requirementCoverage"];
+  recruiterScanWarnings: string[];
+  recentEvidenceWarnings: string[];
+  overPositioningWarnings: string[];
+  applicationStrategy: string;
   keywordsToInclude: string[];
   keywordsToAvoid: string[];
   atsFriendlySkillsSection: string[];

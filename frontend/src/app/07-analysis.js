@@ -96,11 +96,37 @@ function formatAnalysisValue(analysis, key, type) {
     return list((value || []).map((item) => `${item.recommendation}: ${item.classification}. ${item.explanation}`));
   }
 
+  if (type === "requirementCoverage") {
+    return renderRequirementCoverage(value);
+  }
+
   if (type === "jobFitAssessment") {
     return renderJobFitAssessment(value);
   }
 
   return value;
+}
+
+function renderRequirementCoverage(items = []) {
+  if (!items.length) {
+    return `<p>${escapeHtml(config.fallbackText.emptyList)}</p>`;
+  }
+
+  return `<div class="requirement-coverage">${items
+    .map(
+      (item) => `
+        <div class="requirement-item">
+          <div class="requirement-head">
+            <strong>${escapeHtml(item.requirement || "")}</strong>
+            <span>${escapeHtml(item.importance || "")}</span>
+          </div>
+          <p>${escapeHtml(item.coverage || "")}</p>
+          ${item.evidence ? `<p>${escapeHtml(item.evidence)}</p>` : ""}
+          ${item.risk ? `<p class="warning">${escapeHtml(item.risk)}</p>` : ""}
+        </div>
+      `
+    )
+    .join("")}</div>`;
 }
 
 function renderJobFitAssessment(assessment) {

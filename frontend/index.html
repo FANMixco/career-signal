@@ -209,6 +209,23 @@
 
         <div class="settings-body">
           <p class="warning" data-copy="backendSettings.trustWarning"></p>
+          <details class="settings-deploy-guide">
+            <summary data-copy="backendSettings.deployTitle"></summary>
+            <p data-copy="backendSettings.deployIntro"></p>
+            <ol>
+              <li data-copy="backendSettings.deployStepHost"></li>
+              <li>
+                <span data-copy="backendSettings.deployStepImage"></span>
+                <code>fanmixco/career-signal-backend:latest</code>
+              </li>
+              <li data-copy="backendSettings.deployStepUrl"></li>
+            </ol>
+            <p class="settings-deploy-note" data-copy="backendSettings.deployNote"></p>
+            <div class="settings-deploy-links">
+              <a href="https://render.com/docs/deploying-an-image" target="_blank" rel="noreferrer" data-copy="backendSettings.renderGuideLink"></a>
+              <a href="https://dashboard.render.com/" target="_blank" rel="noreferrer" data-copy="backendSettings.renderDashboardLink"></a>
+            </div>
+          </details>
           <label>
             <span data-copy="backendSettings.urlLabel"></span>
             <input id="backendUrlInput" type="url" autocomplete="off" data-placeholder="backendSettings.urlPlaceholder" />

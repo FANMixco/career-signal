@@ -527,6 +527,74 @@ Good example:
 
 > Strong CV-based match for cloud transformation delivery, but final hiring depends on company priorities, interviews, role level, compensation, location, and competing candidates.
 
+## Recruiter Screening Signals
+
+The evaluator should check the job description for practical screening requirements before treating the CV as a good fit.
+
+Important requirement types include:
+
+- Required tools, platforms, or methods.
+- Required language level.
+- Required certification, degree, license, or clearance.
+- Required location, on-site schedule, travel, relocation, or work authorization.
+- Required domain, sector, client type, or minimum experience.
+
+The evaluator should classify each important requirement as:
+
+- Required.
+- Preferred.
+- Soft signal.
+
+The evaluator should classify CV coverage as:
+
+- Supported by CV.
+- Partially supported.
+- Missing or unknown.
+- Not required.
+
+Missing or unclear required signals should be treated as possible recruiter knockout risks. Preferred and soft signals should not be scored as harshly as true must-haves.
+
+The evaluator must not invent missing eligibility, languages, certifications, tools, degrees, work authorization, or location details.
+
+## Recruiter Scanability
+
+The evaluator should warn when the CV may be hard to scan quickly, even if the evidence is good.
+
+Common scanability risks include:
+
+- The strongest evidence is buried too low.
+- The summary does not make the target positioning clear.
+- The recent role is vague while older roles contain stronger evidence.
+- Bullets are too dense, repetitive, or responsibility-heavy.
+- Role titles and evidence require too much interpretation.
+
+## Recent Evidence
+
+Recruiters usually give more weight to recent and relevant experience.
+
+The evaluator should warn when the best evidence appears old, or when the current or most recent role does not show enough relevant scope, results, tools, or ownership for the target job.
+
+This should be a warning, not an automatic rejection. Some older evidence can still matter when it is highly relevant or rare.
+
+## Over-Positioning Risk
+
+The evaluator should warn when the reconstruction plan would position the candidate beyond what the CV evidence supports.
+
+Examples include making the candidate sound like a head of function, architect, strategist, product owner, AI expert, or senior leader when the CV only supports contributor, support, coordination, or partial ownership.
+
+The fix is not to weaken the CV. The fix is to position the candidate honestly using the strongest defensible evidence.
+
+## Application Strategy
+
+When a job description is provided, the evaluator should give one practical application strategy:
+
+- Apply now.
+- Apply after evidence cleanup.
+- Apply only with referral or additional context.
+- Probably not worth tailoring unless the user has missing evidence outside the CV.
+
+This strategy should be based on evidence strength, requirement coverage, recent relevance, and knockout risks. It is still not a hiring prediction.
+
 ## Integrity Rules
 
 Every recommendation should respect evidence integrity.
@@ -563,6 +631,9 @@ The evaluator should flag:
 - Sensitive personal details.
 - Too much old or irrelevant experience.
 - CV length that hides evidence, or brevity that removes important proof.
+- Missing or unclear must-have job requirements.
+- Strong evidence that is buried, stale, or hard to scan quickly.
+- Over-positioning beyond what the CV supports.
 - Job-specific tailoring attempted before the CV has enough evidence.
 
 ## Open Questions For Reviewers
@@ -575,4 +646,5 @@ Use this section to collect feedback before changing code.
 - Which personal details should be allowed in specific countries or sectors?
 - Should public sector, academic, or EU-format CVs be evaluated differently?
 - Should education rules vary by early-career, mid-career, and senior candidates?
+- Which market-specific knockout criteria should be handled differently by country or sector?
 - Are there more common CV mistakes that should be added?
