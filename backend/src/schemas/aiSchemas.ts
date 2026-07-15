@@ -2,7 +2,25 @@
 // Every provider, including local Ollama fallbacks, must eventually satisfy
 // these schemas before the frontend renders scores or reconstruction sections.
 import { z } from "zod";
-import { integrityClassifications, jobFitVerdicts, proceedRecommendations, scoreBreakdownMaximums } from "../rules/cvRules.js";
+import {
+  integrityClassifications,
+  jobFitVerdicts,
+  proceedRecommendations,
+  requirementCoverageLevels,
+  requirementImportances,
+  scoreBreakdownMaximums
+} from "../rules/cvRules.js";
+
+const requirementImportanceSchema = z.enum(requirementImportances);
+const requirementCoverageSchema = z.enum(requirementCoverageLevels);
+
+export const requirementCoverageItemSchema = z.object({
+  requirement: z.string(),
+  importance: requirementImportanceSchema,
+  coverage: requirementCoverageSchema,
+  evidence: z.string(),
+  risk: z.string()
+});
 
 export const precheckSchema = z.object({
   cvEvidenceScore: z.number().min(0).max(100),
@@ -44,6 +62,13 @@ export const analysisSchema = z.object({
   }),
   strongestMatchingEvidence: z.array(z.string()),
   weakOrMissingSignals: z.array(z.string()),
+  requirementCoverage: z
+    .array(requirementCoverageItemSchema)
+    .catch([]),
+  recruiterScanWarnings: z.array(z.string()).catch([]),
+  recentEvidenceWarnings: z.array(z.string()).catch([]),
+  overPositioningWarnings: z.array(z.string()).catch([]),
+  applicationStrategy: z.string().catch("No application strategy was provided."),
   keywordsToInclude: z.array(z.string()),
   keywordsToAvoid: z.array(z.string()),
   suggestedProfessionalSummary: z.string(),

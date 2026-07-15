@@ -12,6 +12,8 @@ import {
   integrityClassifications,
   jobFitVerdicts,
   outputLanguageNames,
+  requirementCoverageLevels,
+  requirementImportances,
   titleResponsibilityAlignment
 } from "../rules/cvRules.js";
 
@@ -170,6 +172,16 @@ Job fit assessment guidance:
 - Explain briefly why the score was assigned, including strongest reasons and main risks.
 - Always include the warning that the final hiring decision belongs to the company and can depend on factors outside this analysis.
 
+Recruiter screening guidance:
+- Extract the most important job requirements into requirementCoverage. Separate true must-haves from preferred items and vague soft signals.
+- Use importance "${requirementImportances[0]}" only for apparent knockout requirements such as required tool, language, certification, location, work authorization, clearance, degree, domain, travel, on-site schedule, or minimum experience.
+- Use coverage "${requirementCoverageLevels[0]}" only when the CV visibly supports the requirement. Use "${requirementCoverageLevels[1]}" when related evidence exists but the exact requirement is unclear. Use "${requirementCoverageLevels[2]}" when the CV does not show it.
+- Put likely knockout risks in risk, especially when a required signal is missing or only partially supported.
+- Add recruiterScanWarnings when strong evidence, recent relevance, role title, summary, dense text, or repeated responsibilities would make the CV hard to scan quickly.
+- Add recentEvidenceWarnings when the strongest evidence appears old, or when the current/recent role is vague compared with older roles.
+- Add overPositioningWarnings when the proposed positioning would make the candidate look more senior, strategic, architectural, product-led, AI-focused, or leadership-heavy than the CV evidence supports.
+- applicationStrategy should be one concise recommendation: apply now, apply after evidence cleanup, apply only with referral/context, or probably not worth tailoring unless the user has missing evidence outside the CV.
+
 Candidate CV text:
 ${input.cvText}
 
@@ -209,7 +221,7 @@ export function ollamaReconstructionPrompt(input: {
 ${outputLanguageInstruction(input.outputLanguage)}
 
 Return one JSON object only. Use these exact keys:
-roleDiagnosis, companySignalInterpretation, candidatePositioning, jobFitAssessment, strongestMatchingEvidence, weakOrMissingSignals, keywordsToInclude, keywordsToAvoid, suggestedProfessionalSummary, rewrittenCvBullets, suggestedCvStructure, atsFriendlySkillsSection, recruiterInterpretation, finalReconstructionPlan, integrityAudit, precheckWarningSummary, downloadableText.
+roleDiagnosis, companySignalInterpretation, candidatePositioning, jobFitAssessment, strongestMatchingEvidence, weakOrMissingSignals, requirementCoverage, recruiterScanWarnings, recentEvidenceWarnings, overPositioningWarnings, applicationStrategy, keywordsToInclude, keywordsToAvoid, suggestedProfessionalSummary, rewrittenCvBullets, suggestedCvStructure, atsFriendlySkillsSection, recruiterInterpretation, finalReconstructionPlan, integrityAudit, precheckWarningSummary, downloadableText.
 
 Rules:
 - jobFitAssessment.score must be 0 to 100.
@@ -218,6 +230,9 @@ Rules:
 - integrityClassification/classification must be one of: ${integrityClassifications.map((value) => `"${value}"`).join(", ")}.
 - Keep every text field concise.
 - Use 1 to 2 items maximum in arrays.
+- Use requirementCoverage for must-have, preferred, and soft-signal job requirements. importance must be one of: ${requirementImportances.map((value) => `"${value}"`).join(", ")}. coverage must be one of: ${requirementCoverageLevels.map((value) => `"${value}"`).join(", ")}.
+- Add compact scanability, recent-evidence, and over-positioning warnings only when useful.
+- applicationStrategy must be one concise recruiter-style recommendation.
 - Provide 1 to 2 rewrittenCvBullets maximum.
 - Keep downloadableText under 500 words.
 - Preserve privacy and integrity warnings from the precheck.

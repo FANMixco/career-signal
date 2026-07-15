@@ -57,6 +57,19 @@
       "  },",
       "  \"strongestMatchingEvidence\": string[],",
       "  \"weakOrMissingSignals\": string[],",
+      "  \"requirementCoverage\": [",
+      "    {",
+      "      \"requirement\": string,",
+      "      \"importance\": \"Required\" | \"Preferred\" | \"Soft signal\",",
+      "      \"coverage\": \"Supported by CV\" | \"Partially supported\" | \"Missing or unknown\" | \"Not required\",",
+      "      \"evidence\": string,",
+      "      \"risk\": string",
+      "    }",
+      "  ],",
+      "  \"recruiterScanWarnings\": string[],",
+      "  \"recentEvidenceWarnings\": string[],",
+      "  \"overPositioningWarnings\": string[],",
+      "  \"applicationStrategy\": string,",
       "  \"keywordsToInclude\": string[],",
       "  \"keywordsToAvoid\": string[],",
       "  \"suggestedProfessionalSummary\": string,",
@@ -83,7 +96,7 @@
       "  \"downloadableText\": string",
       "}",
       "",
-      "Keep arrays concise, usually 3 to 6 items. Keep downloadableText under 700 words."
+      "Keep arrays concise, usually 3 to 6 items. Keep requirementCoverage to the most important requirements. Keep downloadableText under 700 words."
     ]
   }
 }

@@ -37,6 +37,8 @@ type AppOptionsContent = {
   proceedRecommendations: string[];
   jobFitVerdicts: string[];
   integrityClassifications: string[];
+  requirementImportances: string[];
+  requirementCoverageLevels: string[];
   outputLanguageNames: Record<"en" | "es" | "fr" | "de", string>;
 };
 
@@ -102,6 +104,8 @@ export const ollamaFallbackModels = asNonEmptyStringTuple("ollamaFallbackModels"
 export const proceedRecommendations = asNonEmptyStringTuple("proceedRecommendations", appOptions.proceedRecommendations);
 export const jobFitVerdicts = asNonEmptyStringTuple("jobFitVerdicts", appOptions.jobFitVerdicts);
 export const integrityClassifications = asNonEmptyStringTuple("integrityClassifications", appOptions.integrityClassifications);
+export const requirementImportances = asNonEmptyStringTuple("requirementImportances", appOptions.requirementImportances);
+export const requirementCoverageLevels = asNonEmptyStringTuple("requirementCoverageLevels", appOptions.requirementCoverageLevels);
 export const proceedRecommendationValues = {
   proceed: proceedRecommendations[0],
   improve: proceedRecommendations[1],

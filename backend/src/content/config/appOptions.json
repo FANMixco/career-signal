@@ -110,6 +110,17 @@
     "Needs user confirmation",
     "Not supported and should not be used"
   ],
+  "requirementImportances": [
+    "Required",
+    "Preferred",
+    "Soft signal"
+  ],
+  "requirementCoverageLevels": [
+    "Supported by CV",
+    "Partially supported",
+    "Missing or unknown",
+    "Not required"
+  ],
   "outputLanguageNames": {
     "en": "English",
     "es": "Spanish",

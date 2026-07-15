@@ -190,7 +190,10 @@ function applyImportedSession(bundle) {
     renderPrecheck(state.lastPrecheckPayload);
   }
 
-  if (state.precheck && (tailoring.unlocked || state.lastAnalysis)) {
+  if (
+    state.precheck &&
+    (tailoring.unlocked || state.lastAnalysis || state.precheck.proceedRecommendation === baseConfig.recommendations.proceed)
+  ) {
     setTailoringAccess(true, state.continueDespiteWeakPrecheck ? config.tailoring.weakUnlock : "");
   } else if (state.precheck) {
     const lockMessage =
