@@ -96,10 +96,14 @@ async function runPrecheck() {
     };
     state.lastPrecheckPayload = data;
     state.continueDespiteWeakPrecheck = false;
-    setTailoringAccess(
-      false,
-      data.precheck.proceedRecommendation === baseConfig.recommendations.improve ? config.tailoring.weakLock : config.tailoring.reviewLock
-    );
+    if (data.precheck.proceedRecommendation === baseConfig.recommendations.proceed) {
+      setTailoringAccess(true, "");
+    } else {
+      setTailoringAccess(
+        false,
+        data.precheck.proceedRecommendation === baseConfig.recommendations.improve ? config.tailoring.weakLock : config.tailoring.reviewLock
+      );
+    }
     renderPrecheck(data);
     setStatus("Precheck done");
     setFeedback("success", config.feedback.precheckComplete);
@@ -321,7 +325,6 @@ function renderDecisionGate(recommendation, questions, warnings = []) {
       warningNote.textContent = config.feedback.precheckPassedWithWarnings;
       els.decisionGate.append(warningNote);
     }
-    els.decisionGate.append(continueButton);
   } else if (recommendation === baseConfig.recommendations.caution) {
     if (warnings.length > 0) {
       const warningNote = document.createElement("p");

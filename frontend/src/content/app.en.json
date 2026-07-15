@@ -343,6 +343,14 @@
     "previewMessage": "This GitHub Pages version is only a frontend preview. To run CV checks, start Career Signal locally or deploy your own backend and configure its URL here.",
     "openSettings": "Configure backend",
     "trustWarning": "Only use a backend you control or trust. Your CV text, job descriptions, and pasted API keys are sent to the configured backend.",
+    "deployTitle": "Easiest backend option: Render",
+    "deployIntro": "Render can deploy a public Docker image from its dashboard, so you do not need to install Docker or clone the project.",
+    "deployStepHost": "Create a new Render Web Service and choose Existing Image as the source.",
+    "deployStepImage": "Paste this image name:",
+    "deployStepUrl": "Deploy it, copy the Render HTTPS URL, paste it below, save, then test the connection.",
+    "deployNote": "Render may ask for a payment method depending on the plan. The backend you deploy will receive the CV text sent for checks.",
+    "renderGuideLink": "Render image guide",
+    "renderDashboardLink": "Open Render dashboard",
     "urlLabel": "Backend URL",
     "urlPlaceholder": "https://your-career-signal-backend.example.com",
     "save": "Save backend URL",
@@ -856,6 +864,30 @@
       "Weak or missing signals",
       "weakOrMissingSignals",
       "list"
+    ],
+    [
+      "Requirement coverage",
+      "requirementCoverage",
+      "requirementCoverage"
+    ],
+    [
+      "Recruiter scanability warnings",
+      "recruiterScanWarnings",
+      "list"
+    ],
+    [
+      "Recent evidence warnings",
+      "recentEvidenceWarnings",
+      "list"
+    ],
+    [
+      "Over-positioning warnings",
+      "overPositioningWarnings",
+      "list"
+    ],
+    [
+      "Application strategy",
+      "applicationStrategy"
     ],
     [
       "Keywords to include",

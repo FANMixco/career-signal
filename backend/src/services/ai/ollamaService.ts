@@ -3,8 +3,14 @@
 // with large strict schemas. The precheck and reconstruction plan are therefore
 // requested in smaller sections, with deterministic fallbacks where possible.
 import { z } from "zod";
-import { integrityClassifications, jobFitVerdicts, outputLanguageNames } from "../../rules/cvRules.js";
-import { analysisSchema, precheckSchema, type AnalysisResult } from "../../schemas/aiSchemas.js";
+import {
+  integrityClassifications,
+  jobFitVerdicts,
+  outputLanguageNames,
+  requirementCoverageLevels,
+  requirementImportances
+} from "../../rules/cvRules.js";
+import { analysisSchema, precheckSchema, requirementCoverageItemSchema, type AnalysisResult } from "../../schemas/aiSchemas.js";
 import { parseJsonWithSchema } from "./jsonUtils.js";
 import { buildLocalPrecheckBaseline, buildLocalPrecheckFallbackSections, compactForLocalModel } from "./localCvEvidence.js";
 import { ollamaModelCandidates } from "./modelNames.js";
@@ -44,6 +50,11 @@ const ollamaEvidenceSectionSchema = z.object({
   }),
   strongestMatchingEvidence: z.array(z.string()).catch([]),
   weakOrMissingSignals: z.array(z.string()).catch([]),
+  requirementCoverage: z.array(requirementCoverageItemSchema).catch([]),
+  recruiterScanWarnings: z.array(z.string()).catch([]),
+  recentEvidenceWarnings: z.array(z.string()).catch([]),
+  overPositioningWarnings: z.array(z.string()).catch([]),
+  applicationStrategy: z.string().catch("Review requirement coverage and evidence gaps before deciding whether to apply."),
   keywordsToInclude: z.array(z.string()).catch([]),
   keywordsToAvoid: z.array(z.string()).catch([]),
   atsFriendlySkillsSection: z.array(z.string()).catch([])
@@ -347,6 +358,11 @@ function fallbackOllamaEvidence(input: {
     weakOrMissingSignals: [
       `Partial local result: evidence extraction for ${input.targetStyle} did not complete. Review the CV and job description manually before using this plan. ${input.failureReason}`
     ],
+    requirementCoverage: [],
+    recruiterScanWarnings: ["Partial local result: recruiter scanability checks were not completed by the local model."],
+    recentEvidenceWarnings: [],
+    overPositioningWarnings: [],
+    applicationStrategy: "Apply only after manually checking must-have requirements against the CV and job description.",
     keywordsToInclude: [],
     keywordsToAvoid: [],
     atsFriendlySkillsSection: []
@@ -372,6 +388,21 @@ function analysisToDownloadableText(analysis: AnalysisResult) {
     "",
     "Weak or missing signals",
     ...analysis.weakOrMissingSignals.map((item) => `- ${item}`),
+    "",
+    "Requirement coverage",
+    ...analysis.requirementCoverage.map((item) => `- ${item.importance}: ${item.requirement} - ${item.coverage}. ${item.risk}`),
+    "",
+    "Recruiter scanability warnings",
+    ...analysis.recruiterScanWarnings.map((item) => `- ${item}`),
+    "",
+    "Recent evidence warnings",
+    ...analysis.recentEvidenceWarnings.map((item) => `- ${item}`),
+    "",
+    "Over-positioning warnings",
+    ...analysis.overPositioningWarnings.map((item) => `- ${item}`),
+    "",
+    "Application strategy",
+    analysis.applicationStrategy,
     "",
     "Suggested summary",
     analysis.suggestedProfessionalSummary,
@@ -452,12 +483,25 @@ Return this exact JSON shape:
   },
   "strongestMatchingEvidence": [],
   "weakOrMissingSignals": [],
+  "requirementCoverage": [
+    {
+      "requirement": "",
+      "importance": "${requirementImportances[0]}",
+      "coverage": "${requirementCoverageLevels[2]}",
+      "evidence": "",
+      "risk": ""
+    }
+  ],
+  "recruiterScanWarnings": [],
+  "recentEvidenceWarnings": [],
+  "overPositioningWarnings": [],
+  "applicationStrategy": "",
   "keywordsToInclude": [],
   "keywordsToAvoid": [],
   "atsFriendlySkillsSection": []
 }
 
-Use 1 to 3 items per array. The final hiring decision belongs to the company.`,
+Use 1 to 3 items per array. For requirementCoverage, separate true required/knockout requirements from preferred requirements and soft signals. The final hiring decision belongs to the company.`,
       input.aiModel,
       560,
       4096,

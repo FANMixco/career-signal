@@ -78,5 +78,5 @@ export async function runAnalysis(input: AnalysisInput) {
     input.outputLanguage
   );
 
-  return normalizeAnalysisResult(analysis);
+  return normalizeAnalysisResult(analysisSchema.parse(analysis));
 }
