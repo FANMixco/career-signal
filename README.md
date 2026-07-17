@@ -27,7 +27,7 @@ Candidates are expected to optimize for ATS systems, AI screening, coding tests,
 
 Career Signal Engine started from a simple idea: **knowledge should be shared.**
 
-Before the AI revolution, I submitted more than 1,200 job applications across the world. My applications ranged from startups to organizations such as Microsoft, Amazon, Google, McKinsey, BCG, and many others, exposing me to a wide variety of recruitment processes, assessments, interviews, and rejection patterns. Together with conversations with recruiters, hiring managers, and candidates, those experiences shaped the ideas behind Career Signal Engine.
+Before the AI revolution, I submitted more than 1,200 job applications across the world. My applications ranged from startups to organizations such as Microsoft, Amazon, Google, McKinsey, BCG, PhD programs at leading universities, and many others, exposing me to a wide variety of recruitment processes, assessments, interviews, and rejection patterns. Together with conversations with recruiters, hiring managers, and candidates, those experiences shaped the ideas behind Career Signal Engine.
 
 Rather than keeping those lessons to myself, I decided to build an open project where that knowledge could be shared, challenged, and continuously improved.
 
