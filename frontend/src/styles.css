@@ -344,6 +344,16 @@ textarea {
   resize: vertical;
 }
 
+select option {
+  background: var(--control-bg);
+  color: var(--ink);
+}
+
+select option:checked {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
 .inline-help-link {
   border: 1px solid var(--line);
   border-radius: 999px;
