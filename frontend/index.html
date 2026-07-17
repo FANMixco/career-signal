@@ -20,6 +20,17 @@
     <meta name="twitter:title" content="Career Signal Engine">
     <meta name="twitter:description" content="Check CV evidence before tailoring. Generate a grounded reconstruction plan for a target company and job description.">
     <meta name="twitter:image" content="img/preview.png">
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("careerSignalTheme");
+          const theme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
 
     <link rel="stylesheet" href="./styles.min.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
@@ -39,6 +50,9 @@
         <div class="topbar-actions">
           <button id="shareButton" class="icon-button share-button" type="button">
             <img src="img/icons/share.svg" alt="" aria-hidden="true" />
+          </button>
+          <button id="themeToggleButton" class="icon-button theme-toggle-button" type="button">
+            <img src="img/icons/yin-yang.svg" alt="" aria-hidden="true" />
           </button>
           <button id="settingsButton" class="icon-button settings-button" type="button">
             <img src="img/icons/settings.svg" alt="" aria-hidden="true" />

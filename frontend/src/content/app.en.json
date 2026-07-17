@@ -315,6 +315,7 @@
   "buttons": {
     "settingsLabel": "Configure backend",
     "shareLabel": "Share Career Signal Engine",
+    "themeLabel": "Toggle dark mode",
     "closeSettingsLabel": "Close backend settings",
     "appHelp": "?",
     "appHelpLabel": "Open app guide",

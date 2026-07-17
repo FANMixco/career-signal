@@ -15,6 +15,7 @@ const state = {
   customAiModels: {},
   currentAiProvider: "",
   downloadableText: "",
+  theme: "light",
   appHelpTab: "use"
 };
 
@@ -22,6 +23,7 @@ const baseConfig = window.CAREER_SIGNAL_CONFIG;
 let config = baseConfig;
 const backendStorageKey = baseConfig.backendSettings.storageKey;
 const languageStorageKey = "careerSignalLanguage";
+const themeStorageKey = "careerSignalTheme";
 
 // Static DOM cache. index.html owns the structure; these references keep the
 // controller readable without repeatedly querying the document.
@@ -29,6 +31,7 @@ const els = {
   status: document.querySelector("#status"),
   siteFooterInner: document.querySelector("#siteFooterInner"),
   shareButton: document.querySelector("#shareButton"),
+  themeToggleButton: document.querySelector("#themeToggleButton"),
   settingsButton: document.querySelector("#settingsButton"),
   settingsModal: document.querySelector("#settingsModal"),
   settingsClose: document.querySelector("#settingsClose"),

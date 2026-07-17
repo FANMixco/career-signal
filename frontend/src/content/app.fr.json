@@ -106,6 +106,7 @@
   "buttons": {
     "settingsLabel": "Configurer le backend",
     "shareLabel": "Partager Career Signal Engine",
+    "themeLabel": "Activer ou désactiver le mode sombre",
     "closeSettingsLabel": "Fermer les paramètres du backend",
     "appHelpLabel": "Ouvrir le guide",
     "cvBasics": "Bases d’un CV à fort impact",

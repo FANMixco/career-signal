@@ -12,6 +12,33 @@ function storedBackendUrl() {
   return localStorage.getItem(backendStorageKey) || "";
 }
 
+function storedTheme() {
+  return localStorage.getItem(themeStorageKey) || "";
+}
+
+function normalizeTheme(theme) {
+  return theme === "dark" ? "dark" : "light";
+}
+
+function preferredTheme() {
+  const savedTheme = storedTheme();
+  if (savedTheme) return normalizeTheme(savedTheme);
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyTheme(theme) {
+  state.theme = normalizeTheme(theme);
+  document.documentElement.dataset.theme = state.theme;
+  els.themeToggleButton.setAttribute("aria-pressed", String(state.theme === "dark"));
+  updateThemeToggleCopy();
+}
+
+function toggleTheme() {
+  const nextTheme = state.theme === "dark" ? "light" : "dark";
+  localStorage.setItem(themeStorageKey, nextTheme);
+  applyTheme(nextTheme);
+}
+
 function normalizeBackendUrl(value) {
   return value.trim().replace(/\/+$/, "");
 }
@@ -236,6 +263,7 @@ function applyConfiguredText() {
   els.cvBasicsClose.setAttribute("aria-label", config.buttons.closeModalLabel);
   els.shareButton.setAttribute("aria-label", config.buttons.shareLabel);
   els.shareButton.setAttribute("title", config.buttons.shareLabel);
+  updateThemeToggleCopy();
   els.settingsButton.setAttribute("aria-label", config.buttons.settingsLabel);
   els.settingsClose.textContent = config.buttons.closeModal;
   els.settingsClose.setAttribute("aria-label", config.buttons.closeSettingsLabel);
@@ -247,6 +275,13 @@ function applyConfiguredText() {
   renderCvBasics();
   renderBackendSettings();
   show(els.previewWarning, isGitHubPagesPreview());
+}
+
+function updateThemeToggleCopy() {
+  if (!els.themeToggleButton) return;
+  const label = config.buttons.themeLabel || "Toggle dark mode";
+  els.themeToggleButton.setAttribute("aria-label", label);
+  els.themeToggleButton.setAttribute("title", label);
 }
 
 // Render helpers produce app-owned markup. Any string from users, sessions, or
