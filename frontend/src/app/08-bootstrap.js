@@ -51,6 +51,7 @@ els.outputLanguage.addEventListener("change", () => {
   invalidatePrecheckIfSourceChanged();
 });
 els.shareButton.addEventListener("click", shareApp);
+els.themeToggleButton.addEventListener("click", toggleTheme);
 els.precheckButton.addEventListener("click", runPrecheck);
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
@@ -112,6 +113,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 const initialLanguage = preferredLanguage();
+applyTheme(preferredTheme());
 setActiveLanguage(initialLanguage);
 applyConfiguredText();
 populateStaticSelects();
