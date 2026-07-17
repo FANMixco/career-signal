@@ -19,6 +19,26 @@ The app is designed for non-technical people too. You do not need to create an a
 
 ![Career Signal Engine preview](https://raw.githubusercontent.com/FANMixco/career-signal/refs/heads/main/frontend/img/preview.png)
 
+## Why This Project Exists
+
+Modern hiring has become increasingly fragmented.
+
+Candidates are expected to optimize for ATS systems, AI screening, coding tests, personal branding, recruiter expectations, non-human interviews powered by AI, and conflicting online advice. Everyone is trying to improve one part of the process, often leaving applicants overwhelmed.
+
+Career Signal Engine started from a simple idea: **knowledge should be shared.**
+
+Before the AI revolution, I submitted more than 1,200 job applications across the world. My applications ranged from startups to organizations such as Microsoft, Amazon, Google, McKinsey, BCG, and many others, exposing me to a wide variety of recruitment processes, assessments, interviews, and rejection patterns. Together with conversations with recruiters, hiring managers, and candidates, those experiences shaped the ideas behind Career Signal Engine.
+
+Rather than keeping those lessons to myself, I decided to build an open project where that knowledge could be shared, challenged, and continuously improved.
+
+**Recruitment is constantly evolving, and AI is accelerating that change.** No single person has all the answers. The goal is to create a place where candidates, recruiters, hiring managers, and contributors can share their experience so everyone benefits from a better understanding of the hiring process.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/FANMixco/career-signal/refs/heads/main/frontend/img/why-career-signal.jpg"
+       alt="Why Career Signal Engine exists"
+       width="900">
+</p>
+
 ## What It Does
 
 - Reads a CV PDF, LinkedIn PDF export, or pasted CV text.
