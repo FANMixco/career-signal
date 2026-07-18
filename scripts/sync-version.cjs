@@ -7,10 +7,14 @@ function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), "utf8"));
 }
 
-function writeJson(relativePath, data) {
+function writeJson(relativePath, data, { minify = false } = {}) {
+  const serialized = minify
+    ? JSON.stringify(data)
+    : JSON.stringify(data, null, 2);
+
   fs.writeFileSync(
     path.join(repoRoot, relativePath),
-    `${JSON.stringify(data, null, 2)}\n`,
+    `${serialized}\n`,
     "utf8"
   );
 }
@@ -33,19 +37,24 @@ function syncLockfileVersion(relativePath, version) {
 }
 
 function syncFrontendContentVersion(version) {
-  const contentDirectory = path.join(repoRoot, "frontend", "src", "content");
+  const sourceContentDirectory = path.join(repoRoot, "frontend", "src", "content");
   const contentFiles = fs
-    .readdirSync(contentDirectory)
+    .readdirSync(sourceContentDirectory)
     .filter((fileName) => /^app\.[a-z]{2}\.json$/.test(fileName));
 
   for (const fileName of contentFiles) {
-    const relativePath = path.join("frontend", "content", fileName);
-    const content = readJson(relativePath);
+    const sourcePath = path.join("frontend", "src", "content", fileName);
+    const generatedPath = path.join("frontend", "content", fileName);
+    const content = readJson(sourcePath);
     content.footer = {
       ...content.footer,
       version
     };
-    writeJson(relativePath, content);
+    writeJson(sourcePath, content);
+
+    if (fs.existsSync(path.join(repoRoot, generatedPath))) {
+      writeJson(generatedPath, content, { minify: true });
+    }
   }
 }
 

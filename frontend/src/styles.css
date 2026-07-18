@@ -941,6 +941,10 @@ button.is-loading::before {
   font-size: 13px;
 }
 
+.result-block p {
+  color: var(--muted);
+}
+
 .requirement-coverage {
   display: grid;
   gap: 10px;
