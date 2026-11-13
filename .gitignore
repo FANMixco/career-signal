@@ -24,6 +24,13 @@ frontend/img/store-logos/
 dist/
 backend/dist/
 
+# Allow the distributable skill ZIP while ignoring other build output.
+!/dist/
+/dist/*
+!/dist/skills/
+/dist/skills/*
+!/dist/skills/career-signal.zip
+
 # Logs and local runtime files
 *.log
 npm-debug.log*
