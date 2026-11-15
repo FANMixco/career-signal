@@ -1,7 +1,7 @@
 # Microsoft Store packaging
 
 This repository's Store workflow builds **AppX packages** for x64 and ARM64.
-`npm run desktop:dist` produces the separate NSIS/portable EXE distribution.
+`npm run desktop:dist` produces the separate NSIS/portable EXE distribution for both x64 and ARM64. `npm run desktop:release:all` also builds Store and signed sideload packages using your private local helpers.
 
 The Store identity, packaging configuration, helper scripts and artwork are local
 files intentionally excluded from Git. This guide documents how to use them and
@@ -20,7 +20,7 @@ not the maintainer's Partner Center identity or certificate details.
 | `scripts/trust-sideload-cert-machine.ps1` | Optional elevated machine-wide trust helper; not needed for Store submission. |
 | `build/appx/` | AppX tile and Store-logo assets. |
 | `frontend/img/store-logos/` | Separate listing artwork used in Partner Center. |
-| `release/` | Generated packages, runtime caches and optional exported test certificates. |
+| `release/` | Completed packages and optional exported public test certificates. |
 
 Restore the private helpers/artwork from your own backup on a new workstation.
 They will not appear after cloning the repository. Alternatively, use the generic
@@ -133,15 +133,13 @@ The helper runs version synchronization and `desktop:prepare`, then calls
 `scripts/package-desktop.cjs` with `electron-builder.store.cjs`. Default output:
 
 ```text
-release/store-build/<timestamp>/
-  x64/build-<id>/       # unique architecture-specific staging
-  arm64/build-<id>/     # unique architecture-specific staging
-  upload/    # both AppX files collected here
+release/store-build/<version>/
+  upload/    # x64 and ARM64 AppX files
 ```
 
 The package filenames follow `Career Signal Engine-Store-<version>-<arch>.appx`.
 The optional `WINDOWS_STORE_OUTPUT_DIR` changes the base directory while retaining
-the architecture/upload subfolders. The helper builds and collects files; it does
+the upload subfolder. The helper builds and collects files; it does
 not upload them to Partner Center.
 
 ### Electron runtime cache after upgrades
@@ -188,8 +186,8 @@ module.exports = {
 ```
 
 Use a three-part numeric `package.json` version with this minimal example. It
-intentionally lets electron-builder manage the matching Electron download rather
-than reusing the private wrapper's runtime cache. It does not implement the
+uses the public wrapper to prepare the matching Electron runtime in temporary
+storage rather than reusing old application folders. It does not implement the
 private configuration's `WINDOWS_STORE_ELECTRON_DIST` override.
 
 Load the identity file, prepare the app, and build each architecture explicitly:
@@ -200,10 +198,10 @@ npm run desktop:prepare
 Remove-Item Env:WINDOWS_STORE_ELECTRON_DIST -ErrorAction SilentlyContinue
 
 $env:WINDOWS_STORE_OUTPUT_DIR = 'release/store-build/manual/x64'
-node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --x64 --publish=never
+node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --x64 --publish=never "--config.directories.output=$env:WINDOWS_STORE_OUTPUT_DIR"
 
 $env:WINDOWS_STORE_OUTPUT_DIR = 'release/store-build/manual/arm64'
-node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --arm64 --publish=never
+node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --arm64 --publish=never "--config.directories.output=$env:WINDOWS_STORE_OUTPUT_DIR"
 ```
 
 Stop if preparation or either build fails. These direct commands leave their
@@ -225,7 +223,7 @@ subject or thumbprint:
 ```powershell
 . .\store-package.local.ps1
 powershell.exe -NoProfile -File .\scripts\create-sideload-cert.ps1 -Subject $env:WINDOWS_STORE_PUBLISHER
-powershell.exe -NoProfile -File .\scripts\build-sideload-app.ps1 -Architecture x64 -Subject $env:WINDOWS_STORE_PUBLISHER -SkipTrust
+powershell.exe -NoProfile -File .\scripts\build-sideload-app.ps1 -Architecture all -Subject $env:WINDOWS_STORE_PUBLISHER -SkipTrust
 ```
 
 The certificate helper creates the private key in `Cert:\CurrentUser\My` and
@@ -236,9 +234,9 @@ alone cannot sign a package. The subject must match the manifest publisher.
 explains that requirement and certificate trust for local testing.
 
 The sideload helper derives its default certificate subject from the local Store publisher and locates SignTool across installed Windows SDK versions. It signs copies into
-`release/sideload-build/<timestamp>/install/`, leaving its unsigned source packages
-in the sibling `upload/` directory. `-Architecture all` also signs both x64/ARM64;
-the sideload helper defaults to x64, unlike the Store helper. After explicitly
+`release/sideload-build/<version>/install/`, leaving its unsigned source packages
+in `release/store-build/<version>/upload/`. The default `-Architecture all` signs both x64/ARM64;
+both helpers default to all architectures. After explicitly
 trusting the intended development certificate on the test machine, install the
 matching package:
 
@@ -282,3 +280,5 @@ git status --short
 The first command should list the ignored paths. The second should print nothing.
 Commit public documentation and intended application changes only; restore or
 maintain the private files separately.
+
+The npm shortcuts `desktop:store` and `desktop:sideload` explicitly select both architectures. The sideload shortcut passes `-SkipTrust`: it signs and exports a public certificate but does not install a package or modify certificate trust. Temporary packaging files are created outside `release/` and cleaned after each build.
