@@ -2,6 +2,7 @@
 // controls, and set the first locked/ready UI state.
 function setBusy(isBusy) {
   els.precheckButton.disabled = state.precheckInFlight;
+  document.querySelector("#offlinePrecheckButton").disabled = state.precheckInFlight;
   els.precheckButton.textContent = state.precheckInFlight ? config.buttons.precheckLoading : config.buttons.precheckIdle;
   els.precheckButton.classList.toggle("is-loading", state.precheckInFlight);
   els.analyzeButton.disabled = state.analysisInFlight || els.tailoringPanel.classList.contains("locked");
@@ -53,6 +54,7 @@ els.outputLanguage.addEventListener("change", () => {
 els.shareButton.addEventListener("click", shareApp);
 els.themeToggleButton.addEventListener("click", toggleTheme);
 els.precheckButton.addEventListener("click", runPrecheck);
+document.querySelector("#offlinePrecheckButton").addEventListener("click", () => runPrecheck({ localOnly: true }));
 els.analyzeButton.addEventListener("click", runAnalysis);
 els.downloadButton.addEventListener("click", downloadTxt);
 els.newSessionButton.addEventListener("click", () => window.location.reload());
@@ -125,3 +127,7 @@ updateApiKeyCopy();
 updateMetadataVisibility();
 setFeedback("", config.feedback.initial);
 setTailoringAccess(false, config.tailoring.initialLock);
+
+if ("serviceWorker" in navigator && window.isSecureContext) {
+  navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+}

@@ -1,5 +1,32 @@
 # Docker
 
+## Persistent evaluation rules and offline checks
+
+Both images include baseline rules and support offline evidence prechecks without
+an API key or AI model. Use **Offline evidence check** in the app (or multipart
+`offlineOnly=true` on `/api/precheck-cv`). Job-specific AI tailoring still uses the
+configured provider.
+
+Persist validated updates across container recreation with a named volume:
+
+```bash
+docker run --rm -p 3001:3001 \
+  -v career-signal-rules:/data/career-signal/rules \
+  fanmixco/career-signal:latest
+```
+
+`CAREER_SIGNAL_RULES_DIR` overrides the directory. Mount a writable directory at
+that path when using a bind mount. `CAREER_SIGNAL_RULES_REFRESH_HOURS` defaults to
+24; `CAREER_SIGNAL_RULES_SOURCE` defaults to the Pages `/frontend/rules/` directory
+and can be set to an empty string to disable synchronization. The backend-only
+image supports the same settings and storage.
+
+Without a persistent volume, updates survive process restarts in the same
+container but **do not persist across container recreation**. A read-only or
+unwritable rules directory falls back to the bundled/last loaded valid rules.
+Network failures never block evidence analysis. See [dynamic rules](dynamic-rules.md)
+for the audit, schema, publishing, integrity checks and rollback behavior.
+
 ## Optional: Run With Docker
 
 Docker runs the backend and frontend in one container. This is often the easiest way to start if you do not want to install Node.js or clone the project internals.
@@ -70,7 +97,7 @@ The GitHub Pages URL is a frontend preview:
 
 [https://fanmixco.github.io/career-signal/frontend](https://fanmixco.github.io/career-signal/frontend)
 
-It does not include a running backend. To run CV checks from that page, start or deploy your own Career Signal backend and configure its URL from the settings button in the app.
+It does not include a running backend. Pasted CV text can be checked with **Offline evidence check** directly in the browser. For PDF extraction or AI tailoring, start or deploy your own Career Signal backend and configure its URL from the settings button in the app.
 
 Only use a backend you control or trust. CV text, job descriptions, and pasted API keys are sent to the configured backend.
 

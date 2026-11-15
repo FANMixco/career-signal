@@ -61,6 +61,8 @@ Rather than keeping those lessons to myself, I decided to build an open project 
 - It does not store CVs in a database.
 - It does not store API keys.
 
+Use **Offline evidence check** for an immediate text-based CV review without an AI service. Bundled rules work offline; validated JSON updates arrive later. See [dynamic rules](docs/dynamic-rules.md) for configuration, storage, publishing and rollback.
+
 ## Quick Start
 
 ```bash

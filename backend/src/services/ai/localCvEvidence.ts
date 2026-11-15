@@ -1,3 +1,4 @@
+import { getEvaluation } from "../../rules/rulesRuntime.js";
 // Deterministic CV evidence checks used as the safety net for weaker models.
 // These rules do not replace the LLM review; they make sure the app can still
 // return a defensible score and practical warnings when a model is weak,
@@ -56,6 +57,7 @@ export function buildLocalPrecheckBaseline(input: {
   hasDegree?: boolean;
   degreeYear?: number;
 }): PrecheckResult {
+  const settings = getEvaluation().localEvidence;
   const cvText = input.cvText;
   const lower = cvText.toLowerCase();
   const bullets = candidateBulletLines(cvText);
@@ -74,23 +76,23 @@ export function buildLocalPrecheckBaseline(input: {
       /\b\d+(?:[.,]\d+)?|%|[$€£]\b/.test(line)
   ).length;
   const weakBulletCount = bullets.filter((line) => weakActivityPattern().test(line)).length;
-  const hasQuantifiedResults = quantifiedEvidenceCount >= 3;
-  const hasAccomplishments = resultVerbCount >= 8 || strongBulletCount >= 2;
-  const mostlyJobDescriptions = weakActivityCount > resultVerbCount && strongBulletCount < 2;
+  const hasQuantifiedResults = quantifiedEvidenceCount >= settings.quantifiedMinimum;
+  const hasAccomplishments = resultVerbCount >= settings.resultVerbMinimum || strongBulletCount >= settings.strongBulletMinimum;
+  const mostlyJobDescriptions = weakActivityCount > resultVerbCount && strongBulletCount < settings.strongBulletMinimum;
   const scoreBreakdown = {
-    quantifiedResults: clampScore(quantifiedEvidenceCount * 4, 30),
-    accomplishmentClarity: clampScore(resultVerbCount * 1.5 + strongBulletCount * 3 - weakActivityCount, 25),
-    scopeAndScale: clampScore(countMatches(lower, /\b(?:enterprise|regional|global|multi[-\s]?country|stakeholders|users|clients|teams|systems|platform|portfolio|budget|cost|revenue)\b/g) * 2, 20),
-    responsibilityVersusOutcomeRatio: clampScore(15 - Math.max(0, weakActivityCount - strongBulletCount) * 2 + Math.min(strongBulletCount, 4), 15),
+    quantifiedResults: clampScore(quantifiedEvidenceCount * settings.quantifiedWeight, 30),
+    accomplishmentClarity: clampScore(resultVerbCount * settings.resultVerbWeight + strongBulletCount * settings.strongBulletWeight - weakActivityCount, 25),
+    scopeAndScale: clampScore(countMatches(lower, /\b(?:enterprise|regional|global|multi[-\s]?country|stakeholders|users|clients|teams|systems|platform|portfolio|budget|cost|revenue)\b/g) * settings.scopeWeight, 20),
+    responsibilityVersusOutcomeRatio: clampScore(15 - Math.max(0, weakActivityCount - strongBulletCount) * settings.weakPenalty + Math.min(strongBulletCount, 4), 15),
     interviewDefensibility: clampScore(quantifiedEvidenceCount + resultVerbCount / 4 + strongBulletCount * 2, 10)
   };
-  const cvEvidenceScore = Math.min(90, clampScore(Object.values(scoreBreakdown).reduce((sum, value) => sum + value, 0), 100));
+  const cvEvidenceScore = Math.min(settings.scoreCap, clampScore(Object.values(scoreBreakdown).reduce((sum, value) => sum + value, 0), 100));
   const sensitiveWarnings = detectSensitivePersonalDataWarnings(cvText).map((item) => item.warning);
   const specificWarnings = [
     ...sensitiveWarnings,
-    ...(mostlyJobDescriptions ? ["Several statements may read like responsibilities rather than outcomes. Add clearer results, scale, and consequences where true."] : []),
-    ...(input.hasDegree && input.degreeYear && input.yearsOfExperience >= 5
-      ? ["Study completion years can reveal age-related information. Keep role-relevant studies, but consider removing unnecessary dates."]
+    ...(mostlyJobDescriptions ? [getEvaluation().legacyText.responsibilityWarning] : []),
+    ...(input.hasDegree && input.degreeYear && input.yearsOfExperience >= settings.educationYears
+      ? [getEvaluation().legacyText.studyYearWarning]
       : [])
   ];
 
@@ -106,19 +108,19 @@ export function buildLocalPrecheckBaseline(input: {
     weakBulletCount,
     proceedRecommendation: recommendationForScore(cvEvidenceScore),
     mainProblem: mostlyJobDescriptions
-      ? "The CV appears to include more activity or responsibility language than defensible outcome evidence."
-      : "The CV has usable evidence, but the strongest claims still need clear scope, result, and interview-defensible context.",
+      ? getEvaluation().legacyText.responsibilityProblem
+      : getEvaluation().legacyText.usableEvidenceProblem,
     specificWarnings,
     missingEvidenceTypes: [
-      ...(hasQuantifiedResults ? [] : ["More quantified outcomes, such as cost, time, risk, adoption, reliability, or scale."]),
-      ...(hasAccomplishments ? [] : ["Clearer accomplishment bullets showing what changed because of the work."])
+      ...(hasQuantifiedResults ? [] : [getEvaluation().legacyText.missingQuantifiedEvidence]),
+      ...(hasAccomplishments ? [] : [getEvaluation().legacyText.missingAccomplishments])
     ],
     examplesOfWeakBullets: bullets.filter((line) => weakActivityPattern().test(line)).slice(0, 3),
     questionsToRecoverMetrics: defaultMetricRecoveryQuestions.slice(0, 5),
-    interviewRiskQuestions: ["Which claims would be hardest to defend with evidence in an interview?"],
+    interviewRiskQuestions: [getEvaluation().legacyText.interviewDefensibilityQuestion],
     nextStep: hasAccomplishments
-      ? "Use the strongest evidence for tailoring, but clarify any vague scale, baseline, or ownership before sending."
-      : "Improve the CV evidence first by adding truthful outcomes, scale, and before/after context."
+      ? getEvaluation().legacyText.clarifyBeforeTailoring
+      : getEvaluation().legacyText.recoverBeforeTailoring
   };
 }
 
@@ -133,6 +135,7 @@ export function buildLocalPrecheckFallbackSections(
   },
   baseline: PrecheckResult
 ): OllamaPrecheckAdviceSection {
+  const settings = getEvaluation().localEvidence;
   const cvText = input.cvText;
   const lower = cvText.toLowerCase();
   const bullets = candidateBulletLines(cvText);
@@ -150,86 +153,86 @@ export function buildLocalPrecheckFallbackSections(
 
   const specificWarnings = uniqueStrings([
     ...baseline.specificWarnings,
-    "The selected model did not complete the richer reviewer pass quickly, so these warnings are generated from deterministic CV evidence rules.",
+    getEvaluation().legacyText.deterministicFallbackNotice,
     ...(baseline.cvEvidenceScore >= 85
-      ? ["The CV has strong evidence density, but do not treat the score as approval to send it unchanged; check that the biggest numbers have baselines, scope, and ownership that can survive an interview."]
+      ? [getEvaluation().legacyText.strongScoreWarning]
       : []),
     ...(baseline.quantifiedEvidenceCount > 0 && baseline.strongBulletCount < Math.min(3, baseline.quantifiedEvidenceCount)
-      ? ["Some numbers appear in the CV, but not all of them are attached to clear outcome bullets. Make sure each important metric explains what changed, where, and because of whom."]
+      ? [getEvaluation().legacyText.detachedMetricsWarning]
       : []),
     ...(hasCostClaims
-      ? ["Cost, saving, or optimization claims should include a defensible baseline, time window, calculation logic, and whether the impact was owned, influenced, or estimated."]
+      ? [getEvaluation().legacyText.costClaimsWarning]
       : []),
     ...(hasScaleClaims
-      ? ["Scale signals are present. Make sure the CV consistently states who or what was affected, such as users, systems, teams, countries, budgets, risks, or processes."]
+      ? [getEvaluation().legacyText.scaleClaimsWarning]
       : []),
     ...(possibleTenseIssue
-      ? ["Some bullet wording may read like infinitive or present-tense activity language. Completed achievements should usually use completed-action wording, even inside a current role."]
+      ? [getEvaluation().legacyText.tenseWarning]
       : []),
     ...(unsupportedNarrative
-      ? ["The CV appears to use personal narrative or self-assessment language. Keep those claims only where nearby bullets prove them through outcomes, scale, decisions, or measurable impact."]
+      ? [getEvaluation().legacyText.unsupportedNarrativeWarning]
       : []),
-    ...(input.yearsOfExperience >= 7 && wordCount < 700
-      ? ["For this level of experience, the CV may be too compressed. Make sure it does not hide progression, leadership scope, delivery context, or the strongest evidence."]
+    ...(input.yearsOfExperience >= settings.seniorYears && wordCount < settings.compressedWords
+      ? [getEvaluation().legacyText.compressedCvWarning]
       : []),
-    ...(input.yearsOfExperience < 5 && wordCount > 1200
-      ? ["For an early-career profile, the CV may be too long. Compress repeated or older details so the strongest evidence is easier to scan."]
+    ...(input.yearsOfExperience < settings.earlyCareerYears && wordCount > settings.longWords
+      ? [getEvaluation().legacyText.longCvWarning]
       : []),
-    ...(input.yearsOfExperience >= 7 && hasPattern(lower, /\b(?:present|current)\b/i) && !hasPattern(lower, /\b(?:promoted|promotion|senior|lead|manager|head|principal)\b/i)
-      ? ["If several years were spent in one organization, make internal progression visible when true. A single final title can make growth look flat."]
+    ...(input.yearsOfExperience >= settings.seniorYears && hasPattern(lower, /\b(?:present|current)\b/i) && !hasPattern(lower, /\b(?:promoted|promotion|senior|lead|manager|head|principal)\b/i)
+      ? [getEvaluation().legacyText.progressionWarning]
       : []),
     ...(hasCloudSignals && hasStrategySignals
-      ? ["The CV mixes strategy, architecture, delivery, and technical cloud signals. Clarify which responsibilities belonged to which role so the reader does not confuse project, product, architecture, and strategy scope."]
+      ? [getEvaluation().legacyText.hybridScopeWarning]
       : []),
     ...(hasAiSignals
-      ? ["AI or automation claims should specify the use case, users, business process, result, and whether the work was production, prototype, governance, or enablement."]
+      ? [getEvaluation().legacyText.aiClaimsWarning]
       : [])
   ]);
 
   const missingEvidenceTypes = uniqueStrings([
     ...baseline.missingEvidenceTypes,
-    ...(baseline.quantifiedEvidenceCount > 0 ? ["Baseline and measurement window for the strongest quantified claims."] : []),
-    ...(hasCloudSignals ? ["Cloud/technology impact evidence such as migration scope, cost, reliability, security, adoption, or operating-model change."] : []),
-    ...(hasStrategySignals ? ["Strategy evidence such as decision influenced, roadmap adopted, governance improved, or stakeholder group affected."] : []),
-    ...(hasAiSignals ? ["AI/automation evidence such as use case, adoption, risk control, productivity gain, or business outcome."] : []),
-    "Interview defensibility details for the highest-impact claims: exact ownership, baseline, source of metric, and what can be safely discussed."
+    ...(baseline.quantifiedEvidenceCount > 0 ? [getEvaluation().legacyText.baselineEvidence] : []),
+    ...(hasCloudSignals ? [getEvaluation().legacyText.cloudEvidence] : []),
+    ...(hasStrategySignals ? [getEvaluation().legacyText.strategyEvidence] : []),
+    ...(hasAiSignals ? [getEvaluation().legacyText.aiEvidence] : []),
+    getEvaluation().legacyText.ownershipEvidence
   ]);
 
   const questionsToRecoverMetrics = uniqueStrings([
     ...(hasCostClaims
       ? [
-          "For each cost or saving claim, what was the baseline, final value, time window, and calculation method?",
-          "Was the cost impact directly delivered by you, influenced by you, or estimated as avoided cost?"
+          getEvaluation().legacyText.costBaselineQuestion,
+          getEvaluation().legacyText.costAttributionQuestion
         ]
       : []),
     ...(hasCloudSignals
       ? [
-          "How many applications, environments, accounts, workloads, users, or teams were affected by the cloud work?",
-          "What changed after the cloud, migration, architecture, or FinOps work: cost, reliability, speed, governance, security, or adoption?"
+          getEvaluation().legacyText.cloudScopeQuestion,
+          getEvaluation().legacyText.cloudOutcomeQuestion
         ]
       : []),
     ...(hasStrategySignals
       ? [
-          "Which roadmap, governance decision, architecture recommendation, or strategic plan was accepted or used by stakeholders?",
-          "Who consumed the strategy work: leadership, engineering teams, clients, suppliers, boards, or business units?"
+          getEvaluation().legacyText.strategyAdoptionQuestion,
+          getEvaluation().legacyText.strategyAudienceQuestion
         ]
       : []),
     ...(hasAiSignals
       ? [
-          "For each AI or automation item, was it a prototype, production solution, governance artifact, or enablement activity?",
-          "What measurable result came from the AI or automation work: time saved, errors reduced, adoption, decisions supported, or cost avoided?"
+          getEvaluation().legacyText.aiMaturityQuestion,
+          getEvaluation().legacyText.aiOutcomeQuestion
         ]
       : []),
     ...baseline.questionsToRecoverMetrics.slice(0, 4)
   ]);
 
   const interviewRiskQuestions = uniqueStrings([
-    "Which three claims would be hardest to defend if an interviewer asked for the baseline, source, and your exact contribution?",
-    "Are any metrics estimates, shared team outcomes, or avoided-cost calculations that need softer wording?",
-    "Do any role titles hide responsibilities from another discipline, such as project management, product management, architecture, strategy, or operations?",
-    ...(possibleTenseIssue ? ["Which achievements are completed and should be rewritten in past tense?"] : []),
-    ...(input.hasDegree && input.degreeYear && input.yearsOfExperience >= 5
-      ? ["Does the study completion year help this target role, or does it mainly reveal age-related information?"]
+    getEvaluation().legacyText.hardestClaimsQuestion,
+    getEvaluation().legacyText.sharedMetricsQuestion,
+    getEvaluation().legacyText.roleScopeQuestion,
+    ...(possibleTenseIssue ? [getEvaluation().legacyText.completedWorkQuestion] : []),
+    ...(input.hasDegree && input.degreeYear && input.yearsOfExperience >= settings.educationYears
+      ? [getEvaluation().legacyText.studyRelevanceQuestion]
       : [])
   ]);
 

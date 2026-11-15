@@ -158,9 +158,9 @@ function displayRecommendation(recommendation) {
   return config.recommendationLabels?.[recommendation] || recommendation || "";
 }
 
-function scoreLevelClass(score) {
-  if (score >= 75) return "score-strong";
-  if (score >= 50) return "score-caution";
+function scoreLevelClass(score, bands) {
+  if (score > (bands?.cautionMax ?? 74)) return "score-strong";
+  if (score > (bands?.improveFirstMax ?? 49)) return "score-caution";
   return "score-weak";
 }
 

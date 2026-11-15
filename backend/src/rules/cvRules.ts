@@ -1,4 +1,5 @@
-import { readFileSync } from "node:fs";
+import { getEvaluation, getGuidance, getPersonalCopy } from "./rulesRuntime.js";
+import appOptionsContent from "../content/config/appOptions.json" with { type: "json" };
 
 // Product rules and evaluator constants.
 // Keep behavior here, but keep reviewable CV-quality text in content JSON files.
@@ -60,10 +61,6 @@ type CvGuidanceContent = {
 
 type SensitivePersonalDataContent = Record<string, { label: string; warning: string }>;
 
-function readJson<T>(path: string) {
-  return JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as T;
-}
-
 function asNonEmptyStringTuple(name: string, values: string[]) {
   if (values.length === 0) {
     throw new Error(`${name} must contain at least one value.`);
@@ -72,9 +69,9 @@ function asNonEmptyStringTuple(name: string, values: string[]) {
   return values as [string, ...string[]];
 }
 
-const appOptions = readJson<AppOptionsContent>("../content/config/appOptions.json");
-const cvGuidance = readJson<CvGuidanceContent>("../content/guidance/cvGuidance.json");
-const personalDataCopy = readJson<SensitivePersonalDataContent>("../content/guidance/sensitivePersonalData.json");
+const appOptions: AppOptionsContent = appOptionsContent;
+const cvGuidance = new Proxy({} as CvGuidanceContent, { get: (_, key) => getGuidance()[key as keyof CvGuidanceContent] });
+const personalDataCopy = new Proxy({} as SensitivePersonalDataContent, { get: (_, key) => getPersonalCopy()[key as keyof ReturnType<typeof getPersonalCopy>] });
 
 export const targetStyles = asNonEmptyStringTuple("targetStyles", appOptions.targetStyles);
 export const experienceSelectionModes = asNonEmptyStringTuple("experienceSelectionModes", appOptions.experienceSelectionModes);
@@ -112,10 +109,7 @@ export const proceedRecommendationValues = {
   caution: proceedRecommendations[2]
 } as const;
 
-export const scoreBands = {
-  improveFirstMax: 49,
-  cautionMax: 74
-} as const;
+export const scoreBands = new Proxy({} as { improveFirstMax: number; cautionMax: number }, { get: (_, key) => getEvaluation().scoreBands[key as "improveFirstMax" | "cautionMax"] });
 
 export const scoreBreakdownMaximums = {
   quantifiedResults: 30,
@@ -125,14 +119,18 @@ export const scoreBreakdownMaximums = {
   interviewDefensibility: 10
 } as const;
 
-export const defaultMetricRecoveryQuestions = cvGuidance.defaultMetricRecoveryQuestions;
-export const educationPrivacy = cvGuidance.educationPrivacy;
-export const careerProgressionVisibility = cvGuidance.careerProgressionVisibility;
-export const accomplishmentTenseGuidance = cvGuidance.accomplishmentTenseGuidance;
-export const cvLengthGuidance = cvGuidance.cvLengthGuidance;
-export const titleResponsibilityAlignment = cvGuidance.titleResponsibilityAlignment;
-export const evidenceBackedLanguage = cvGuidance.evidenceBackedLanguage;
-export const contactCompleteness = cvGuidance.contactCompleteness;
+export const defaultMetricRecoveryQuestions = new Proxy([] as string[], { get: (_, key) => {
+  const questions = getGuidance().defaultMetricRecoveryQuestions;
+  const value = Reflect.get(questions, key);
+  return typeof value === "function" ? value.bind(questions) : value;
+} });
+export const educationPrivacy = new Proxy({} as CvGuidanceContent["educationPrivacy"], { get: (_, key) => Reflect.get(getGuidance().educationPrivacy, key) });
+export const careerProgressionVisibility = new Proxy({} as CvGuidanceContent["careerProgressionVisibility"], { get: (_, key) => Reflect.get(getGuidance().careerProgressionVisibility, key) });
+export const accomplishmentTenseGuidance = new Proxy({} as CvGuidanceContent["accomplishmentTenseGuidance"], { get: (_, key) => Reflect.get(getGuidance().accomplishmentTenseGuidance, key) });
+export const cvLengthGuidance = new Proxy({} as CvGuidanceContent["cvLengthGuidance"], { get: (_, key) => Reflect.get(getGuidance().cvLengthGuidance, key) });
+export const titleResponsibilityAlignment = new Proxy({} as CvGuidanceContent["titleResponsibilityAlignment"], { get: (_, key) => Reflect.get(getGuidance().titleResponsibilityAlignment, key) });
+export const evidenceBackedLanguage = new Proxy({} as CvGuidanceContent["evidenceBackedLanguage"], { get: (_, key) => Reflect.get(getGuidance().evidenceBackedLanguage, key) });
+export const contactCompleteness = new Proxy({} as CvGuidanceContent["contactCompleteness"], { get: (_, key) => Reflect.get(getGuidance().contactCompleteness, key) });
 
 export const sensitivePersonalDataRules = [
   {
@@ -184,7 +182,7 @@ export function detectSensitivePersonalDataWarnings(cvText: string) {
     .filter((rule) => rule.pattern.test(cvText))
     .map((rule) => ({
       id: rule.id,
-      label: rule.label,
-      warning: rule.warning
+      label: personalDataCopy[rule.id].label,
+      warning: personalDataCopy[rule.id].warning
     }));
 }

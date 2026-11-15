@@ -1,5 +1,8 @@
 # CV Evaluation Rules
 
+The implementation audit, configurable schema, storage, update protocol, and
+CV01–CV04 checks are documented in [Dynamic evaluation rules](dynamic-rules.md).
+
 This file explains the rules used to evaluate a CV in plain language.
 
 It is meant for non-technical review and feedback. It should describe what the app considers when judging whether a CV is strong enough to tailor for a target role.

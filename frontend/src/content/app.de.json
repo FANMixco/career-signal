@@ -124,7 +124,8 @@
     "newSession": "Neu",
     "importJson": "Sitzung importieren",
     "exportJson": "Sitzung exportieren",
-    "loadDemoProfile": "Demo-Profil laden"
+    "loadDemoProfile": "Demo-Profil laden",
+    "offlinePrecheck": "Nachweise offline prüfen"
   },
   "backendSettings": {
     "title": "Backend-Einstellungen",
@@ -187,7 +188,8 @@
     "demoProfileComplete": "Demo-Profil geladen. CV-Text, Prüfung, Anpassungsdaten, Verbesserungstipps und Plan wurden ohne Backend-Aufruf wiederhergestellt.",
     "paidModelSuggestion": "Fuer vollstaendigere und konsistentere Ergebnisse solltest du wichtige CVs mit einem staerkeren kostenpflichtigen Modell erneut pruefen, bevor du den finalen Plan nutzt.",
     "precheckStale": "CV oder Profildaten haben sich geändert. Starte die Prüfung erneut.",
-    "precheckLoadingText": "CV-Nachweisprüfung läuft. Das kann einen Moment dauern."
+    "precheckLoadingText": "CV-Nachweisprüfung läuft. Das kann einen Moment dauern.",
+    "offlinePrecheck": "Offline-Prüfung abgeschlossen. Dies sind deterministische Textprüfungen; die KI-Anpassung erfordert einen konfigurierten Anbieter."
   },
   "tailoring": {
     "guidanceLocked": "Du kannst Zielunternehmen und Stellenbeschreibung bereits hinzufügen. Die Generierung wird nach der Prüfung freigeschaltet.",
@@ -618,7 +620,8 @@
     "reconstructionFailed": "Der Rekonstruktionsplan konnte nicht erstellt werden.",
     "healthCheckFailed": "Healthcheck fehlgeschlagen.",
     "precheckFailed": "Prüfung fehlgeschlagen.",
-    "analysisFailed": "Analyse fehlgeschlagen."
+    "analysisFailed": "Analyse fehlgeschlagen.",
+    "offlineCvTooShort": "Fügen Sie einen vollständigen Lebenslauf mit mindestens 300 Zeichen ein."
   },
   "buyMeCoffee": {
     "description": "Unterstütze mich auf Buy Me a Coffee",

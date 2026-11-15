@@ -334,7 +334,8 @@
     "newSession": "New",
     "importJson": "Import session",
     "exportJson": "Export session",
-    "loadDemoProfile": "Load Demo Profile"
+    "loadDemoProfile": "Load Demo Profile",
+    "offlinePrecheck": "Offline evidence check"
   },
   "backendSettings": {
     "storageKey": "careerSignalBackendUrl",
@@ -400,7 +401,8 @@
     "demoProfileComplete": "Demo profile loaded. Stored CV text, precheck output, tailoring inputs, improvement tips, and reconstruction output were restored without calling the backend.",
     "paidModelSuggestion": "For more complete and consistent results, consider rerunning important CVs with a stronger paid model before using the final plan.",
     "precheckStale": "The CV or profile details changed. Run the CV Evidence Precheck again before generating another plan.",
-    "precheckLoadingText": "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence."
+    "precheckLoadingText": "Running CV Evidence Precheck. This can take a little while while the model reviews the CV evidence.",
+    "offlinePrecheck": "Offline evidence check complete. These are deterministic text checks; job-specific AI tailoring requires a configured provider."
   },
   "tailoring": {
     "guidanceLocked": "You can add the target company and job description now. Generation unlocks after the CV evidence precheck, or after you explicitly choose to continue despite a weak precheck.",
@@ -967,7 +969,8 @@
     "reconstructionFailed": "Could not generate the reconstruction plan.",
     "healthCheckFailed": "Health check failed.",
     "precheckFailed": "Precheck failed.",
-    "analysisFailed": "Analysis failed."
+    "analysisFailed": "Analysis failed.",
+    "offlineCvTooShort": "Paste a complete CV with at least 300 characters."
   },
   "buyMeCoffee": {
     "description": "Support me on Buy Me a Coffee!",

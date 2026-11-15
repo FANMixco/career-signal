@@ -1,3 +1,5 @@
+import { evaluateCareerChecks, mergeCareerWarnings } from "../rules/careerChecks.js";
+import { buildLocalPrecheckBaseline } from "../services/ai/localCvEvidence.js";
 // POST /api/precheck-cv
 // Accepts either pasted CV text or one uploaded PDF, extracts text if needed,
 // validates profile metadata, then runs the evidence precheck before tailoring
@@ -5,7 +7,7 @@
 import { Router } from "express";
 import multer from "multer";
 import { ZodError } from "zod";
-import { detectSensitivePersonalDataWarnings } from "../rules/cvRules.js";
+import { detectSensitivePersonalDataWarnings, scoreBands } from "../rules/cvRules.js";
 import { runPrecheck } from "../services/aiProviderService.js";
 import { extractPdfText } from "../services/pdfService.js";
 import { errorMessage, localizeErrorText } from "../utils/messages.js";
@@ -61,7 +63,7 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       return;
     }
 
-    const precheck = await runPrecheck({
+    const precheckInput = {
       aiProvider: metadata.aiProvider,
       aiModel: metadata.aiModel,
       apiKey: req.body.aiApiKey || req.body.openaiApiKey,
@@ -72,7 +74,10 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       degreeYear: metadata.degreeYear,
       experienceSelectionMode: metadata.experienceSelectionMode,
       outputLanguage: metadata.outputLanguage
-    });
+    };
+    const precheck = req.body.offlineOnly === "true" ? buildLocalPrecheckBaseline(precheckInput) : await runPrecheck(precheckInput);
+    const careerWarnings = evaluateCareerChecks(cvText, metadata.outputLanguage);
+    precheck.specificWarnings = mergeCareerWarnings(precheck.specificWarnings, careerWarnings);
 
     res.json({
       cvText,
@@ -80,6 +85,8 @@ precheckCvRouter.post("/", upload.single("cvPdf"), async (req, res) => {
       agePrivacyWarning: agePrivacyWarning(metadata.degreeYear),
       personalDataWarnings: detectSensitivePersonalDataWarnings(cvText),
       precheck,
+      careerWarnings,
+      scoreBands: { improveFirstMax: scoreBands.improveFirstMax, cautionMax: scoreBands.cautionMax },
       recommendedNextAction: precheck.proceedRecommendation
     });
   } catch (error) {

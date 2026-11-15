@@ -14,6 +14,7 @@ function appPath(...segments) {
 async function startBackend() {
   const backendEntry = appPath("backend", "dist", "index.js");
   const frontendPath = appPath("frontend");
+  process.env.CAREER_SIGNAL_RULES_DIR ||= path.join(app.getPath("userData"), "rules");
   const backendModule = await import(pathToFileURL(backendEntry).href);
 
   process.env.NODE_ENV = process.env.NODE_ENV || "production";
