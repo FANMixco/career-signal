@@ -1,5 +1,5 @@
 // Offline application shell only. Rules durability belongs to IndexedDB.
-const CACHE = "career-signal-d2f511d86e8b8d57";
+const CACHE = "career-signal-4d6db35f4fa93f6a";
 const ASSETS = ["./", "./index.html", "./app.min.js", "./rules.min.js", "./styles.min.css", "./site.webmanifest"];
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));

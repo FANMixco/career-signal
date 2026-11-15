@@ -1477,6 +1477,535 @@
         }
       }
     },
+    "cvBasics.json": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "locales"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "locales": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "en",
+            "es",
+            "fr",
+            "de"
+          ],
+          "properties": {
+            "en": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "subtitle",
+                "playlistText",
+                "playlistUrl",
+                "blocks"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "subtitle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "playlistText": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "playlistUrl": {
+                  "type": "string",
+                  "maxLength": 12000,
+                  "pattern": "^https://"
+                },
+                "blocks": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 80,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 12000
+                      },
+                      "ruleId": {
+                        "enum": [
+                          "CV01",
+                          "CV02",
+                          "CV03",
+                          "CV04"
+                        ]
+                      },
+                      "items": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 40,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 12000
+                        }
+                      },
+                      "examples": {
+                        "type": "array",
+                        "maxItems": 10,
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "prefixItems": [
+                            {
+                              "enum": [
+                                "example",
+                                "example strong"
+                              ]
+                            },
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 12000
+                            }
+                          ],
+                          "items": false
+                        }
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "required": [
+                            "ruleId"
+                          ]
+                        },
+                        "then": {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "items"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "examples"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "es": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "subtitle",
+                "playlistText",
+                "blocks",
+                "playlistUrl"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "subtitle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "playlistText": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "blocks": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 80,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 12000
+                      },
+                      "ruleId": {
+                        "enum": [
+                          "CV01",
+                          "CV02",
+                          "CV03",
+                          "CV04"
+                        ]
+                      },
+                      "items": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 40,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 12000
+                        }
+                      },
+                      "examples": {
+                        "type": "array",
+                        "maxItems": 10,
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "prefixItems": [
+                            {
+                              "enum": [
+                                "example",
+                                "example strong"
+                              ]
+                            },
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 12000
+                            }
+                          ],
+                          "items": false
+                        }
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "required": [
+                            "ruleId"
+                          ]
+                        },
+                        "then": {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "items"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "examples"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "playlistUrl": {
+                  "type": "string",
+                  "maxLength": 12000,
+                  "pattern": "^https://"
+                }
+              }
+            },
+            "fr": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "subtitle",
+                "playlistText",
+                "blocks",
+                "playlistUrl"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "subtitle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "playlistText": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "blocks": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 80,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 12000
+                      },
+                      "ruleId": {
+                        "enum": [
+                          "CV01",
+                          "CV02",
+                          "CV03",
+                          "CV04"
+                        ]
+                      },
+                      "items": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 40,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 12000
+                        }
+                      },
+                      "examples": {
+                        "type": "array",
+                        "maxItems": 10,
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "prefixItems": [
+                            {
+                              "enum": [
+                                "example",
+                                "example strong"
+                              ]
+                            },
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 12000
+                            }
+                          ],
+                          "items": false
+                        }
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "required": [
+                            "ruleId"
+                          ]
+                        },
+                        "then": {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "items"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "examples"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "playlistUrl": {
+                  "type": "string",
+                  "maxLength": 12000,
+                  "pattern": "^https://"
+                }
+              }
+            },
+            "de": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "subtitle",
+                "playlistText",
+                "blocks",
+                "playlistUrl"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "subtitle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "playlistText": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "blocks": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 80,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "title"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 12000
+                      },
+                      "ruleId": {
+                        "enum": [
+                          "CV01",
+                          "CV02",
+                          "CV03",
+                          "CV04"
+                        ]
+                      },
+                      "items": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 40,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 12000
+                        }
+                      },
+                      "examples": {
+                        "type": "array",
+                        "maxItems": 10,
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "prefixItems": [
+                            {
+                              "enum": [
+                                "example",
+                                "example strong"
+                              ]
+                            },
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 12000
+                            }
+                          ],
+                          "items": false
+                        }
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "required": [
+                            "ruleId"
+                          ]
+                        },
+                        "then": {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "items"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "examples"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "playlistUrl": {
+                  "type": "string",
+                  "maxLength": 12000,
+                  "pattern": "^https://"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "manifest": {
       "type": "object",
       "additionalProperties": false,
@@ -1489,7 +2018,7 @@
       ],
       "properties": {
         "schemaVersion": {
-          "const": 2
+          "const": 3
         },
         "engineMin": {
           "type": "integer",
@@ -1510,7 +2039,8 @@
             "evaluation.json",
             "cvGuidance.json",
             "sensitivePersonalData.json",
-            "models.json"
+            "models.json",
+            "cvBasics.json"
           ],
           "properties": {
             "evaluation.json": {
@@ -1526,6 +2056,10 @@
               "pattern": "^[a-f0-9]{64}$"
             },
             "models.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "cvBasics.json": {
               "type": "string",
               "pattern": "^[a-f0-9]{64}$"
             }

@@ -3,11 +3,12 @@ import evaluation from "../content/rules/evaluation.json" with { type: "json" };
 import guidance from "../content/guidance/cvGuidance.json" with { type: "json" };
 import personal from "../content/guidance/sensitivePersonalData.json" with { type: "json" };
 import models from "../content/config/models.json" with { type: "json" };
+import cvBasics from "../content/guidance/cvBasics.json" with { type: "json" };
 
-export const ENGINE_VERSION = 2;
-export const FILES = ["evaluation.json", "cvGuidance.json", "sensitivePersonalData.json", "models.json"] as const;
+export const ENGINE_VERSION = 3;
+export const FILES = ["evaluation.json", "cvGuidance.json", "sensitivePersonalData.json", "models.json", "cvBasics.json"] as const;
 export type RuleFile = typeof FILES[number];
-export const baseline = { "evaluation.json": evaluation, "cvGuidance.json": guidance, "sensitivePersonalData.json": personal, "models.json": models };
+export const baseline = { "evaluation.json": evaluation, "cvGuidance.json": guidance, "sensitivePersonalData.json": personal, "models.json": models, "cvBasics.json": cvBasics };
 export type ModelCatalog = typeof models;
 export type ModelProvider = keyof ModelCatalog["providers"];
 export type RuleData = typeof baseline;
@@ -22,6 +23,68 @@ export function getEvaluation() { return currentRules()["evaluation.json"]; }
 export function getGuidance() { return currentRules()["cvGuidance.json"]; }
 export function getPersonalCopy() { return currentRules()["sensitivePersonalData.json"]; }
 export function getModelCatalog() { return currentRules()["models.json"]; }
+export type BasicsBlock = { title: string; text?: string; items?: string[]; examples?: string[][]; ruleId?: string };
+export type CvBasicsView = { title: string; subtitle: string; playlistText: string; playlistUrl: string; blocks: BasicsBlock[] };
+type CvBasicsContent = { schemaVersion: number; locales: Record<string, CvBasicsView> };
+type CareerRuleId = keyof typeof evaluation.rules;
+
+export function careerRecommendation(id: CareerRuleId, language = "en") {
+  const e = getEvaluation();
+  const copy = e.recommendations[e.rules[id].recommendation as keyof typeof e.recommendations];
+  return (copy[language as keyof typeof copy] || copy.en).replace(/\{recentYears\}/g, String(e.rules.CV02.thresholds.recentYears));
+}
+
+export function validateCvBasicsView(input: unknown): CvBasicsView {
+  const view = input as CvBasicsView;
+  const text = (value: unknown, max = 12000) => typeof value === "string" && value.trim().length > 0 && value.length <= max;
+  if (!view || Object.keys(view).sort().join() !== "blocks,playlistText,playlistUrl,subtitle,title" || ![view.title, view.subtitle, view.playlistText, view.playlistUrl].every(value => text(value))) throw Error("Invalid CV basics");
+  const url = new URL(view.playlistUrl);
+  if (url.protocol !== "https:" || url.username || url.password) throw Error("Invalid CV basics link");
+  if (!Array.isArray(view.blocks) || view.blocks.length < 1 || view.blocks.length > 80) throw Error("Invalid CV basics blocks");
+  const seen = new Set<string>();
+  for (const block of view.blocks) {
+    if (!block || typeof block !== "object" || Object.keys(block).some(key => !["title", "text", "items", "examples", "ruleId"].includes(key)) || !text(block.title, 200)) throw Error("Invalid CV basics block");
+    if (block.text !== undefined && !text(block.text)) throw Error("Invalid CV basics text");
+    if (block.items !== undefined && (!Array.isArray(block.items) || block.items.length < 1 || block.items.length > 40 || !block.items.every(item => text(item)))) throw Error("Invalid CV basics items");
+    if (block.examples !== undefined && (!Array.isArray(block.examples) || block.examples.length > 10 || block.examples.some(example => !Array.isArray(example) || example.length !== 2 || !["example", "example strong"].includes(example[0]) || !text(example[1])))) throw Error("Invalid CV basics examples");
+    if (block.ruleId !== undefined) {
+      if (!Object.hasOwn(evaluation.rules, block.ruleId) || seen.has(block.ruleId)) throw Error("Invalid CV basics rule reference");
+      seen.add(block.ruleId);
+    }
+  }
+  return view;
+}
+
+function validateCvBasicsContent(input: unknown, e: typeof evaluation) {
+  const content = input as CvBasicsContent;
+  if (!content || Object.keys(content).sort().join() !== "locales,schemaVersion" || content.schemaVersion !== 1 || !content.locales || Object.keys(content.locales).sort().join() !== "de,en,es,fr") throw Error("Incomplete CV basics locales");
+  for (const view of Object.values(content.locales)) {
+    validateCvBasicsView(view);
+    const ids = view.blocks.filter(block => block.ruleId).map(block => block.ruleId).sort();
+    if (ids.join() !== Object.keys(e.rules).sort().join()) throw Error("Incomplete CV basics rule references");
+    for (const block of view.blocks) {
+      if (!block.ruleId) continue;
+      if (block.items || block.examples) throw Error("Rule recommendations must be shared by reference");
+      for (const match of (block.text || "").matchAll(/\{(\w+)\}/g)) {
+        if (!Object.hasOwn(e.rules[block.ruleId as CareerRuleId].thresholds, match[1])) throw Error("Unknown CV basics threshold");
+      }
+    }
+  }
+}
+
+export function getCvBasics(language = "en"): CvBasicsView {
+  const content = currentRules()["cvBasics.json"] as CvBasicsContent;
+  const source = content.locales[language] || content.locales.en;
+  const e = getEvaluation();
+  const blocks = source.blocks.flatMap(block => {
+    if (!block.ruleId) return [block];
+    const id = block.ruleId as CareerRuleId, rule = e.rules[id];
+    if (!rule.enabled) return [];
+    const values = rule.thresholds as Record<string, number>;
+    return [{ ...block, text: block.text?.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key])), items: [careerRecommendation(id, language)] }];
+  });
+  return { ...source, blocks };
+}
 const listeners = new Set<() => void>();
 export function subscribeRules(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; }
 export function evaluationInstructions(stage: "precheckInstruction" | "reconstructionInstruction") {
@@ -49,7 +112,10 @@ function validateShape(value: unknown, template: unknown, path = "root"): void {
 }
 
 export function validateData(data: unknown): RuleData {
-  validateShape(data, baseline);
+  if (!data || typeof data !== "object" || Object.keys(data).sort().join() !== [...FILES].sort().join()) throw Error("Incomplete ruleset");
+  for (const name of FILES) {
+    if (name !== "cvBasics.json") validateShape((data as Record<string, unknown>)[name], baseline[name], name);
+  }
   const parsed = data as RuleData;
   const e = parsed["evaluation.json"];
   if (!Number.isInteger(e.scoreBands.improveFirstMax) || !Number.isInteger(e.scoreBands.cautionMax) || e.scoreBands.improveFirstMax >= e.scoreBands.cautionMax || e.scoreBands.cautionMax > 99) throw Error("Invalid score bands");
@@ -59,6 +125,7 @@ export function validateData(data: unknown): RuleData {
   }
   if (e.localEvidence.scoreCap > 100 || e.localEvidence.strongBulletMinimum < 1 || e.localEvidence.quantifiedMinimum < 1 || e.localEvidence.resultVerbMinimum < 1) throw Error("Invalid evidence thresholds");
   validateModelCatalog(parsed["models.json"]);
+  validateCvBasicsContent(parsed["cvBasics.json"], e);
   return parsed;
 }
 export function validateModelCatalog(input: unknown): ModelCatalog {
@@ -85,7 +152,7 @@ export function activate(data: RuleData) {
 
 export function validateManifest(input: unknown): Manifest {
   const m = input as Manifest;
-  if (!m || Object.keys(m).sort().join() !== "engineMax,engineMin,files,revision,schemaVersion" || m.schemaVersion !== 2 || !Number.isInteger(m.engineMin) || !Number.isInteger(m.engineMax) || m.engineMin > ENGINE_VERSION || m.engineMax < ENGINE_VERSION || m.engineMin < 1 || !Number.isSafeInteger(m.revision) || m.revision < 1) throw Error("Incompatible manifest");
+  if (!m || Object.keys(m).sort().join() !== "engineMax,engineMin,files,revision,schemaVersion" || m.schemaVersion !== 3 || !Number.isInteger(m.engineMin) || !Number.isInteger(m.engineMax) || m.engineMin > ENGINE_VERSION || m.engineMax < ENGINE_VERSION || m.engineMin < 1 || !Number.isSafeInteger(m.revision) || m.revision < 1) throw Error("Incompatible manifest");
   if (!m.files || Object.keys(m.files).sort().join() !== [...FILES].sort().join() || FILES.some((name) => !/^[a-f0-9]{64}$/.test(m.files[name]))) throw Error("Incomplete manifest");
   return m;
 }

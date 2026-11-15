@@ -61,7 +61,13 @@ function renderAppHelp() {
 // CV basics is data-driven so non-code contributors can revise guidance without
 // touching event handlers or layout behavior.
 function renderCvBasics() {
-  const blocks = config.cvBasics.blocks
+  const language = els.outputLanguage.value || "en";
+  const content = state.backendCvBasics?.language === language
+    ? state.backendCvBasics.content
+    : window.CareerSignalRules.getCvBasics(language);
+  els.cvBasicsTitle.textContent = content.title;
+  els.cvBasicsSubtitle.textContent = content.subtitle;
+  const blocks = content.blocks
     .map((block) => {
       const items = block.items ? `<ul>${block.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
       const text = block.text ? `<p>${escapeHtml(block.text)}</p>` : "";
@@ -75,8 +81,24 @@ function renderCvBasics() {
 
   els.cvBasicsBody.innerHTML = `
     ${blocks}
-    <a class="playlist-link" href="${escapeHtml(config.cvBasics.playlistUrl)}" target="_blank" rel="noreferrer">${escapeHtml(config.cvBasics.playlistText)}</a>
+    <a class="playlist-link" href="${escapeHtml(content.playlistUrl)}" target="_blank" rel="noreferrer">${escapeHtml(content.playlistText)}</a>
   `;
+}
+
+async function refreshBackendCvBasics() {
+  const language = els.outputLanguage.value || "en";
+  const url = apiUrl(`/api/cv-basics?language=${encodeURIComponent(language)}`);
+  try {
+    const response = await fetch(url, { cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer", signal: AbortSignal.timeout(2000) });
+    if (!response.ok) throw new Error("CV basics unavailable");
+    const content = await response.json();
+    if (language !== els.outputLanguage.value || url !== apiUrl(`/api/cv-basics?language=${encodeURIComponent(language)}`)) return;
+    state.backendCvBasics = { language, content: window.CareerSignalRules.validateCvBasicsView(content) };
+  } catch {
+    if (language !== els.outputLanguage.value || url !== apiUrl(`/api/cv-basics?language=${encodeURIComponent(language)}`)) return;
+    state.backendCvBasics = null;
+  }
+  renderCvBasics();
 }
 
 function updateMetadataVisibility() {

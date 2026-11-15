@@ -1,5 +1,5 @@
 import { RulesManager, getEvaluation, subscribeRules, type StoredRules, type RulesStorage } from "./rulesRuntime.js";
-export { getModelCatalog, validateModelCatalog } from "./rulesRuntime.js";
+export { getModelCatalog, validateModelCatalog, getCvBasics, validateCvBasicsView } from "./rulesRuntime.js";
 import { evaluateCareerChecks, mergeCareerWarnings } from "./careerChecks.js";
 import { buildLocalPrecheckBaseline } from "../services/ai/localCvEvidence.js";
 import { detectSensitivePersonalDataWarnings, educationPrivacy } from "./cvRules.js";

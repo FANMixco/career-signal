@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "locales": {
+    "en": {
+      "title": "High impact CV basics",
+      "subtitle": "A strong CV makes real evidence easy to see.",
+      "playlistText": "Watch the CV writing playlist",
+      "playlistUrl": "https://www.youtube.com/watch?v=5coYf7yimMk&list=PL5qnvXALY_bLkOiKmIAok5G1Hgq92PrUm",
+      "blocks": [
+        {
+          "title": "What strong bullets prove",
+          "items": [
+            "What changed because of your work.",
+            "Who or what was affected: users, clients, systems, teams, countries, budgets, risks, or processes.",
+            "The scale of the work and why it mattered.",
+            "The result: saved time, reduced cost, improved reliability, increased adoption, lowered risk, delivered migration, or supported decisions."
+          ]
+        },
+        {
+          "title": "Weak activity language",
+          "items": [
+            "Responsible for training teams.",
+            "Introduced governance framework.",
+            "Supported stakeholders.",
+            "Implemented process improvements.",
+            "Participated in projects."
+          ]
+        },
+        {
+          "title": "Stronger evidence pattern",
+          "text": "Use action, object, scale, purpose, and result. The bullet should survive the question: so what?",
+          "examples": [
+            [
+              "example",
+              "Weak: Trained teams during COVID."
+            ],
+            [
+              "example strong",
+              "Stronger: Supported approximately 200 to 300 people per day during peak COVID operations, maintaining patient flow under high pressure conditions."
+            ]
+          ]
+        },
+        {
+          "title": "Evidence-backed language",
+          "items": [
+            "Personal claims such as motivated, efficient, strategic, reliable, or strong communicator should be supported by evidence.",
+            "The problem is not the adjective; the problem is when there is no proof nearby.",
+            "Replace unsupported self-description with outcomes, examples, scale, decisions, delivery, adoption, or measurable results."
+          ]
+        },
+        {
+          "title": "Summary as an elevator pitch",
+          "items": [
+            "Use the summary to explain what you bring to the role before the recruiter, hiring manager, or screening model reads the details.",
+            "Keep it short, concrete, and evidence-led: target role, strongest domain, relevant scale, and one or two standout outcomes.",
+            "If multilingual ability is a useful market signal, include it naturally in the summary with the business context it supports.",
+            "Avoid generic claims such as results-driven or passionate unless the summary immediately proves them with scope, results, or rare strengths."
+          ],
+          "examples": [
+            [
+              "example strong",
+              "Cloud transformation engineer fluent in English, French, and German; reduced AWS waste by 40% in test environments and helped European stakeholders align migration, automation, and cost-governance decisions."
+            ]
+          ]
+        },
+        {
+          "title": "Languages and market signal",
+          "items": [
+            "List languages clearly and truthfully, using practical levels such as English - fluent, French - professional, or German - conversational.",
+            "If multilingual ability is relevant to the role, market, clients, or region, mention it in the summary or intro instead of hiding it at the end.",
+            "Do not assume a language mix is ordinary everywhere. For example, an engineer who can work in English, French, and German has a rare cross-border signal in many European markets.",
+            "Prioritize languages that support the target role, company, country, client base, or stakeholder environment."
+          ]
+        },
+        {
+          "title": "Tense and timing",
+          "items": [
+            "Use past tense for completed work, especially in previous roles.",
+            "Use present tense only for responsibilities or work that is genuinely still ongoing.",
+            "For current roles, completed achievements should still read as completed outcomes, not as open-ended activity.",
+            "Avoid infinitive-style bullets when the achievement already happened."
+          ]
+        },
+        {
+          "title": "Before tailoring",
+          "items": [
+            "Recover numbers where they are true and defensible.",
+            "Remove or de-emphasize old details that do not help the target role.",
+            "Keep studies and credentials only when relevant or required. Avoid listing graduation years once you have several years of professional experience (typically around five years), as they can unnecessarily introduce age bias. Exceptions may include PhDs, degrees from highly prestigious (international) universities, or school diplomas only for recent graduates.",
+            "Never invent metrics, tools, responsibilities, employers, dates, certifications, or achievements."
+          ]
+        },
+        {
+          "title": "Length by seniority",
+          "items": [
+            "Junior or early-career CVs are usually strongest at 1 page.",
+            "Mid-career CVs are usually 1 to 2 pages.",
+            "Senior specialists, managers, or consultants usually need around 2 pages.",
+            "Executives, academics, researchers, public sector profiles, or highly credentialed experts may need more when the extra detail is relevant.",
+            "Length is not bad by itself; the problem is when it hides the strongest evidence or removes proof that should be visible."
+          ]
+        },
+        {
+          "title": "Long tenure and progression",
+          "items": [
+            "Long tenure is not a problem by itself, but one title covering many years can make growth look flat.",
+            "If you held multiple internal positions, show the real sequence instead of only the latest title.",
+            "If formal titles did not change, show scope progression through truthful bullets: larger teams, bigger budgets, broader regions, harder systems, or higher-impact work."
+          ]
+        },
+        {
+          "title": "Title and responsibility alignment",
+          "items": [
+            "Make sure each official title matches the responsibilities and accomplishments listed below it.",
+            "If the title is Project Manager but the bullets describe product ownership, architecture, strategy, training, or operations, clarify the scope instead of letting the reader guess.",
+            "Hybrid roles are fine, but unusual scope should be explained with truthful wording such as a role subtitle, scope line, or clear bullet context."
+          ]
+        },
+        {
+          "title": "Sensitive personal details",
+          "items": [
+            "Avoid date of birth, exact age, marital status, family status, gender, citizenship, nationality, full home address, or photo references unless they are explicitly required.",
+            "Use location only at the useful level for the role, such as city, country, or work authorization when relevant.",
+            "These details can create privacy, discrimination, or age-bias risk and usually do not strengthen the evidence of impact."
+          ]
+        },
+        {
+          "title": "References",
+          "items": [
+            "Do not include references or referee contact details by default.",
+            "Use references available upon request only when it is expected in the target country, sector, or application form.",
+            "Protect other people’s privacy: share names, phone numbers, emails, or direct recommendations only when requested and when the referee has agreed."
+          ]
+        },
+        {
+          "title": "Contact basics",
+          "items": [
+            "Put name, email, phone, and useful location near the top.",
+            "Add LinkedIn or portfolio when it helps prove the profile.",
+            "Missing contact details are uncommon, but they create unnecessary friction for recruiters."
+          ]
+        },
+        {
+          "ruleId": "CV01",
+          "title": "Avoid excessive CV compression",
+          "text": "For {minimumPositions} or more professional positions, check whether at least {minimumWeakPositions} have fewer than {minimumAchievements} substantive achievements."
+        },
+        {
+          "ruleId": "CV02",
+          "title": "Prioritize recent, relevant experience",
+          "text": "Give priority to the most recent {recentYears} years while preserving relevant older achievements."
+        },
+        {
+          "ruleId": "CV03",
+          "title": "Classify independent professional activities"
+        },
+        {
+          "ruleId": "CV04",
+          "title": "Explain concurrent employment",
+          "text": "Review unexplained overlaps of at least {minimumOverlapMonths} months; overlap alone is not a fault."
+        }
+      ]
+    },
+    "es": {
+      "title": "Bases de un CV de alto impacto",
+      "subtitle": "Un CV fuerte hace que la evidencia real sea fácil de ver.",
+      "playlistText": "Ver la playlist sobre redacción de CV",
+      "blocks": [
+        {
+          "title": "Qué prueban las viñetas fuertes",
+          "items": [
+            "Qué cambió gracias a tu trabajo.",
+            "Quién o qué fue afectado: usuarios, clientes, sistemas, equipos, países, presupuestos, riesgos o procesos.",
+            "La escala del trabajo y por qué importó.",
+            "El resultado: ahorro de tiempo, reducción de costes, mayor fiabilidad, más adopción, menor riesgo, migración entregada o mejores decisiones."
+          ]
+        },
+        {
+          "title": "Lenguaje débil de actividad",
+          "items": [
+            "Responsable de formar equipos.",
+            "Introduje un marco de gobernanza.",
+            "Apoyé a stakeholders.",
+            "Implementé mejoras de procesos.",
+            "Participé en proyectos."
+          ]
+        },
+        {
+          "title": "Patrón de evidencia más fuerte",
+          "text": "Usa acción, objeto, escala, propósito y resultado. La viñeta debería sobrevivir a la pregunta: ¿y qué?",
+          "examples": [
+            [
+              "example",
+              "Débil: Formé equipos durante COVID."
+            ],
+            [
+              "example strong",
+              "Más fuerte: Apoyé aproximadamente a 200-300 personas por día durante el pico de operaciones COVID, manteniendo el flujo de pacientes bajo condiciones de alta presión."
+            ]
+          ]
+        },
+        {
+          "title": "Lenguaje respaldado por evidencia",
+          "items": [
+            "Afirmaciones personales como motivado, eficiente, estratégico, fiable o buen comunicador deben estar respaldadas por evidencia.",
+            "El problema no es el adjetivo; el problema es cuando no hay prueba cerca.",
+            "Sustituye autodescripciones sin soporte por resultados, ejemplos, escala, decisiones, entregas, adopción o resultados medibles."
+          ]
+        },
+        {
+          "title": "Resumen como discurso elevator",
+          "items": [
+            "Utiliza el resumen para explicar qué aportas al puesto antes de que el responsable de selección, el director de contratación o el modelo de selección lea los detalles.",
+            "Hazlo corto, concreto y basado en evidencia: puesto objetivo, dominio más fuerte, escala relevante y uno o dos resultados destacados.",
+            "Si ser multilingüe es una señal de mercado útil, inclúyelo de forma natural en el resumen con el contexto de negocio que apoya.",
+            "Evita frases genéricas como orientado a resultados o apasionado salvo que el resumen las pruebe de inmediato con alcance, resultados o fortalezas poco comunes."
+          ],
+          "examples": [
+            [
+              "example strong",
+              "Ingeniero de transformación cloud con fluidez de trabajo en inglés, francés y alemán; redujo desperdicio de AWS en un 40% en entornos de prueba y ayudó a stakeholders europeos a alinear decisiones de migración, automatización y gobernanza de costes."
+            ]
+          ]
+        },
+        {
+          "title": "Idiomas y señal de mercado",
+          "items": [
+            "Enumera los idiomas de forma clara y honesta, usando niveles prácticos como Inglés - fluido, Francés - profesional o Alemán - conversacional.",
+            "Si ser multilingüe es relevante para el rol, mercado, clientes o región, menciónalo en el resumen o introducción en vez de esconderlo al final.",
+            "No asumas que una combinación de idiomas es normal en todas partes. Por ejemplo, un ingeniero que puede trabajar en inglés, francés y alemán tiene una señal transfronteriza poco común en muchos mercados europeos.",
+            "Prioriza los idiomas que apoyan el puesto objetivo, la empresa, el país, la base de clientes o el entorno de stakeholders."
+          ]
+        },
+        {
+          "title": "Tiempos verbales y cronología",
+          "items": [
+            "Usa pasado para trabajo completado, especialmente en roles anteriores.",
+            "Usa presente solo para responsabilidades o trabajo que sigue realmente en curso.",
+            "En roles actuales, los logros completados deberían leerse como resultados terminados, no como actividad abierta.",
+            "Evita viñetas en infinitivo cuando el logro ya ocurrió."
+          ]
+        },
+        {
+          "title": "Antes de adaptar",
+          "items": [
+            "Recupera números cuando sean reales y defendibles.",
+            "Elimina o reduce detalles antiguos que no ayudan al puesto objetivo.",
+            "Menciona tus estudios y titulaciones solo cuando sean relevantes o necesarios. Evita indicar los años de graduación una vez que cuentes con varios años de experiencia profesional (normalmente, unos cinco años), ya que pueden generar un sesgo innecesario relacionado con la edad. Las excepciones pueden incluir doctorados, títulos de universidades (internacionales) de gran prestigio o diplomas escolares para recién graduados.",
+            "Si estuviste muchos años en una empresa, muestra la progresión real: promociones, cambios de rol, mayor alcance, cambios de equipo o hitos seleccionados.",
+            "Nunca inventes métricas, herramientas, responsabilidades, empleadores, fechas, certificaciones o logros."
+          ]
+        },
+        {
+          "title": "Longitud por seniority",
+          "items": [
+            "Los CVs junior o early-career suelen funcionar mejor en 1 página.",
+            "Los CVs mid-career suelen tener 1 a 2 páginas.",
+            "Especialistas senior, managers o consultores suelen necesitar alrededor de 2 páginas.",
+            "Ejecutivos, perfiles académicos, investigadores, sector público o expertos con muchas credenciales pueden necesitar más si el detalle extra es relevante.",
+            "La longitud no es mala por sí sola; el problema es cuando oculta la evidencia más fuerte o elimina pruebas que deberían verse."
+          ]
+        },
+        {
+          "title": "Permanencia larga y progresión",
+          "items": [
+            "Una permanencia larga no es un problema por sí sola, pero un único título durante muchos años puede hacer que el crecimiento parezca plano.",
+            "Si tuviste varios puestos internos, muestra la secuencia real en vez de solo el último título.",
+            "Si los títulos formales no cambiaron, muestra la progresión con viñetas verdaderas: equipos más grandes, presupuestos mayores, regiones más amplias, sistemas más complejos o trabajo de mayor impacto."
+          ]
+        },
+        {
+          "title": "Alineación entre título y responsabilidades",
+          "items": [
+            "Asegúrate de que cada título oficial coincida con las responsabilidades y logros debajo.",
+            "Si el título es Project Manager pero las viñetas describen product ownership, arquitectura, estrategia, formación u operaciones, aclara el alcance en vez de dejar que el lector adivine.",
+            "Los roles híbridos están bien, pero un alcance inusual debe explicarse con una subtitulación, línea de alcance o contexto claro en la viñeta."
+          ]
+        },
+        {
+          "title": "Datos personales sensibles",
+          "items": [
+            "Evita fecha de nacimiento, edad exacta, estado civil, situación familiar, género, ciudadanía, nacionalidad, dirección completa o referencias a foto salvo que sean requeridas explícitamente.",
+            "Usa ubicación solo al nivel útil para el rol, como ciudad, país o autorización de trabajo cuando sea relevante.",
+            "Estos datos pueden crear riesgo de privacidad, discriminación o sesgo por edad y normalmente no fortalecen la evidencia de impacto."
+          ]
+        },
+        {
+          "title": "Referencias",
+          "items": [
+            "No incluyas referencias ni datos de contacto de referencias por defecto.",
+            "Usa referencias disponibles bajo solicitud solo cuando sea esperado en el país, sector o formulario de aplicación.",
+            "Protege la privacidad de otras personas: comparte nombres, teléfonos, emails o recomendaciones directas solo cuando te lo pidan y la referencia haya aceptado."
+          ]
+        },
+        {
+          "title": "Datos básicos de contacto",
+          "items": [
+            "Pon nombre, email, teléfono y ubicación útil al inicio.",
+            "Añade LinkedIn o portfolio cuando ayude a demostrar el perfil.",
+            "Que falten datos de contacto es poco común, pero crea fricción innecesaria para reclutadores."
+          ]
+        },
+        {
+          "ruleId": "CV01",
+          "title": "Evita comprimir demasiado el CV",
+          "text": "Con {minimumPositions} o más puestos profesionales, revisa si al menos {minimumWeakPositions} tienen menos de {minimumAchievements} logros sustanciales."
+        },
+        {
+          "ruleId": "CV02",
+          "title": "Prioriza la experiencia reciente y relevante",
+          "text": "Da prioridad a los últimos {recentYears} años y conserva los logros anteriores relevantes."
+        },
+        {
+          "ruleId": "CV03",
+          "title": "Clasifica las actividades profesionales independientes"
+        },
+        {
+          "ruleId": "CV04",
+          "title": "Aclara los empleos simultáneos",
+          "text": "Revisa los solapamientos no aclarados de al menos {minimumOverlapMonths} meses; coincidir en fechas no es un defecto por sí solo."
+        }
+      ],
+      "playlistUrl": "https://www.youtube.com/watch?v=5coYf7yimMk&list=PL5qnvXALY_bLkOiKmIAok5G1Hgq92PrUm"
+    },
+    "fr": {
+      "title": "Bases d’un CV à fort impact",
+      "subtitle": "Un bon CV rend les preuves faciles à voir.",
+      "playlistText": "Voir la playlist sur la rédaction de CV",
+      "blocks": [
+        {
+          "title": "Ce que prouvent les bonnes puces",
+          "items": [
+            "Ce qui a changé grâce à votre travail.",
+            "Qui ou quoi a été affecté : utilisateurs, clients, systèmes, équipes, pays, budgets, risques ou processus.",
+            "L’échelle du travail et pourquoi elle comptait.",
+            "Le résultat : temps gagné, coûts réduits, fiabilité améliorée, adoption accrue, risque réduit, migration livrée ou décisions mieux soutenues."
+          ]
+        },
+        {
+          "title": "Langage d’activité faible",
+          "items": [
+            "Responsable de la formation des équipes.",
+            "Introduction d’un cadre de gouvernance.",
+            "Support aux parties prenantes.",
+            "Mise en œuvre d’améliorations de processus.",
+            "Participation à des projets."
+          ]
+        },
+        {
+          "title": "Modèle de preuve plus fort",
+          "text": "Utilisez action, objet, échelle, objectif et résultat. La puce doit survivre à la question : et alors ?",
+          "examples": [
+            [
+              "example",
+              "Faible : Formation des équipes pendant le COVID."
+            ],
+            [
+              "example strong",
+              "Plus fort : Soutien d’environ 200 à 300 personnes par jour pendant le pic des opérations COVID, en maintenant le flux de patients sous forte pression."
+            ]
+          ]
+        },
+        {
+          "title": "Langage appuyé par des preuves",
+          "items": [
+            "Les affirmations personnelles comme motivé, efficace, stratégique, fiable ou bon communicant doivent être soutenues par des preuves.",
+            "Le problème n’est pas l’adjectif ; le problème est l’absence de preuve à proximité.",
+            "Remplacez l’autodescription non prouvée par des résultats, exemples, échelles, décisions, livraisons, adoption ou résultats mesurables."
+          ]
+        },
+        {
+          "title": "Résumé sous forme d’argumentaire éclair",
+          "items": [
+            "Utilisez le résumé pour présenter vos atouts pour le poste avant que le recruteur, le responsable du recrutement ou le système de présélection ne se penche sur les détails.",
+            "Gardez-le court, concret et fondé sur des preuves : poste cible, domaine le plus fort, échelle pertinente et un ou deux résultats marquants.",
+            "Si le multilinguisme est un signal de marché utile, intégrez-le naturellement dans le résumé avec le contexte business qu’il soutient.",
+            "Évitez les affirmations génériques comme orienté résultats ou passionné, sauf si le résumé les prouve immédiatement par le périmètre, les résultats ou des forces rares."
+          ],
+          "examples": [
+            [
+              "example strong",
+              "Ingénieur en transformation cloud à l’aise en anglais, français et allemand ; a réduit le gaspillage AWS de 40 % dans des environnements de test et aidé des parties prenantes européennes à aligner migration, automatisation et gouvernance des coûts."
+            ]
+          ]
+        },
+        {
+          "title": "Langues et signal de marché",
+          "items": [
+            "Listez les langues clairement et honnêtement, avec des niveaux pratiques comme Anglais - courant, Français - professionnel ou Allemand - conversationnel.",
+            "Si le multilinguisme est pertinent pour le rôle, le marché, les clients ou la région, mentionnez-le dans le résumé ou l’introduction au lieu de le cacher à la fin.",
+            "Ne supposez pas qu’une combinaison linguistique est normale partout. Par exemple, un ingénieur capable de travailler en anglais, français et allemand envoie un signal transfrontalier rare sur de nombreux marchés européens.",
+            "Priorisez les langues qui soutiennent le poste cible, l’entreprise, le pays, la base client ou l’environnement des parties prenantes."
+          ]
+        },
+        {
+          "title": "Temps et chronologie",
+          "items": [
+            "Utilisez le passé pour le travail terminé, surtout dans les postes précédents.",
+            "Utilisez le présent seulement pour les responsabilités ou travaux réellement en cours.",
+            "Dans les postes actuels, les réussites terminées doivent rester formulées comme des résultats achevés.",
+            "Évitez les puces à l’infinitif quand la réalisation a déjà eu lieu."
+          ]
+        },
+        {
+          "title": "Avant l’adaptation",
+          "items": [
+            "Récupérez les chiffres lorsqu’ils sont vrais et défendables.",
+            "Supprimez ou réduisez les anciens détails qui n’aident pas le poste cible.",
+            "Ne mentionnez vos études et vos diplômes que s’ils sont pertinents ou requis. Évitez d’indiquer vos années d’obtention de diplôme dès lors que vous disposez de plusieurs années d’expérience professionnelle (généralement environ cinq ans), car cela peut inutilement susciter des préjugés liés à l’âge. Les exceptions peuvent concerner les doctorats, les diplômes délivrés par des universités (internationales) très prestigieuses ou les diplômes scolaires, uniquement pour les jeunes diplômés.",
+            "Si vous êtes resté longtemps dans une entreprise, montrez la progression réelle : promotions, changements de rôle, élargissement du périmètre, changements d’équipe ou jalons choisis.",
+            "N’inventez jamais de métriques, outils, responsabilités, employeurs, dates, certifications ou réussites."
+          ]
+        },
+        {
+          "title": "Longueur selon le niveau",
+          "items": [
+            "Les CV junior ou début de carrière sont souvent plus forts en 1 page.",
+            "Les CV mid-career font souvent 1 à 2 pages.",
+            "Les spécialistes senior, managers ou consultants ont souvent besoin d’environ 2 pages.",
+            "Les dirigeants, universitaires, chercheurs, profils du secteur public ou experts très diplômés peuvent nécessiter plus si le détail est pertinent.",
+            "La longueur n’est pas mauvaise en soi ; le problème est quand elle cache les meilleures preuves ou retire des preuves nécessaires."
+          ]
+        },
+        {
+          "title": "Longue ancienneté et progression",
+          "items": [
+            "Une longue ancienneté n’est pas un problème en soi, mais un seul titre pendant des années peut donner une impression de stagnation.",
+            "Si vous avez occupé plusieurs postes internes, montrez la séquence réelle au lieu du seul dernier titre.",
+            "Si les titres officiels n’ont pas changé, montrez la progression avec des puces véridiques : équipes plus grandes, budgets plus élevés, régions plus larges, systèmes plus complexes ou travail à plus fort impact."
+          ]
+        },
+        {
+          "title": "Alignement titre-responsabilités",
+          "items": [
+            "Assurez-vous que chaque titre officiel correspond aux responsabilités et réalisations listées dessous.",
+            "Si le titre est Project Manager mais les puces décrivent du product ownership, de l’architecture, de la stratégie, de la formation ou des opérations, clarifiez le périmètre.",
+            "Les rôles hybrides sont acceptables, mais un périmètre inhabituel doit être expliqué par un sous-titre, une ligne de contexte ou une puce claire."
+          ]
+        },
+        {
+          "title": "Données personnelles sensibles",
+          "items": [
+            "Évitez date de naissance, âge exact, état civil, situation familiale, genre, citoyenneté, nationalité, adresse complète ou référence à une photo sauf exigence explicite.",
+            "Utilisez la localisation seulement au niveau utile pour le rôle, par exemple ville, pays ou autorisation de travail si pertinent.",
+            "Ces informations peuvent créer des risques de confidentialité, discrimination ou biais d’âge et renforcent rarement la preuve d’impact."
+          ]
+        },
+        {
+          "title": "Références",
+          "items": [
+            "N’ajoutez pas de références ni de coordonnées de référents par défaut.",
+            "Utilisez références disponibles sur demande seulement lorsque c’est attendu dans le pays, le secteur ou le formulaire de candidature.",
+            "Protégez la confidentialité des autres personnes : partagez noms, téléphones, emails ou recommandations directes seulement sur demande et avec l’accord du référent."
+          ]
+        },
+        {
+          "title": "Coordonnées essentielles",
+          "items": [
+            "Placez nom, email, téléphone et localisation utile en haut.",
+            "Ajoutez LinkedIn ou portfolio lorsque cela aide à prouver le profil.",
+            "Des coordonnées manquantes sont rares, mais créent une friction inutile pour les recruteurs."
+          ]
+        },
+        {
+          "ruleId": "CV01",
+          "title": "Évitez de trop condenser le CV",
+          "text": "À partir de {minimumPositions} postes professionnels, vérifiez si au moins {minimumWeakPositions} présentent moins de {minimumAchievements} réalisations substantielles."
+        },
+        {
+          "ruleId": "CV02",
+          "title": "Privilégiez l’expérience récente et pertinente",
+          "text": "Privilégiez les {recentYears} dernières années en conservant les réalisations antérieures pertinentes."
+        },
+        {
+          "ruleId": "CV03",
+          "title": "Classez les activités professionnelles indépendantes"
+        },
+        {
+          "ruleId": "CV04",
+          "title": "Clarifiez les emplois simultanés",
+          "text": "Examinez les chevauchements non expliqués d’au moins {minimumOverlapMonths} mois ; un chevauchement seul n’est pas un défaut."
+        }
+      ],
+      "playlistUrl": "https://www.youtube.com/watch?v=5coYf7yimMk&list=PL5qnvXALY_bLkOiKmIAok5G1Hgq92PrUm"
+    },
+    "de": {
+      "title": "Grundlagen eines starken CV",
+      "subtitle": "Ein starker CV macht echte Nachweise leicht sichtbar.",
+      "playlistText": "Playlist zum CV-Schreiben ansehen",
+      "blocks": [
+        {
+          "title": "Was starke Stichpunkte beweisen",
+          "items": [
+            "Was sich durch deine Arbeit verändert hat.",
+            "Wer oder was betroffen war: Nutzer, Kunden, Systeme, Teams, Länder, Budgets, Risiken oder Prozesse.",
+            "Die Größenordnung der Arbeit und warum sie wichtig war.",
+            "Das Ergebnis: Zeit gespart, Kosten reduziert, Zuverlässigkeit verbessert, Akzeptanz erhöht, Risiko gesenkt, Migration geliefert oder Entscheidungen unterstützt."
+          ]
+        },
+        {
+          "title": "Schwache Tätigkeitsformulierung",
+          "items": [
+            "Verantwortlich für Teamschulungen.",
+            "Governance-Framework eingeführt.",
+            "Stakeholder unterstützt.",
+            "Prozessverbesserungen umgesetzt.",
+            "An Projekten teilgenommen."
+          ]
+        },
+        {
+          "title": "Stärkeres Nachweismuster",
+          "text": "Nutze Aktion, Objekt, Umfang, Zweck und Ergebnis. Der Stichpunkt sollte die Frage überstehen: Und was hat es gebracht?",
+          "examples": [
+            [
+              "example",
+              "Schwach: Teams während COVID geschult."
+            ],
+            [
+              "example strong",
+              "Stärker: Während der COVID-Spitzenphase täglich etwa 200 bis 300 Personen unterstützt und den Patientenfluss unter hohem Druck aufrechterhalten."
+            ]
+          ]
+        },
+        {
+          "title": "Evidenzbasierte Sprache",
+          "items": [
+            "Persönliche Aussagen wie motiviert, effizient, strategisch, zuverlässig oder kommunikationsstark sollten durch Nachweise gestützt werden.",
+            "Das Problem ist nicht das Adjektiv; das Problem ist fehlender Beleg in der Nähe.",
+            "Ersetze unbelegte Selbstbeschreibung durch Ergebnisse, Beispiele, Umfang, Entscheidungen, Lieferung, Akzeptanz oder messbare Resultate."
+          ]
+        },
+        {
+          "title": "Profil als Elevator Pitch",
+          "items": [
+            "Nutze das Profil, um zu erläutern, was Sie für die Stelle mitbringen, bevor der Personalvermittler, der Personalverantwortliche oder das Auswahlmodell die Details liest.",
+            "Halte es kurz, konkret und evidenzbasiert: Zielrolle, stärkster Fachbereich, relevanter Umfang und ein oder zwei herausragende Ergebnisse.",
+            "Wenn Mehrsprachigkeit ein nützliches Marktsignal ist, erwähne sie natürlich im Profil mit dem geschäftlichen Kontext, den sie unterstützt.",
+            "Vermeide generische Aussagen wie ergebnisorientiert oder leidenschaftlich, außer das Profil beweist sie sofort durch Umfang, Ergebnisse oder seltene Stärken."
+          ],
+          "examples": [
+            [
+              "example strong",
+              "Cloud-Transformation-Engineer mit fließendem Englisch, Französisch und Deutsch; reduzierte AWS-Verschwendung in Testumgebungen um 40 % und half europäischen Stakeholdern, Migration, Automatisierung und Kostengovernance abzustimmen."
+            ]
+          ]
+        },
+        {
+          "title": "Sprachen und Marktsignal",
+          "items": [
+            "Liste Sprachen klar und ehrlich auf, mit praktischen Niveaus wie Englisch - fließend, Französisch - beruflich oder Deutsch - konversationssicher.",
+            "Wenn Mehrsprachigkeit für Rolle, Markt, Kunden oder Region relevant ist, erwähne sie im Profil oder in der Einleitung, statt sie am Ende zu verstecken.",
+            "Gehe nicht davon aus, dass eine Sprachkombination überall normal ist. Zum Beispiel sendet ein Engineer, der auf Englisch, Französisch und Deutsch arbeiten kann, in vielen europäischen Märkten ein seltenes grenzüberschreitendes Signal.",
+            "Priorisiere Sprachen, die zur Zielrolle, zum Unternehmen, Land, Kundenstamm oder Stakeholder-Umfeld passen."
+          ]
+        },
+        {
+          "title": "Zeitform und Timing",
+          "items": [
+            "Nutze Vergangenheitsform für abgeschlossene Arbeit, besonders in früheren Rollen.",
+            "Nutze Gegenwartsform nur für Verantwortlichkeiten oder Arbeit, die wirklich noch läuft.",
+            "In aktuellen Rollen sollten abgeschlossene Erfolge trotzdem wie abgeschlossene Ergebnisse klingen.",
+            "Vermeide Infinitiv-Stichpunkte, wenn der Erfolg bereits passiert ist."
+          ]
+        },
+        {
+          "title": "Vor der Anpassung",
+          "items": [
+            "Ergänze Zahlen, wenn sie wahr und verteidigbar sind.",
+            "Entferne oder reduziere alte Details, die der Zielrolle nicht helfen.",
+            "Führen Sie Studiengänge und Abschlüsse nur dann auf, wenn sie relevant oder erforderlich sind. Vermeiden Sie es, Abschlussjahre anzugeben, sobald Sie über mehrjährige Berufserfahrung verfügen (in der Regel etwa fünf Jahre), da dies unnötigerweise zu einer altersbedingten Voreingenommenheit führen kann. Ausnahmen können Promotionen, Abschlüsse von hoch angesehenen (internationalen) Universitäten oder Schulabschlüsse ausschließlich bei frischgebackenen Absolventen sein.",
+            "Erfinde niemals Kennzahlen, Tools, Verantwortlichkeiten, Arbeitgeber, Daten, Zertifikate oder Erfolge."
+          ]
+        },
+        {
+          "title": "Länge nach Seniorität",
+          "items": [
+            "Junior- oder Berufseinsteiger-CVs sind meist mit 1 Seite am stärksten.",
+            "Mid-Career-CVs haben meist 1 bis 2 Seiten.",
+            "Senior Specialists, Manager oder Consultants brauchen oft etwa 2 Seiten.",
+            "Executives, Akademiker, Forschende, öffentliche Profile oder stark zertifizierte Experten können mehr brauchen, wenn die Zusatzdetails relevant sind.",
+            "Länge ist nicht an sich schlecht; problematisch ist, wenn sie die stärksten Nachweise versteckt oder wichtige Belege entfernt."
+          ]
+        },
+        {
+          "title": "Lange Betriebszugehörigkeit und Entwicklung",
+          "items": [
+            "Lange Zugehörigkeit ist kein Problem an sich, aber ein einziger Titel über viele Jahre kann Wachstum flach wirken lassen.",
+            "Wenn du mehrere interne Positionen hattest, zeige die echte Reihenfolge statt nur den letzten Titel.",
+            "Wenn formale Titel gleich blieben, zeige Entwicklung durch ehrliche Stichpunkte: größere Teams, höhere Budgets, breitere Regionen, schwierigere Systeme oder wirkungsvollere Arbeit."
+          ]
+        },
+        {
+          "title": "Abgleich von Titel und Verantwortung",
+          "items": [
+            "Achte darauf, dass jeder offizielle Titel zu den darunter stehenden Verantwortlichkeiten und Erfolgen passt.",
+            "Wenn der Titel Project Manager lautet, die Stichpunkte aber Product Ownership, Architektur, Strategie, Training oder Operations beschreiben, kläre den Umfang statt den Leser raten zu lassen.",
+            "Hybride Rollen sind in Ordnung, aber ungewöhnlicher Umfang sollte durch Untertitel, Umfangszeile oder klare Kontext-Stichpunkte erklärt werden."
+          ]
+        },
+        {
+          "title": "Sensible persönliche Daten",
+          "items": [
+            "Vermeide Geburtsdatum, genaues Alter, Familienstand, Familiensituation, Geschlecht, Staatsbürgerschaft, Nationalität, vollständige Adresse oder Fotohinweise, außer sie sind ausdrücklich erforderlich.",
+            "Nutze Standort nur auf dem für die Rolle hilfreichen Niveau, etwa Stadt, Land oder Arbeitserlaubnis, wenn relevant.",
+            "Diese Angaben können Datenschutz-, Diskriminierungs- oder Altersbias-Risiken schaffen und stärken selten den Wirkungsnachweis."
+          ]
+        },
+        {
+          "title": "Referenzen",
+          "items": [
+            "Füge Referenzen oder Kontaktdaten von Referenzpersonen nicht standardmäßig hinzu.",
+            "Nutze Referenzen auf Anfrage nur, wenn es im Zielland, Sektor oder Bewerbungsformular erwartet wird.",
+            "Schütze die Privatsphäre anderer Personen: Teile Namen, Telefonnummern, E-Mails oder direkte Empfehlungen nur auf Anfrage und wenn die Referenzperson zugestimmt hat."
+          ]
+        },
+        {
+          "title": "Kontaktgrundlagen",
+          "items": [
+            "Setze Name, E-Mail, Telefon und hilfreichen Standort nach oben.",
+            "Füge LinkedIn oder Portfolio hinzu, wenn es das Profil belegt.",
+            "Fehlende Kontaktdaten sind selten, verursachen aber unnötige Reibung für Recruiter."
+          ]
+        },
+        {
+          "ruleId": "CV01",
+          "title": "Den Lebenslauf nicht zu stark kürzen",
+          "text": "Prüfen Sie bei mindestens {minimumPositions} beruflichen Positionen, ob mindestens {minimumWeakPositions} weniger als {minimumAchievements} aussagekräftige Erfolge enthalten."
+        },
+        {
+          "ruleId": "CV02",
+          "title": "Aktuelle und relevante Erfahrung priorisieren",
+          "text": "Priorisieren Sie die letzten {recentYears} Jahre und bewahren Sie relevante ältere Erfolge."
+        },
+        {
+          "ruleId": "CV03",
+          "title": "Selbstständige berufliche Tätigkeiten einordnen"
+        },
+        {
+          "ruleId": "CV04",
+          "title": "Parallele Beschäftigung erläutern",
+          "text": "Prüfen Sie ungeklärte Überschneidungen von mindestens {minimumOverlapMonths} Monaten; eine Überschneidung allein ist kein Mangel."
+        }
+      ],
+      "playlistUrl": "https://www.youtube.com/watch?v=5coYf7yimMk&list=PL5qnvXALY_bLkOiKmIAok5G1Hgq92PrUm"
+    }
+  }
+}

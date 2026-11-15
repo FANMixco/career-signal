@@ -48,6 +48,7 @@ backend/src/content/
   rules/evaluation.json
   guidance/cvGuidance.json
   guidance/sensitivePersonalData.json
+  guidance/cvBasics.json           # localized teaching content and CV01–CV04 references
   config/models.json              # provider IDs, labels, defaults, local fallbacks
 backend/src/rules/release.json       # schema/engine compatibility, revision
 docs/rules.schema.json              # generated JSON Schema, $defs per document
@@ -62,6 +63,7 @@ frontend/rules/
   cvGuidance.json
   sensitivePersonalData.json
   models.json
+  cvBasics.json
 frontend/rules.min.js               # bundled engine plus baseline, application code
 ```
 
@@ -75,15 +77,16 @@ The manifest is:
 
 ```json
 {
-  "schemaVersion": 2,
-  "engineMin": 2,
-  "engineMax": 2,
-  "revision": 2,
+  "schemaVersion": 3,
+  "engineMin": 3,
+  "engineMax": 3,
+  "revision": 3,
   "files": {
     "evaluation.json": "<64 lowercase hex SHA-256 characters>",
     "cvGuidance.json": "<64 lowercase hex SHA-256 characters>",
     "sensitivePersonalData.json": "<64 lowercase hex SHA-256 characters>",
-    "models.json": "<64 lowercase hex SHA-256 characters>"
+    "models.json": "<64 lowercase hex SHA-256 characters>",
+    "cvBasics.json": "<64 lowercase hex SHA-256 characters>"
   }
 }
 ```
@@ -128,8 +131,8 @@ this work prepares files there and does not deploy them to GitHub.
 1. Load and revalidate the persisted current snapshot (including hashes).
 2. If invalid, try previous; if neither works, use the embedded baseline.
 3. Check `manifest.json` in the background when the refresh interval expires.
-4. Require schema version 2 and an engine range containing engine version 2.
-5. Require all four known files. Reuse files whose hashes already match the
+4. Require schema version 3 and an engine range containing engine version 3.
+5. Require all five known files. Reuse files whose hashes already match the
    current snapshot; download only changed files. The first check also compares
    against the bundled baseline, avoiding redundant downloads.
 6. Validate the complete staged snapshot, including all references/locales/hashes.
@@ -242,8 +245,8 @@ Run the HTTP test where loopback connections are permitted.
 ## Persistent model catalog (engine 2)
 
 `backend/src/content/config/models.json` is the single editable source for all
-seven providers. Its own schema version is 1, nested in the version-2 four-file
-manifest. Model lists are no longer duplicated in `appOptions.json` or frontend
+seven providers. Its own schema version is 1, nested in the version-3 five-file
+manifest (engine 2 originally introduced it in a four-file manifest). Model lists are no longer duplicated in `appOptions.json` or frontend
 locale files. Locales translate the free/experimental suffixes; model names remain
 shared. The frontend bundle embeds a baseline catalog and reads validated stored
 updates through the same IndexedDB state as the rules. Desktop and Docker backend
@@ -272,8 +275,40 @@ validate the complete snapshot, persist, and activate atomically. The prior
 catalog is retained with the previous rules snapshot for rollback. No app rebuild
 is needed for compatible catalog-only changes after this engine update is installed.
 
-Engine-1 clients safely reject the version-2 manifest and continue with their own
-valid local/bundled rules. Upgrading to engine 2 seeds the new four-file baseline
-if the old three-file snapshot is incompatible. Serving both old and new update
-streams long-term requires separate source directories. Catalog changes do not
+Engine-1 and engine-2 clients safely reject the newer version-3 manifest and
+continue with their valid local/bundled content. Upgrading to engine 3 seeds the
+new five-file baseline if the older snapshot is incompatible. Serving older
+engines long-term requires separate source directories. Catalog changes do not
 install local Ollama models; the user still downloads them explicitly.
+
+## Dynamic High impact CV basics (engine 3)
+
+All teaching blocks, examples, headings and playlist metadata now live in one
+localized `backend/src/content/guidance/cvBasics.json` file. Its own schema version
+is 1. The UI locale files no longer duplicate this teaching content. The file is
+bundled, stored with the rules/models, hashed, validated and synchronized through
+the same version-3 manifest. A teaching-only update downloads only `cvBasics.json`.
+
+Each of CV01–CV04 has a localized teaching block referencing its `ruleId`, not a
+second copy of the recommendation. The engine resolves its recommendation from
+`evaluation.json` and interpolates named thresholds from that rule into the
+teaching text. For example, changing CV02's `recentYears` updates its analysis
+warning and teaching guidance together. Disabled rules are hidden in the teaching
+view. Existing non-rule teaching sections remain editable directly in this JSON.
+The four rule references must be present in every source locale; duplicate IDs,
+unknown thresholds, inline copies of rule recommendations, unknown fields, unsafe
+links and unsupported example classes are rejected before activation.
+
+The browser re-renders when local content activates or the language changes. A
+connected backend exposes `/api/cv-basics?language=en` (also es/fr/de), supplying
+the view resolved from its own active rules. When that backend is unavailable,
+the browser uses its local validated/bundled view. All display text is escaped,
+and playlist links must use HTTPS. Neither endpoint nor synchronization receives
+CV contents. Backend checks are read-only, bounded by a timeout and run in the
+background.
+
+After this engine update is installed, edit `cvBasics.json` for general teaching
+or `evaluation.json` for shared recommendations/thresholds, increase the release
+revision, run `npm run rules:build` and publish `frontend/rules/`. Compatible clients
+update atomically with rollback; no installer rebuild is needed for these content
+changes. New detector logic, UI layouts or API capabilities still need code updates.

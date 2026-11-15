@@ -1,5 +1,5 @@
 import { initializeRules, withRules } from "./rules/nodeRules.js";
-import { getModelCatalog } from "./rules/rulesRuntime.js";
+import { getModelCatalog, getCvBasics } from "./rules/rulesRuntime.js";
 // Express entry point for the local web app, Docker image, and desktop wrapper.
 // The frontend is served statically from the same process so users can open one
 // local URL without running a separate frontend server.
@@ -67,6 +67,11 @@ export function createApp(options: Pick<ServerStartOptions, "frontendPath"> = {}
   app.get("/api/model-catalog", (_req, res) => {
     res.setHeader("Cache-Control", "no-store");
     res.json(getModelCatalog());
+  });
+
+  app.get("/api/cv-basics", (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.json(getCvBasics(typeof req.query.language === "string" ? req.query.language : "en"));
   });
 
   app.use("/api/precheck-cv", precheckCvRouter);

@@ -18,6 +18,7 @@ const state = {
   theme: "light",
   appHelpTab: "use",
   backendModelCatalog: null,
+  backendCvBasics: null,
   aiModelSelectionTouched: false
 };
 
@@ -53,6 +54,8 @@ const els = {
   cvBasicsButton: document.querySelector("#cvBasicsButton"),
   cvBasicsModal: document.querySelector("#cvBasicsModal"),
   cvBasicsBody: document.querySelector("#cvBasicsBody"),
+  cvBasicsTitle: document.querySelector("#cvBasicsTitle"),
+  cvBasicsSubtitle: document.querySelector('#cvBasicsModal [data-copy="cvBasics.subtitle"]'),
   cvBasicsClose: document.querySelector("#cvBasicsClose"),
   yearsOfExperience: document.querySelector("#yearsOfExperience"),
   degreeWrap: document.querySelector("#degreeWrap"),
