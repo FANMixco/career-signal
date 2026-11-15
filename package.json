@@ -17,11 +17,17 @@
     "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
     "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
     "desktop:dist:arm64": "npm run desktop:prepare && electron-builder --win --arm64 --publish=never",
-    "desktop:dist:mac": "npm run desktop:prepare && electron-builder --mac dmg zip --publish=never"
+    "desktop:dist:mac": "npm run desktop:prepare && electron-builder --mac dmg zip --publish=never",
+    "rules:build": "node scripts/build-rules.cjs",
+    "test:rules": "npm run frontend:build && npm --prefix backend test",
+    "test:dependencies": "node scripts/verify-dependencies.cjs"
   },
   "devDependencies": {
-    "electron": "^45.2.1",
-    "electron-builder": "^26.15.3"
+    "electron": "^45.3.2",
+    "electron-builder": "^26.18.0"
+  },
+  "overrides": {
+    "minimatch@>=7 <11.0.1": "^11.0.8"
   },
   "build": {
     "appId": "com.federiconavarrete.careersignal",

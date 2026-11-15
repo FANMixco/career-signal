@@ -1,0 +1,2 @@
+# Rule manifests hash exact UTF-8 bytes. Keep served files stable on all hosts.
+frontend/rules/*.json text eol=lf

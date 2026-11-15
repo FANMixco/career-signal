@@ -1,3 +1,4 @@
+import { evaluationInstructions } from "../../rules/rulesRuntime.js";
 // Local Ollama adapter.
 // Local models can be useful for privacy, but they are slower and less reliable
 // with large strict schemas. The precheck and reconstruction plan are therefore
@@ -170,6 +171,8 @@ Return only one valid JSON object for ${name}. Do not use Markdown. Do not add c
 function ollamaAnalysisContext(input: AnalysisInput) {
   return `Use only the evidence below. Do not invent employers, dates, tools, certifications, metrics, responsibilities, or achievements.
 
+${evaluationInstructions("reconstructionInstruction")}
+
 ${outputLanguageInstruction(input.outputLanguage)}
 
 Target company: ${input.companyName}
@@ -189,6 +192,8 @@ ${compactForLocalModel(input.cvText, 3200)}`;
 
 function ollamaPrecheckContext(input: PrecheckInput) {
   return `Analyze only this CV evidence. Do not rewrite the CV and do not invent facts.
+
+${evaluationInstructions("precheckInstruction")}
 
 ${outputLanguageInstruction(input.outputLanguage)}
 

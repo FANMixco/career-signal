@@ -21,6 +21,7 @@ FROM node:24-alpine AS runtime
 
 ENV NODE_ENV=production
 ENV PORT=3001
+ENV CAREER_SIGNAL_RULES_DIR=/data/career-signal/rules
 
 WORKDIR /app
 

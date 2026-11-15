@@ -18,9 +18,11 @@ This folder contains the project documentation.
 
 - [Scores And Warnings](scores-and-warnings.md)
 - [CV Evaluation Rules](cv-rules.md)
+- [Dynamic Rules Architecture](dynamic-rules.md)
 - [Portable Career Signal Skill](career-signal-skill.md)
 - [Privacy And Safety](privacy-and-safety.md)
 - [Developer Notes](developer-notes.md)
+- [Dependency Maintenance](dependencies.md)
 
 ## Repository Docs
 

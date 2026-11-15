@@ -76,7 +76,7 @@ export const analyzeCvSchema = z
     targetStyle: z.enum(targetStyles),
     experienceSelectionMode: experienceSelectionModeSchema,
     outputLanguage: outputLanguageSchema.optional().default(defaultOutputLanguage as OutputLanguage),
-    precheckResult: z.record(z.unknown()),
+    precheckResult: z.record(z.string(), z.unknown()),
     continueDespiteWeakPrecheck: z.boolean().optional().default(false)
   })
   .superRefine((value, context) => {

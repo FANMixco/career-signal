@@ -1,3 +1,4 @@
+import { initializeRules, withRules } from "./rules/nodeRules.js";
 // Express entry point for the local web app, Docker image, and desktop wrapper.
 // The frontend is served statically from the same process so users can open one
 // local URL without running a separate frontend server.
@@ -35,6 +36,7 @@ export function createApp(options: Pick<ServerStartOptions, "frontendPath"> = {}
   const frontendPath = options.frontendPath || process.env.FRONTEND_PATH || path.resolve(__dirname, "../../frontend");
   const samplePath = path.resolve(__dirname, "../../sample");
 
+  app.use((_req, _res, next) => withRules(() => next()));
   app.use(cors());
   app.use(express.json({ limit: "1mb" }));
   app.use(
@@ -67,7 +69,8 @@ export function createApp(options: Pick<ServerStartOptions, "frontendPath"> = {}
   return app;
 }
 
-export function startServer(options: ServerStartOptions = {}) {
+export async function startServer(options: ServerStartOptions = {}) {
+  await initializeRules();
   const app = createApp({ frontendPath: options.frontendPath });
   const port = Number(options.port ?? process.env.PORT ?? 3001);
   const host = options.host ?? process.env.HOST;

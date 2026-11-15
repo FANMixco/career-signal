@@ -154,8 +154,21 @@ function buildContentJson() {
   }
 }
 
+function buildRules() {
+  requireEsbuild().buildSync({
+    entryPoints: [path.join(repoRoot, "backend/src/rules/browserRules.ts")],
+    bundle: true, minify: true, format: "iife", globalName: "CareerSignalRules",
+    target: "es2022", outfile: path.join(frontendRoot, "rules.min.js")
+  });
+}
+
+require("./build-rules.cjs");
+buildRules();
 buildRuntime();
 buildStyles();
 buildContentJson();
+const shellHash = require("node:crypto").createHash("sha256");
+for (const file of ["index.html", "app.min.js", "rules.min.js", "styles.min.css", "site.webmanifest"]) shellHash.update(fs.readFileSync(path.join(frontendRoot, file)));
+fs.writeFileSync(path.join(frontendRoot, "service-worker.js"), readText("frontend/src/service-worker.js").replace("SHELL_VERSION", shellHash.digest("hex").slice(0, 16)));
 
 console.log("Built minified frontend/app.min.js, frontend/styles.min.css, and frontend/content/app.*.json.");

@@ -1,0 +1,125 @@
+{
+  "scoreBands": {
+    "improveFirstMax": 49,
+    "cautionMax": 74
+  },
+  "localEvidence": {
+    "quantifiedMinimum": 3,
+    "resultVerbMinimum": 8,
+    "strongBulletMinimum": 2,
+    "scoreCap": 90,
+    "quantifiedWeight": 4,
+    "resultVerbWeight": 1.5,
+    "strongBulletWeight": 3,
+    "scopeWeight": 2,
+    "weakPenalty": 2,
+    "educationYears": 5,
+    "seniorYears": 7,
+    "compressedWords": 700,
+    "earlyCareerYears": 5,
+    "longWords": 1200
+  },
+  "legacyText": {
+    "responsibilityWarning": "Several statements may read like responsibilities rather than outcomes. Add clearer results, scale, and consequences where true.",
+    "studyYearWarning": "Study completion years can reveal age-related information. Keep role-relevant studies, but consider removing unnecessary dates.",
+    "responsibilityProblem": "The CV appears to include more activity or responsibility language than defensible outcome evidence.",
+    "usableEvidenceProblem": "The CV has usable evidence, but the strongest claims still need clear scope, result, and interview-defensible context.",
+    "missingQuantifiedEvidence": "More quantified outcomes, such as cost, time, risk, adoption, reliability, or scale.",
+    "missingAccomplishments": "Clearer accomplishment bullets showing what changed because of the work.",
+    "interviewDefensibilityQuestion": "Which claims would be hardest to defend with evidence in an interview?",
+    "clarifyBeforeTailoring": "Use the strongest evidence for tailoring, but clarify any vague scale, baseline, or ownership before sending.",
+    "recoverBeforeTailoring": "Improve the CV evidence first by adding truthful outcomes, scale, and before/after context.",
+    "deterministicFallbackNotice": "The selected model did not complete the richer reviewer pass quickly, so these warnings are generated from deterministic CV evidence rules.",
+    "strongScoreWarning": "The CV has strong evidence density, but do not treat the score as approval to send it unchanged; check that the biggest numbers have baselines, scope, and ownership that can survive an interview.",
+    "detachedMetricsWarning": "Some numbers appear in the CV, but not all of them are attached to clear outcome bullets. Make sure each important metric explains what changed, where, and because of whom.",
+    "costClaimsWarning": "Cost, saving, or optimization claims should include a defensible baseline, time window, calculation logic, and whether the impact was owned, influenced, or estimated.",
+    "scaleClaimsWarning": "Scale signals are present. Make sure the CV consistently states who or what was affected, such as users, systems, teams, countries, budgets, risks, or processes.",
+    "tenseWarning": "Some bullet wording may read like infinitive or present-tense activity language. Completed achievements should usually use completed-action wording, even inside a current role.",
+    "unsupportedNarrativeWarning": "The CV appears to use personal narrative or self-assessment language. Keep those claims only where nearby bullets prove them through outcomes, scale, decisions, or measurable impact.",
+    "compressedCvWarning": "For this level of experience, the CV may be too compressed. Make sure it does not hide progression, leadership scope, delivery context, or the strongest evidence.",
+    "longCvWarning": "For an early-career profile, the CV may be too long. Compress repeated or older details so the strongest evidence is easier to scan.",
+    "progressionWarning": "If several years were spent in one organization, make internal progression visible when true. A single final title can make growth look flat.",
+    "hybridScopeWarning": "The CV mixes strategy, architecture, delivery, and technical cloud signals. Clarify which responsibilities belonged to which role so the reader does not confuse project, product, architecture, and strategy scope.",
+    "aiClaimsWarning": "AI or automation claims should specify the use case, users, business process, result, and whether the work was production, prototype, governance, or enablement.",
+    "baselineEvidence": "Baseline and measurement window for the strongest quantified claims.",
+    "cloudEvidence": "Cloud/technology impact evidence such as migration scope, cost, reliability, security, adoption, or operating-model change.",
+    "strategyEvidence": "Strategy evidence such as decision influenced, roadmap adopted, governance improved, or stakeholder group affected.",
+    "aiEvidence": "AI/automation evidence such as use case, adoption, risk control, productivity gain, or business outcome.",
+    "ownershipEvidence": "Interview defensibility details for the highest-impact claims: exact ownership, baseline, source of metric, and what can be safely discussed.",
+    "costBaselineQuestion": "For each cost or saving claim, what was the baseline, final value, time window, and calculation method?",
+    "costAttributionQuestion": "Was the cost impact directly delivered by you, influenced by you, or estimated as avoided cost?",
+    "cloudScopeQuestion": "How many applications, environments, accounts, workloads, users, or teams were affected by the cloud work?",
+    "cloudOutcomeQuestion": "What changed after the cloud, migration, architecture, or FinOps work: cost, reliability, speed, governance, security, or adoption?",
+    "strategyAdoptionQuestion": "Which roadmap, governance decision, architecture recommendation, or strategic plan was accepted or used by stakeholders?",
+    "strategyAudienceQuestion": "Who consumed the strategy work: leadership, engineering teams, clients, suppliers, boards, or business units?",
+    "aiMaturityQuestion": "For each AI or automation item, was it a prototype, production solution, governance artifact, or enablement activity?",
+    "aiOutcomeQuestion": "What measurable result came from the AI or automation work: time saved, errors reduced, adoption, decisions supported, or cost avoided?",
+    "hardestClaimsQuestion": "Which three claims would be hardest to defend if an interviewer asked for the baseline, source, and your exact contribution?",
+    "sharedMetricsQuestion": "Are any metrics estimates, shared team outcomes, or avoided-cost calculations that need softer wording?",
+    "roleScopeQuestion": "Do any role titles hide responsibilities from another discipline, such as project management, product management, architecture, strategy, or operations?",
+    "completedWorkQuestion": "Which achievements are completed and should be rewritten in past tense?",
+    "studyRelevanceQuestion": "Does the study completion year help this target role, or does it mainly reveal age-related information?"
+  },
+  "rules": {
+    "CV01": {
+      "enabled": true,
+      "severity": "warning",
+      "recommendation": "compression",
+      "thresholds": {
+        "minimumPositions": 4,
+        "minimumWeakPositions": 2,
+        "minimumAchievements": 2
+      }
+    },
+    "CV02": {
+      "enabled": true,
+      "severity": "info",
+      "recommendation": "recent",
+      "thresholds": {
+        "recentYears": 7,
+        "olderDetailRatio": 1.5,
+        "minimumOlderWords": 100
+      }
+    },
+    "CV03": {
+      "enabled": true,
+      "severity": "info",
+      "recommendation": "independent",
+      "thresholds": {}
+    },
+    "CV04": {
+      "enabled": true,
+      "severity": "info",
+      "recommendation": "concurrent",
+      "thresholds": {
+        "minimumOverlapMonths": 2
+      }
+    }
+  },
+  "recommendations": {
+    "compression": {
+      "en": "Several positions lack substantive achievements. Add truthful outcomes, scope, and impact for the strongest roles; do not compress away the evidence.",
+      "es": "Varios puestos carecen de logros sustanciales. Añade resultados, alcance e impacto reales en los puestos más sólidos; no elimines la evidencia al resumir.",
+      "fr": "Plusieurs postes manquent de réalisations substantielles. Ajoutez des résultats, une portée et un impact réels aux postes les plus forts ; ne supprimez pas les preuves en résumant.",
+      "de": "Bei mehreren Positionen fehlen aussagekräftige Erfolge. Ergänzen Sie belegbare Ergebnisse, Umfang und Wirkung der stärksten Rollen; kürzen Sie die Nachweise nicht weg."
+    },
+    "recent": {
+      "en": "Older positions receive more detail than recent experience. Prioritize the most recent {recentYears} years, preserving relevant older achievements. Unnecessary historical detail may expose age-related information; this does not establish discrimination.",
+      "es": "Los puestos antiguos reciben más detalle que la experiencia reciente. Prioriza los {recentYears} años más recientes y conserva los logros anteriores relevantes. El detalle histórico innecesario puede revelar información sobre la edad; esto no demuestra discriminación.",
+      "fr": "Les anciens postes sont plus détaillés que l’expérience récente. Privilégiez les {recentYears} dernières années en conservant les réalisations antérieures pertinentes. Les détails historiques superflus peuvent révéler l’âge ; cela ne démontre pas une discrimination.",
+      "de": "Ältere Positionen erhalten mehr Raum als jüngere Erfahrungen. Priorisieren Sie die letzten {recentYears} Jahre und bewahren Sie relevante ältere Erfolge. Unnötige historische Details können Hinweise auf das Alter geben; dies belegt keine Diskriminierung."
+    },
+    "independent": {
+      "en": "A potentially independent activity has an unclear classification. Clarify whether it was freelance work, a business, content creation, publication, or another activity, with truthful dates and scope.",
+      "es": "Una actividad posiblemente independiente tiene una clasificación poco clara. Aclara si fue trabajo autónomo, un negocio, creación de contenido, una publicación u otra actividad, con fechas y alcance reales.",
+      "fr": "Une activité potentiellement indépendante est mal définie. Précisez s’il s’agissait de travail indépendant, d’une entreprise, de création de contenu, de publication ou d’une autre activité, avec des dates et une portée exactes.",
+      "de": "Eine möglicherweise selbstständige Tätigkeit ist unklar eingeordnet. Erläutern Sie, ob es sich um freie Mitarbeit, ein Unternehmen, Inhalte, Veröffentlichungen oder eine andere Tätigkeit handelte, mit korrekten Daten und Umfang."
+    },
+    "concurrent": {
+      "en": "Some positions have overlapping dates. Where the arrangement is unclear, explain concurrent employment, consulting, part-time work, or an internal transition. Overlap alone is not a problem.",
+      "es": "Algunos puestos tienen fechas superpuestas. Si la relación no está clara, explica si fueron empleos simultáneos, consultoría, trabajo parcial o una transición interna. La coincidencia por sí sola no es un problema.",
+      "fr": "Les dates de certains postes se chevauchent. Si la situation est ambiguë, précisez s’il s’agissait d’emplois simultanés, de conseil, de temps partiel ou d’une transition interne. Un chevauchement seul n’est pas un problème.",
+      "de": "Einige Beschäftigungszeiten überschneiden sich. Erläutern Sie bei Unklarheit parallele Beschäftigung, Beratung, Teilzeit oder einen internen Wechsel. Eine Überschneidung allein ist kein Problem."
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { evaluationInstructions } from "../../rules/rulesRuntime.js";
 // OpenRouter free-model adapter.
 // Free routed models are more likely to hit rate limits or drift from a large
 // strict schema, so this mirrors the Ollama strategy with smaller JSON sections.
@@ -95,7 +96,7 @@ function openRouterErrorMessage(error: unknown, sectionName: string) {
 async function createOpenRouterSectionJsonResponse<T>(
   client: OpenAI,
   name: string,
-  schema: z.ZodType<T, z.ZodTypeDef, unknown>,
+  schema: z.ZodType<T>,
   input: string,
   model?: string,
   maxTokens = 700
@@ -133,6 +134,8 @@ Return only one valid JSON object for ${name}. Do not use Markdown. Do not add c
 function openRouterAnalysisContext(input: AnalysisInput) {
   return `Use only the evidence below. Do not invent employers, dates, tools, certifications, metrics, responsibilities, or achievements.
 
+${evaluationInstructions("reconstructionInstruction")}
+
 ${outputLanguageInstruction(input.outputLanguage)}
 
 Target company: ${input.companyName}
@@ -152,6 +155,8 @@ ${compactForLocalModel(input.cvText, 3200)}`;
 
 function openRouterPrecheckContext(input: PrecheckInput) {
   return `Analyze only this CV evidence. Do not rewrite the CV and do not invent facts.
+
+${evaluationInstructions("precheckInstruction")}
 
 ${outputLanguageInstruction(input.outputLanguage)}
 

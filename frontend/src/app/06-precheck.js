@@ -1,6 +1,6 @@
 // CV evidence precheck flow. Validate local form state first, then send the
 // CV/profile payload to the backend for scoring and warnings.
-async function runPrecheck() {
+async function runPrecheck(options = {}) {
   if (state.precheckInFlight) return;
 
   const form = new FormData();
@@ -57,13 +57,14 @@ async function runPrecheck() {
     return;
   }
 
-  if (isCustomModelSelected() && !selectedAiModel()) {
+  if (!options.localOnly && isCustomModelSelected() && !selectedAiModel()) {
     setStatus("Missing model");
     setFeedback("error", config.feedback.missingCustomAiModel || config.feedback.missingOllamaCustomModel);
     els.ollamaCustomModel.focus();
     return;
   }
 
+  if (options.localOnly) form.append("offlineOnly", "true");
   form.append("yearsOfExperience", String(years));
   form.append("experienceSelectionMode", els.experienceSelectionMode.value);
   form.append("outputLanguage", els.outputLanguage.value);
@@ -84,9 +85,15 @@ async function runPrecheck() {
   setFeedback("loading", config.feedback.precheckLoadingText);
 
   try {
-    const response = await fetch(apiUrl("/api/precheck-cv"), { method: "POST", body: form });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || config.errorMessages.precheckFailed);
+    let data;
+    if (options.localOnly && els.cvText.value.trim()) {
+      if (els.cvText.value.trim().length < 300) throw new Error(config.errorMessages.offlineCvTooShort);
+      data = await window.CareerSignalRules.precheck({ cvText: els.cvText.value.trim(), yearsOfExperience: years, hasDegree: els.hasDegree.value === "true", degreeYear: Number(els.degreeYear.value) || undefined, outputLanguage: els.outputLanguage.value });
+    } else {
+      const response = await fetch(apiUrl("/api/precheck-cv"), { method: "POST", body: form });
+      data = await response.json();
+      if (!response.ok) throw new Error(data.error || config.errorMessages.precheckFailed);
+    }
 
     state.cvText = data.cvText;
     state.precheckSignature = precheckSignature;
@@ -106,7 +113,7 @@ async function runPrecheck() {
     }
     renderPrecheck(data);
     setStatus("Precheck done");
-    setFeedback("success", config.feedback.precheckComplete);
+    setFeedback("success", options.localOnly ? config.feedback.offlinePrecheck : config.feedback.precheckComplete);
   } catch (error) {
     setStatus("Error");
     setFeedback("error", error instanceof TypeError ? config.errorMessages.apiPrecheckUnreachable : error.message);
@@ -124,7 +131,7 @@ function renderPrecheck(data) {
   const score = Math.max(0, Math.min(100, Math.round(Number(precheck.cvEvidenceScore) || 0)));
   show(els.precheckPanel);
   els.precheckResult.innerHTML = `
-    <div class="score ${scoreLevelClass(score)}">${score}<span>/ 100</span></div>
+    <div class="score ${scoreLevelClass(score, data.scoreBands)}">${score}<span>/ 100</span></div>
     ${paidModelSuggestionHtml()}
     <div class="result-grid">${blocks.map(([title, value]) => renderResultBlock(title, value)).join("")}</div>
     ${data.agePrivacyWarning?.show ? `<p class="warning">${escapeHtml(data.agePrivacyWarning.message)}</p>` : ""}

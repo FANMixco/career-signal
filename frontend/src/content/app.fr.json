@@ -124,7 +124,8 @@
     "newSession": "Nouveau",
     "importJson": "Importer la session",
     "exportJson": "Exporter la session",
-    "loadDemoProfile": "Charger le profil de démonstration"
+    "loadDemoProfile": "Charger le profil de démonstration",
+    "offlinePrecheck": "Vérifier les preuves hors ligne"
   },
   "backendSettings": {
     "title": "Paramètres du backend",
@@ -187,7 +188,8 @@
     "demoProfileComplete": "profil de démonstration chargé. Le texte du CV, le précontrôle, les données d’adaptation, les conseils d’amélioration et le plan ont été restaurés sans appeler le backend.",
     "paidModelSuggestion": "Pour des résultats plus complets et plus cohérents, envisagez de relancer les CV importants avec un modèle payant plus robuste avant d’utiliser le plan final.",
     "precheckStale": "Le CV ou le profil a changé. Relancez le précontrôle.",
-    "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment."
+    "precheckLoadingText": "Précontrôle des preuves du CV en cours. Cela peut prendre un moment.",
+    "offlinePrecheck": "Vérification hors ligne terminée. Il s’agit de contrôles déterministes du texte ; l’adaptation par IA nécessite un fournisseur configuré."
   },
   "tailoring": {
     "guidanceLocked": "Vous pouvez ajouter l’entreprise cible et la description du poste. La génération se débloque après le précontrôle.",
@@ -619,7 +621,8 @@
     "reconstructionFailed": "Impossible de générer le plan de reconstruction.",
     "healthCheckFailed": "Le contrôle de santé a échoué.",
     "precheckFailed": "Le précontrôle a échoué.",
-    "analysisFailed": "L’analyse a échoué."
+    "analysisFailed": "L’analyse a échoué.",
+    "offlineCvTooShort": "Collez un CV complet d’au moins 300 caractères."
   },
   "buyMeCoffee": {
     "description": "Soutenez-moi sur Buy Me a Coffee",

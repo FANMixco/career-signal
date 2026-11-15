@@ -1,3 +1,4 @@
+import { scoreBands } from "../rules/cvRules.js";
 // Prompt builders for cloud providers and legacy full-object local prompts.
 // The main Ollama implementation now uses section prompts in ollamaService.ts,
 // but these full prompts remain useful for providers that handle strict JSON in
@@ -43,7 +44,7 @@ ${outputLanguageInstruction(input.outputLanguage)}
 Scoring rules:
 - cvEvidenceScore must be an integer from 0 to 100, not a decimal score out of 10.
 - If you think the CV is 8.6 out of 10, return 86.
-- Recommendation must match the score band: 0-49 Improve CV first, 50-74 Proceed with caution, 75-100 Proceed.
+- Recommendation must match the score band: 0-${scoreBands.improveFirstMax} Improve CV first, ${scoreBands.improveFirstMax + 1}-${scoreBands.cautionMax} Proceed with caution, ${scoreBands.cautionMax + 1}-100 Proceed.
 
 Career progression visibility:
 - ${careerProgressionVisibility.precheckInstruction}
@@ -106,7 +107,7 @@ cvEvidenceScore, scoreBreakdown, hasQuantifiedResults, hasAccomplishments, mostl
 
 Rules:
 - cvEvidenceScore must be 0 to 100.
-- proceedRecommendation must be "Improve CV first" for 0-49, "Proceed with caution" for 50-74, or "Proceed" for 75-100.
+- proceedRecommendation must be "Improve CV first" for 0-${scoreBands.improveFirstMax}, "Proceed with caution" for ${scoreBands.improveFirstMax + 1}-${scoreBands.cautionMax}, or "Proceed" for ${scoreBands.cautionMax + 1}-100.
 - scoreBreakdown must contain quantifiedResults, accomplishmentClarity, scopeAndScale, responsibilityVersusOutcomeRatio, and interviewDefensibility.
 - Arrays must be arrays of strings.
 - Keep arrays concise: 3 to 5 items maximum.

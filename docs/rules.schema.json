@@ -1,0 +1,1205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "evaluation.json": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scoreBands",
+        "localEvidence",
+        "legacyText",
+        "rules",
+        "recommendations"
+      ],
+      "properties": {
+        "scoreBands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "improveFirstMax",
+            "cautionMax"
+          ],
+          "properties": {
+            "improveFirstMax": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 99
+            },
+            "cautionMax": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 99
+            }
+          }
+        },
+        "localEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "quantifiedMinimum",
+            "resultVerbMinimum",
+            "strongBulletMinimum",
+            "scoreCap",
+            "quantifiedWeight",
+            "resultVerbWeight",
+            "strongBulletWeight",
+            "scopeWeight",
+            "weakPenalty",
+            "educationYears",
+            "seniorYears",
+            "compressedWords",
+            "earlyCareerYears",
+            "longWords"
+          ],
+          "properties": {
+            "quantifiedMinimum": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "resultVerbMinimum": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "strongBulletMinimum": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "scoreCap": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "quantifiedWeight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "resultVerbWeight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "strongBulletWeight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "scopeWeight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "weakPenalty": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "educationYears": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "seniorYears": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "compressedWords": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "earlyCareerYears": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "longWords": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            }
+          }
+        },
+        "legacyText": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "responsibilityWarning",
+            "studyYearWarning",
+            "responsibilityProblem",
+            "usableEvidenceProblem",
+            "missingQuantifiedEvidence",
+            "missingAccomplishments",
+            "interviewDefensibilityQuestion",
+            "clarifyBeforeTailoring",
+            "recoverBeforeTailoring",
+            "deterministicFallbackNotice",
+            "strongScoreWarning",
+            "detachedMetricsWarning",
+            "costClaimsWarning",
+            "scaleClaimsWarning",
+            "tenseWarning",
+            "unsupportedNarrativeWarning",
+            "compressedCvWarning",
+            "longCvWarning",
+            "progressionWarning",
+            "hybridScopeWarning",
+            "aiClaimsWarning",
+            "baselineEvidence",
+            "cloudEvidence",
+            "strategyEvidence",
+            "aiEvidence",
+            "ownershipEvidence",
+            "costBaselineQuestion",
+            "costAttributionQuestion",
+            "cloudScopeQuestion",
+            "cloudOutcomeQuestion",
+            "strategyAdoptionQuestion",
+            "strategyAudienceQuestion",
+            "aiMaturityQuestion",
+            "aiOutcomeQuestion",
+            "hardestClaimsQuestion",
+            "sharedMetricsQuestion",
+            "roleScopeQuestion",
+            "completedWorkQuestion",
+            "studyRelevanceQuestion"
+          ],
+          "properties": {
+            "responsibilityWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "studyYearWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "responsibilityProblem": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "usableEvidenceProblem": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "missingQuantifiedEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "missingAccomplishments": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "interviewDefensibilityQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "clarifyBeforeTailoring": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "recoverBeforeTailoring": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "deterministicFallbackNotice": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "strongScoreWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "detachedMetricsWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "costClaimsWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "scaleClaimsWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "tenseWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "unsupportedNarrativeWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "compressedCvWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "longCvWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "progressionWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "hybridScopeWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "aiClaimsWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "baselineEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "cloudEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "strategyEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "aiEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "ownershipEvidence": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "costBaselineQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "costAttributionQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "cloudScopeQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "cloudOutcomeQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "strategyAdoptionQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "strategyAudienceQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "aiMaturityQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "aiOutcomeQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "hardestClaimsQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "sharedMetricsQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "roleScopeQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "completedWorkQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "studyRelevanceQuestion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "CV01",
+            "CV02",
+            "CV03",
+            "CV04"
+          ],
+          "properties": {
+            "CV01": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "enabled",
+                "severity",
+                "recommendation",
+                "thresholds"
+              ],
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "severity": {
+                  "enum": [
+                    "info",
+                    "warning",
+                    "error"
+                  ]
+                },
+                "recommendation": {
+                  "enum": [
+                    "compression",
+                    "recent",
+                    "independent",
+                    "concurrent"
+                  ]
+                },
+                "thresholds": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "minimumPositions",
+                    "minimumWeakPositions",
+                    "minimumAchievements"
+                  ],
+                  "properties": {
+                    "minimumPositions": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    },
+                    "minimumWeakPositions": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    },
+                    "minimumAchievements": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    }
+                  }
+                }
+              }
+            },
+            "CV02": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "enabled",
+                "severity",
+                "recommendation",
+                "thresholds"
+              ],
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "severity": {
+                  "enum": [
+                    "info",
+                    "warning",
+                    "error"
+                  ]
+                },
+                "recommendation": {
+                  "enum": [
+                    "compression",
+                    "recent",
+                    "independent",
+                    "concurrent"
+                  ]
+                },
+                "thresholds": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "recentYears",
+                    "olderDetailRatio",
+                    "minimumOlderWords"
+                  ],
+                  "properties": {
+                    "recentYears": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    },
+                    "olderDetailRatio": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 1000
+                    },
+                    "minimumOlderWords": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    }
+                  }
+                }
+              }
+            },
+            "CV03": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "enabled",
+                "severity",
+                "recommendation",
+                "thresholds"
+              ],
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "severity": {
+                  "enum": [
+                    "info",
+                    "warning",
+                    "error"
+                  ]
+                },
+                "recommendation": {
+                  "enum": [
+                    "compression",
+                    "recent",
+                    "independent",
+                    "concurrent"
+                  ]
+                },
+                "thresholds": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [],
+                  "properties": {}
+                }
+              }
+            },
+            "CV04": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "enabled",
+                "severity",
+                "recommendation",
+                "thresholds"
+              ],
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "severity": {
+                  "enum": [
+                    "info",
+                    "warning",
+                    "error"
+                  ]
+                },
+                "recommendation": {
+                  "enum": [
+                    "compression",
+                    "recent",
+                    "independent",
+                    "concurrent"
+                  ]
+                },
+                "thresholds": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "minimumOverlapMonths"
+                  ],
+                  "properties": {
+                    "minimumOverlapMonths": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "recommendations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "compression",
+            "recent",
+            "independent",
+            "concurrent"
+          ],
+          "properties": {
+            "compression": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "en",
+                "es",
+                "fr",
+                "de"
+              ],
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "es": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "fr": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "de": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "recent": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "en",
+                "es",
+                "fr",
+                "de"
+              ],
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "es": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "fr": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "de": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "independent": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "en",
+                "es",
+                "fr",
+                "de"
+              ],
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "es": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "fr": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "de": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "concurrent": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "en",
+                "es",
+                "fr",
+                "de"
+              ],
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "es": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "fr": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                },
+                "de": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "pattern": "\\S"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "cvGuidance.json": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultMetricRecoveryQuestions",
+        "educationPrivacy",
+        "careerProgressionVisibility",
+        "accomplishmentTenseGuidance",
+        "cvLengthGuidance",
+        "titleResponsibilityAlignment",
+        "evidenceBackedLanguage",
+        "contactCompleteness"
+      ],
+      "properties": {
+        "defaultMetricRecoveryQuestions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000,
+            "pattern": "\\S"
+          }
+        },
+        "educationPrivacy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ageWarning",
+            "privacySafeStructure",
+            "combinedCredentialNote",
+            "textReminder"
+          ],
+          "properties": {
+            "ageWarning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "privacySafeStructure": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "combinedCredentialNote": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "careerProgressionVisibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "accomplishmentTenseGuidance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "cvLengthGuidance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "titleResponsibilityAlignment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "evidenceBackedLanguage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "contactCompleteness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "textReminder",
+            "precheckInstruction",
+            "reconstructionInstruction"
+          ],
+          "properties": {
+            "textReminder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "precheckInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "reconstructionInstruction": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        }
+      }
+    },
+    "sensitivePersonalData.json": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dateOfBirth",
+        "gender",
+        "citizenship",
+        "maritalStatus",
+        "photo",
+        "fullAddress"
+      ],
+      "properties": {
+        "dateOfBirth": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "gender": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "citizenship": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "maritalStatus": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "photo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "fullAddress": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "warning"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12000,
+              "pattern": "\\S"
+            }
+          }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "engineMin",
+        "engineMax",
+        "revision",
+        "files"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "engineMin": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "engineMax": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "files": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "evaluation.json",
+            "cvGuidance.json",
+            "sensitivePersonalData.json"
+          ],
+          "properties": {
+            "evaluation.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "cvGuidance.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "sensitivePersonalData.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        }
+      }
+    }
+  }
+}
