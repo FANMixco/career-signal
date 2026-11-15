@@ -34,31 +34,11 @@
   },
   "placeholders": {
     "cvText": "Vollständigen CV-Text hier einfügen",
-    "ollamaCustomModel": "Gib eine Modell-ID fuer den gewaehlten Anbieter ein, z. B. gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest oder llama3.2:3b",
+    "ollamaCustomModel": "Gib eine Modell-ID fuer den gewaehlten Anbieter ein, z. B. gpt-6-luna, gemini-3.8-flash, mistral-small-2603 oder llama3.2:3b",
     "companyDescription": "Nützlichen Kontext ergänzen, wenn das Unternehmen wenig bekannt ist: Tätigkeit, Branche, Größe, Produkt, Markt oder Geschäftsmodell",
     "jobDescription": "Vollständige Stellenbeschreibung einfügen"
   },
   "options": {
-    "aiModels": {
-      "openrouter": [
-        [
-          "meta-llama/llama-3.3-70b-instruct:free",
-          "Llama 3.3 70B Instruct (kostenlos)"
-        ],
-        [
-          "openai/gpt-oss-20b:free",
-          "GPT-OSS 20B (kostenlos)"
-        ],
-        [
-          "qwen/qwen3-coder:free",
-          "Qwen3 Coder (kostenlos)"
-        ],
-        [
-          "tencent/hy3:free",
-          "Tencent Hunyuan HY3 (kostenlos)"
-        ]
-      ]
-    },
     "studiesListed": [
       [
         "",
@@ -101,7 +81,11 @@
         "Deutsch"
       ]
     ],
-    "customAiModelLabel": "Eigenes Modell..."
+    "customAiModelLabel": "Eigenes Modell...",
+    "modelLabels": {
+      "free": "kostenlos",
+      "experimental": "experimentell"
+    }
   },
   "buttons": {
     "settingsLabel": "Backend konfigurieren",
@@ -692,7 +676,10 @@
   "ollama": {
     "guidance": "Der lokale Ollama-Modus ist experimentell. Er behält Anfragen auf deinem Computer, aber das Feedback kann langsamer, kürzer oder weniger hilfreich sein als mit Gemini, OpenAI oder Mistral. Standardmäßig nutzt Career Signal eine gemischte lokale Strategie mit Gemma 4 zuerst und Qwen 3.6 als Fallback. Du kannst bei Bedarf auch manuell ein Modell auswählen.",
     "analysisGuidance": "Einen vollständigen Rekonstruktionsplan mit Ollama zu erstellen kann mehrere Minuten dauern und weniger zuverlässig sein als mit Cloud-Modellen. Für den schnellsten vollständigen Plan nutze Gemini, OpenAI oder Mistral.",
-    "timeoutMessage": "Das lokale Ollama-Modell hat für diesen Abschnitt zu lange gebraucht. Versuche es erneut, wähle ein kleineres lokales Modell oder nutze Gemini, OpenAI oder Mistral für einen zuverlässigeren Rekonstruktionsplan."
+    "timeoutMessage": "Das lokale Ollama-Modell hat für diesen Abschnitt zu lange gebraucht. Versuche es erneut, wähle ein kleineres lokales Modell oder nutze Gemini, OpenAI oder Mistral für einen zuverlässigeren Rekonstruktionsplan.",
+    "modelCommands": {
+      "qwen3.8": "Modellbefehl: ollama run qwen3.8"
+    }
   },
   "localizedSectionTitles": {
     "Recommendation": "Empfehlung",

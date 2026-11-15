@@ -2,11 +2,14 @@ import release from "./release.json" with { type: "json" };
 import evaluation from "../content/rules/evaluation.json" with { type: "json" };
 import guidance from "../content/guidance/cvGuidance.json" with { type: "json" };
 import personal from "../content/guidance/sensitivePersonalData.json" with { type: "json" };
+import models from "../content/config/models.json" with { type: "json" };
 
-export const ENGINE_VERSION = 1;
-export const FILES = ["evaluation.json", "cvGuidance.json", "sensitivePersonalData.json"] as const;
+export const ENGINE_VERSION = 2;
+export const FILES = ["evaluation.json", "cvGuidance.json", "sensitivePersonalData.json", "models.json"] as const;
 export type RuleFile = typeof FILES[number];
-export const baseline = { "evaluation.json": evaluation, "cvGuidance.json": guidance, "sensitivePersonalData.json": personal };
+export const baseline = { "evaluation.json": evaluation, "cvGuidance.json": guidance, "sensitivePersonalData.json": personal, "models.json": models };
+export type ModelCatalog = typeof models;
+export type ModelProvider = keyof ModelCatalog["providers"];
 export type RuleData = typeof baseline;
 export type Manifest = { schemaVersion: number; engineMin: number; engineMax: number; revision: number; files: Record<RuleFile, string> };
 export type Snapshot = { manifest: Manifest; files: Record<RuleFile, string> };
@@ -18,6 +21,9 @@ export function currentRules() { return resolveContext?.() || active; }
 export function getEvaluation() { return currentRules()["evaluation.json"]; }
 export function getGuidance() { return currentRules()["cvGuidance.json"]; }
 export function getPersonalCopy() { return currentRules()["sensitivePersonalData.json"]; }
+export function getModelCatalog() { return currentRules()["models.json"]; }
+const listeners = new Set<() => void>();
+export function subscribeRules(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; }
 export function evaluationInstructions(stage: "precheckInstruction" | "reconstructionInstruction") {
   return Object.values(getGuidance()).filter((value): value is typeof guidance.careerProgressionVisibility => Boolean(value && typeof value === "object" && stage in value)).map((value) => value[stage]).join("\n");
 }
@@ -52,13 +58,34 @@ export function validateData(data: unknown): RuleData {
     for (const [key, n] of Object.entries(rule.thresholds)) if ((key !== "olderDetailRatio" && !Number.isInteger(n)) || n < 1 || n > 1000) throw Error("Invalid threshold");
   }
   if (e.localEvidence.scoreCap > 100 || e.localEvidence.strongBulletMinimum < 1 || e.localEvidence.quantifiedMinimum < 1 || e.localEvidence.resultVerbMinimum < 1) throw Error("Invalid evidence thresholds");
+  validateModelCatalog(parsed["models.json"]);
   return parsed;
 }
-export function activate(data: RuleData) { active = validateData(data); }
+export function validateModelCatalog(input: unknown): ModelCatalog {
+  validateShape(input, models, "models");
+  const catalog = input as ModelCatalog;
+  if (catalog.schemaVersion !== 1) throw Error("Incompatible model catalog");
+  for (const [provider, entry] of Object.entries(catalog.providers)) {
+    const ids = entry.models.map((model) => model.id);
+    if (entry.models.length > 60 || new Set(ids).size !== ids.length || !ids.includes(entry.defaultModel)) throw Error("Invalid model defaults or duplicates");
+    for (const model of entry.models) {
+      if (model.id.length > 160 || !/^[a-zA-Z0-9][a-zA-Z0-9._:/-]*$/.test(model.id) || model.label.length > 120) throw Error("Invalid model ID or label");
+      if (provider === "openrouter" && !model.id.endsWith(":free") && model.id !== "openrouter/free") throw Error("Built-in OpenRouter models must use free routes");
+      if (provider !== "ollama" && model.id === "local-mix") throw Error("Local mix is only supported for Ollama");
+    }
+  }
+  const localIds = catalog.providers.ollama.models.map((model) => model.id);
+  if (catalog.ollamaFallbackModels.some((id) => id === "local-mix" || !localIds.includes(id)) || new Set(catalog.ollamaFallbackModels).size !== catalog.ollamaFallbackModels.length) throw Error("Invalid local fallback models");
+  return catalog;
+}
+export function activate(data: RuleData) {
+  active = validateData(data);
+  for (const listener of listeners) { try { listener(); } catch { /* A UI listener cannot invalidate an activated snapshot. */ } }
+}
 
 export function validateManifest(input: unknown): Manifest {
   const m = input as Manifest;
-  if (!m || Object.keys(m).sort().join() !== "engineMax,engineMin,files,revision,schemaVersion" || m.schemaVersion !== 1 || !Number.isInteger(m.engineMin) || !Number.isInteger(m.engineMax) || m.engineMin > ENGINE_VERSION || m.engineMax < ENGINE_VERSION || m.engineMin < 1 || !Number.isSafeInteger(m.revision) || m.revision < 1) throw Error("Incompatible manifest");
+  if (!m || Object.keys(m).sort().join() !== "engineMax,engineMin,files,revision,schemaVersion" || m.schemaVersion !== 2 || !Number.isInteger(m.engineMin) || !Number.isInteger(m.engineMax) || m.engineMin > ENGINE_VERSION || m.engineMax < ENGINE_VERSION || m.engineMin < 1 || !Number.isSafeInteger(m.revision) || m.revision < 1) throw Error("Incompatible manifest");
   if (!m.files || Object.keys(m.files).sort().join() !== [...FILES].sort().join() || FILES.some((name) => !/^[a-f0-9]{64}$/.test(m.files[name]))) throw Error("Incomplete manifest");
   return m;
 }

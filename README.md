@@ -85,6 +85,7 @@ You can paste a supported AI provider API key into the app while the page is ope
 - [AI Providers](docs/ai-providers.md)
 - [Docker](docs/docker.md)
 - [Windows Desktop App](docs/desktop-app.md)
+- [Microsoft Store Packaging](docs/windows-store.md)
 - [Android Emulator](docs/android-emulator.md)
 - [Scores And Warnings](docs/scores-and-warnings.md)
 - [CV Evaluation Rules](docs/cv-rules.md)

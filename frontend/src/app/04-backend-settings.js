@@ -33,6 +33,8 @@ function saveBackendUrl() {
 
   localStorage.setItem(backendStorageKey, validation.url);
   API_BASE_URL = validation.url;
+  state.backendModelCatalog = null;
+  void refreshBackendModelCatalog();
   renderBackendSettings();
   setBackendSettingsFeedback("success", config.backendSettings.saved);
 }
@@ -40,6 +42,8 @@ function saveBackendUrl() {
 function resetBackendUrl() {
   localStorage.removeItem(backendStorageKey);
   API_BASE_URL = baseConfig.apiBaseUrl;
+  state.backendModelCatalog = null;
+  void refreshBackendModelCatalog();
   renderBackendSettings();
   setBackendSettingsFeedback("success", config.backendSettings.resetDone);
 }

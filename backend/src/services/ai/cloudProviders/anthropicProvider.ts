@@ -25,7 +25,7 @@ ${schemaInstruction(name)}
 ${jsonInstruction("default", name)}`
         }
       ],
-      temperature: 1,
+      // Claude 5.5 rejects sampling parameters, including temperature.
       max_tokens: cloudModelMaxTokens(name)
     })
   });

@@ -6,6 +6,7 @@ const distContentDir = path.join(__dirname, "..", "dist", "content");
 fs.rmSync(distContentDir, { recursive: true, force: true });
 
 const files = [
+  ["src/content/config/models.json", "dist/content/config/models.json"],
   ["src/content/rules/evaluation.json", "dist/content/rules/evaluation.json"],
   ["src/content/config/appOptions.json", "dist/content/config/appOptions.json"],
   ["src/content/ai/cloudModelService.json", "dist/content/ai/cloudModelService.json"],

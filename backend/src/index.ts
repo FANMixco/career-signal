@@ -1,4 +1,5 @@
 import { initializeRules, withRules } from "./rules/nodeRules.js";
+import { getModelCatalog } from "./rules/rulesRuntime.js";
 // Express entry point for the local web app, Docker image, and desktop wrapper.
 // The frontend is served statically from the same process so users can open one
 // local URL without running a separate frontend server.
@@ -61,6 +62,11 @@ export function createApp(options: Pick<ServerStartOptions, "frontendPath"> = {}
 
   app.get("/api/health", (_req, res) => {
     res.json({ ok: true });
+  });
+
+  app.get("/api/model-catalog", (_req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.json(getModelCatalog());
   });
 
   app.use("/api/precheck-cv", precheckCvRouter);

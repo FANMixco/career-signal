@@ -1,4 +1,5 @@
-import { RulesManager, getEvaluation, type StoredRules, type RulesStorage } from "./rulesRuntime.js";
+import { RulesManager, getEvaluation, subscribeRules, type StoredRules, type RulesStorage } from "./rulesRuntime.js";
+export { getModelCatalog, validateModelCatalog } from "./rulesRuntime.js";
 import { evaluateCareerChecks, mergeCareerWarnings } from "./careerChecks.js";
 import { buildLocalPrecheckBaseline } from "../services/ai/localCvEvidence.js";
 import { detectSensitivePersonalDataWarnings, educationPrivacy } from "./cvRules.js";
@@ -31,6 +32,7 @@ export const manager = new RulesManager(indexedDbStorage(), options.source, Numb
 export const ready = manager.load().catch(() => undefined);
 void ready.then(() => manager.refresh());
 if (typeof window !== "undefined") {
+  subscribeRules(() => window.dispatchEvent(new Event("career-signal-catalog-updated")));
   window.addEventListener("online", () => { void ready.then(() => manager.refresh()); });
   setInterval(() => { void ready.then(() => manager.refresh()); }, 60000);
 }

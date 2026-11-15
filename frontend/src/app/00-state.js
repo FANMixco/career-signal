@@ -16,7 +16,9 @@ const state = {
   currentAiProvider: "",
   downloadableText: "",
   theme: "light",
-  appHelpTab: "use"
+  appHelpTab: "use",
+  backendModelCatalog: null,
+  aiModelSelectionTouched: false
 };
 
 const baseConfig = window.CAREER_SIGNAL_CONFIG;
