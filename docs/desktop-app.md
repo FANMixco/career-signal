@@ -1,13 +1,17 @@
 # Windows Desktop App
 
+For Microsoft Store AppX packages and the ignored local packaging scripts, see
+[Microsoft Store packaging](windows-store.md). The commands below create the
+ordinary desktop installer and portable EXE distribution.
+
 ## Optional: Build A Windows Desktop App
 
 The project also includes an Electron wrapper for Windows. It starts the same local backend internally and opens the app in a desktop window.
 
-Install the desktop packaging dependencies from the project root:
+Install the desktop and backend dependencies from the project root:
 
 ```bash
-npm install
+npm run desktop:setup
 ```
 
 Run the desktop app in development mode:

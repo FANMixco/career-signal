@@ -109,6 +109,32 @@ async function loadDemoProfile() {
   setImportExportFeedback("error", config.errorMessages.demoProfileFailed);
 }
 
+// Restore the actual saved API model ID, even when its old dropdown option has
+// been removed. Imports and demos must not silently adopt a new default model.
+function restoreImportedAiSettings(inputs) {
+  const aiSettings = inputs.aiSettings || {};
+  const modelText = (value) => typeof value === "string" ? value.trim() : "";
+  setSelectValue(els.aiProvider, aiSettings.provider || inputs.aiProvider);
+  populateAiModels();
+  state.customAiModels = aiSettings.customModels && typeof aiSettings.customModels === "object" && !Array.isArray(aiSettings.customModels)
+    ? Object.fromEntries(Object.entries(aiSettings.customModels).filter(([, value]) => typeof value === "string"))
+    : {};
+  state.aiModelSelectionTouched = true;
+  const selectedOption = modelText(aiSettings.selectedModelOption);
+  const importedModel = modelText(aiSettings.model) || modelText(inputs.aiModel)
+    || (selectedOption === "__custom__" ? modelText(state.customAiModels[els.aiProvider.value]) : selectedOption);
+  if (selectedOption === "__custom__" || (importedModel && ![...els.aiModel.options].some((option) => option.value === importedModel))) {
+    state.customAiModels[els.aiProvider.value] = importedModel;
+    els.aiModel.value = "__custom__";
+  } else {
+    setSelectValue(els.aiModel, importedModel);
+  }
+  restoreCustomModel();
+  els.ollamaBaseUrl.value = aiSettings.ollamaBaseUrl || els.ollamaBaseUrl.value;
+  state.currentAiProvider = els.aiProvider.value;
+  updateApiKeyCopy();
+}
+
 // Restores inputs and generated outputs without calling the backend. This is
 // used by both manual JSON imports and bundled demo profiles.
 function applyImportedSession(bundle) {
@@ -119,7 +145,6 @@ function applyImportedSession(bundle) {
   const inputs = bundle.inputs || {};
   const profile = inputs.profile || {};
   const tailoring = inputs.tailoring || {};
-  const aiSettings = inputs.aiSettings || {};
   const outputs = bundle.outputs || {};
   const language = normalizeLanguage(profile.outputLanguage || inputs.outputLanguage || els.outputLanguage.value);
 
@@ -128,25 +153,7 @@ function applyImportedSession(bundle) {
   applyConfiguredText();
   populateStaticSelects();
   els.outputLanguage.value = language;
-
-  setSelectValue(els.aiProvider, aiSettings.provider || inputs.aiProvider);
-  populateAiModels();
-  state.customAiModels = aiSettings.customModels && typeof aiSettings.customModels === "object" ? { ...aiSettings.customModels } : {};
-  const importedModel = aiSettings.selectedModelOption || aiSettings.model || inputs.aiModel;
-  if (importedModel && ![...els.aiModel.options].some((option) => option.value === String(importedModel))) {
-    state.customAiModels[els.aiProvider.value] = String(aiSettings.model || importedModel);
-    els.aiModel.value = "__custom__";
-  } else {
-    setSelectValue(els.aiModel, importedModel);
-  }
-  restoreCustomModel();
-  if (aiSettings.model && isCustomModelSelected()) {
-    els.ollamaCustomModel.value = aiSettings.model;
-    state.customAiModels[els.aiProvider.value] = aiSettings.model;
-  }
-  els.ollamaBaseUrl.value = aiSettings.ollamaBaseUrl || els.ollamaBaseUrl.value;
-  state.currentAiProvider = els.aiProvider.value;
-  updateApiKeyCopy();
+  restoreImportedAiSettings(inputs);
 
   populateTargetStyles();
   els.yearsOfExperience.value = profile.yearsOfExperience ?? "";

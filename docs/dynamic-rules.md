@@ -26,7 +26,7 @@ The evaluation paths found during the audit are:
 
 There is existing conceptual duplication between prompt instructions, deterministic
 fallbacks and TXT reminders. This change reuses the existing guidance rather than
-creating JSON per rule or per provider. The new compression warning supersedes
+creating JSON per rule or per provider. Provider model IDs, display names, defaults and local fallback ordering now live in one shared model catalog. The new compression warning supersedes
 the old generic compression fallback when both trigger. Stable CV01–CV04 IDs and
 exact-message deduplication prevent repeated engine warnings when results are
 merged or reused. Free-form model advice may still overlap conceptually; the
@@ -48,6 +48,7 @@ backend/src/content/
   rules/evaluation.json
   guidance/cvGuidance.json
   guidance/sensitivePersonalData.json
+  config/models.json              # provider IDs, labels, defaults, local fallbacks
 backend/src/rules/release.json       # schema/engine compatibility, revision
 docs/rules.schema.json              # generated JSON Schema, $defs per document
 ```
@@ -60,6 +61,7 @@ frontend/rules/
   evaluation.json
   cvGuidance.json
   sensitivePersonalData.json
+  models.json
 frontend/rules.min.js               # bundled engine plus baseline, application code
 ```
 
@@ -73,14 +75,15 @@ The manifest is:
 
 ```json
 {
-  "schemaVersion": 1,
-  "engineMin": 1,
-  "engineMax": 1,
-  "revision": 1,
+  "schemaVersion": 2,
+  "engineMin": 2,
+  "engineMax": 2,
+  "revision": 2,
   "files": {
     "evaluation.json": "<64 lowercase hex SHA-256 characters>",
     "cvGuidance.json": "<64 lowercase hex SHA-256 characters>",
-    "sensitivePersonalData.json": "<64 lowercase hex SHA-256 characters>"
+    "sensitivePersonalData.json": "<64 lowercase hex SHA-256 characters>",
+    "models.json": "<64 lowercase hex SHA-256 characters>"
   }
 }
 ```
@@ -125,8 +128,8 @@ this work prepares files there and does not deploy them to GitHub.
 1. Load and revalidate the persisted current snapshot (including hashes).
 2. If invalid, try previous; if neither works, use the embedded baseline.
 3. Check `manifest.json` in the background when the refresh interval expires.
-4. Require schema version 1 and an engine range containing engine version 1.
-5. Require all three known files. Reuse files whose hashes already match the
+4. Require schema version 2 and an engine range containing engine version 2.
+5. Require all four known files. Reuse files whose hashes already match the
    current snapshot; download only changed files. The first check also compares
    against the bundled baseline, avoiding redundant downloads.
 6. Validate the complete staged snapshot, including all references/locales/hashes.
@@ -222,9 +225,9 @@ application JS does not need to be rebuilt for those clients to receive them.
 JSON-only updates can change existing guidance, fallback messages/questions,
 personal-data labels/warnings, score recommendation bands, exposed local evidence
 thresholds/weights, four-rule enabled/severity flags, numeric thresholds, known
-recommendation references and their localized text. They cannot add detector
+recommendation references and their localized text. Model IDs, labels, provider defaults and valid Ollama fallback lists can also change through `models.json`. They cannot add detector
 algorithms, arbitrary patterns or new rule IDs. Engine/schema updates are needed
-for new fields, locales, recommendation groups, parsers/vocabulary, scoring
+for new providers, API request parameters, fields, locales, recommendation groups, parsers/vocabulary, scoring
 formulas/component maxima, input contracts, provider behavior or UI features.
 
 Tests cover bundled/served hash equality, all four detectors, boundaries and
@@ -234,3 +237,43 @@ activation, rollback/corruption recovery, bad/partial/oversized/incompatible
 updates, disk failure, filesystem restart, per-request generation consistency,
 generated browser execution without Node/network, and the real offline HTTP API.
 Run the HTTP test where loopback connections are permitted.
+
+
+## Persistent model catalog (engine 2)
+
+`backend/src/content/config/models.json` is the single editable source for all
+seven providers. Its own schema version is 1, nested in the version-2 four-file
+manifest. Model lists are no longer duplicated in `appOptions.json` or frontend
+locale files. Locales translate the free/experimental suffixes; model names remain
+shared. The frontend bundle embeds a baseline catalog and reads validated stored
+updates through the same IndexedDB state as the rules. Desktop and Docker backend
+snapshots include it in the same user-data/volume envelope.
+
+The catalog contains `providers.<provider>.defaultModel`, a `models` list of
+`{id, label}` entries, and `ollamaFallbackModels`. Provider names are engine-owned.
+Validation rejects duplicate IDs, unknown fields/providers, invalid defaults,
+unsafe IDs, invalid fallback references and non-free OpenRouter built-in routes.
+It cannot supply endpoints, API keys, parameters, scripts or executable patterns.
+
+Backend model resolvers read the active catalog at request time; environment
+values and explicitly selected/custom IDs retain their existing precedence. The
+read-only `/api/model-catalog` endpoint supplies the connected backend's current
+catalog to its UI. The browser prefers that validated response; if no backend is
+available it uses its own persisted/bundled catalog. UI checks poll the backend
+once a minute and never send CV text or keys. Browser synchronization events also
+refresh choices. Explicit user choices, imported settings and custom model text
+are preserved. If a preset disappears, an explicit choice becomes a custom
+selection so an update cannot silently switch the user's model or spending tier.
+
+To publish a catalog change, edit the single JSON file, increase the shared release
+revision and run `npm run rules:build`; deploy `frontend/rules/` through Pages.
+Compatible clients download only `models.json` when the other hashes match,
+validate the complete snapshot, persist, and activate atomically. The prior
+catalog is retained with the previous rules snapshot for rollback. No app rebuild
+is needed for compatible catalog-only changes after this engine update is installed.
+
+Engine-1 clients safely reject the version-2 manifest and continue with their own
+valid local/bundled rules. Upgrading to engine 2 seeds the new four-file baseline
+if the old three-file snapshot is incompatible. Serving both old and new update
+streams long-term requires separate source directories. Catalog changes do not
+install local Ollama models; the user still downloads them explicitly.

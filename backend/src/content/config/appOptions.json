@@ -45,54 +45,6 @@
   ],
   "defaultAiProvider": "openrouter",
   "defaultOutputLanguage": "en",
-  "openAiModels": [
-    "gpt-5.4-mini",
-    "gpt-5.4-nano",
-    "gpt-5.4",
-    "gpt-5.5"
-  ],
-  "openRouterModels": [
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "openai/gpt-oss-20b:free",
-    "qwen/qwen3-coder:free",
-    "tencent/hy3:free"
-  ],
-  "geminiModels": [
-    "models/gemini-3.5-flash",
-    "models/gemini-3.1-flash-lite",
-    "models/gemini-2.5-pro"
-  ],
-  "deepSeekModels": [
-    "deepseek-v4-flash",
-    "deepseek-v4-pro"
-  ],
-  "mistralModels": [
-    "mistral-medium-latest",
-    "mistral-large-latest",
-    "mistral-small-latest"
-  ],
-  "anthropicModels": [
-    "claude-sonnet-4-6",
-    "claude-haiku-4-5",
-    "claude-opus-4-8"
-  ],
-  "ollamaModels": [
-    "local-mix",
-    "gemma4",
-    "qwen3.6"
-  ],
-  "defaultOpenAiModel": "gpt-5.4-mini",
-  "defaultOpenRouterModel": "meta-llama/llama-3.3-70b-instruct:free",
-  "defaultGeminiModel": "models/gemini-3.5-flash",
-  "defaultDeepSeekModel": "deepseek-v4-flash",
-  "defaultMistralModel": "mistral-medium-latest",
-  "defaultAnthropicModel": "claude-sonnet-4-6",
-  "defaultOllamaModel": "gemma4",
-  "ollamaMixModel": "local-mix",
-  "ollamaFallbackModels": [
-    "gemma4",
-    "qwen3.6"
-  ],
   "proceedRecommendations": [
     "Proceed",
     "Improve CV first",

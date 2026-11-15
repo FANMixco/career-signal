@@ -30,6 +30,7 @@ function setBusy(isBusy) {
 // Provider controls are interdependent: switching provider rebuilds model
 // options, clears transient API keys, and restores provider-specific custom text.
 els.aiProvider.addEventListener("change", () => {
+  state.aiModelSelectionTouched = true;
   saveCustomModelForProvider(state.currentAiProvider || els.aiProvider.value);
   clearApiKeyInput();
   populateAiModels();
@@ -38,11 +39,13 @@ els.aiProvider.addEventListener("change", () => {
   state.currentAiProvider = els.aiProvider.value;
 });
 els.aiModel.addEventListener("change", () => {
+  state.aiModelSelectionTouched = true;
   saveCustomModelForProvider(els.aiProvider.value);
   restoreCustomModel();
   updateApiKeyCopy();
 });
 els.ollamaCustomModel.addEventListener("input", () => {
+  state.aiModelSelectionTouched = true;
   if (isCustomModelSelected()) {
     state.customAiModels[els.aiProvider.value] = els.ollamaCustomModel.value.trim();
   }
@@ -131,3 +134,8 @@ setTailoringAccess(false, config.tailoring.initialLock);
 if ("serviceWorker" in navigator && window.isSecureContext) {
   navigator.serviceWorker.register("./service-worker.js").catch(() => {});
 }
+
+window.addEventListener("career-signal-catalog-updated", refreshAvailableModels);
+void window.CareerSignalRules.ready.then(refreshAvailableModels);
+void refreshBackendModelCatalog();
+setInterval(() => { void refreshBackendModelCatalog(); }, 60000);

@@ -36,7 +36,7 @@
   },
   "placeholders": {
     "cvText": "Paste complete CV text here",
-    "ollamaCustomModel": "Type a model ID for the selected provider, for example gpt-5.4-mini, models/gemini-2.5-pro, mistral-small-latest, claude-sonnet-4-6, or llama3.2:3b",
+    "ollamaCustomModel": "Type a model ID for the selected provider, for example gpt-6-luna, gemini-3.8-flash, mistral-small-2603, claude-sonnet-5-5, or llama3.2:3b",
     "companyDescription": "Add useful context if the company is not well-known: what it does, industry, size, product, market, values, or business model",
     "jobDescription": "Paste the full job description"
   },
@@ -71,114 +71,6 @@
         "Ollama (offline, experimental)"
       ]
     ],
-    "aiModels": {
-      "openrouter": [
-        [
-          "meta-llama/llama-3.3-70b-instruct:free",
-          "Llama 3.3 70B Instruct (free)"
-        ],
-        [
-          "openai/gpt-oss-20b:free",
-          "GPT-OSS 20B (free)"
-        ],
-        [
-          "qwen/qwen3-coder:free",
-          "Qwen3 Coder (free)"
-        ],
-        [
-          "tencent/hy3:free",
-          "Tencent Hunyuan HY3 (free)"
-        ]
-      ],
-      "gemini": [
-        [
-          "models/gemini-3.5-flash",
-          "Gemini 3.5 Flash"
-        ],
-        [
-          "models/gemini-3.1-flash-lite",
-          "Gemini 3.1 Flash-Lite"
-        ],
-        [
-          "models/gemini-2.5-pro",
-          "Gemini 2.5 Pro"
-        ]
-      ],
-      "deepseek": [
-        [
-          "deepseek-v4-flash",
-          "DeepSeek V4 Flash"
-        ],
-        [
-          "deepseek-v4-pro",
-          "DeepSeek V4 Pro"
-        ]
-      ],
-      "openai": [
-        [
-          "gpt-5.4-mini",
-          "GPT-5.4 mini"
-        ],
-        [
-          "gpt-5.4-nano",
-          "GPT-5.4 nano"
-        ],
-        [
-          "gpt-5.4",
-          "GPT-5.4"
-        ],
-        [
-          "gpt-5.5",
-          "GPT-5.5"
-        ]
-      ],
-      "mistral": [
-        [
-          "mistral-medium-latest",
-          "Mistral Medium"
-        ],
-        [
-          "mistral-large-latest",
-          "Mistral Large"
-        ],
-        [
-          "mistral-small-latest",
-          "Mistral Small"
-        ]
-      ],
-      "anthropic": [
-        [
-          "claude-sonnet-4-6",
-          "Claude Sonnet 4.6 (experimental)"
-        ],
-        [
-          "claude-haiku-4-5",
-          "Claude Haiku 4.5 (experimental)"
-        ],
-        [
-          "claude-opus-4-8",
-          "Claude Opus 4.8 (experimental)"
-        ]
-      ],
-      "ollama": [
-        [
-          "local-mix",
-          "Gemma 4 + Qwen 3.6"
-        ],
-        [
-          "gemma4",
-          "Gemma 4"
-        ],
-        [
-          "qwen3.6",
-          "Qwen 3.6"
-        ],
-        [
-          "__custom__",
-          "Custom model..."
-        ]
-      ]
-    },
     "customAiModelLabel": "Custom model...",
     "studiesListed": [
       [
@@ -221,7 +113,11 @@
         "de",
         "German"
       ]
-    ]
+    ],
+    "modelLabels": {
+      "free": "free",
+      "experimental": "experimental"
+    }
   },
   "apiKeys": {
     "openrouter": {
@@ -276,7 +172,8 @@
     "modelCommands": {
       "local-mix": "Install both models if you want fallback: ollama run gemma4, then ollama run qwen3.6.",
       "gemma4": "Model command: ollama run gemma4",
-      "qwen3.6": "Model command: ollama run qwen3.6"
+      "qwen3.6": "Model command: ollama run qwen3.6",
+      "qwen3.8": "Model command: ollama run qwen3.8"
     }
   },
   "targetStyles": [

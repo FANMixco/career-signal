@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "providers": {
+    "openai": {
+      "defaultModel": "gpt-6-luna",
+      "models": [
+        {
+          "id": "gpt-6-luna",
+          "label": "GPT-6 Luna"
+        },
+        {
+          "id": "gpt-6.1-sol",
+          "label": "GPT-6.1 Sol"
+        },
+        {
+          "id": "gpt-6.1-terra",
+          "label": "GPT-6.1 Terra"
+        },
+        {
+          "id": "gpt-6-astra",
+          "label": "GPT-6 Astra"
+        }
+      ]
+    },
+    "openrouter": {
+      "defaultModel": "google/gemma-4-31b-it:free",
+      "models": [
+        {
+          "id": "google/gemma-4-31b-it:free",
+          "label": "Gemma 4 31B"
+        },
+        {
+          "id": "google/gemma-4-26b-a4b-it:free",
+          "label": "Gemma 4 26B A4B"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "label": "NVIDIA Nemotron 3.5 Super VL"
+        }
+      ]
+    },
+    "gemini": {
+      "defaultModel": "gemini-3.8-flash",
+      "models": [
+        {
+          "id": "gemini-3.8-flash",
+          "label": "Gemini 3.8 Flash"
+        },
+        {
+          "id": "gemini-3.5-flash-lite",
+          "label": "Gemini 3.5 Flash-Lite"
+        },
+        {
+          "id": "gemini-2.5-pro",
+          "label": "Gemini 2.5 Pro"
+        }
+      ]
+    },
+    "deepseek": {
+      "defaultModel": "deepseek-flash",
+      "models": [
+        {
+          "id": "deepseek-flash",
+          "label": "DeepSeek V4.1 Flash"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "label": "DeepSeek V4 Pro"
+        }
+      ]
+    },
+    "mistral": {
+      "defaultModel": "mistral-small-2603",
+      "models": [
+        {
+          "id": "mistral-small-2603",
+          "label": "Mistral Small 4"
+        },
+        {
+          "id": "mistral-large-4",
+          "label": "Mistral Large 4"
+        }
+      ]
+    },
+    "anthropic": {
+      "defaultModel": "claude-sonnet-5-5",
+      "models": [
+        {
+          "id": "claude-sonnet-5-5",
+          "label": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-5-5",
+          "label": "Claude Haiku 5.5"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "label": "Claude Opus 5.5"
+        }
+      ]
+    },
+    "ollama": {
+      "defaultModel": "local-mix",
+      "models": [
+        {
+          "id": "local-mix",
+          "label": "Gemma 4 + Qwen 3.6"
+        },
+        {
+          "id": "gemma4",
+          "label": "Gemma 4"
+        },
+        {
+          "id": "qwen3.8",
+          "label": "Qwen 3.8"
+        },
+        {
+          "id": "qwen3.6",
+          "label": "Qwen 3.6"
+        }
+      ]
+    }
+  },
+  "ollamaFallbackModels": [
+    "gemma4",
+    "qwen3.6"
+  ]
+}

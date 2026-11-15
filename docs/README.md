@@ -12,6 +12,7 @@ This folder contains the project documentation.
 
 - [Docker](docker.md)
 - [Windows Desktop App](desktop-app.md)
+- [Microsoft Store Packaging](windows-store.md)
 - [Android Emulator](android-emulator.md)
 
 ## Reference

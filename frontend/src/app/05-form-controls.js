@@ -66,9 +66,47 @@ function populateStaticSelects() {
 
 function populateAiModels() {
   const customOption = ["__custom__", config.options.customAiModelLabel || "Custom model..."];
-  const options = config.options.aiModels[els.aiProvider.value] || [];
-  const hasCustomOption = options.some(([value]) => value === customOption[0]);
-  els.aiModel.innerHTML = optionList(hasCustomOption ? options : [...options, customOption]);
+  const provider = els.aiProvider.value;
+  const catalog = state.backendModelCatalog || window.CareerSignalRules.getModelCatalog();
+  const entry = catalog.providers[provider];
+  const suffix = provider === "openrouter" ? config.options.modelLabels.free : provider === "anthropic" ? config.options.modelLabels.experimental : "";
+  const options = (entry?.models || []).map(({ id, label }) => [id, suffix ? `${label} (${suffix})` : label]);
+  els.aiModel.innerHTML = optionList([...options, customOption]);
+  if (entry) els.aiModel.value = entry.defaultModel;
+}
+
+function refreshAvailableModels() {
+  const provider = els.aiProvider.value;
+  const selected = els.aiModel.value;
+  const selectedId = selectedAiModel();
+  populateAiModels();
+  if (state.aiModelSelectionTouched && selected) {
+    if ([...els.aiModel.options].some((option) => option.value === selected)) {
+      els.aiModel.value = selected;
+    } else {
+      // Preserve an explicit selection when a catalog retires it. The user can
+      // choose a replacement; synchronization must not silently change costs.
+      state.customAiModels[provider] = selectedId;
+      els.aiModel.value = "__custom__";
+    }
+    restoreCustomModel();
+  }
+  updateApiKeyCopy();
+}
+
+async function refreshBackendModelCatalog() {
+  const url = apiUrl("/api/model-catalog");
+  try {
+    const response = await fetch(url, { cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer", signal: AbortSignal.timeout(2000) });
+    if (!response.ok) throw new Error("Model catalog unavailable");
+    const catalog = await response.json();
+    if (url !== apiUrl("/api/model-catalog")) return;
+    state.backendModelCatalog = window.CareerSignalRules.validateModelCatalog(catalog);
+  } catch {
+    if (url !== apiUrl("/api/model-catalog")) return;
+    state.backendModelCatalog = null;
+  }
+  refreshAvailableModels();
 }
 
 function isCustomModelSelected() {

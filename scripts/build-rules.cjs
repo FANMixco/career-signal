@@ -6,7 +6,8 @@ const root = path.resolve(__dirname, "..");
 const files = {
   "evaluation.json": "rules/evaluation.json",
   "cvGuidance.json": "guidance/cvGuidance.json",
-  "sensitivePersonalData.json": "guidance/sensitivePersonalData.json"
+  "sensitivePersonalData.json": "guidance/sensitivePersonalData.json",
+  "models.json": "config/models.json"
 };
 const output = path.join(root, "frontend/rules");
 fs.mkdirSync(output, { recursive: true });
@@ -33,5 +34,13 @@ function shape(value, trail = "") {
   return { type: "object", additionalProperties: false, required: Object.keys(value), properties: Object.fromEntries(Object.entries(value).map(([key, val]) => [key, shape(val, trail + "." + key)])) };
 }
 const definitions = Object.fromEntries(Object.keys(files).map((name) => [name, shape(JSON.parse(fs.readFileSync(path.join(output, name), "utf8")), name)]));
-definitions.manifest = { type: "object", additionalProperties: false, required: ["schemaVersion", "engineMin", "engineMax", "revision", "files"], properties: { schemaVersion: { const: 1 }, engineMin: { type: "integer", minimum: 1 }, engineMax: { type: "integer", minimum: 1 }, revision: { type: "integer", minimum: 1 }, files: { type: "object", additionalProperties: false, required: Object.keys(files), properties: Object.fromEntries(Object.keys(files).map((name) => [name, { type: "string", pattern: "^[a-f0-9]{64}$" }])) } } };
+const modelDefinition = definitions["models.json"];
+modelDefinition.properties.schemaVersion = { const: 1 };
+for (const entry of Object.values(modelDefinition.properties.providers.properties)) {
+  entry.properties.models.maxItems = 60;
+  entry.properties.defaultModel = { type: "string", maxLength: 160, pattern: "^[a-zA-Z0-9][a-zA-Z0-9._:/-]*$" };
+  entry.properties.models.items.properties.id = { ...entry.properties.defaultModel };
+  entry.properties.models.items.properties.label.maxLength = 120;
+}
+definitions.manifest = { type: "object", additionalProperties: false, required: ["schemaVersion", "engineMin", "engineMax", "revision", "files"], properties: { schemaVersion: { const: release.schemaVersion }, engineMin: { type: "integer", minimum: 1 }, engineMax: { type: "integer", minimum: 1 }, revision: { type: "integer", minimum: 1 }, files: { type: "object", additionalProperties: false, required: Object.keys(files), properties: Object.fromEntries(Object.keys(files).map((name) => [name, { type: "string", pattern: "^[a-f0-9]{64}$" }])) } } };
 fs.writeFileSync(path.join(root, "docs/rules.schema.json"), JSON.stringify({ $schema: "https://json-schema.org/draft/2020-12/schema", $defs: definitions }, null, 2) + "\n");
