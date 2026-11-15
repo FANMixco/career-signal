@@ -52,6 +52,7 @@ els.ollamaCustomModel.addEventListener("input", () => {
 });
 els.outputLanguage.addEventListener("change", () => {
   refreshLanguage();
+  void refreshBackendCvBasics();
   invalidatePrecheckIfSourceChanged();
 });
 els.shareButton.addEventListener("click", shareApp);
@@ -136,6 +137,10 @@ if ("serviceWorker" in navigator && window.isSecureContext) {
 }
 
 window.addEventListener("career-signal-catalog-updated", refreshAvailableModels);
+window.addEventListener("career-signal-catalog-updated", renderCvBasics);
 void window.CareerSignalRules.ready.then(refreshAvailableModels);
+void window.CareerSignalRules.ready.then(renderCvBasics);
 void refreshBackendModelCatalog();
+void refreshBackendCvBasics();
 setInterval(() => { void refreshBackendModelCatalog(); }, 60000);
+setInterval(() => { void refreshBackendCvBasics(); }, 60000);

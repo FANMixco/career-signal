@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "engineMin": 2,
-  "engineMax": 2,
-  "revision": 2
+  "schemaVersion": 3,
+  "engineMin": 3,
+  "engineMax": 3,
+  "revision": 3
 }

@@ -1,12 +1,13 @@
 {
-  "schemaVersion": 2,
-  "engineMin": 2,
-  "engineMax": 2,
-  "revision": 2,
+  "schemaVersion": 3,
+  "engineMin": 3,
+  "engineMax": 3,
+  "revision": 3,
   "files": {
     "evaluation.json": "695efbfdbdf0475fa6992dce896830f30010422064c2041adc20400ab51f3553",
     "cvGuidance.json": "09662b5235a4f2b7b001d94056957a63701afd3de4faf46deb8beb69c7965723",
     "sensitivePersonalData.json": "70815ff4b957b892909d44e467d7d1fa707a46621e3628a3baecb77270ece7f1",
-    "models.json": "da8470102b5a366d3058734768ca1358408ebad83aa01f27318b73f267eb2757"
+    "models.json": "da8470102b5a366d3058734768ca1358408ebad83aa01f27318b73f267eb2757",
+    "cvBasics.json": "6dad7f3da570675c03993e65fa1ad26723f98982a2ef258552bffe3d1c798d20"
   }
 }

@@ -97,7 +97,7 @@ npm run version:sync
 
 The sync script uses the newer version from root/backend manifests, then updates
 the related manifests, lockfiles and frontend version labels. The Store config
-converts a three-part version such as `1.2.4` to `1.2.4.0`. An update must have a
+converts a three-part version such as `1.3.0` to `1.3.0.0`. An update must have a
 version suitable for replacing the published package. Keep the fourth component
 at zero for Store submission, following Microsoft's
 [package version requirements](https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/app-package-requirements#package-version-numbering).

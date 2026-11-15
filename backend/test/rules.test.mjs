@@ -18,7 +18,7 @@ const ids = (text, language) => evaluateCareerChecks(text, language, now).map((w
 const job = (title, dates, text = "Responsible for routine work.") => `${title} | ${dates}\n${text}\n`;
 const weakFour = () => "Professional experience\n" + [job("Engineer A", "2023–Present"), job("Engineer B", "2020–2022"), job("Engineer C", "2017–2019"), job("Engineer D", "2014–2016")].join("\n");
 const storage = () => ({ value: undefined, writes: 0, async read() { return this.value; }, async write(value) { this.writes++; this.value = structuredClone(value); } });
-async function update(revision = 3, change = (d) => { d["evaluation.json"].rules.CV01.enabled = false; }) {
+async function update(revision = 4, change = (d) => { d["evaluation.json"].rules.CV01.enabled = false; }) {
   const data = structuredClone(baseline); change(data);
   const snapshot = await bundledSnapshot(); snapshot.manifest.revision = revision;
   for (const name of Object.keys(snapshot.files)) { snapshot.files[name] = JSON.stringify(data[name], null, 2) + "\n"; snapshot.manifest.files[name] = await sha256(snapshot.files[name]); }
@@ -133,8 +133,8 @@ test("reject missing keys, unknown code fields, invalid references, ranges and c
     const data = structuredClone(baseline); change(data); assert.throws(() => validateData(data));
   }
   const snap = await bundledSnapshot();
-  assert.throws(() => validateManifest({ ...snap.manifest, schemaVersion: 3 }));
-  assert.throws(() => validateManifest({ ...snap.manifest, engineMin: 3 }));
+  assert.throws(() => validateManifest({ ...snap.manifest, schemaVersion: 4 }));
+  assert.throws(() => validateManifest({ ...snap.manifest, engineMin: 4 }));
   snap.files["evaluation.json"] += " "; await assert.rejects(validateSnapshot(snap));
 });
 
@@ -156,13 +156,13 @@ test("partial downloads, bad hashes, incompatible updates and storage failures k
   for (const mode of ["partial", "hash", "compatibility", "disk"]) {
     const next = await update();
     if (mode === "hash") next.files["evaluation.json"] += "tampered";
-    if (mode === "compatibility") next.manifest.engineMin = 3;
+    if (mode === "compatibility") next.manifest.engineMin = 4;
     const local = storage(); if (mode === "disk") local.write = async () => { throw Error("Disk full"); };
     const net = remote(next, { fail: mode === "partial" ? "evaluation.json" : undefined });
     const manager = new RulesManager(local, undefined, 1, net.request); await manager.load();
     assert.equal(await manager.refresh(), false, mode);
     assert.equal(getEvaluation().rules.CV01.enabled, true, mode);
-    assert.equal(manager.state.current.manifest.revision, 2);
+    assert.equal(manager.state.current.manifest.revision, 3);
   }
 });
 
@@ -170,7 +170,7 @@ test("reload validates current, recovers previous, and handles corrupt local sto
   const previous = await bundledSnapshot(), current = await update(); current.files["evaluation.json"] = "broken";
   const local = storage(); local.value = { current, previous, checkedAt: 0 };
   const manager = new RulesManager(local); await manager.load(); assert.equal(getEvaluation().rules.CV01.enabled, true);
-  local.value = { current, checkedAt: 0 }; await manager.load(); assert.equal(manager.state.current.manifest.revision, 2);
+  local.value = { current, checkedAt: 0 }; await manager.load(); assert.equal(manager.state.current.manifest.revision, 3);
   local.read = async () => { throw Error("Denied"); }; await new RulesManager(local).load(); assert.equal(getEvaluation().rules.CV01.enabled, true);
 });
 

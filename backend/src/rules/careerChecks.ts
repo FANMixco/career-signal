@@ -1,4 +1,4 @@
-import { getEvaluation } from "./rulesRuntime.js";
+import { getEvaluation, careerRecommendation } from "./rulesRuntime.js";
 
 export type Position = { title: string; text: string; start: number; end: number; achievements: number; words: number };
 const independent = /\b(freelanc\w*|self[- ]employed|entrepreneur\w*|founder|cofounder|créateur|creador|création de contenu|content creat\w*|newsletter|blog|publications?|author|auteur|autor|gründ\w*|selbstständig|autónomo)\b/i;
@@ -59,8 +59,7 @@ export function evaluateCareerChecks(cvText: string, language = "en", now = new 
   };
   return (Object.keys(triggered) as (keyof typeof triggered)[]).filter((id) => rules[id].enabled && triggered[id]).map((id) => {
     const rule = rules[id];
-    const copy = e.recommendations[rule.recommendation as keyof typeof e.recommendations];
-    const message = (copy[language as keyof typeof copy] || copy.en).replace(/\{recentYears\}/g, String(rules.CV02.thresholds.recentYears));
+    const message = careerRecommendation(id, language);
     return { id, severity: rule.severity, recommendation: rule.recommendation, message };
   });
 }
