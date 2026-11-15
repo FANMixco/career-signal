@@ -1,0 +1,35 @@
+name: Validate published frontend assets
+on:
+  push:
+    paths:
+      - 'frontend/**'
+      - 'backend/src/**'
+      - 'backend/package*.json'
+      - 'scripts/**'
+      - '.github/workflows/frontend-check.yml'
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - 'backend/src/**'
+      - 'backend/package*.json'
+      - 'scripts/**'
+      - '.github/workflows/frontend-check.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm --prefix backend ci
+      - name: Check committed bundles before regenerating them
+        run: node scripts/validate-frontend.cjs
+      - run: npm run frontend:build
+      - run: npm run frontend:i18n:check
+      - name: Verify generated assets match their sources
+        run: git diff --exit-code -- frontend/app.min.js frontend/rules.min.js frontend/service-worker.js frontend/styles.min.css frontend/content frontend/rules docs/rules.schema.json

@@ -45,3 +45,4 @@ Thumbs.db
 
 # Internal planning docs
 private_specs/
+backend/test/frontend-bundle-check.test.mjs

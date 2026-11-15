@@ -7,20 +7,21 @@
   "main": "desktop/main.cjs",
   "scripts": {
     "version:sync": "node scripts/sync-version.cjs",
-    "frontend:build": "node scripts/build-frontend.cjs",
+    "frontend:build": "node scripts/build-frontend.cjs && node scripts/validate-frontend.cjs",
     "frontend:i18n:check": "node scripts/validate-frontend-i18n.cjs",
     "sample:check": "node scripts/validate-samples.cjs",
     "desktop:setup": "npm install && npm --prefix backend install",
     "desktop:prepare": "npm run version:sync && npm run frontend:build && npm --prefix backend run build",
     "desktop:build": "npm run desktop:dist",
     "desktop:dev": "npm run desktop:prepare && electron .",
-    "desktop:pack": "npm run desktop:prepare && electron-builder --win --dir --publish=never",
-    "desktop:dist": "npm run desktop:prepare && electron-builder --win --publish=never",
-    "desktop:dist:arm64": "npm run desktop:prepare && electron-builder --win --arm64 --publish=never",
-    "desktop:dist:mac": "npm run desktop:prepare && electron-builder --mac dmg zip --publish=never",
+    "desktop:pack": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --dir --publish=never",
+    "desktop:dist": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --publish=never",
+    "desktop:dist:arm64": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --arm64 --publish=never",
+    "desktop:dist:mac": "npm run desktop:prepare && node scripts/package-desktop.cjs --mac dmg zip --publish=never",
     "rules:build": "node scripts/build-rules.cjs",
     "test:rules": "npm run frontend:build && npm --prefix backend test",
-    "test:dependencies": "node scripts/verify-dependencies.cjs"
+    "test:dependencies": "node scripts/verify-dependencies.cjs",
+    "frontend:check": "node scripts/validate-frontend.cjs"
   },
   "devDependencies": {
     "electron": "^45.3.2",
