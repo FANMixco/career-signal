@@ -15,13 +15,17 @@
     "desktop:build": "npm run desktop:dist",
     "desktop:dev": "npm run desktop:prepare && electron .",
     "desktop:pack": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --dir --publish=never",
-    "desktop:dist": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --publish=never",
+    "desktop:dist": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --x64 --arm64 --publish=never",
     "desktop:dist:arm64": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --arm64 --publish=never",
     "desktop:dist:mac": "npm run desktop:prepare && node scripts/package-desktop.cjs --mac dmg zip --publish=never",
     "rules:build": "node scripts/build-rules.cjs",
     "test:rules": "npm run frontend:build && npm --prefix backend test",
     "test:dependencies": "node scripts/verify-dependencies.cjs",
-    "frontend:check": "node scripts/validate-frontend.cjs"
+    "frontend:check": "node scripts/validate-frontend.cjs",
+    "desktop:dist:x64": "npm run desktop:prepare && node scripts/package-desktop.cjs --win --x64 --publish=never",
+    "desktop:store": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/build-store-app.ps1 -Architecture all",
+    "desktop:sideload": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/build-sideload-app.ps1 -Architecture all -SkipTrust",
+    "desktop:release:all": "npm run desktop:dist && npm run desktop:sideload"
   },
   "devDependencies": {
     "electron": "^45.3.2",
