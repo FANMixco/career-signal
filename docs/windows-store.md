@@ -85,7 +85,7 @@ The private configuration uses these variables:
 | `WINDOWS_STORE_BACKGROUND_COLOR` | Optional tile background color. |
 | `WINDOWS_STORE_PACKAGE_VERSION` | Optional four-part Store version override. |
 | `WINDOWS_STORE_OUTPUT_DIR` | Optional repository-relative output base directory. |
-| `WINDOWS_STORE_ELECTRON_DIST` | Optional pre-extracted Electron runtime path; use only with the matching version and architecture. |
+| `WINDOWS_STORE_ELECTRON_DIST` | Legacy direct-config override; updated helpers clear it and let the public wrapper prepare the correct runtime. |
 
 ## Version and artwork
 
@@ -130,12 +130,12 @@ If your execution policy blocks a trusted local helper, add
 execution policy is not required.
 
 The helper runs version synchronization and `desktop:prepare`, then calls
-electron-builder with `electron-builder.store.cjs`. Default output:
+`scripts/package-desktop.cjs` with `electron-builder.store.cjs`. Default output:
 
 ```text
 release/store-build/<timestamp>/
-  x64/       # architecture-specific build output
-  arm64/     # architecture-specific build output
+  x64/build-<id>/       # unique architecture-specific staging
+  arm64/build-<id>/     # unique architecture-specific staging
   upload/    # both AppX files collected here
 ```
 
@@ -146,14 +146,14 @@ not upload them to Partner Center.
 
 ### Electron runtime cache after upgrades
 
-The private helper can reuse `node_modules/electron/dist` for x64 and cached
-ARM64 runtimes under `release/store-build/`. Its cache selection does not verify
-the runtime version against the newly installed Electron package. After upgrading
-Electron, verify any reused runtime's version and architecture. If you cannot
-verify it, use the direct build below with `WINDOWS_STORE_ELECTRON_DIST` unset so
-electron-builder obtains the version selected by the lockfile. Removing only one
-ARM64 cache directory is insufficient if the helper can find older unpacked
-runtime folders and repopulate that cache.
+The updated private helper delegates to the public packaging wrapper. It clears
+legacy `WINDOWS_STORE_ELECTRON_DIST` overrides, prepares the installed Electron
+version for each architecture, and omits the unused default-app archive. It does
+not search old unpacked builds or repair/reuse cached application folders. This
+avoids both stale runtimes after an Electron upgrade and the VS Code ASAR lock.
+Each run uses unique architecture staging and restores the original environment
+variables on exit. The private scripts remain ignored; restore their updated
+local copies on another workstation.
 
 ## Fresh checkout or missing private helpers
 
@@ -200,10 +200,10 @@ npm run desktop:prepare
 Remove-Item Env:WINDOWS_STORE_ELECTRON_DIST -ErrorAction SilentlyContinue
 
 $env:WINDOWS_STORE_OUTPUT_DIR = 'release/store-build/manual/x64'
-npx --no-install electron-builder --config electron-builder.store.cjs --win --x64 --publish=never
+node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --x64 --publish=never
 
 $env:WINDOWS_STORE_OUTPUT_DIR = 'release/store-build/manual/arm64'
-npx --no-install electron-builder --config electron-builder.store.cjs --win --arm64 --publish=never
+node scripts/package-desktop.cjs --config electron-builder.store.cjs --win --arm64 --publish=never
 ```
 
 Stop if preparation or either build fails. These direct commands leave their
@@ -235,7 +235,7 @@ alone cannot sign a package. The subject must match the manifest publisher.
 [Microsoft's certificate guide](https://learn.microsoft.com/en-us/windows/msix/package/create-certificate-package-signing)
 explains that requirement and certificate trust for local testing.
 
-The sideload helper signs copies into
+The sideload helper derives its default certificate subject from the local Store publisher and locates SignTool across installed Windows SDK versions. It signs copies into
 `release/sideload-build/<timestamp>/install/`, leaving its unsigned source packages
 in the sibling `upload/` directory. `-Architecture all` also signs both x64/ARM64;
 the sideload helper defaults to x64, unlike the Store helper. After explicitly

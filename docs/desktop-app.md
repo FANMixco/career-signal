@@ -38,7 +38,7 @@ Create a Windows ARM64 installer and portable executable:
 npm run desktop:dist:arm64
 ```
 
-The generated files are written to the `release` folder. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
+Each build uses a fresh `release/desktop-*` staging folder. Completed installer/portable artifacts are also copied to `release/` for the existing release workflow. API keys are not bundled into the desktop app. Users can paste cloud-provider keys in the app, provide runtime environment variables while testing, or use Ollama locally without a key.
 
 ## EPERM / EBUSY while extracting Electron
 
@@ -47,18 +47,30 @@ If packaging fails while moving `win-unpacked.tmp` and reports a locked
 Windows Restart Manager identified VS Code processes holding that file during a
 local build. This can occur without the packaged app itself running.
 
-Close the editor window or process that is actually holding those build files,
-or build in a fresh directory while keeping the editor open:
+The standard `desktop:pack`, `desktop:dist`, and architecture-specific npm scripts
+now use `scripts/package-desktop.cjs`. On Windows, it downloads the locked
+Electron version for the requested architecture into a fresh runtime directory,
+omitting Electron's unused `resources/default_app.asar`, then builds using that
+runtime. The application itself is supplied separately under `resources/app`.
+This prevents the build from creating the default-app archive that editor
+processes were locking, including in newly created staging folders.
+
+Run the ordinary command again:
+
+```powershell
+npm run desktop:dist
+```
+
+For an explicit output path or AppX configuration, use the same public wrapper:
 
 ```powershell
 npm run desktop:prepare
-$retryOutput = 'release/windows-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
-npx --no-install electron-builder --win --publish=never "--config.directories.output=$retryOutput"
+node scripts/package-desktop.cjs --win --publish=never --config.directories.output=release/windows-retry
 ```
 
 Stop if preparation fails. The fresh build directory contains the installer,
 portable executable and unpacked app. Avoid concurrent builds targeting the same
-directory. A new output path bypasses a lock on an old staging folder; if the new
+directory. Do not invoke electron-builder directly when working around this default-app lock; if the new
 path is also locked, identify the owning process rather than repeatedly deleting
 files or terminating every Node process. Restore or remove failed build folders
 only once their locks are released. No antivirus exclusions or machine-wide

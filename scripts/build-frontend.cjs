@@ -36,7 +36,7 @@ function requireEsbuild() {
 }
 
 function readText(relativePath) {
-  return fs.readFileSync(path.join(repoRoot, relativePath), "utf8");
+  return fs.readFileSync(path.join(repoRoot, relativePath), "utf8").replace(/\r\n/g, "\n");
 }
 
 function readJson(relativePath) {
@@ -168,7 +168,9 @@ buildRuntime();
 buildStyles();
 buildContentJson();
 const shellHash = require("node:crypto").createHash("sha256");
-for (const file of ["index.html", "app.min.js", "rules.min.js", "styles.min.css", "site.webmanifest"]) shellHash.update(fs.readFileSync(path.join(frontendRoot, file)));
+// Hash canonical text, not checkout-dependent CRLF/LF bytes. Otherwise a
+// Windows build commits a cache name that Linux CI immediately regenerates.
+for (const file of ["index.html", "app.min.js", "rules.min.js", "styles.min.css", "site.webmanifest"]) shellHash.update(readText(path.join("frontend", file)));
 fs.writeFileSync(path.join(frontendRoot, "service-worker.js"), readText("frontend/src/service-worker.js").replace("SHELL_VERSION", shellHash.digest("hex").slice(0, 16)));
 
 console.log("Built minified frontend/app.min.js, frontend/styles.min.css, and frontend/content/app.*.json.");

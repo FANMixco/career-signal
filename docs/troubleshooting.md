@@ -1,5 +1,30 @@
 # Troubleshooting
 
+## Browser reports “Unexpected number” in app.min.js
+
+Regenerate the frontend from its source files and validate the generated scripts:
+
+```powershell
+npm run frontend:build
+npm run frontend:check
+```
+
+Commit the regenerated `frontend/app.min.js` and `frontend/service-worker.js`
+together with the intended source changes, then deploy that commit to GitHub
+Pages. Rebuilding locally does not change the already-published website. Avoid
+manually editing version strings or translated text inside minified JavaScript;
+edit the source JSON/JavaScript and rebuild. The frontend CI workflow validates
+the committed bundles before regeneration and flags stale generated assets.
+
+## Windows or sideload build reports EBUSY on default_app.asar
+
+Use the standard npm build scripts or `node scripts/package-desktop.cjs` rather
+than invoking electron-builder directly. The wrapper prepares a fresh Electron
+runtime without the unused default-app archive that editor processes can lock.
+For private AppX/sideload helpers, use their updated local copies, which delegate
+to this wrapper. See [desktop packaging](desktop-app.md#eperm--ebusy-while-extracting-electron)
+and [Store/sideload packaging](windows-store.md).
+
 ## Troubleshooting
 
 ### `npm is not recognized`
