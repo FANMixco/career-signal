@@ -1,2 +1,8 @@
 # Rule manifests hash exact UTF-8 bytes. Keep served files stable on all hosts.
 frontend/rules/*.json text eol=lf
+
+# Application shell inputs/outputs must also be stable across build hosts.
+frontend/*.html text eol=lf
+frontend/*.webmanifest text eol=lf
+frontend/*.js text eol=lf
+frontend/*.css text eol=lf
